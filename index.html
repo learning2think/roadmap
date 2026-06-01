@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Roadmap — learning2think</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+  :root{
+    --bg:#0f1117;--bg2:#161b27;--border:#2a3347;--text:#e2e8f0;--muted:#64748b;
+    --accent:#3b82f6;--green:#22c55e;--amber:#f59e0b;--purple:#a855f7;--red:#ef4444;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;min-height:100vh;padding:32px 16px 80px;}
+
+  /* HEADER */
+  .header{text-align:center;margin-bottom:32px;}
+  .header h1{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;color:var(--text);letter-spacing:-.5px;margin-bottom:6px;}
+  .header p{color:var(--muted);font-size:11px;font-family:'JetBrains Mono',monospace;}
+
+  /* LEGEND */
+  .legend{display:flex;gap:12px;justify-content:center;margin-bottom:24px;flex-wrap:wrap;}
+  .legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+  .legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+
+  /* PROGRESS */
+  .progress-bar-wrap{max-width:900px;margin:0 auto 32px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px;}
+  .progress-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);white-space:nowrap;}
+  .progress-track{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden;}
+  .progress-fill{height:100%;background:linear-gradient(to right,var(--accent),var(--green));border-radius:4px;transition:width .4s ease;width:0%;}
+  .progress-count{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text);white-space:nowrap;min-width:40px;text-align:right;}
+
+  /* ROADMAP WRAPPER */
+  .roadmap{max-width:900px;margin:0 auto;position:relative;}
+
+  /* ── DESKTOP: central line ── */
+  .roadmap::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;
+    background:linear-gradient(to bottom,var(--accent),var(--purple),var(--green));
+    transform:translateX(-50%);opacity:.25;}
+
+  /* YEAR BLOCK */
+  .year-block{margin-bottom:12px;animation:fadeUp .5s ease both;}
+  .year-block:nth-child(1){animation-delay:.05s;}
+  .year-block:nth-child(3){animation-delay:.1s;}
+  .year-block:nth-child(5){animation-delay:.15s;}
+  .year-block:nth-child(7){animation-delay:.2s;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+  .year-label{display:flex;align-items:center;justify-content:center;margin-bottom:16px;position:relative;z-index:2;}
+  .year-badge{background:var(--bg);border:2px solid var(--border);border-radius:8px;padding:7px 18px;
+    font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12px;letter-spacing:1px;}
+  .year-badge.y1{border-color:var(--accent);color:var(--accent);}
+  .year-badge.y2{border-color:#06b6d4;color:#06b6d4;}
+  .year-badge.y3{border-color:var(--purple);color:var(--purple);}
+  .year-badge.y45{border-color:var(--green);color:var(--green);}
+
+  /* ── DESKTOP ROW ── */
+  .row{display:grid;grid-template-columns:1fr 48px 1fr;align-items:start;margin-bottom:6px;}
+  .row-left{display:flex;justify-content:flex-end;}
+  .row-right{display:flex;justify-content:flex-start;}
+  .row-center{display:flex;flex-direction:column;align-items:center;padding-top:16px;}
+  .center-dot{width:12px;height:12px;border-radius:50%;border:2px solid;background:var(--bg);flex-shrink:0;position:relative;z-index:2;}
+
+  /* NODE */
+  .node{background:var(--bg2);border:1px solid var(--border);border-radius:10px;
+    padding:12px 44px 12px 14px;max-width:340px;width:100%;position:relative;
+    transition:opacity .2s,transform .15s;cursor:default;}
+  .node:active{transform:scale(.99);}
+  .row-left .node::after{content:'';position:absolute;right:-25px;top:50%;width:25px;height:1px;background:var(--border);}
+  .row-right .node::before{content:'';position:absolute;left:-25px;top:50%;width:25px;height:1px;background:var(--border);}
+
+  .node-tag{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;
+    text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;opacity:.7;}
+  .node-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;line-height:1.4;}
+  .node-desc{font-size:11px;color:var(--muted);line-height:1.55;}
+
+  .node.health{border-left:3px solid var(--red);}.node.health .node-tag{color:var(--red);}
+  .node.study{border-left:3px solid var(--accent);}.node.study .node-tag{color:var(--accent);}
+  .node.science{border-left:3px solid var(--purple);}.node.science .node-tag{color:var(--purple);}
+  .node.code{border-left:3px solid #06b6d4;}.node.code .node-tag{color:#06b6d4;}
+  .node.money{border-left:3px solid var(--amber);}.node.money .node-tag{color:var(--amber);}
+  .node.career{border-left:3px solid var(--green);}.node.career .node-tag{color:var(--green);}
+
+  .dot-health{border-color:var(--red)!important;}
+  .dot-study{border-color:var(--accent)!important;}
+  .dot-science{border-color:var(--purple)!important;}
+  .dot-code{border-color:#06b6d4!important;}
+  .dot-money{border-color:var(--amber)!important;}
+  .dot-career{border-color:var(--green)!important;}
+
+  .full-row{display:flex;justify-content:center;margin-bottom:6px;}
+  .full-row .node{max-width:520px;width:100%;text-align:left;}
+  .full-row .node::before,.full-row .node::after{display:none;}
+
+  .divider{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent);margin:28px 0;opacity:.5;}
+
+  /* CHECKBOX — bigger tap target for mobile */
+  .node-check{position:absolute;top:10px;right:10px;width:22px;height:22px;
+    border:1.5px solid var(--border);border-radius:6px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:all .2s;background:var(--bg);touch-action:manipulation;}
+  .node-check.checked{background:var(--green);border-color:var(--green);}
+  .node-check.checked::after{content:'✓';font-size:12px;color:#000;font-weight:700;}
+  .node.done{opacity:.38;}.node.done .node-title{text-decoration:line-through;text-decoration-color:var(--muted);}
+
+  /* TODAY BADGE */
+  .today-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(239,68,68,.15);
+    border:1px solid rgba(239,68,68,.4);border-radius:4px;padding:2px 7px;
+    font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--red);
+    font-weight:600;letter-spacing:.5px;margin-left:8px;vertical-align:middle;}
+  .today-dot{width:5px;height:5px;border-radius:50%;background:var(--red);animation:pulse 1.5s infinite;}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+  /* ══════════════════════════════════
+     MOBILE — single column timeline
+  ══════════════════════════════════ */
+  @media(max-width:640px){
+    body{padding:24px 12px 80px;}
+    .header h1{font-size:15px;}
+    .roadmap::before{left:15px;transform:none;}
+
+    /* hide desktop columns */
+    .row{display:block;padding-left:36px;position:relative;margin-bottom:6px;}
+    .row-center{display:none;}
+    .row-left{display:block;margin-bottom:6px;}
+    .row-right{display:block;}
+
+    /* dot on left rail */
+    .row::before{content:'';position:absolute;left:10px;top:18px;
+      width:10px;height:10px;border-radius:50%;border:2px solid var(--border);
+      background:var(--bg);z-index:2;}
+
+    /* connector lines — hide desktop pseudo */
+    .row-left .node::after,.row-right .node::before{display:none;}
+
+    .node{max-width:100%;border-radius:10px;}
+    .full-row{display:block;padding-left:36px;}
+    .full-row .node{max-width:100%;}
+    .full-row::before{content:'';position:absolute;left:10px;top:18px;
+      width:10px;height:10px;border-radius:50%;border:2px solid var(--border);
+      background:var(--bg);z-index:2;}
+    .full-row{position:relative;}
+
+    .year-badge{font-size:11px;padding:6px 14px;}
+    .node-title{font-size:13px;}
+    .node-desc{font-size:12px;}
+    .node-check{width:26px;height:26px;right:10px;top:10px;}
+    .node-check.checked::after{font-size:14px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>// roadmap — learning2think</h1>
+  <p>вычислительные нейронауки · хемоинформатика · ML · 2026–2031</p>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>здоровье</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div>учёба</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div>наука</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#06b6d4"></div>навыки</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--amber)"></div>финансы</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>карьера</div>
+</div>
+
+<div class="progress-bar-wrap">
+  <span class="progress-label">прогресс</span>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <span class="progress-count" id="progressCount">0 / 18</span>
+</div>
+
+<div class="roadmap">
+
+  <!-- ГОД 1 -->
+  <div class="year-block">
+    <div class="year-label"><div class="year-badge y1">ГОД 1 · 2026–2027</div></div>
+
+    <div class="row">
+      <div class="row-left"><div class="node health">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">здоровье · приоритет #1</div>
+        <div class="node-title">Психиатр <span class="today-badge"><span class="today-dot"></span>сейчас</span></div>
+        <div class="node-desc">Рассказать всё: давление с сентября, дереализация, пропуски. Получить справку. Найти рабочую схему лечения.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-health"></div></div>
+      <div class="row-right"><div class="node study">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">учёба</div>
+        <div class="node-title">Закрыть долги</div>
+        <div class="node-desc">Справка покрывает пропуски. Академический отпуск если нужен. Дотянуть до 4 курса.</div>
+      </div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-left"><div class="node science">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">наука</div>
+        <div class="node-title">Статья в Journal of Cheminformatics</div>
+        <div class="node-desc">Опубликовать. Статус "under review" уже в CV. Это главный козырь.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-science"></div></div>
+      <div class="row-right"><div class="node science">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">наука</div>
+        <div class="node-title">Открыть репозиторий</div>
+        <div class="node-desc">После решения вопроса УМНИК. Zenodo DOI. Полноценный README.</div>
+      </div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-left"><div class="node career">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">карьера</div>
+        <div class="node-title">Лаборатория</div>
+        <div class="node-desc">ВШЭ MEG-лаб или Сколтех. Если оба откажут — новые письма в сентябре со статьёй.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-career"></div></div>
+      <div class="row-right"><div class="node money">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">финансы</div>
+        <div class="node-title">УМНИК</div>
+        <div class="node-desc">Открытый репо + статья = сильная заявка. 500 тыс/год на 2 года.</div>
+      </div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-left"><div class="node code">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">навыки</div>
+        <div class="node-title">PyTorch базовый уровень</div>
+        <div class="node-desc">fast.ai — практично, бесплатно. Цель: написать простую нейросеть с нуля.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-code"></div></div>
+      <div class="row-right"><div class="node code">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">навыки</div>
+        <div class="node-title">Coursera Computational Neuroscience</div>
+        <div class="node-desc">UW, Rao & Fairhall. Довести до конца — не бросать.</div>
+      </div></div>
+    </div>
+
+    <div class="full-row"><div class="node science">
+      <div class="node-check" onclick="toggle(this)"></div>
+      <div class="node-tag">наука · видимость</div>
+      <div class="node-title">Сеченовская конференция</div>
+      <div class="node-desc">Секция 21 (биоинформатика). Тезисы готовы. Выступить — получить первые живые контакты.</div>
+    </div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ГОД 2 -->
+  <div class="year-block">
+    <div class="year-label"><div class="year-badge y2">ГОД 2 · 2027–2028</div></div>
+
+    <div class="row">
+      <div class="row-left"><div class="node science">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">наука</div>
+        <div class="node-title">Вторая публикация</div>
+        <div class="node-desc">Расширение In Silico BBB или новая тема из лаборатории. Цель — 2 статьи к концу 4 курса.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-science"></div></div>
+      <div class="row-right"><div class="node code">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">навыки</div>
+        <div class="node-title">MNE-Python</div>
+        <div class="node-desc">Если работаешь с ВШЭ MEG-лаб — обязательно. Эпохи, артефакты, частотные полосы.</div>
+      </div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-left"><div class="node code">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">навыки</div>
+        <div class="node-title">Байесовская статистика</div>
+        <div class="node-desc">Statistical Rethinking — McElreath, YouTube бесплатно. В нейронауках используется постоянно.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-code"></div></div>
+      <div class="row-right"><div class="node science">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">наука</div>
+        <div class="node-title">Читать статьи системно</div>
+        <div class="node-desc">2–3 в неделю по своей теме. Цитировать в письмах руководителям.</div>
+      </div></div>
+    </div>
+
+    <div class="full-row"><div class="node career">
+      <div class="node-check" onclick="toggle(this)"></div>
+      <div class="node-tag">карьера · видимость</div>
+      <div class="node-title">Конференция очно</div>
+      <div class="node-desc">Одна очная конференция — живые контакты дороже десяти холодных писем.</div>
+    </div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ГОД 3 -->
+  <div class="year-block">
+    <div class="year-label"><div class="year-badge y3">ГОД 3 · 2028–2029</div></div>
+
+    <div class="row">
+      <div class="row-left"><div class="node study">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">учёба</div>
+        <div class="node-title">Закончить институт</div>
+        <div class="node-desc">Диплом нужен. Медицинское образование + ML — редкое сочетание. Без диплома теряет половину ценности.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-study"></div></div>
+      <div class="row-right"><div class="node money">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">финансы</div>
+        <div class="node-title">УМНИК + ставка в лаб</div>
+        <div class="node-desc">500 тыс/год грант + 20–40 тыс/мес ставка. Суммарно жить можно.</div>
+      </div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-left"><div class="node science">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">наука</div>
+        <div class="node-title">3+ публикации в CV</div>
+        <div class="node-desc">К этому моменту — достаточно для подачи в аспирантуру любого уровня.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-study"></div></div>
+      <div class="row-right"><div class="node career">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">карьера</div>
+        <div class="node-title">Международная конференция</div>
+        <div class="node-desc">ISMB, NeurIPS Workshop, ECML. Выступить с докладом или постером.</div>
+      </div></div>
+    </div>
+
+    <div class="full-row"><div class="node career">
+      <div class="node-check" onclick="toggle(this)"></div>
+      <div class="node-tag">карьера · развилка</div>
+      <div class="node-title">Определиться с направлением</div>
+      <div class="node-desc">Вычислительная фармакология (In Silico BBB → drug discovery) или нейронауки (MEG/ЭЭГ, модели). Оба пути реальны — выбрать один.</div>
+    </div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ГОДЫ 4-5 -->
+  <div class="year-block">
+    <div class="year-label"><div class="year-badge y45">ГОДЫ 4–5 · 2029–2031</div></div>
+
+    <div class="row">
+      <div class="row-left"><div class="node career">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">карьера · путь A</div>
+        <div class="node-title">Аспирантура</div>
+        <div class="node-desc">Сколтех, ВШЭ, МФТИ — Россия. EMBL, Max Planck, Нидерланды — Европа. Подача: декабрь–февраль.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-career"></div></div>
+      <div class="row-right"><div class="node career">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">карьера · путь B</div>
+        <div class="node-title">Индустрия</div>
+        <div class="node-desc">Биотех или фарма с ML. Позиция: computational scientist. Россия 100–200 тыс/мес, Европа 50–80k€/год.</div>
+      </div></div>
+    </div>
+
+    <div class="full-row"><div class="node money">
+      <div class="node-check" onclick="toggle(this)"></div>
+      <div class="node-tag">финансы · цель</div>
+      <div class="node-title">Стабильный доход от науки / индустрии</div>
+      <div class="node-desc">Россия 100–150 тыс/мес · Европа 1500–2500 €/мес · Индустрия за рубежом 50–80k€/год</div>
+    </div></div>
+
+    <div class="full-row"><div class="node health">
+      <div class="node-check" onclick="toggle(this)"></div>
+      <div class="node-tag">здоровье · долгосрочно</div>
+      <div class="node-title">Депрессия под контролем</div>
+      <div class="node-desc">Не как фон жизни — как управляемое состояние. Это не опциональный пункт. Это фундамент всего остального.</div>
+    </div></div>
+  </div>
+
+</div>
+
+<script>
+const TOTAL = 18;
+function updateProgress() {
+  const checked = document.querySelectorAll('.node-check.checked').length;
+  const pct = Math.round((checked / TOTAL) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressCount').textContent = checked + ' / ' + TOTAL;
+}
+function toggle(el) {
+  el.classList.toggle('checked');
+  el.closest('.node').classList.toggle('done');
+  updateProgress();
+  try {
+    const states = Array.from(document.querySelectorAll('.node-check')).map(e => e.classList.contains('checked') ? 1 : 0);
+    localStorage.setItem('rm_state', JSON.stringify(states));
+  } catch(e) {}
+}
+try {
+  const states = JSON.parse(localStorage.getItem('rm_state') || '[]');
+  document.querySelectorAll('.node-check').forEach((el, i) => {
+    if (states[i]) { el.classList.add('checked'); el.closest('.node').classList.add('done'); }
+  });
+} catch(e) {}
+updateProgress();
+</script>
+</body>
+</html>
