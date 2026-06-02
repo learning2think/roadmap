@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Roadmap — learning2think</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+  :root{
+    --bg:#0f1117;--bg2:#161b27;--bg3:#1a2030;--border:#2a3347;--text:#e2e8f0;--muted:#64748b;
+    --accent:#3b82f6;--green:#22c55e;--amber:#f59e0b;--purple:#a855f7;--red:#ef4444;--cyan:#06b6d4;--orange:#fb923c;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;min-height:100vh;padding:32px 16px 80px;}
+
+  /* HEADER */
+  .header{text-align:center;margin-bottom:28px;}
+  .header h1{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700;color:var(--text);letter-spacing:-.5px;margin-bottom:6px;}
+  .header p{color:var(--muted);font-size:11px;font-family:'JetBrains Mono',monospace;}
+
+  /* TABS */
+  .tabs{display:flex;gap:4px;max-width:900px;margin:0 auto 28px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:4px;}
+  .tab{flex:1;padding:8px 12px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--muted);border-radius:7px;cursor:pointer;transition:all .2s;letter-spacing:.5px;}
+  .tab.active{background:var(--bg3);color:var(--text);border:1px solid var(--border);}
+
+  /* VIEWS */
+  .view{display:none;}.view.active{display:block;}
+
+  /* LEGEND */
+  .legend{display:flex;gap:10px;justify-content:center;margin-bottom:20px;flex-wrap:wrap;}
+  .legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+  .legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+
+  /* PROGRESS */
+  .progress-bar-wrap{max-width:900px;margin:0 auto 28px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;}
+  .progress-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);white-space:nowrap;}
+  .progress-track{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden;}
+  .progress-fill{height:100%;background:linear-gradient(to right,var(--accent),var(--green));border-radius:4px;transition:width .4s ease;width:0%;}
+  .progress-count{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text);white-space:nowrap;min-width:40px;text-align:right;}
+
+  /* ROADMAP */
+  .roadmap{max-width:900px;margin:0 auto;position:relative;}
+  .roadmap::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--red),var(--accent),var(--purple),var(--green));transform:translateX(-50%);opacity:.2;}
+  .year-block{margin-bottom:12px;animation:fadeUp .4s ease both;}
+  .year-block:nth-child(1){animation-delay:.04s;}.year-block:nth-child(3){animation-delay:.08s;}.year-block:nth-child(5){animation-delay:.12s;}.year-block:nth-child(7){animation-delay:.16s;}.year-block:nth-child(9){animation-delay:.2s;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .year-label{display:flex;align-items:center;justify-content:center;margin-bottom:14px;position:relative;z-index:2;}
+  .year-badge{background:var(--bg);border:2px solid var(--border);border-radius:8px;padding:6px 16px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:12px;letter-spacing:1px;}
+  .year-badge.y0{border-color:var(--red);color:var(--red);}
+  .year-badge.y1{border-color:var(--accent);color:var(--accent);}
+  .year-badge.y2{border-color:var(--cyan);color:var(--cyan);}
+  .year-badge.y3{border-color:var(--purple);color:var(--purple);}
+  .year-badge.y45{border-color:var(--green);color:var(--green);}
+  .row{display:grid;grid-template-columns:1fr 48px 1fr;align-items:start;margin-bottom:6px;}
+  .row-left{display:flex;justify-content:flex-end;}
+  .row-right{display:flex;justify-content:flex-start;}
+  .row-center{display:flex;flex-direction:column;align-items:center;padding-top:16px;}
+  .center-dot{width:12px;height:12px;border-radius:50%;border:2px solid;background:var(--bg);flex-shrink:0;position:relative;z-index:2;}
+  .node{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 44px 12px 14px;max-width:340px;width:100%;position:relative;transition:opacity .2s;}
+  .row-left .node::after{content:'';position:absolute;right:-25px;top:50%;width:25px;height:1px;background:var(--border);}
+  .row-right .node::before{content:'';position:absolute;left:-25px;top:50%;width:25px;height:1px;background:var(--border);}
+  .node-tag{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px;opacity:.7;}
+  .node-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;line-height:1.4;}
+  .node-desc{font-size:11px;color:var(--muted);line-height:1.55;}
+  .node.health{border-left:3px solid var(--red);}.node.health .node-tag{color:var(--red);}
+  .node.study{border-left:3px solid var(--accent);}.node.study .node-tag{color:var(--accent);}
+  .node.science{border-left:3px solid var(--purple);}.node.science .node-tag{color:var(--purple);}
+  .node.code{border-left:3px solid var(--cyan);}.node.code .node-tag{color:var(--cyan);}
+  .node.money{border-left:3px solid var(--amber);}.node.money .node-tag{color:var(--amber);}
+  .node.career{border-left:3px solid var(--green);}.node.career .node-tag{color:var(--green);}
+  .node.project{border-left:3px solid var(--orange);}.node.project .node-tag{color:var(--orange);}
+  .dot-health{border-color:var(--red)!important;}.dot-study{border-color:var(--accent)!important;}.dot-science{border-color:var(--purple)!important;}.dot-code{border-color:var(--cyan)!important;}.dot-money{border-color:var(--amber)!important;}.dot-career{border-color:var(--green)!important;}.dot-project{border-color:var(--orange)!important;}
+  .full-row{display:flex;justify-content:center;margin-bottom:6px;}
+  .full-row .node{max-width:520px;width:100%;}
+  .full-row .node::before,.full-row .node::after{display:none;}
+  .divider{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent);margin:24px 0;opacity:.5;}
+  .node-check{position:absolute;top:10px;right:10px;width:22px;height:22px;border:1.5px solid var(--border);border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;background:var(--bg);touch-action:manipulation;}
+  .node-check.checked{background:var(--green);border-color:var(--green);}
+  .node-check.checked::after{content:'✓';font-size:12px;color:#000;font-weight:700;}
+  .node.done{opacity:.35;}.node.done .node-title{text-decoration:line-through;text-decoration-color:var(--muted);}
+  .today-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.4);border-radius:4px;padding:2px 6px;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--red);font-weight:600;margin-left:6px;vertical-align:middle;}
+  .today-dot{width:5px;height:5px;border-radius:50%;background:var(--red);animation:pulse 1.5s infinite;}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+  /* ══ NOTES VIEW ══ */
+  .notes-view{max-width:900px;margin:0 auto;}
+  .notes-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+  .notes-header h2{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;color:var(--text);}
+  .btn{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text);cursor:pointer;transition:border-color .2s;}
+  .btn:hover{border-color:var(--accent);}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .notes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:24px;}
+  .note-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px;position:relative;transition:border-color .2s;}
+  .note-card:hover{border-color:var(--muted);}
+  .note-card.pinned{border-color:var(--amber);background:rgba(245,158,11,.04);}
+  .note-card-tag{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:6px;}
+  .note-card-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;line-height:1.4;}
+  .note-card-body{font-size:12px;color:var(--muted);line-height:1.6;white-space:pre-wrap;word-break:break-word;}
+  .note-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:10px;padding-top:8px;border-top:1px solid var(--border);}
+  .note-card-date{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);}
+  .note-actions{display:flex;gap:6px;}
+  .note-btn{background:none;border:none;cursor:pointer;font-size:13px;opacity:.5;transition:opacity .2s;padding:2px 4px;}
+  .note-btn:hover{opacity:1;}
+  .pin-indicator{position:absolute;top:10px;right:10px;font-size:12px;}
+
+  /* ADD NOTE FORM */
+  .add-note-form{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:24px;display:none;}
+  .add-note-form.open{display:block;}
+  .form-row{margin-bottom:10px;}
+  .form-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px;display:block;}
+  .form-input{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:8px 12px;color:var(--text);font-family:'Inter',sans-serif;font-size:13px;outline:none;transition:border-color .2s;}
+  .form-input:focus{border-color:var(--accent);}
+  .form-textarea{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:8px 12px;color:var(--text);font-family:'Inter',sans-serif;font-size:13px;outline:none;transition:border-color .2s;resize:vertical;min-height:100px;}
+  .form-textarea:focus{border-color:var(--accent);}
+  .form-select{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:8px 12px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:12px;outline:none;}
+  .form-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px;}
+
+  /* PROJECT DOCS */
+  .docs-section{margin-bottom:20px;}
+  .docs-section-title{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+  .doc-item{background:var(--bg2);border:1px solid var(--border);border-radius:8px;margin-bottom:6px;overflow:hidden;}
+  .doc-item-header{padding:10px 14px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none;}
+  .doc-item-header:hover{background:var(--bg3);}
+  .doc-item-title{font-size:13px;font-weight:600;color:var(--text);}
+  .doc-item-tag{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);margin-left:8px;}
+  .doc-item-arrow{font-size:10px;color:var(--muted);transition:transform .2s;}
+  .doc-item.open .doc-item-arrow{transform:rotate(90deg);}
+  .doc-item-body{display:none;padding:0 14px 12px;font-size:12px;color:var(--muted);line-height:1.7;border-top:1px solid var(--border);}
+  .doc-item.open .doc-item-body{display:block;}
+  .doc-item-body code{font-family:'JetBrains Mono',monospace;font-size:11px;background:var(--bg);padding:1px 5px;border-radius:3px;color:var(--cyan);}
+
+  /* MOBILE */
+  @media(max-width:640px){
+    body{padding:20px 10px 80px;}
+    .header h1{font-size:15px;}
+    .roadmap::before{left:15px;transform:none;}
+    .row{display:block;padding-left:34px;position:relative;margin-bottom:6px;}
+    .row-center{display:none;}
+    .row-left{display:block;margin-bottom:6px;}
+    .row-right{display:block;}
+    .row::before{content:'';position:absolute;left:10px;top:16px;width:10px;height:10px;border-radius:50%;border:2px solid var(--border);background:var(--bg);z-index:2;}
+    .row-left .node::after,.row-right .node::before{display:none;}
+    .node{max-width:100%;}
+    .full-row{display:block;padding-left:34px;position:relative;}
+    .full-row .node{max-width:100%;}
+    .full-row::before{content:'';position:absolute;left:10px;top:16px;width:10px;height:10px;border-radius:50%;border:2px solid var(--border);background:var(--bg);z-index:2;}
+    .year-badge{font-size:11px;padding:5px 12px;}
+    .note-card{padding:12px;}
+    .notes-grid{grid-template-columns:1fr;}
+    .tabs .tab{font-size:10px;padding:7px 6px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>// roadmap — learning2think</h1>
+  <p>вычислительные нейронауки · хемоинформатика · ML · 2026–2031</p>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('roadmap')">🗺 Roadmap</div>
+  <div class="tab" onclick="switchTab('monthly')">📅 Месяц</div>
+  <div class="tab" onclick="switchTab('notes')">📝 Заметки</div>
+</div>
+
+<!-- ══ ROADMAP VIEW ══ -->
+<div class="view active" id="view-roadmap">
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>здоровье</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div>учёба</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div>наука</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--cyan)"></div>навыки</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--amber)"></div>финансы</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>карьера</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div>проект</div>
+</div>
+
+<div class="progress-bar-wrap">
+  <span class="progress-label">прогресс</span>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <span class="progress-count" id="progressCount">0 / 30</span>
+</div>
+
+<div class="roadmap">
+
+  <!-- ГОД 1 -->
+  <div class="year-block">
+    <div class="year-label"><div class="year-badge y1">ГОД 1 · 2026–2027</div></div>
+
+    <div class="row">
+      <div class="row-left"><div class="node health">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">здоровье</div>
+        <div class="node-title">Стабилизировать лечение</div>
+        <div class="node-desc">Психиатр — подобрать рабочую схему. Регулярные приёмы. Сертралин ежедневно. Следить за состоянием.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-health"></div></div>
+      <div class="row-right"><div class="node study">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">учёба</div>
+        <div class="node-title">Закрыть долги</div>
+        <div class="node-desc">Справка от психиатра покрывает пропуски. Сдать фармакологию, патанат. Дотянуть до 4 курса.</div>
+      </div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-left"><div class="node science">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">наука</div>
+        <div class="node-title">Статья в Journal of Cheminformatics</div>
+        <div class="node-desc">Заменить placeholder рисунки на реальные скриншоты → отправить. Статус "under review" уже в CV.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-science"></div></div>
+      <div class="row-right"><div class="node project">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">проект · BBB</div>
+        <div class="node-title">Открыть репозиторий</div>
+        <div class="node-desc">Уточнить у куратора УМНИК про IP → сделать публичным → Zenodo DOI → ссылка в CV.</div>
+      </div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-left"><div class="node project">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">проект · BBB</div>
+        <div class="node-title">Замечания руководителя</div>
+        <div class="node-desc">Визуализация докинга (py3Dmol), объединить вкладки в 3 страницы, общий анализ результатов, калибровка классификатора.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-project"></div></div>
+      <div class="row-right"><div class="node project">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">проект · BBB</div>
+        <div class="node-title">Расширить валидацию</div>
+        <div class="node-desc">10+ веществ через PubMed. Добавить в валидационный набор, обновить метрики в статье.</div>
+      </div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-left"><div class="node money">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">финансы</div>
+        <div class="node-title">Репетиторство</div>
+        <div class="node-desc">Договориться с учеником на конкретные даты. Объявления на Профи.ру, Авито, ВКонтакте активны.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-money"></div></div>
+      <div class="row-right"><div class="node money">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">финансы</div>
+        <div class="node-title">УМНИК</div>
+        <div class="node-desc">Подать заявку после открытия репо. Открытый репо + статья = сильная заявка. 500 тыс/год на 2 года.</div>
+      </div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-left"><div class="node career">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">карьера</div>
+        <div class="node-title">Лаборатория</div>
+        <div class="node-desc">Дождаться ответа ВШЭ и Сколтеха. Если откажут — новые письма в сентябре со статьёй. Хотя бы волонтёром.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-career"></div></div>
+      <div class="row-right"><div class="node science">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">наука · видимость</div>
+        <div class="node-title">Сеченовская конференция</div>
+        <div class="node-desc">Секция 21 (биоинформатика). Тезисы готовы. Подать, выступить, познакомиться с людьми лично.</div>
+      </div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-left"><div class="node code">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">навыки</div>
+        <div class="node-title">PyTorch базовый уровень</div>
+        <div class="node-desc">fast.ai — практично, бесплатно. Написать простую нейросеть с нуля. До конца года.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-code"></div></div>
+      <div class="row-right"><div class="node code">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">навыки</div>
+        <div class="node-title">Coursera Computational Neuroscience</div>
+        <div class="node-desc">UW, Rao & Fairhall. Вс 10:30–12:00. Закончить до конца года — не бросать.</div>
+      </div></div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ГОД 2 -->
+  <div class="year-block">
+    <div class="year-label"><div class="year-badge y2">ГОД 2 · 2027–2028</div></div>
+
+    <div class="row">
+      <div class="row-left"><div class="node science">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">наука</div>
+        <div class="node-title">Вторая публикация</div>
+        <div class="node-desc">Расширение In Silico BBB (GNN для молекул, новые транспортёры) или тема из лаборатории. 2 статьи к концу 4 курса.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-science"></div></div>
+      <div class="row-right"><div class="node science">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">наука</div>
+        <div class="node-title">Читать статьи системно</div>
+        <div class="node-desc">2–3 в неделю по своей теме. Упоминать конкретные работы в письмах руководителям — работает.</div>
+      </div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-left"><div class="node code">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">навыки</div>
+        <div class="node-title">MNE-Python</div>
+        <div class="node-desc">Если работаешь с ВШЭ MEG-лаб — обязательно. Эпохи, артефакты, частотные полосы, предобработка.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-code"></div></div>
+      <div class="row-right"><div class="node code">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">навыки</div>
+        <div class="node-title">Байесовская статистика</div>
+        <div class="node-desc">Statistical Rethinking — McElreath, YouTube бесплатно. В нейронауках используется постоянно.</div>
+      </div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-left"><div class="node project">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">проект · BBB</div>
+        <div class="node-title">Расширить платформу</div>
+        <div class="node-desc">GNN-модели (SchNet или AttentiveFP), интеграция с базами патологических состояний ГЭБ, SaaS-тариф для фармкомпаний.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-project"></div></div>
+      <div class="row-right"><div class="node career">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">карьера</div>
+        <div class="node-title">Конференция очно</div>
+        <div class="node-desc">ISMB, ECML или российская. Живые контакты дороже холодных писем. Доклад или постер.</div>
+      </div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-left"><div class="node money">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">финансы</div>
+        <div class="node-title">РНФ или другой грант</div>
+        <div class="node-desc">После УМНИК — следующий уровень. Подать совместно с лабораторией.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-money"></div></div>
+      <div class="row-right"><div class="node health">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">здоровье</div>
+        <div class="node-title">Поддерживать лечение</div>
+        <div class="node-desc">Регулярные приёмы психиатра. Не отменять препараты самостоятельно. Следить за состоянием при нагрузке.</div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ГОД 3 -->
+  <div class="year-block">
+    <div class="year-label"><div class="year-badge y3">ГОД 3 · 2028–2029</div></div>
+
+    <div class="row">
+      <div class="row-left"><div class="node study">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">учёба</div>
+        <div class="node-title">Закончить институт</div>
+        <div class="node-desc">Медицинское образование + ML — редкое сочетание. Диплом открывает академические позиции и гранты.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-study"></div></div>
+      <div class="row-right"><div class="node money">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">финансы</div>
+        <div class="node-title">УМНИК + ставка в лаб</div>
+        <div class="node-desc">500 тыс/год грант + 20–40 тыс/мес ставка. Суммарно жить можно без репетиторства.</div>
+      </div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-left"><div class="node science">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">наука</div>
+        <div class="node-title">3+ публикации в CV</div>
+        <div class="node-desc">Достаточно для подачи в аспирантуру любого уровня — российскую или европейскую.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-study"></div></div>
+      <div class="row-right"><div class="node career">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">карьера</div>
+        <div class="node-title">Международная конференция</div>
+        <div class="node-desc">ISMB, NeurIPS Workshop, ECML. Доклад или постер. Знакомство с зарубежными группами.</div>
+      </div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-left"><div class="node code">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">навыки</div>
+        <div class="node-title">Линейная алгебра + матанализ</div>
+        <div class="node-desc">Gilbert Strang MIT OCW + 3Blue1Brown. Нужно для понимания современных нейросетевых архитектур.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-code"></div></div>
+      <div class="row-right"><div class="node career">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">карьера · решение</div>
+        <div class="node-title">Определиться с направлением</div>
+        <div class="node-desc">Вычислительная фармакология или нейронауки. От выбора зависит куда подавать в аспирантуру.</div>
+      </div></div>
+    </div>
+
+    <div class="full-row"><div class="node career">
+      <div class="node-check" onclick="toggle(this)"></div>
+      <div class="node-tag">карьера</div>
+      <div class="node-title">Подготовить заявки в аспирантуру</div>
+      <div class="node-desc">Рекомендательные письма, CV, мотивационное письмо. Российские — весной. Европейские — декабрь–февраль. Подавать везде параллельно.</div>
+    </div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ГОДЫ 4-5 -->
+  <div class="year-block">
+    <div class="year-label"><div class="year-badge y45">ГОДЫ 4–5 · 2029–2031</div></div>
+
+    <div class="row">
+      <div class="row-left"><div class="node career">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">карьера · путь A</div>
+        <div class="node-title">Аспирантура</div>
+        <div class="node-desc">Сколтех, ВШЭ, МФТИ — Россия. EMBL, Max Planck, Нидерланды, Швейцария — Европа. Стипендия 1500–2500 €/мес.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-career"></div></div>
+      <div class="row-right"><div class="node career">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">карьера · путь B</div>
+        <div class="node-title">Индустрия</div>
+        <div class="node-desc">Биотех или фарма с ML. Computational scientist. Россия 100–200 тыс/мес, Европа 50–80k€/год.</div>
+      </div></div>
+    </div>
+
+    <div class="row">
+      <div class="row-left"><div class="node project">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">проект · BBB</div>
+        <div class="node-title">In Silico BBB → SaaS или open-source</div>
+        <div class="node-desc">Первые платящие пользователи (фармкомпании, биотех) или передан сообществу с активной поддержкой.</div>
+      </div></div>
+      <div class="row-center"><div class="center-dot dot-project"></div></div>
+      <div class="row-right"><div class="node money">
+        <div class="node-check" onclick="toggle(this)"></div>
+        <div class="node-tag">финансы · цель</div>
+        <div class="node-title">Стабильный доход</div>
+        <div class="node-desc">Россия 100–150 тыс/мес · Европа 1500–2500 €/мес · Индустрия 50–80k€/год</div>
+      </div></div>
+    </div>
+
+    <div class="full-row"><div class="node health">
+      <div class="node-check" onclick="toggle(this)"></div>
+      <div class="node-tag">здоровье · долгосрочно</div>
+      <div class="node-title">Депрессия под контролем</div>
+      <div class="node-desc">Не как фон жизни — как управляемое состояние. Это не опциональный пункт. Это фундамент всего остального.</div>
+    </div></div>
+  </div>
+
+</div>
+</div>
+</div>
+<!-- ══ MONTHLY VIEW ══ -->
+<div class="view" id="view-monthly">
+<div class="notes-view">
+  <div class="notes-header">
+    <h2>// планы на месяц</h2>
+    <button class="btn primary" onclick="toggleMonthForm()">+ новый месяц</button>
+  </div>
+
+  <div class="add-note-form" id="addMonthForm">
+    <div class="form-row">
+      <label class="form-label">месяц</label>
+      <select class="form-select" id="monthSelect">
+        <option>Январь</option><option>Февраль</option><option>Март</option>
+        <option>Апрель</option><option>Май</option><option>Июнь</option>
+        <option>Июль</option><option>Август</option><option>Сентябрь</option>
+        <option>Октябрь</option><option>Ноябрь</option><option>Декабрь</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label class="form-label">год</label>
+      <input class="form-input" id="yearInput" type="number" value="2026" min="2026" max="2035">
+    </div>
+    <div class="form-row">
+      <label class="form-label">фокус месяца</label>
+      <input class="form-input" id="monthFocus" placeholder="Главная цель на месяц...">
+    </div>
+    <div class="form-row">
+      <label class="form-label">задачи (каждая с новой строки)</label>
+      <textarea class="form-textarea" id="monthTasks" placeholder="Сдать фармакологию&#10;Написать секцию Results&#10;Первый стрим по ХХ"></textarea>
+    </div>
+    <div class="form-actions">
+      <button class="btn" onclick="toggleMonthForm()">отмена</button>
+      <button class="btn primary" onclick="saveMonth()">сохранить</button>
+    </div>
+  </div>
+
+  <div id="monthlyList"></div>
+</div>
+</div>
+
+<!-- ══ NOTES VIEW ══ -->
+<div class="view" id="view-notes">
+<div class="notes-view">
+  <div class="notes-header">
+    <h2>// заметки</h2>
+    <button class="btn primary" onclick="toggleForm()">+ новая заметка</button>
+  </div>
+
+  <div class="add-note-form" id="addForm">
+    <div class="form-row">
+      <label class="form-label">заголовок</label>
+      <input class="form-input" id="noteTitle" placeholder="Название заметки...">
+    </div>
+    <div class="form-row">
+      <label class="form-label">категория</label>
+      <select class="form-select" id="noteTag">
+        <option value="общее">общее</option>
+        <option value="проект">проект · BBB</option>
+        <option value="учёба">учёба</option>
+        <option value="идеи">идеи</option>
+        <option value="наука">наука</option>
+        <option value="контент">контент</option>
+        <option value="личное">личное</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label class="form-label">текст</label>
+      <textarea class="form-textarea" id="noteBody" placeholder="Текст заметки..."></textarea>
+    </div>
+    <div class="form-actions">
+      <button class="btn" onclick="toggleForm()">отмена</button>
+      <button class="btn primary" onclick="saveNote()">сохранить</button>
+    </div>
+  </div>
+
+  <div class="notes-grid" id="notesGrid"></div>
+</div>
+</div>
+
+</div>
+
+<script>
+// ══ TABS ══
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', ['roadmap','monthly','notes'][i] === name));
+  document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.id === 'view-'+name));
+  if(name==='notes') renderNotes();
+  if(name==='monthly') renderMonths();
+}
+
+// ══ MONTHLY PLANS ══
+let months = [];
+function loadMonths(){ try{ months=JSON.parse(localStorage.getItem('months')||'[]'); }catch(e){ months=[]; } }
+function saveMonths(){ try{ localStorage.setItem('months',JSON.stringify(months)); }catch(e){} }
+function toggleMonthForm(){
+  const f=document.getElementById('addMonthForm');
+  f.classList.toggle('open');
+  if(f.classList.contains('open')){
+    const now=new Date();
+    const mNames=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+    document.getElementById('monthSelect').value=mNames[now.getMonth()];
+    document.getElementById('yearInput').value=now.getFullYear();
+    document.getElementById('monthFocus').value='';
+    document.getElementById('monthTasks').value='';
+  }
+}
+function saveMonth(){
+  const month=document.getElementById('monthSelect').value;
+  const year=parseInt(document.getElementById('yearInput').value);
+  const focus=document.getElementById('monthFocus').value.trim();
+  const tasksRaw=document.getElementById('monthTasks').value.trim();
+  const tasks=tasksRaw?tasksRaw.split('\n').filter(t=>t.trim()).map(t=>({text:t.trim(),done:false})):[];
+  if(!focus&&!tasks.length) return;
+  const idx=months.findIndex(m=>m.month===month&&m.year===year);
+  if(idx>=0){ months[idx].focus=focus;months[idx].tasks=tasks; }
+  else{ months.unshift({id:Date.now(),month,year,focus,tasks}); }
+  months.sort((a,b)=> b.year!==a.year ? b.year-a.year : ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'].indexOf(b.month) - ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'].indexOf(a.month));
+  saveMonths();renderMonths();toggleMonthForm();
+}
+function toggleMonthTask(mId,ti){
+  const m=months.find(m=>m.id===mId);
+  if(m&&m.tasks[ti]){ m.tasks[ti].done=!m.tasks[ti].done; saveMonths();renderMonths(); }
+}
+function deleteMonth(id){ months=months.filter(m=>m.id!==id);saveMonths();renderMonths(); }
+function renderMonths(){
+  const el=document.getElementById('monthlyList');
+  if(!el)return;
+  if(!months.length){
+    el.innerHTML='<div style="color:var(--muted);font-family:\'JetBrains Mono\',monospace;font-size:12px;padding:20px 0;">// планов пока нет</div>';
+    return;
+  }
+  el.innerHTML=months.map(m=>{
+    const done=m.tasks.filter(t=>t.done).length;
+    const total=m.tasks.length;
+    const pct=total?Math.round((done/total)*100):0;
+    const tasks=m.tasks.map((t,i)=>`
+      <div style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;" onclick="toggleMonthTask(${m.id},${i})">
+        <div style="width:16px;height:16px;border:1.5px solid ${t.done?'var(--green)':'var(--border)'};border-radius:4px;background:${t.done?'var(--green)':'var(--bg)'};display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          ${t.done?'<span style="font-size:10px;color:#000;font-weight:700;">✓</span>':''}
+        </div>
+        <span style="font-size:12px;color:${t.done?'var(--muted)':'var(--text)'};text-decoration:${t.done?'line-through':'none'}">${t.text}</span>
+      </div>`).join('');
+    return `<div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:10px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <div>
+          <span style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;color:var(--text);">${m.month} ${m.year}</span>
+          ${m.focus?`<div style="font-size:11px;color:var(--accent);margin-top:3px;font-family:'JetBrains Mono',monospace;">→ ${m.focus}</div>`:''}
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          ${total?`<span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);">${done}/${total}</span>`:''}
+          <button class="note-btn" onclick="deleteMonth(${m.id})" style="font-size:13px;opacity:.4;background:none;border:none;cursor:pointer;">🗑</button>
+        </div>
+      </div>
+      ${total?`<div style="height:4px;background:var(--border);border-radius:2px;margin-bottom:10px;overflow:hidden;"><div style="height:100%;width:${pct}%;background:linear-gradient(to right,var(--accent),var(--green));border-radius:2px;transition:width .3s;"></div></div>`:''}
+      ${tasks}
+    </div>`;
+  }).join('');
+}
+
+// ══ ROADMAP PROGRESS ══
+const TOTAL = 32;
+function updateProgress() {
+  const checked = document.querySelectorAll('.node-check.checked').length;
+  const pct = Math.round((checked / TOTAL) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressCount').textContent = checked + ' / ' + TOTAL;
+}
+function toggle(el) {
+  el.classList.toggle('checked');
+  el.closest('.node').classList.toggle('done');
+  updateProgress();
+  saveRoadmap();
+}
+function saveRoadmap() {
+  try {
+    const s = Array.from(document.querySelectorAll('.node-check')).map(e => e.classList.contains('checked')?1:0);
+    localStorage.setItem('rm_state', JSON.stringify(s));
+  } catch(e){}
+}
+function loadRoadmap() {
+  try {
+    const s = JSON.parse(localStorage.getItem('rm_state')||'[]');
+    document.querySelectorAll('.node-check').forEach((el,i)=>{
+      if(s[i]){el.classList.add('checked');el.closest('.node').classList.add('done');}
+    });
+  } catch(e){}
+  updateProgress();
+}
+
+// ══ NOTES ══
+let notes = [];
+function loadNotes() {
+  try { notes = JSON.parse(localStorage.getItem('notes')||'[]'); } catch(e){ notes=[]; }
+}
+function saveNotes() {
+  try { localStorage.setItem('notes', JSON.stringify(notes)); } catch(e){}
+}
+function toggleForm() {
+  const f = document.getElementById('addForm');
+  f.classList.toggle('open');
+  if(f.classList.contains('open')){
+    document.getElementById('noteTitle').value='';
+    document.getElementById('noteBody').value='';
+    document.getElementById('noteTitle').focus();
+  }
+}
+function saveNote() {
+  const title = document.getElementById('noteTitle').value.trim();
+  const body  = document.getElementById('noteBody').value.trim();
+  const tag   = document.getElementById('noteTag').value;
+  if(!title) return;
+  notes.unshift({ id: Date.now(), title, body, tag, pinned: false, date: new Date().toLocaleDateString('ru') });
+  saveNotes();
+  renderNotes();
+  toggleForm();
+}
+function deleteNote(id) {
+  notes = notes.filter(n => n.id !== id);
+  saveNotes();
+  renderNotes();
+}
+function pinNote(id) {
+  const n = notes.find(n => n.id === id);
+  if(n) n.pinned = !n.pinned;
+  notes.sort((a,b) => b.pinned - a.pinned);
+  saveNotes();
+  renderNotes();
+}
+function renderNotes() {
+  const grid = document.getElementById('notesGrid');
+  if(!grid) return;
+  if(notes.length === 0){
+    grid.innerHTML = '<div style="color:var(--muted);font-family:\'JetBrains Mono\',monospace;font-size:12px;padding:20px 0;">// заметок пока нет</div>';
+    return;
+  }
+  grid.innerHTML = notes.map(n => `
+    <div class="note-card${n.pinned?' pinned':''}">
+      ${n.pinned?'<div class="pin-indicator">📌</div>':''}
+      <div class="note-card-tag">${n.tag}</div>
+      <div class="note-card-title">${n.title}</div>
+      <div class="note-card-body">${n.body||'—'}</div>
+      <div class="note-card-footer">
+        <span class="note-card-date">${n.date}</span>
+        <div class="note-actions">
+          <button class="note-btn" onclick="pinNote(${n.id})" title="закрепить">📌</button>
+          <button class="note-btn" onclick="deleteNote(${n.id})" title="удалить">🗑</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// INIT
+loadRoadmap();
+loadNotes();
+loadMonths();
+</script>
+</body>
+</html>
