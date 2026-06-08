@@ -237,7 +237,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 .cv-loc{font-size:11px;color:var(--dim);margin-top:3px}
 .cv-links{margin-bottom:26px}
 .cv-sec{margin-bottom:24px}
-.cv-sec-t{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:11px;padding-bottom:5px;border-bottom:1px solid var(--border)}
+.cv-sec-t{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:11px;padding-bottom:5px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:8px}
 .cv-proj{background:var(--bg-card);border:1px solid var(--border-l);border-left:3px solid var(--science);padding:14px 15px}
 .cv-proj-h{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:8px}
 .cv-proj-n{font-size:14px;font-weight:600;color:#e6e6e6}
@@ -246,6 +246,15 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 .cv-metrics{display:flex;flex-wrap:wrap;gap:7px}
 .cv-m{font-size:10px;color:var(--dim);border:1px solid var(--border);padding:5px 9px;font-variant-numeric:tabular-nums}
 .cv-m b{color:var(--science);font-weight:600;margin-right:3px}
+.cv-proj-role{font-size:11px;color:var(--dim);margin-bottom:11px;line-height:1.5}
+.cv-proj-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:13px}
+.cv-proj-list li{font-size:11px;color:var(--text);line-height:1.55;padding-left:15px;position:relative}
+.cv-proj-list li::before{content:"▹";position:absolute;left:0;color:var(--science)}
+.cv-lang{display:inline-flex;flex-shrink:0;border:1px solid var(--border)}
+.cv-lang-b{font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--dim);background:none;border:none;padding:4px 9px;cursor:pointer;transition:color .12s,background .12s;touch-action:manipulation}
+.cv-lang-b+.cv-lang-b{border-left:1px solid var(--border)}
+.cv-lang-b.active{color:var(--text);background:var(--bg-hover)}
+.cv-lang-b:hover{color:var(--text)}
 .cv-tags{display:flex;flex-wrap:wrap;gap:6px}
 .cv-tag{font-size:10px;color:var(--text);background:var(--bg-card);border:1px solid var(--border);padding:6px 10px}
 .cv-focus{list-style:none;display:flex;flex-direction:column;gap:9px}
@@ -314,13 +323,13 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 </div>
 
 <div class="tabs-wrap">
-<div class="tabs" role="tablist" aria-label="Разделы">
-  <button class="tab-btn active" data-tab="profile" role="tab" aria-selected="true">Профиль</button>
+<div class="tabs" role="tablist" aria-label="Sections">
+  <button class="tab-btn active" data-tab="profile" role="tab" aria-selected="true">Profile</button>
   <button class="tab-btn" data-tab="roadmap" role="tab" aria-selected="false">Roadmap</button>
-  <button class="tab-btn" data-tab="vector" role="tab" aria-selected="false">Вектор</button>
-  <button class="tab-btn" data-tab="skills" role="tab" aria-selected="false">Навыки</button>
-  <button class="tab-btn" data-tab="month" role="tab" aria-selected="false">Месяц</button>
-  <button class="tab-btn" data-tab="notes" role="tab" aria-selected="false">Заметки</button>
+  <button class="tab-btn" data-tab="vector" role="tab" aria-selected="false">Vector</button>
+  <button class="tab-btn" data-tab="skills" role="tab" aria-selected="false">Skills</button>
+  <button class="tab-btn" data-tab="month" role="tab" aria-selected="false">Month</button>
+  <button class="tab-btn" data-tab="notes" role="tab" aria-selected="false">Notes</button>
 </div>
 </div>
 
@@ -342,43 +351,74 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
   </div>
 
   <div class="cv-sec">
-    <div class="cv-sec-t">// флагманский проект</div>
+    <div class="cv-sec-t">// flagship project
+      <span class="cv-lang" role="group" aria-label="Description language">
+        <button class="cv-lang-b active" data-l="ru" onclick="cvLang('ru')" aria-pressed="true">RU</button>
+        <button class="cv-lang-b" data-l="en" onclick="cvLang('en')" aria-pressed="false">EN</button>
+      </span>
+    </div>
     <div class="cv-proj">
       <div class="cv-proj-h">
         <span class="cv-proj-n">In Silico BBB</span>
-        <span class="cv-proj-tag">платформа моделирования транспорта через ГЭБ · v1.20.1 · MIT · open-source</span>
+        <span class="cv-proj-tag">v1.20.1 · MIT · open-source</span>
       </div>
-      <div class="cv-proj-d">Открытая вычислительная платформа для раннего CNS drug discovery: механистическая ODE-модель транспорта (пассивная диффузия + эффлюкс P-gp / BCRP / MRP4 и инфлюкс LAT1), PBPK-расширения, QSAR/ML-предсказание logBB и BBB-проницаемости с областью применимости, конформными интервалами и SHAP. Полный стек: Streamlit UI, FastAPI (12 эндпоинтов), Python SDK, CLI. Валидация без иллюзий: Murcko scaffold-CV, temporal-холдаут 2019–2021, конформная калибровка, Y-scrambling.</div>
+
+      <div class="cv-body" data-lang="ru">
+        <div class="cv-proj-role">Вычислительная платформа моделирования транспорта лекарств через ГЭБ · ведущий разработчик</div>
+        <ul class="cv-proj-list">
+          <li>Open-source платформа для моделирования и скрининга проникновения лекарств через ГЭБ: механистическая двухкамерная ODE-модель транспорта, PBPK-расширения (3 и 5 камер) и QSAR/ML-предсказание.</li>
+          <li>Классификатор проницаемости ГЭБ (scaffold-CV AUC 0.92, MCC 0.67; n≈8000) и регрессор logBB (R² 0.44, RMSE 0.57) со строгой валидацией: кросс-валидация по каркасам Мурко, временны́е холдауты по году публикации, конформные интервалы, Y-scrambling.</li>
+          <li>Честная оценка неопределённости и области применимости: Mondrian-конформные множества и калибровка Платта на leakage-controlled ChEMBL-панели — с явным разделением scaffold-, temporal- и external-валидации вместо одной оптимистичной метрики.</li>
+          <li>Бенчмарк графовых нейросетей (DMPNN, AttentiveFP) против градиентного бустинга: задокументировал воспроизводимый отрицательный результат (GNN проигрывают на n≈900) и осознанно исключил слабые модели из рантайма.</li>
+          <li>Полный стек поставки: FastAPI REST (12 эндпоинтов), Python SDK, CLI и многостраничное Streamlit-приложение; набор из ~1500 тестов с CI, ruff/mypy и отчётами покрытия.</li>
+        </ul>
+      </div>
+
+      <div class="cv-body" data-lang="en" hidden>
+        <div class="cv-proj-role">Computational Platform for Blood–Brain Barrier Drug Transport · lead developer</div>
+        <ul class="cv-proj-list">
+          <li>Built an open-source platform for modelling and screening drug transport across the blood–brain barrier, combining a mechanistic two-compartment ODE transport model, 3-/5-compartment PBPK extensions, and QSAR/ML prediction.</li>
+          <li>Developed a BBB permeability classifier (scaffold-CV AUC 0.92, MCC 0.67; n≈8,000) and logBB regressor (R² 0.44, RMSE 0.57 log units) with rigorous validation: Murcko-scaffold cross-validation, temporal (publication-year) holdouts, conformal prediction intervals, and Y-scrambling permutation tests.</li>
+          <li>Implemented honest uncertainty and applicability-domain reporting — Mondrian conformal prediction sets and Platt-scaled calibration benchmarked on a leakage-controlled ChEMBL panel — explicitly distinguishing scaffold CV, temporal, and external validation rather than a single optimistic score.</li>
+          <li>Benchmarked graph neural networks (DMPNN, AttentiveFP) against gradient boosting and documented a reproducible negative result (GNNs underperform on n≈900), deliberately excluding weaker models from the runtime.</li>
+          <li>Shipped a full delivery surface: FastAPI REST service (12 endpoints), Python SDK, CLI, and a multipage Streamlit application; maintained a ~1,500-test suite with CI, ruff/mypy, and coverage reporting.</li>
+        </ul>
+      </div>
+
       <div class="cv-metrics">
-        <span class="cv-m"><b>0.92</b> ROC-AUC · BBB scaffold-OOF</span>
-        <span class="cv-m"><b>0.88</b> AUC · temporal 2019–21</span>
-        <span class="cv-m"><b>0.44</b> R² · logBB (CV)</span>
-        <span class="cv-m"><b>8 057</b> молекул</span>
-        <span class="cv-m"><b>12</b> REST-эндпоинтов</span>
+        <span class="cv-m"><b>0.92</b> AUC · 0.67 MCC · BBB</span>
+        <span class="cv-m"><b>0.88</b> AUC · temporal</span>
+        <span class="cv-m"><b>0.44</b> R² · 0.57 RMSE · logBB</span>
+        <span class="cv-m"><b>~1,500</b> tests · CI</span>
+        <span class="cv-m"><b>12</b> REST endpoints</span>
       </div>
     </div>
   </div>
 
   <div class="cv-sec">
-    <div class="cv-sec-t">// стек, которым владею</div>
+    <div class="cv-sec-t">// stack &amp; tools</div>
     <div class="cv-tags">
       <span class="cv-tag">Python 3.11+</span>
-      <span class="cv-tag">RDKit</span>
+      <span class="cv-tag">NumPy · pandas</span>
       <span class="cv-tag">scikit-learn</span>
-      <span class="cv-tag">XGBoost</span>
-      <span class="cv-tag">FastAPI</span>
-      <span class="cv-tag">Streamlit</span>
+      <span class="cv-tag">XGBoost / LightGBM</span>
+      <span class="cv-tag">PyTorch / Chemprop</span>
+      <span class="cv-tag">RDKit</span>
+      <span class="cv-tag">MNE-Python</span>
       <span class="cv-tag">QSAR / ADMET</span>
       <span class="cv-tag">PBPK · ODE</span>
-      <span class="cv-tag">conformal UQ</span>
-      <span class="cv-tag">SHAP</span>
+      <span class="cv-tag">conformal UQ · SHAP</span>
+      <span class="cv-tag">FastAPI</span>
+      <span class="cv-tag">Streamlit</span>
       <span class="cv-tag">REST API · SDK · CLI</span>
-      <span class="cv-tag">CI · pytest · ruff</span>
+      <span class="cv-tag">Jupyter</span>
+      <span class="cv-tag">Git</span>
+      <span class="cv-tag">CI · pytest · ruff/mypy</span>
     </div>
   </div>
 
   <div class="cv-sec">
-    <div class="cv-sec-t">// сейчас в фокусе</div>
+    <div class="cv-sec-t">// current focus</div>
     <ul class="cv-focus">
       <li>Довести статью по BBB-проекту до публикации (целевой профиль — Journal of Cheminformatics).</li>
       <li>Граф-нейросети для молекул: PyTorch → Chemprop / PyTorch Geometric.</li>
@@ -388,11 +428,11 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
   </div>
 
   <div class="cv-sec">
-    <div class="cv-sec-t">// разделы</div>
+    <div class="cv-sec-t">// explore</div>
     <div class="cv-nav">
-      <button onclick="activateTab('roadmap')">→ Roadmap · план 2026–2031</button>
-      <button onclick="activateTab('vector')">→ Вектор · стратегия и деньги</button>
-      <button onclick="activateTab('skills')">→ Навыки · что есть и что добавить</button>
+      <button onclick="activateTab('roadmap')">→ Roadmap · 2026–2031 plan</button>
+      <button onclick="activateTab('vector')">→ Vector · strategy &amp; finances</button>
+      <button onclick="activateTab('skills')">→ Skills · have &amp; to learn</button>
     </div>
   </div>
 
@@ -1345,10 +1385,18 @@ function toggleDom(d){
   skSearch();
 }
 
+// Profile CV language toggle
+function cvLang(l){
+  document.querySelectorAll('.cv-body').forEach(b=>b.toggleAttribute('hidden',b.dataset.lang!==l));
+  document.querySelectorAll('.cv-lang-b').forEach(b=>{const on=b.dataset.l===l;b.classList.toggle('active',on);b.setAttribute('aria-pressed',on?'true':'false');});
+  try{localStorage.setItem('cvLang',l)}catch(e){}
+}
+function loadCvLang(){let l='ru';try{l=localStorage.getItem('cvLang')||'ru'}catch(e){}cvLang(l);}
+
 window.addEventListener('load',()=>{
   loadCards();renderCustomRoadmap();
   loadSkills();renderCustomSkills();loadDomains();skSearch();
-  loadNotes();notesCount();
+  loadNotes();notesCount();loadCvLang();
   initMonth();loadTab();
 });
 </script>
