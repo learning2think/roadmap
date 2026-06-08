@@ -3,766 +3,807 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Integrated Roadmap — Computational Neuropharmacology</title>
+<title>// roadmap — learning2think</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0b0b0b;--bg-card:#131313;--bg-hover:#1a1a1a;
+  --border:#1e1e1e;--border-l:#2a2a2a;
+  --text:#d0d0d0;--dim:#555;--faint:#252525;
+  --health:#c94f4f;--study:#b8921e;--science:#3d9e57;
+  --career:#7257c4;--finance:#c06b2c;--skills:#1a9078;--vis:#4682b4;
+  --mono:'JetBrains Mono','Fira Code','Courier New',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--mono);font-size:13px;line-height:1.6;min-height:100vh}
 
-  :root {
-    --bg: #0f1117;
-    --bg2: #161b27;
-    --bg3: #1e2535;
-    --border: #2a3347;
-    --text: #e2e8f0;
-    --muted: #94a3b8;
-    --quiet: #64748b;
-    --accent: #3b82f6;
-    --cyan: #06b6d4;
-    --green: #22c55e;
-    --amber: #f59e0b;
-    --purple: #a855f7;
-    --red: #ef4444;
-  }
+/* HEADER */
+.hdr{padding:26px 18px 14px;border-bottom:1px solid var(--border)}
+.hdr-title{font-size:15px;font-weight:500;letter-spacing:.02em;color:#e4e4e4}
+.hdr-sub{font-size:11px;color:var(--dim);margin-top:3px}
+.hdr-goal{font-size:11px;color:var(--science);margin-top:5px;opacity:.8}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+/* TABS */
+.tabs{display:flex;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;position:sticky;top:0;background:var(--bg);z-index:10}
+.tabs::-webkit-scrollbar{display:none}
+.tab-btn{flex-shrink:0;padding:0 16px;height:44px;background:none;border:none;border-bottom:2px solid transparent;color:var(--dim);font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:color .12s,border-color .12s;white-space:nowrap}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--text);border-bottom-color:var(--text)}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    min-height: 100vh;
-    padding: 40px 24px 80px;
-  }
+/* SECTIONS */
+.tab-s{display:none;padding:22px 16px 64px;animation:fi .15s ease}
+.tab-s.active{display:block}
+@keyframes fi{from{opacity:.4}to{opacity:1}}
 
-  .header {
-    max-width: 900px;
-    margin: 0 auto 34px;
-    text-align: center;
-  }
+/* YEAR */
+.yr-blk{margin-bottom:8px}
+.yr-hdr{display:flex;align-items:center;gap:10px;margin:28px 0 14px}
+.yr-hdr:first-child{margin-top:0}
+.yr-lbl{font-size:11px;font-weight:600;letter-spacing:.07em;color:#ddd;border:1px solid var(--border-l);padding:3px 11px;white-space:nowrap}
+.yr-bar{flex:1;height:2px;background:var(--border);overflow:hidden}
+.yr-fill{height:100%;background:var(--science);width:0%;transition:width .35s ease}
+.yr-pct{font-size:10px;color:var(--dim);white-space:nowrap}
 
-  .header h1 {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 23px;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
+/* GRID */
+.grid{display:grid;grid-template-columns:1fr;gap:9px}
+@media(min-width:600px){.grid{grid-template-columns:1fr 1fr}}
+.full{grid-column:1/-1}
 
-  .header p {
-    color: var(--muted);
-    font-family: 'JetBrains Mono', monospace;
-    line-height: 1.7;
-  }
+/* CARD */
+.card{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--border-l);padding:13px 38px 11px 13px;cursor:pointer;transition:background .1s,opacity .18s;position:relative;user-select:none}
+.card:hover{background:var(--bg-hover)}
+.card.done{opacity:.35}
+.card.done .c-title{text-decoration:line-through}
+.card[data-c="health"]{border-left-color:var(--health)}
+.card[data-c="study"]{border-left-color:var(--study)}
+.card[data-c="science"]{border-left-color:var(--science)}
+.card[data-c="career"]{border-left-color:var(--career)}
+.card[data-c="finance"]{border-left-color:var(--finance)}
+.card[data-c="skills"]{border-left-color:var(--skills)}
+.card[data-c="vis"]{border-left-color:var(--vis)}
+.c-cat{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;display:block}
+.cat-health{color:var(--health)}.cat-study{color:var(--study)}.cat-science{color:var(--science)}
+.cat-career{color:var(--career)}.cat-finance{color:var(--finance)}.cat-skills{color:var(--skills)}.cat-vis{color:var(--vis)}
+.c-title{font-size:13px;font-weight:500;margin-bottom:4px;color:#e0e0e0}
+.c-desc{font-size:11.5px;color:var(--dim);line-height:1.5}
+.c-chk{position:absolute;top:11px;right:12px;font-size:13px;color:var(--faint);transition:color .12s;line-height:1}
+.card.done .c-chk{color:var(--science)}
+.badge-res{font-size:8.5px;background:rgba(61,158,87,.12);color:var(--science);border:1px solid rgba(61,158,87,.25);padding:1px 5px;margin-left:6px;letter-spacing:.05em;vertical-align:middle}
 
-  .thesis {
-    max-width: 900px;
-    margin: 0 auto 36px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
+/* ===== ВЕКТОР ===== */
+.vs{margin-bottom:26px}
+.vs-title{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid var(--border)}
+.fnode{background:var(--bg-card);border:1px solid var(--border-l);padding:13px 15px;margin-bottom:7px;font-size:12px}
+.fnode.good{border-color:rgba(61,158,87,.45);background:rgba(61,158,87,.06)}
+.fnode.trap{border-color:rgba(201,79,79,.35);background:rgba(201,79,79,.05)}
+.fnode.note{border-color:rgba(184,146,30,.35);background:rgba(184,146,30,.05)}
+.fn-title{font-weight:600;font-size:12px;margin-bottom:3px}
+.fnode.good .fn-title{color:var(--science)}
+.fnode.trap .fn-title{color:var(--health)}
+.fnode.note .fn-title{color:var(--study)}
+.fn-sub{font-size:11px;color:var(--dim);line-height:1.5}
+.conn{text-align:center;color:#2a2a2a;font-size:16px;margin:4px 0;line-height:1}
+.fork2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:7px}
+.pipe{display:flex;align-items:center;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.pipe::-webkit-scrollbar{display:none}
+.pn{background:rgba(70,130,180,.08);border:1px solid rgba(70,130,180,.25);padding:7px 11px;font-size:11px;white-space:nowrap;flex-shrink:0}
+.pa{color:var(--vis);padding:0 6px;flex-shrink:0;font-size:12px}
+.dests{display:grid;grid-template-columns:1fr;gap:8px}
+@media(min-width:480px){.dests{grid-template-columns:1fr 1fr 1fr}}
+.dest{background:var(--bg-card);border:1px solid var(--border);padding:11px 12px;font-size:11px}
+.dest.hi{border-top:2px solid var(--science)}
+.dest.med{border-top:2px solid var(--vis)}
+.dest.lo{border-top:2px solid var(--study)}
+.dest-t{font-weight:600;font-size:12px;margin-bottom:3px;color:#d8d8d8}
+.dest-s{color:var(--dim);line-height:1.5}
+.prs{display:grid;grid-template-columns:1fr;gap:7px}
+@media(min-width:480px){.prs{grid-template-columns:1fr 1fr}}
+.pr{background:var(--bg-card);border-left:2px solid var(--border-l);padding:9px 11px;font-size:11.5px}
+.pr-n{color:var(--dim);font-size:9.5px;margin-bottom:2px}
 
-  .thesis-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px;
-  }
+/* ===== НАВЫКИ ===== */
+.dom{margin-bottom:22px}
+.dom-t{font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:7px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+.sk{display:flex;align-items:flex-start;gap:9px;padding:6px 0;border-bottom:1px solid var(--faint);font-size:12px;cursor:pointer;transition:opacity .12s}
+.sk.ok{opacity:.35}
+.sk.ok .sk-t{text-decoration:line-through}
+.skb{flex-shrink:0;font-size:8.5px;font-weight:600;letter-spacing:.05em;padding:2px 5px;border:1px solid;min-width:26px;text-align:center}
+.bh{color:var(--science);border-color:rgba(61,158,87,.4);background:rgba(61,158,87,.07)}
+.ba{color:var(--vis);border-color:rgba(70,130,180,.4);background:rgba(70,130,180,.07)}
+.bc{color:var(--study);border-color:rgba(184,146,30,.35);background:rgba(184,146,30,.06)}
+.bx{color:var(--health);border-color:rgba(201,79,79,.35);background:rgba(201,79,79,.05);text-decoration:line-through}
+.sk-t{color:var(--text);line-height:1.5}
+.sk-n{color:var(--dim);font-size:10.5px}
+.skip-blk{background:rgba(201,79,79,.04);border:1px solid rgba(201,79,79,.18);padding:13px 15px;margin-top:6px}
+.skip-hdr{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--health);margin-bottom:7px}
+.skip-i{font-size:11.5px;color:var(--dim);padding:2px 0;text-decoration:line-through}
 
-  .thesis-card b {
-    display: block;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
+/* TEXTAREA TABS */
+.ta-lbl{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:7px}
+textarea{width:100%;min-height:420px;background:var(--bg-card);border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:12px;padding:13px;resize:vertical;line-height:1.65;outline:none;transition:border-color .12s}
+textarea:focus{border-color:var(--border-l)}
+.ta-note{font-size:10px;color:var(--faint);margin-top:7px}
 
-  .thesis-card span {
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.55;
-  }
-
-  .legend {
-    display: flex;
-    gap: 18px;
-    justify-content: center;
-    margin-bottom: 44px;
-    flex-wrap: wrap;
-  }
-
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    color: var(--muted);
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  .legend-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .roadmap {
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  .roadmap::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--accent), var(--purple), var(--green));
-    transform: translateX(-50%);
-    opacity: 0.3;
-  }
-
-  .year-block { margin-bottom: 12px; }
-
-  .year-label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .year-badge {
-    background: var(--bg);
-    border: 2px solid var(--border);
-    border-radius: 8px;
-    padding: 8px 20px;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 1px;
-  }
-
-  .year-badge.y1 { border-color: var(--accent); color: var(--accent); }
-  .year-badge.y0 { border-color: var(--amber); color: var(--amber); }
-  .year-badge.y2 { border-color: var(--cyan); color: var(--cyan); }
-  .year-badge.y3 { border-color: var(--purple); color: var(--purple); }
-  .year-badge.y45 { border-color: var(--green); color: var(--green); }
-
-  .row {
-    display: grid;
-    grid-template-columns: 1fr 48px 1fr;
-    align-items: start;
-    margin-bottom: 6px;
-  }
-
-  .row-left { display: flex; justify-content: flex-end; }
-  .row-right { display: flex; justify-content: flex-start; }
-  .row-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 16px;
-  }
-
-  .center-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 2px solid;
-    background: var(--bg);
-    flex-shrink: 0;
-    position: relative;
-    z-index: 2;
-  }
-
-  .node {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 11px 14px;
-    max-width: 340px;
-    width: 100%;
-    position: relative;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-
-  .node:hover { transform: translateY(-1px); }
-
-  .row-left .node::after {
-    content: '';
-    position: absolute;
-    right: -25px;
-    top: 50%;
-    width: 25px;
-    height: 1px;
-    background: var(--border);
-  }
-
-  .row-right .node::before {
-    content: '';
-    position: absolute;
-    left: -25px;
-    top: 50%;
-    width: 25px;
-    height: 1px;
-    background: var(--border);
-  }
-
-  .node-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 5px;
-    opacity: 0.75;
-  }
-
-  .node-title {
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 4px;
-    line-height: 1.4;
-  }
-
-  .node-desc {
-    font-size: 11px;
-    color: var(--muted);
-    line-height: 1.55;
-  }
-
-  .node.health  { border-left: 3px solid var(--red); }
-  .node.health .node-tag { color: var(--red); }
-  .node.study   { border-left: 3px solid var(--accent); }
-  .node.study .node-tag { color: var(--accent); }
-  .node.science { border-left: 3px solid var(--purple); }
-  .node.science .node-tag { color: var(--purple); }
-  .node.code    { border-left: 3px solid var(--cyan); }
-  .node.code .node-tag { color: var(--cyan); }
-  .node.money   { border-left: 3px solid var(--amber); }
-  .node.money .node-tag { color: var(--amber); }
-  .node.career  { border-left: 3px solid var(--green); }
-  .node.career .node-tag { color: var(--green); }
-
-  .dot-health  { border-color: var(--red); }
-  .dot-study   { border-color: var(--accent); }
-  .dot-science { border-color: var(--purple); }
-  .dot-code    { border-color: var(--cyan); }
-  .dot-money   { border-color: var(--amber); }
-  .dot-career  { border-color: var(--green); }
-
-  .full-row {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 6px;
-    position: relative;
-  }
-
-  .full-row .node {
-    max-width: 560px;
-    text-align: center;
-  }
-
-  .full-row .node::before,
-  .full-row .node::after { display: none; }
-
-  .divider {
-    height: 1px;
-    background: var(--border);
-    margin: 32px 0;
-    opacity: 0.4;
-  }
-
-  .footer {
-    max-width: 900px;
-    margin: 42px auto 0;
-    color: var(--quiet);
-    font-size: 11px;
-    line-height: 1.7;
-    text-align: center;
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  @media (max-width: 720px) {
-    body { padding: 28px 16px 64px; }
-    .thesis { grid-template-columns: 1fr; }
-    .roadmap::before { left: 12px; }
-    .row { grid-template-columns: 12px 1fr; }
-    .row-left { display: none; }
-    .row-right { grid-column: 2; }
-    .row-center { grid-column: 1; padding-top: 14px; }
-    .row-right .node::before { display: none; }
-    .row-right .node { margin-left: 8px; }
-    .node, .full-row .node { max-width: 100%; }
-  }
+/* MONTH TAB */
+.m-blk{margin-bottom:22px}
+select,.m-inp{width:100%;background:var(--bg-card);border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:12px;padding:9px 11px;outline:none;appearance:none;-webkit-appearance:none;transition:border-color .12s}
+select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23555'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 11px center;padding-right:28px}
+select:focus,.m-inp:focus{border-color:var(--border-l)}
+.m-row{display:flex;gap:8px;margin-bottom:10px}
+.m-row .m-inp{flex:1}
+.m-btn{background:var(--bg-card);border:1px solid var(--border);color:var(--science);font-family:var(--mono);font-size:18px;width:40px;flex-shrink:0;cursor:pointer;transition:border-color .12s,background .1s;line-height:1}
+.m-btn:hover{background:var(--bg-hover);border-color:var(--science)}
+.m-task{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--faint)}
+.m-task.tdone .m-tt{text-decoration:line-through;opacity:.35}
+.m-chk{font-size:13px;color:var(--faint);cursor:pointer;flex-shrink:0;margin-top:1px;transition:color .12s;min-width:14px;line-height:1.4}
+.m-task.tdone .m-chk{color:var(--science)}
+.m-tt{flex:1;font-size:12px;color:var(--text);line-height:1.5;word-break:break-word}
+.m-del{font-size:15px;color:var(--faint);cursor:pointer;flex-shrink:0;margin-top:1px;transition:color .12s;line-height:1.4}
+.m-del:hover{color:var(--health)}
+.m-empty{font-size:11px;color:var(--faint);padding:8px 0}
+/* VECTOR FINANCE */
+.frow{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px solid var(--faint);font-size:11.5px;gap:8px}
+.fkey{color:var(--dim);flex:1;min-width:0}
+.fval{flex-shrink:0;text-align:right;font-size:11.5px}
+.fconv{color:var(--dim);font-size:10px;margin-left:3px}
+.ftotal{color:var(--science);font-weight:500}
+.fnote{font-size:11px;color:var(--dim);margin-top:10px;line-height:1.75;padding:9px 11px;border-left:2px solid var(--border-l)}
+.fnlab{color:var(--study);font-size:9px;text-transform:uppercase;letter-spacing:.05em;display:inline-block;margin-right:2px}
+/* PLAN B */
+.pb-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--faint)}
+.pb-num{font-size:10px;color:var(--dim);flex-shrink:0;width:14px;margin-top:2px;font-weight:600}
+.pb-t{font-size:12px;font-weight:500;color:var(--text);margin-bottom:3px}
+.pb-s{font-size:11px;color:var(--dim);line-height:1.55}
+.pb-amt{font-size:10.5px;color:var(--science);font-weight:400;margin-left:5px}
+/* SKILL RESOURCE */
+.sk-r{display:block;font-size:10px;color:#363636;margin-top:2px;line-height:1.4}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>// integrated roadmap — learning2think</h1>
-  <p>Сессия · медицина · вычислительная нейрофармакология · исследовательский профиль 2026-2031</p>
+<div class="hdr">
+  <div class="hdr-title">// roadmap — learning2think</div>
+  <div class="hdr-sub">вычислительные нейронауки · хемоинформатика · ML · 2026–2031</div>
+  <div class="hdr-goal">// цель: funded PhD · NL / DE / OIST · $2–3k/мес · независимость</div>
 </div>
 
-<section class="thesis" aria-label="Главная логика roadmap">
-  <div class="thesis-card">
-    <b>north star</b>
-    <span>Стать специалистом по вычислительной нейрофармакологии: медицинская база + molecular ML + PK/PD + модели ЦНС.</span>
-  </div>
-  <div class="thesis-card">
-    <b>current constraint</b>
-    <span>До закрытия сессии профессиональное обучение идет в поддерживающем режиме. Главная задача — вернуть академическую устойчивость.</span>
-  </div>
-  <div class="thesis-card">
-    <b>strategy</b>
-    <span>Каждый следующий навык должен обслуживать проект: BBB → докинг → PK/PD → molecular ML → QSP или нейродинамика.</span>
-  </div>
-</section>
-
-<div class="legend">
-  <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>здоровье</div>
-  <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div>учеба</div>
-  <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div>наука</div>
-  <div class="legend-item"><div class="legend-dot" style="background:var(--cyan)"></div>код / навыки</div>
-  <div class="legend-item"><div class="legend-dot" style="background:var(--amber)"></div>финансы</div>
-  <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>карьера</div>
+<div class="tabs">
+  <button class="tab-btn active" data-tab="roadmap">Roadmap</button>
+  <button class="tab-btn" data-tab="vector">Вектор</button>
+  <button class="tab-btn" data-tab="skills">Навыки</button>
+  <button class="tab-btn" data-tab="month">Месяц</button>
+  <button class="tab-btn" data-tab="notes">Заметки</button>
 </div>
 
-<div class="roadmap">
-  <div class="year-block">
-    <div class="year-label"><div class="year-badge y0">ФАЗА 0 · 8 ИЮНЯ — 7 ИЮЛЯ 2026</div></div>
+<!-- ════════════════════ РОАДМАП ════════════════════ -->
+<div id="roadmap" class="tab-s active">
 
-    <div class="row">
-      <div class="row-left">
-        <div class="node health">
-          <div class="node-tag">фундамент · здоровье</div>
-          <div class="node-title">Сохранить рабочее состояние</div>
-          <div class="node-desc">Лечение, сон и минимально устойчивый ритм важнее попытки наверстать все сразу. В плохой день действует сокращенный режим: 25 минут теории, 15 минут схемы, 15 минут практики, 5 минут фиксации результата.</div>
-        </div>
-      </div>
-      <div class="row-center"><div class="center-dot dot-health"></div></div>
-      <div class="row-right">
-        <div class="node study">
-          <div class="node-tag">сессия · главный спринт</div>
-          <div class="node-title">Пройти 30-дневный план</div>
-          <div class="node-desc">Ежедневно: теория → механизм/патогенез → рецепт или задача → устный ответ → журнал слабых мест. День закрыт только после ответа на 2/2 без конспекта.</div>
-        </div>
-      </div>
+  <div id="ys1">
+    <div class="yr-hdr">
+      <div class="yr-lbl">ГОД 1 · 2026–2027</div>
+      <div class="yr-bar"><div class="yr-fill" id="yf1"></div></div>
+      <div class="yr-pct" id="yp1">0/9</div>
     </div>
+    <div class="grid">
 
-    <div class="row">
-      <div class="row-left">
-        <div class="node study">
-          <div class="node-tag">сессия · предметы 1-3</div>
-          <div class="node-title">Механизм, морфология, лечение</div>
-          <div class="node-desc">Патофизиология: причина → патогенез → клиника. Патанатомия: морфогенез → макро → микро → исход. Фармакология: мишень → эффект → показания → НЛР + минимум 2 рецепта в учебный день.</div>
-        </div>
-      </div>
-      <div class="row-center"><div class="center-dot dot-study"></div></div>
-      <div class="row-right">
-        <div class="node study">
-          <div class="node-tag">сессия · предметы 4-6</div>
-          <div class="node-title">Клиника, популяция, кожа</div>
-          <div class="node-desc">ПВБ: жалоба → синдром → обследование. Эпидемиология: источник → путь → очаг → мероприятия. Дерматовенерология: элемент → патогенез → дифференциальный ряд → лечение/профилактика.</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="row-left">
-        <div class="node science">
-          <div class="node-tag">мост · in silico BBB</div>
-          <div class="node-title">Не отделять сессию от проекта</div>
-          <div class="node-desc">ЦНС-препараты связывать с MW, logP/logD, TPSA, pKa, P-gp и проникновением через BBB. Эпидемиологию использовать для понимания валидации, endpoints, bias и качества данных.</div>
-        </div>
+      <div class="card" id="y1b" data-c="study" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-study">УЧЁБА</span>
+        <div class="c-title">Закрыть долги</div>
+        <div class="c-desc">Справка покрывает пропуски. Академический отпуск если нужен. Дотянуть до 4 курса.</div>
       </div>
-      <div class="row-center"><div class="center-dot dot-science"></div></div>
-      <div class="row-right">
-        <div class="node code">
-          <div class="node-tag">профессиональный трек · maintenance</div>
-          <div class="node-title">Не начинать тяжелые новые курсы</div>
-          <div class="node-desc">До финального прогона сессии: максимум один короткий блок в неделю на статью, репозиторий или BBB. PyTorch, ОДУ и докинг стартуют после закрытия основной учебной нагрузки.</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="full-row">
-      <div class="node study">
-        <div class="node-tag">критерий выхода из фазы</div>
-        <div class="node-title">Сессия переведена из хаоса в управляемую систему</div>
-        <div class="node-desc">По каждому предмету есть оценка 0/1/2, список конкретных слабых мест и финальный устный прогон. Только после этого roadmap возвращается к полноценному исследовательскому темпу.</div>
+      <div class="card" id="y1c" data-c="science" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-science">НАУКА</span>
+        <div class="c-title">Статья в Journal of Cheminformatics</div>
+        <div class="c-desc">Опубликовать. Статус "under review" уже в CV. Это главный козырь.</div>
       </div>
-    </div>
-  </div>
 
-  <div class="divider"></div>
+      <div class="card" id="y1d" data-c="science" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-science">НАУКА</span>
+        <div class="c-title">Открыть репозиторий</div>
+        <div class="c-desc">После решения вопроса УМНИК. Zenodo DOI. Полноценный README.</div>
+      </div>
 
-  <div class="year-block">
-    <div class="year-label"><div class="year-badge y1">ГОД 1 · 2026-2027</div></div>
+      <div class="card" id="y1e" data-c="career" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-career">КАРЬЕРА</span>
+        <div class="c-title">Лаборатория</div>
+        <div class="c-desc">ВШЭ MEG-лаб или Сколтех — ждать ответа. OIST — написать профессорам напрямую. Если откажут все — новые письма в сентябре со статьёй.</div>
+      </div>
 
-    <div class="row">
-      <div class="row-left">
-        <div class="node health">
-          <div class="node-tag">здоровье · приоритет #1</div>
-          <div class="node-title">Стабилизировать базу</div>
-          <div class="node-desc">Психиатр, честное описание симптомов, справка по пропускам, рабочая схема лечения. Это не отвлечение от науки, а условие, чтобы дорожная карта вообще была выполняемой.</div>
-        </div>
+      <div class="card" id="y1f" data-c="finance" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-finance">ФИНАНСЫ</span>
+        <div class="c-title">УМНИК</div>
+        <div class="c-desc">Подать заявку. Открытый репо + статья = сильная заявка. 500 тыс/год на 2 года.</div>
       </div>
-      <div class="row-center"><div class="center-dot dot-health"></div></div>
-      <div class="row-right">
-        <div class="node study">
-          <div class="node-tag">учеба</div>
-          <div class="node-title">Закрыть долги и выйти на 4 курс</div>
-          <div class="node-desc">Закрыть пропуски через справку, договориться с кафедрами, держать минимально устойчивый темп. Академический отпуск оставить как запасной инструмент, а не как провал.</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="row-left">
-        <div class="node science">
-          <div class="node-tag">наука · публикация</div>
-          <div class="node-title">Journal of Cheminformatics</div>
-          <div class="node-desc">Довести статью до статуса under review / accepted. Даже under review уже можно аккуратно указывать в CV и письмах, если есть препринт или репозиторий.</div>
-        </div>
+      <div class="card" id="y1g" data-c="skills" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-skills">НАВЫКИ</span>
+        <div class="c-title">PyTorch базовый уровень</div>
+        <div class="c-desc">fast.ai — практично, бесплатно. Цель: написать простую нейросеть с нуля.</div>
       </div>
-      <div class="row-center"><div class="center-dot dot-science"></div></div>
-      <div class="row-right">
-        <div class="node science">
-          <div class="node-tag">наука · reproducibility</div>
-          <div class="node-title">Открыть репозиторий проекта</div>
-          <div class="node-desc">После решения вопроса с УМНИК: чистый README, пример запуска, данные или ссылки на данные, Zenodo DOI, короткий раздел limitations. Репозиторий должен выглядеть как научный артефакт.</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="row-left">
-        <div class="node career">
-          <div class="node-tag">карьера · лаборатория</div>
-          <div class="node-title">Войти в научную среду</div>
-          <div class="node-desc">ВШЭ MEG-лаб, Сколтех или близкая лаборатория. Если ответа нет, осенью отправить новую волну писем уже со статьей, репозиторием и 2-3 конкретными идеями сотрудничества.</div>
-        </div>
+      <div class="card" id="y1h" data-c="skills" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-skills">НАВЫКИ</span>
+        <div class="c-title">Coursera Computational Neuroscience</div>
+        <div class="c-desc">UW, Rao &amp; Fairhall. Довести до конца — не бросать.</div>
       </div>
-      <div class="row-center"><div class="center-dot dot-career"></div></div>
-      <div class="row-right">
-        <div class="node money">
-          <div class="node-tag">финансы · грант</div>
-          <div class="node-title">УМНИК как ускоритель</div>
-          <div class="node-desc">Подать заявку: открытый репозиторий + статья + понятный план развития проекта. Грант важен не только деньгами, но и сигналом самостоятельности.</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="row-left">
-        <div class="node code">
-          <div class="node-tag">навыки · обязательный фундамент</div>
-          <div class="node-title">ОДУ и динамические системы</div>
-          <div class="node-desc">Освоить численное решение ОДУ, фазовые портреты и подгонку параметров через scipy. Практика: Emax/EC50, turnover-модель и простая модель распределения вещества между плазмой и мозгом.</div>
-        </div>
+      <div class="card full" id="y1i" data-c="vis" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-vis">НАУКА · ВИДИМОСТЬ</span>
+        <div class="c-title">Сеченовская конференция</div>
+        <div class="c-desc">Секция 21 (биоинформатика). Тезисы готовы. Выступить — получить первые живые контакты.</div>
       </div>
-      <div class="row-center"><div class="center-dot dot-code"></div></div>
-      <div class="row-right">
-        <div class="node code">
-          <div class="node-tag">навыки · ML</div>
-          <div class="node-title">PyTorch на рабочем уровне</div>
-          <div class="node-desc">fast.ai, затем собственная сеть с нуля. Критерий: написать воспроизводимый baseline, объяснить training loop, переобучение, калибровку и сравнение с XGBoost/RF.</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="row-left">
-        <div class="node code">
-          <div class="node-tag">навыки · pharmacometrics</div>
-          <div class="node-title">Связка PK/PD и ЦНС</div>
-          <div class="node-desc">ADME из медицинской базы превратить в вычислительную модель: Emax, EC50, indirect response, brain/plasma distribution, подгонка параметров и анализ чувствительности.</div>
-        </div>
-      </div>
-      <div class="row-center"><div class="center-dot dot-code"></div></div>
-      <div class="row-right">
-        <div class="node code">
-          <div class="node-tag">навыки · структура</div>
-          <div class="node-title">Базовый molecular docking</div>
-          <div class="node-desc">AutoDock Vina + PyMOL: подготовить лиганд и мишень, выполнить docking, визуализировать позы и честно описать ограничения scoring. Это конкретный запрос руководителя, поэтому приоритет выше новых курсов.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="row-left">
-        <div class="node code">
-          <div class="node-tag">навыки · статистика</div>
-          <div class="node-title">Statistical Rethinking до конца</div>
-          <div class="node-desc">Регрессия, причинность, регуляризация и posterior predictive checks. Глубокие иерархические модели и MCMC оставить на следующий этап, если их потребует задача.</div>
-        </div>
-      </div>
-      <div class="row-center"><div class="center-dot dot-code"></div></div>
-      <div class="row-right">
-        <div class="node code">
-          <div class="node-tag">инженерия · reproducibility</div>
-          <div class="node-title">Docker и рабочий CI</div>
-          <div class="node-desc">Контейнер для воспроизводимого запуска, GitHub Actions для тестов и минимальный release pipeline. Cloud, новый backend-стек и другие языки сейчас не нужны.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="full-row">
-      <div class="node science">
-        <div class="node-tag">видимость · первый круг контактов</div>
-        <div class="node-title">Сеченовская конференция</div>
-        <div class="node-desc">Выступить в секции биоинформатики, собрать 3-5 контактов, после конференции отправить follow-up письма. Не просто "выступить", а превратить событие в сеть.</div>
-      </div>
     </div>
   </div>
 
-  <div class="divider"></div>
-
-  <div class="year-block">
-    <div class="year-label"><div class="year-badge y2">ГОД 2 · 2027-2028</div></div>
-
-    <div class="row">
-      <div class="row-left">
-        <div class="node science">
-          <div class="node-tag">наука</div>
-          <div class="node-title">Вторая публикация</div>
-          <div class="node-desc">Расширение In Silico BBB или новая тема из лаборатории. Критерий успеха: к концу 4 курса в CV есть не только учеба, но и независимая исследовательская линия.</div>
-        </div>
-      </div>
-      <div class="row-center"><div class="center-dot dot-science"></div></div>
-      <div class="row-right">
-        <div class="node code">
-          <div class="node-tag">навыки · molecular ML</div>
-          <div class="node-title">Графовые модели молекул</div>
-          <div class="node-desc">SMILES → molecular graph → message passing. PyTorch Geometric или Chemprop, обязательное сравнение с RDKit fingerprints + классическими моделями.</div>
-        </div>
-      </div>
+  <div id="ys2">
+    <div class="yr-hdr">
+      <div class="yr-lbl">ГОД 2 · 2027–2028</div>
+      <div class="yr-bar"><div class="yr-fill" id="yf2"></div></div>
+      <div class="yr-pct" id="yp2">0/5</div>
     </div>
+    <div class="grid">
 
-    <div class="row">
-      <div class="row-left">
-        <div class="node code">
-          <div class="node-tag">навыки · данные</div>
-          <div class="node-title">ChEMBL, PDB и UniProt</div>
-          <div class="node-desc">Научиться получать, очищать и связывать молекулы, мишени и структуры белков. Уровень цели: собрать датасет с provenance, а не изучать полноценные геномные pipeline.</div>
-        </div>
+      <div class="card" id="y2a" data-c="science" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-science">НАУКА</span>
+        <div class="c-title">Вторая публикация</div>
+        <div class="c-desc">Расширение In Silico BBB или новая тема из лаборатории. Цель — 2 статьи в CV к концу 4 курса.</div>
       </div>
-      <div class="row-center"><div class="center-dot dot-code"></div></div>
-      <div class="row-right">
-        <div class="node science">
-          <div class="node-tag">наука · чтение</div>
-          <div class="node-title">Системная работа со статьями</div>
-          <div class="node-desc">2-3 статьи в неделю по выбранной теме. Вести краткие summaries: задача, метод, данные, ограничения, что можно повторить или улучшить.</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="row-left">
-        <div class="node code">
-          <div class="node-tag">навыки · molecular language models</div>
-          <div class="node-title">ChemBERTa / MolBERT без изобретения велосипеда</div>
-          <div class="node-desc">Понять токенизацию SMILES, transfer learning и ограничения pretrained molecular transformers. Использовать готовые модели только после сильного классического и GNN baseline.</div>
-        </div>
+      <div class="card" id="y2b" data-c="skills" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-skills">НАВЫКИ</span>
+        <div class="c-title">MNE-Python</div>
+        <div class="c-desc">Только если работаешь с MEG-лаб. Эпохи, артефакты, частотные полосы, предобработка.</div>
       </div>
-      <div class="row-center"><div class="center-dot dot-code"></div></div>
-      <div class="row-right">
-        <div class="node code">
-          <div class="node-tag">условная ветка · neurodata</div>
-          <div class="node-title">MNE-Python только при реальной MEG/EEG-задаче</div>
-          <div class="node-desc">Если лаборатория дает данные: epochs, ICA, артефакты, time-frequency и воспроизводимый pipeline. Без лабораторного проекта MNE не конкурирует с PK/PD и molecular ML за время.</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="row-left">
-        <div class="node code">
-          <div class="node-tag">нейронауки · теория</div>
-          <div class="node-title">Модели нейрона и популяционной динамики</div>
-          <div class="node-desc">Hodgkin-Huxley и FitzHugh-Nagumo на уровне принципа и кода; затем firing-rate models, осцилляции и mean-field основы. Это мост от ОДУ к нейрофармакологии.</div>
-        </div>
+      <div class="card" id="y2c" data-c="skills" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-skills">НАВЫКИ</span>
+        <div class="c-title">Байесовская статистика</div>
+        <div class="c-desc">Statistical Rethinking — McElreath, YouTube бесплатно. В нейронауках используется постоянно.</div>
       </div>
-      <div class="row-center"><div class="center-dot dot-code"></div></div>
-      <div class="row-right">
-        <div class="node science">
-          <div class="node-tag">наука · uncertainty</div>
-          <div class="node-title">Неопределенность по требованию проекта</div>
-          <div class="node-desc">Калибровка уже обязательна; Bayesian deep learning, ensembles и conformal prediction добавлять, когда модель начинает влиять на фармакологические выводы.</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="row-left">
-        <div class="node code">
-          <div class="node-tag">навыки · инженерия</div>
-          <div class="node-title">Репозитории как портфолио</div>
-          <div class="node-desc">Для каждого проекта: установка, пример запуска, тестовые данные, результаты, citation, license. GitHub должен показывать стиль мышления, а не просто набор файлов.</div>
-        </div>
+      <div class="card" id="y2d" data-c="science" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-science">НАУКА</span>
+        <div class="c-title">Читать статьи системно</div>
+        <div class="c-desc">2–3 в неделю по своей теме. Цитировать в письмах руководителям.</div>
       </div>
-      <div class="row-center"><div class="center-dot dot-code"></div></div>
-      <div class="row-right">
-        <div class="node career">
-          <div class="node-tag">карьера · коммуникация</div>
-          <div class="node-title">Письма научным руководителям</div>
-          <div class="node-desc">Короткие письма с конкретикой: что уже сделано, чем интересна их лаборатория, какая маленькая задача может стать первым совместным шагом.</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="full-row">
-      <div class="node career">
-        <div class="node-tag">видимость</div>
-        <div class="node-title">Одна очная конференция</div>
-        <div class="node-desc">Постер или доклад. Перед поездкой: список людей, которым написать. После поездки: follow-up, обмен репозиториями, возможная стажировка или совместный анализ данных.</div>
+      <div class="card full" id="y2e" data-c="vis" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-vis">КАРЬЕРА · ВИДИМОСТЬ</span>
+        <div class="c-title">Конференция очно</div>
+        <div class="c-desc">Одна очная конференция — живые контакты дороже десяти холодных писем.</div>
       </div>
+
     </div>
   </div>
 
-  <div class="divider"></div>
-
-  <div class="year-block">
-    <div class="year-label"><div class="year-badge y3">ГОД 3 · 2028-2029</div></div>
-
-    <div class="row">
-      <div class="row-left">
-        <div class="node study">
-          <div class="node-tag">учеба</div>
-          <div class="node-title">Закончить институт</div>
-          <div class="node-desc">Медицинское образование + ML — редкая комбинация. Диплом усиливает доверие к профилю и помогает говорить с биологами, врачами и ML-командами на одном языке.</div>
-        </div>
-      </div>
-      <div class="row-center"><div class="center-dot dot-study"></div></div>
-      <div class="row-right">
-        <div class="node money">
-          <div class="node-tag">финансы</div>
-          <div class="node-title">Грант + ставка / стажировка</div>
-          <div class="node-desc">Собрать устойчивую связку: лабораторная ставка, грант, оплачиваемая стажировка или part-time research engineering. Цель — покупать время для науки.</div>
-        </div>
-      </div>
+  <div id="ys3">
+    <div class="yr-hdr">
+      <div class="yr-lbl">ГОД 3 · 2028–2029</div>
+      <div class="yr-bar"><div class="yr-fill" id="yf3"></div></div>
+      <div class="yr-pct" id="yp3">0/5</div>
     </div>
+    <div class="grid">
 
-    <div class="row">
-      <div class="row-left">
-        <div class="node science">
-          <div class="node-tag">наука</div>
-          <div class="node-title">3+ публикации / препринта в CV</div>
-          <div class="node-desc">К этому моменту профиль должен читаться как "молодой исследователь с траекторией", а не как студент, который интересуется ML.</div>
-        </div>
+      <div class="card" id="y3a" data-c="study" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-study">УЧЁБА</span>
+        <div class="c-title">Закончить институт</div>
+        <div class="c-desc">Диплом нужен. Медицинское образование + ML — редкое сочетание. Без диплома оно теряет половину ценности.</div>
       </div>
-      <div class="row-center"><div class="center-dot dot-science"></div></div>
-      <div class="row-right">
-        <div class="node career">
-          <div class="node-tag">карьера · международный уровень</div>
-          <div class="node-title">Международная конференция</div>
-          <div class="node-desc">ISMB, NeurIPS Workshop, ECML или профильная neuroscience / cheminformatics встреча. Цель: постер, доклад или workshop paper.</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="full-row">
-      <div class="node career">
-        <div class="node-tag">развилка · фокус</div>
-        <div class="node-title">Выбрать ветку внутри вычислительной нейрофармакологии</div>
-        <div class="node-desc">Dynamics/QSP: ОДУ, рецепторная фармакология, PK/PD, sensitivity и SBML. Либо comp-neuro/psych: нейродинамика, Bayesian models и реальные MEG/EEG-данные. Общий фундамент — BBB, pharmacology и reproducible ML.</div>
+      <div class="card" id="y3b" data-c="finance" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-finance">ФИНАНСЫ</span>
+        <div class="c-title">УМНИК + ставка в лаб</div>
+        <div class="c-desc">500 тыс/год грант + 20–40 тыс/мес ставка. Суммарно жить можно.</div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="row-left">
-        <div class="node science">
-          <div class="node-tag">ветка A · dynamics / QSP</div>
-          <div class="node-title">Сигнальные пути и системная фармакология</div>
-          <div class="node-desc">ОДУ-модели рецепторов и pathways, parameter estimation, sensitivity analysis, COPASI/SBML на уровне чтения и адаптации существующей модели.</div>
-        </div>
+      <div class="card" id="y3c" data-c="science" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-science">НАУКА</span>
+        <div class="c-title">3+ публикации в CV</div>
+        <div class="c-desc">К этому моменту — достаточно для подачи в аспирантуру любого уровня.</div>
       </div>
-      <div class="row-center"><div class="center-dot dot-science"></div></div>
-      <div class="row-right">
-        <div class="node science">
-          <div class="node-tag">ветка B · computational neuro</div>
-          <div class="node-title">Данные и модели мозга</div>
-          <div class="node-desc">Иерархические Bayesian models, neural dynamics и анализ нейроданных только вокруг конкретного вопроса лаборатории. Не превращать инструменты в самостоятельную коллекцию курсов.</div>
-        </div>
+
+      <div class="card" id="y3d" data-c="career" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-career">КАРЬЕРА</span>
+        <div class="c-title">Международная конференция</div>
+        <div class="c-desc">ISMB, NeurIPS Workshop, ECML. Выступить с докладом или постером.</div>
       </div>
+
+      <div class="card full" id="y3e" data-c="career" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-career">КАРЬЕРА · РАЗВИЛКА <span class="badge-res">РЕШЕНО</span></span>
+        <div class="c-title">Вычислительная нейрофармакология</div>
+        <div class="c-desc">Нейронауки = рамка, drug discovery = инструмент внутри. In Silico BBB — молекулярный фронт-энд пайплайна действия препарата на ЦНС. Нишу выбрал — держи курс.</div>
+      </div>
+
     </div>
   </div>
 
-  <div class="divider"></div>
-
-  <div class="year-block">
-    <div class="year-label"><div class="year-badge y45">ГОДЫ 4-5 · 2029-2031</div></div>
-
-    <div class="row">
-      <div class="row-left">
-        <div class="node career">
-          <div class="node-tag">карьера · путь A</div>
-          <div class="node-title">Аспирантура</div>
-          <div class="node-desc">Сколтех, ВШЭ, МФТИ или европейские группы: EMBL, Max Planck, Нидерланды, Германия. Начать подготовку заявок за год: декабрь-февраль, письма заранее.</div>
-        </div>
-      </div>
-      <div class="row-center"><div class="center-dot dot-career"></div></div>
-      <div class="row-right">
-        <div class="node career">
-          <div class="node-tag">карьера · путь B</div>
-          <div class="node-title">Индустрия</div>
-          <div class="node-desc">Biotech, pharma ML, computational scientist, research engineer. Позиционирование: человек, который понимает и модели, и биомедицинский контекст.</div>
-        </div>
-      </div>
+  <div id="ys4">
+    <div class="yr-hdr">
+      <div class="yr-lbl">ГОДЫ 4–5 · 2029–2031</div>
+      <div class="yr-bar"><div class="yr-fill" id="yf4"></div></div>
+      <div class="yr-pct" id="yp4">0/4</div>
     </div>
+    <div class="grid">
 
-    <div class="row">
-      <div class="row-left">
-        <div class="node science">
-          <div class="node-tag">наука · независимость</div>
-          <div class="node-title">Собственная исследовательская линия</div>
-          <div class="node-desc">Не только участие в чужих задачах: один проект, где видна твоя постановка вопроса, код, анализ, текст и понимание ограничений.</div>
-        </div>
+      <div class="card" id="y4a" data-c="career" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-career">КАРЬЕРА · ПУТЬ A</span>
+        <div class="c-title">Аспирантура</div>
+        <div class="c-desc">OIST (Япония) · EMBL, Max Planck, NL — Европа · Сколтех, ВШЭ, МФТИ — Россия. Funded PhD = $2–3k/мес на месте. Подача декабрь–февраль.</div>
       </div>
-      <div class="row-center"><div class="center-dot dot-science"></div></div>
-      <div class="row-right">
-        <div class="node code">
-          <div class="node-tag">навыки · maturity</div>
-          <div class="node-title">Публичный научный стек</div>
-          <div class="node-desc">Python, PyTorch, scikit-learn, RDKit, PyG/Chemprop, scipy, PK/PD/QSP-инструменты, Docker, CI и статистика. MNE-Python входит только при выбранной нейродата-ветке.</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="full-row">
-      <div class="node money">
-        <div class="node-tag">финансы · цель</div>
-        <div class="node-title">Стабильный доход от науки или индустрии</div>
-        <div class="node-desc">Россия: исследовательская / индустриальная ставка. Европа: аспирантура или computational biology / pharma ML. Деньги здесь не отдельная цель, а механизм сохранить свободу думать и работать глубоко.</div>
+      <div class="card" id="y4b" data-c="career" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-career">КАРЬЕРА · ПУТЬ B</span>
+        <div class="c-title">Индустрия</div>
+        <div class="c-desc">Биотех или фарма с ML. Позиция: computational scientist. Россия 100–200 тыс/мес, Европа 50–80k€/год.</div>
       </div>
-    </div>
 
-    <div class="full-row">
-      <div class="node health">
-        <div class="node-tag">здоровье · долгосрочно</div>
-        <div class="node-title">Состояние под контролем</div>
-        <div class="node-desc">Не как фон жизни, а как управляемая система: лечение, режим, ранние признаки отката, поддержка. Это фундамент, на котором держатся учеба, публикации и карьера.</div>
+      <div class="card full" id="y4c" data-c="finance" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-finance">ФИНАНСЫ · ЦЕЛЬ</span>
+        <div class="c-title">Стабильный доход от науки / индустрии</div>
+        <div class="c-desc">Россия 100–150 тыс/мес · Европа 1500–2500 €/мес (аспирантура) · Индустрия за рубежом 50–80k€/год</div>
       </div>
-    </div>
 
-    <div class="full-row">
-      <div class="node code">
-        <div class="node-tag">анти-roadmap · сознательно не изучать без задачи</div>
-        <div class="node-title">Защита фокуса</div>
-        <div class="node-desc">R, MATLAB, Java/C++, full-stack web, cloud, ретросинтез, DFT/quantum chemistry, GATK/RNA-seq, протеомика и глубокая теория DL не входят в основной путь. Возвращаться к ним только по конкретному требованию проекта или лаборатории.</div>
+      <div class="card full" id="y4d" data-c="health" onclick="tog(this)">
+        <span class="c-chk">○</span>
+        <span class="c-cat cat-health">ЗДОРОВЬЕ · ДОЛГОСРОЧНО</span>
+        <div class="c-title">Депрессия под контролем</div>
+        <div class="c-desc">Не как фон жизни — как управляемое состояние. Это не опциональный пункт. Это фундамент всего остального.</div>
       </div>
+
     </div>
   </div>
+
 </div>
 
-<div class="footer">
-  Объединено из личного roadmap, curriculum по вычислительной нейрофармакологии и проекта 30-дневной подготовки к сессии. Публичный GitHub README остается отдельным профессиональным слоем.
+<!-- ════════════════════ ВЕКТОР ════════════════════ -->
+<div id="vector" class="tab-s">
+
+  <div class="vs">
+    <div class="vs-title">// направление</div>
+    <div class="fnode" style="text-align:center">
+      <div class="fn-title" style="color:#c0c0c0">Нейронауки = рамка · Drug discovery = инструмент внутри</div>
+    </div>
+    <div class="conn">↓</div>
+    <div class="fork2">
+      <div class="fnode good">
+        <div class="fn-title">✓ Вычислительная нейрофармакология</div>
+        <div class="fn-sub">действие препарата на ЦНС · оба слоя нужны одновременно</div>
+      </div>
+      <div class="fnode trap">
+        <div class="fn-title">✗ Ловушка</div>
+        <div class="fn-sub">чистая нейро + хемоинф. сбоку · распыление · козырь не играет</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vs">
+    <div class="vs-title">// In Silico BBB — спина проекта, не отдельный инструмент</div>
+    <div class="pipe">
+      <div class="pn">Молекула</div>
+      <div class="pa">→</div>
+      <div class="pn">ГЭБ: дойдёт ли до мозга</div>
+      <div class="pa">→</div>
+      <div class="pn">Мишень в ЦНС</div>
+      <div class="pa">→</div>
+      <div class="pn">Нейро-эффект</div>
+    </div>
+    <div style="font-size:10.5px;color:var(--dim);margin-top:7px">BBB-проект = не утилита, а зерно диссертации</div>
+  </div>
+
+  <div class="vs">
+    <div class="vs-title">// под-развилка — решить позже, по ощущению</div>
+    <div class="fork2">
+      <div class="fnode" style="border-color:rgba(70,130,180,.4);background:rgba(70,130,180,.05)">
+        <div class="fn-title" style="color:var(--vis)">Схемы и динамика</div>
+        <div class="fn-sub">Центр: QSP, моделирование цепей, ОДУ</div>
+      </div>
+      <div class="fnode" style="border-color:rgba(114,87,196,.4);background:rgba(114,87,196,.05)">
+        <div class="fn-title" style="color:var(--career)">Психиатрия и поведение</div>
+        <div class="fn-sub">Центр: байес, вычислительная психиатрия</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vs">
+    <div class="vs-title">// куда — по соответствию активу</div>
+    <div class="dests">
+      <div class="dest hi">
+        <div class="dest-t">OIST · Япония</div>
+        <div class="dest-s">Идеален. Любое гражданство, английский, interdisciplinary. Стипендия ¥2.6–3.6М + жильё + туition. Японская виза чище шенгена.</div>
+      </div>
+      <div class="dest med">
+        <div class="dest-t">NL / DE / Nordics</div>
+        <div class="dest-s">Funded PhD = €2.2–2.7k net/мес на местный счёт. Учебная D-виза открыта. Подача дек–февраль.</div>
+      </div>
+      <div class="dest lo">
+        <div class="dest-t">ВШЭ MEG-лаб</div>
+        <div class="dest-s">Слабее под BBB-актив если лаба сугубо когнитивная. Хорошо как первый шаг и контакты.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vs">
+    <div class="vs-title">// как мыслить</div>
+    <div class="prs">
+      <div class="pr">
+        <div class="pr-n">01</div>
+        Легитимность через границу. Комиссия читает CV, статью, DOI, GitHub — не репутацию. Всё должно оставлять проверяемый письменный след.
+      </div>
+      <div class="pr">
+        <div class="pr-n">02</div>
+        Тёплые каналы бьют холодные заявки. Профессор, знающий твоё имя до подачи — настоящий рычаг. Пиши напрямую, цитируй их работы.
+      </div>
+      <div class="pr">
+        <div class="pr-n">03</div>
+        Глубина в нише. «Врач + ML + нейрофарма» почти невозможно скопировать. Не распыляйся — уходи вглубь.
+      </div>
+      <div class="pr">
+        <div class="pr-n">04</div>
+        Нет single point of failure. Подавайся широко: OIST, NL, DE, Nordics. Широкая подача — страховка, не паника.
+      </div>
+      <div class="pr">
+        <div class="pr-n">05</div>
+        Темп, который выдержишь пять лет, бьёт спринт, который ломается на втором году.
+      </div>
+    </div>
+  </div>
+
+  <div class="vs">
+    <div class="fnode note">
+      <div class="fn-title">Цена выбора</div>
+      <div class="fn-sub">Трек в основном академический. Рынок уже, чем у чистого drug discovery — там каждая фарма хочет ADMET/GNN людей. Знай это при планировании запасного варианта.</div>
+    </div>
+  </div>
+
+  <div class="vs">
+    <div class="vs-title">// Япония — финансы OIST · $1 = ¥160 (июнь 2026)</div>
+    <div class="frow"><span class="fkey">стипендия год 1</span><span class="fval">¥216,667 <span class="fconv">≈ $1,354</span></span></div>
+    <div class="frow"><span class="fkey">стипендия год 5+</span><span class="fval">¥300,000 <span class="fconv">≈ $1,875</span></span></div>
+    <div class="frow"><span class="fkey" style="color:var(--science)">жильё (покрыто OIST)</span><span class="fval" style="color:var(--science)">+$437/мес сбережение</span></div>
+    <div class="frow"><span class="fkey" style="color:var(--science)">тюишн (покрыт, ~$25k/год)</span><span class="fval" style="color:var(--science)">+$2,083/мес сбережение</span></div>
+    <div class="frow"><span class="fkey">расходы Окинава (еда, транспорт)</span><span class="fval" style="color:var(--health)">~−$562/мес</span></div>
+    <div class="frow" style="border-color:var(--border-l);padding-top:8px"><span class="fkey" style="color:var(--text);font-weight:500">кэш остаток год 1</span><span class="fval ftotal">~$790/мес</span></div>
+    <div class="fnote">
+      <span class="fnlab">разрыв до $2k:</span> ~$1,210 → закрывает 25 ч/мес консалтинга @ $50/ч<br>
+      <span class="fnlab">OIST + JSPS DC fellowship:</span> +¥200,000/мес сверху → $2,604 кэшем<br>
+      <span class="fnlab">сравнение NL/DE:</span> funded PhD €2,200–2,650 нетто ≈ $2,400–2,900 · цель достигнута без доп. дохода
+    </div>
+  </div>
+
+  <div class="vs">
+    <div class="vs-title">// план Б — деньги</div>
+    <div class="pb-item">
+      <div class="pb-num">A</div>
+      <div class="pb-body">
+        <div class="pb-t">Мост через Грузию / Армению</div>
+        <div class="pb-s">TBC Bank или Bank of Georgia в Тбилиси (безвизовый въезд для россиян). SWIFT работает, Wise — с грузинского счёта. Одноразовая поездка открывает: Upwork, прямые EU/US контракты, Wise-переводы. Это техническое решение проблемы «как получить деньги».</div>
+      </div>
+    </div>
+    <div class="pb-item">
+      <div class="pb-num">B</div>
+      <div class="pb-body">
+        <div class="pb-t">Фриланс хемоинформатика / биоинформатика <span class="pb-amt">$600–1,200/мес</span></div>
+        <div class="pb-s">Ставка $30–60/ч · 20 ч/мес параллельно с учёбой. EU/US фарм-стартапы, CRO. Платформа: Upwork через груз. счёт или прямые LinkedIn-контракты. Закрывает разрыв до $2k при OIST.</div>
+      </div>
+    </div>
+    <div class="pb-item">
+      <div class="pb-num">C</div>
+      <div class="pb-body">
+        <div class="pb-t">Российская фарма до отъезда <span class="pb-amt">~$1,600–2,200/мес</span></div>
+        <div class="pb-s">Biocad, R-Pharm: computational/data science 120–180k руб/мес + УМНИК +42k руб/мес = ~160–220k руб. При ~100 руб/$ — жить можно, накопить до отъезда сложно. Реальный вариант пока ждёшь funded позицию.</div>
+      </div>
+    </div>
+    <div class="pb-item">
+      <div class="pb-num">D</div>
+      <div class="pb-body">
+        <div class="pb-t">BBB SaaS / API <span class="pb-amt">потенциал неопределён</span></div>
+        <div class="pb-s">После открытия репо: API-доступ для фарм-стартапов и CRO на предиктивной аналитике ГЭБ. Единственный актив с прямым коммерческим потенциалом прямо сейчас. Объём и сроки дохода непредсказуемы.</div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
+<!-- ════════════════════ НАВЫКИ ════════════════════ -->
+<div id="skills" class="tab-s">
+
+  <div style="font-size:10px;color:var(--dim);margin-bottom:16px;line-height:1.9">
+    <span style="color:var(--science)">✓ есть</span>&ensp;
+    <span style="color:var(--vis)">+ добавить</span>&ensp;
+    <span style="color:var(--study)">~ условно</span>&ensp;
+    <span style="color:var(--health)">✗ не трать время</span><br>
+    <span style="color:#363636">→ ресурс · примерное время · нажми строку — отметить изученным</span>
+  </div>
+
+  <div class="dom">
+    <div class="dom-t">Математика</div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Линейная алгебра базово <span class="sk-n">— матрицы, собственные значения, для PCA и ML</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">ОДУ и системы дифференциальных уравнений<span class="sk-n"> — без этого QSP и нейродинамика не зайдут</span><span class="sk-r">→ Strogatz «Nonlinear Dynamics and Chaos» (PDF бесплатно) · ~2 мес</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Вероятность и статистика<span class="sk-n"> — фундамент байеса, оценки моделей, нейронаук</span><span class="sk-r">→ McElreath «Statistical Rethinking» + YouTube лекции (бесплатно) · ~3 мес</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bc">~</span><span class="sk-t">Байес глубже: иерархические модели, MCMC<span class="sk-n"> — если comp-psych ветка</span><span class="sk-r">→ McElreath гл.9–15 + PyMC docs · ~6 нед после базы</span></span></div>
+  </div>
+
+  <div class="dom">
+    <div class="dom-t">Машинное обучение</div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">XGBoost, RF, LightGBM, sklearn <span class="sk-n">— высокий уровень, есть в BBB</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Калибровка, кросс-валидация, оценка качества <span class="sk-n">— есть в BBB</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">PyTorch вглубь<span class="sk-n"> — основа для GNN, нейродинамики, всего нового DL</span><span class="sk-r">→ fast.ai Part 1 + Part 2 (fast.ai, бесплатно) · ~2 мес</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Граф-нейросети для молекул<span class="sk-n"> — SMILES → граф → предсказание, современный SOTA для ADMET</span><span class="sk-r">→ Stanford CS224W (YouTube, бесплатно) + Chemprop GitHub repo · ~6 нед</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Трансформеры для молекулярных данных<span class="sk-n"> — понять принцип, не реализовывать с нуля</span><span class="sk-r">→ DeepChem туториалы + ChemBERTa на HuggingFace Hub · ~3 нед</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bc">~</span><span class="sk-t">Uncertainty quantification<span class="sk-n"> — доверительные интервалы предсказаний, важно в регуляторной фарме</span><span class="sk-r">→ Gal «Uncertainty in Deep Learning» (PhD thesis PDF) · ~4 нед</span></span></div>
+  </div>
+
+  <div class="dom">
+    <div class="dom-t">Хемоинформатика / молекулярный слой</div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">RDKit, дескрипторы, фингерпринты <span class="sk-n">— высокий уровень, главный актив</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">QSAR/QSPR, ADMET, BBB <span class="sk-n">— основа проекта и главный козырь CV</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Граф-представление молекул<span class="sk-n"> — message passing между атомами, связь с GNN</span><span class="sk-r">→ PyTorch Geometric туториалы + Duvenaud et al. 2015 (оригинальная статья) · ~3 нед</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Базовый докинг<span class="sk-n"> — визуализация в проекте, запрошена руководителем</span><span class="sk-r">→ AutoDock Vina manual + py3Dmol (уже в проекте) · ~2 нед</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bx">✗</span><span class="sk-t">Ретросинтез, синтетическое планирование <span class="sk-n">— не твой домен</span></span></div>
+  </div>
+
+  <div class="dom">
+    <div class="dom-t">Фармакокинетика / фармакодинамика</div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">PBPK <span class="sk-n">— уже в проекте, реальный актив</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">ADME базово <span class="sk-n">— мед школа и фармакология</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">PK/PD-связка: Emax, EC50, indirect response, turnover<span class="sk-n"> — соединяет молекулу с эффектом через ОДУ</span><span class="sk-r">→ Gabrielsson & Weiner «PK/PD Data Analysis» (отраслевой стандарт) · ~2 мес</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">ЦНС-специфика ГЭБ<span class="sk-n"> — динамика распределения через ГЭБ, ЦСЖ, мозговая ткань</span><span class="sk-r">→ Hammarlund-Udenaes «Drug delivery to the brain» (Springer) · ~4 нед</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Подгонка параметров ОДУ к данным<span class="sk-n"> — fitting модели к реальным PK-кривым</span><span class="sk-r">→ scipy.optimize docs + nlmixr2 концепции (NLME) · ~2 нед</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bx">✗</span><span class="sk-t">Клиническое дозирование для пациентов <span class="sk-n">— врачебная работа</span></span></div>
+  </div>
+
+  <div class="dom">
+    <div class="dom-t">QSP — количественная системная фармакология</div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">ОДУ-модели сигнальных путей и рецепторной фармакологии<span class="sk-n"> — механистические модели от рецептора до клетки</span><span class="sk-r">→ Lauffenburger & Linderman «Receptors» гл.2–4 · ~3 нед</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Анализ чувствительности, оценка параметров<span class="sk-n"> — какие параметры модели определяют выход</span><span class="sk-r">→ Saltelli «Sensitivity Analysis» (Wiley) + SALib Python package · ~2 нед</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">COPASI / SBML<span class="sk-n"> — стандарт обмена кинетическими моделями, уровень «прочитать чужую модель»</span><span class="sk-r">→ copasi.org/Documentation/ (бесплатно) · ~1 нед</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bc">~</span><span class="sk-t">Стохастические и агент-базированные модели<span class="sk-n"> — только под конкретную задачу</span><span class="sk-r">→ Gillespie algorithm + Mesa Python · ~3 нед если нужно</span></span></div>
+  </div>
+
+  <div class="dom">
+    <div class="dom-t">Нейронауки — теоретические основы</div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Нейроанатомия ЦНС, синаптическая передача <span class="sk-n">— мед школа</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Рецепторная фармакология ЦНС <span class="sk-n">— мед школа</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Вычислительные модели нейрона<span class="sk-n"> — Hodgkin-Huxley, FitzHugh-Nagumo: как ОДУ описывают возбудимость</span><span class="sk-r">→ Dayan & Abbott «Theoretical Neuroscience» гл.1–2 (MIT, PDF бесплатно) · ~3 нед</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Нейронные осцилляции, mean-field теория, firing rate<span class="sk-n"> — язык нейровычислительных статей о фармакологических эффектах</span><span class="sk-r">→ Buzsáki «Rhythms of the Brain» + Schnitzler & Gross 2005 (review, free) · ~3 нед</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bc">~</span><span class="sk-t">MNE-Python, предобработка ЭЭГ/МЭГ<span class="sk-n"> — только если лаба на MEG/EEG</span><span class="sk-r">→ mne.tools/dev/auto_tutorials (бесплатно) · ~2 нед</span></span></div>
+  </div>
+
+  <div class="dom">
+    <div class="dom-t">Биоинформатика — минимум</div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">ChEMBL, PDB, UniProt<span class="sk-n"> — знать как запросить и распарсить данные о мишенях и лигандах</span><span class="sk-r">→ BioPython tutorial + chembl_webresource_client docs · ~1 нед</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Структура белка базово<span class="sk-n"> — карман связывания, активный сайт (нужно для докинга)</span><span class="sk-r">→ Coursera «Proteins: Biology's Workforce» (бесплатный аудит) · ~1 нед</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bx">✗</span><span class="sk-t">Геномные пайплайны <span class="sk-n">— GATK, RNA-seq: не нужны</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bx">✗</span><span class="sk-t">Протеомика, метаболомика <span class="sk-n">— без конкретной задачи</span></span></div>
+  </div>
+
+  <div class="dom">
+    <div class="dom-t">Программирование / инженерия</div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Python, FastAPI, RDKit, CLI, SDK, тесты, REST API <span class="sk-n">— высокий уровень, козырь, держать</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Docker<span class="sk-n"> — без него нельзя шарить среду в академии</span><span class="sk-r">→ docker.com/get-started (официальный, бесплатно) · ~2–3 дня</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">GitHub Actions CI<span class="sk-n"> — автозапуск тестов и линтеров при коммите</span><span class="sk-r">→ docs.github.com/actions + простой Python CI пример · ~2–3 дня</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bc">~</span><span class="sk-t">Cloud: AWS / GCP<span class="sk-n"> — только под конкретный проект</span><span class="sk-r">→ AWS Free Tier туториалы · ~1 нед когда нужно</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bx">✗</span><span class="sk-t">Java, C++, полный стек веб</span></div>
+  </div>
+
+  <div class="dom">
+    <div class="dom-t">Английский</div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Академическое письмо<span class="sk-n"> — читать и писать статьи самостоятельно, без редактора</span><span class="sk-r">→ Glasman-Deal «Science Research Writing» + Mensh & Kording 2017 «10 rules» (free PDF) · ongoing</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Устная презентация на конференции<span class="sk-n"> — смотреть хорошие talks, потом практиковать</span><span class="sk-r">→ Neuromatch + ISMB talks на YouTube · ongoing</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bx">✗</span><span class="sk-t">IELTS ради сертификата <span class="sk-n">— только если конкретная программа требует</span></span></div>
+  </div>
+
+  <div class="dom">
+    <div class="dom-t">Научная работа — мета</div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Читать статьи системно<span class="sk-n"> — 2–3 в неделю, строить базу знаний и ссылок</span><span class="sk-r">→ Obsidian + Zotero + Semantic Scholar алерты по ключевым словам · ongoing</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Структура paper: IMRaD<span class="sk-n"> — как писать Methods, Results, Discussion без воды</span><span class="sk-r">→ Mensh & Kording 2017 «Ten simple rules for structuring papers» (free) · 1 день</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Поиск позиций<span class="sk-n"> — как мониторить открытые PhD позиции по своей теме</span><span class="sk-r">→ OIST (oist.jp/admissions), EURAXESS, EMBL jobs, Nature Careers, X #phdposition · ongoing</span></span></div>
+  </div>
+
+  <div class="skip-blk">
+    <div class="skip-hdr">✗ Не трать время на:</div>
+    <div class="skip-i">R — Python достаточно</div>
+    <div class="skip-i">MATLAB — только если инструмент лабы</div>
+    <div class="skip-i">Теория DL ради теории: NTK, вариационный вывод в глубину</div>
+    <div class="skip-i">Quantum chemistry / DFT расчёты</div>
+    <div class="skip-i">Ретросинтез и синтетическое планирование молекул</div>
+    <div class="skip-i">Геномика, транскриптомика — без конкретной задачи</div>
+    <div class="skip-i">Клиническая фармакокинетика — TDM, дозирование</div>
+  </div>
+
+</div>
+
+<!-- ════════════════════ МЕСЯЦ ════════════════════ -->
+<div id="month" class="tab-s">
+
+  <div class="m-blk">
+    <div class="ta-lbl">// выбор месяца</div>
+    <select id="m-sel" onchange="mChange()"></select>
+  </div>
+
+  <div class="m-blk">
+    <div class="ta-lbl">// главная цель</div>
+    <input class="m-inp" id="m-goal" type="text" placeholder="Одна цель на этот месяц..." oninput="mSave()">
+  </div>
+
+  <div class="m-blk">
+    <div class="ta-lbl">// задачи</div>
+    <div class="m-row">
+      <input class="m-inp" id="m-new" type="text" placeholder="Новая задача..." onkeydown="if(event.key==='Enter')mAdd()">
+      <button class="m-btn" onclick="mAdd()">+</button>
+    </div>
+    <div id="m-list"></div>
+  </div>
+
+  <div class="ta-note">данные сохраняются по месяцу</div>
+</div>
+
+<!-- ════════════════════ ЗАМЕТКИ ════════════════════ -->
+<div id="notes" class="tab-s">
+  <div class="ta-lbl">// заметки</div>
+  <textarea id="notes-ta" placeholder="Свободное пространство..." oninput="sv('notes-ta')"></textarea>
+  <div class="ta-note">сохраняется локально в браузере</div>
+</div>
+
+<script>
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.tab-s').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById(b.dataset.tab).classList.add('active');
+  });
+});
+
+// Cards
+function tog(el){
+  el.classList.toggle('done');
+  el.querySelector('.c-chk').textContent=el.classList.contains('done')?'✓':'○';
+  try{localStorage.setItem('c_'+el.id,el.classList.contains('done')?'1':'0')}catch(e){}
+  upd();
+}
+
+function loadCards(){
+  document.querySelectorAll('.card').forEach(el=>{
+    try{if(localStorage.getItem('c_'+el.id)==='1'){el.classList.add('done');el.querySelector('.c-chk').textContent='✓';}}catch(e){}
+  });
+  upd();
+}
+
+function upd(){
+  ['1','2','3','4'].forEach(n=>{
+    const s=document.getElementById('ys'+n);
+    if(!s)return;
+    const all=s.querySelectorAll('.card').length;
+    const done=s.querySelectorAll('.card.done').length;
+    const f=document.getElementById('yf'+n);
+    const p=document.getElementById('yp'+n);
+    if(f)f.style.width=(all?done/all*100:0)+'%';
+    if(p)p.textContent=done+'/'+all;
+  });
+}
+
+// Skills
+function tsk(el){
+  el.classList.toggle('ok');
+  try{localStorage.setItem('sk_'+el.dataset.i,el.classList.contains('ok')?'1':'0')}catch(e){}
+}
+
+function loadSkills(){
+  document.querySelectorAll('.sk').forEach((el,i)=>{
+    el.dataset.i=i;
+    try{if(localStorage.getItem('sk_'+i)==='1')el.classList.add('ok');}catch(e){}
+  });
+}
+
+// Notes textarea
+function sv(id){try{localStorage.setItem('ta_'+id,document.getElementById(id).value)}catch(e){}}
+function loadNotes(){
+  try{const v=localStorage.getItem('ta_notes-ta');if(v!==null)document.getElementById('notes-ta').value=v;}catch(e){}
+}
+
+// Month tab
+const MN=['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+
+function mKey(){return 'm_'+document.getElementById('m-sel').value}
+
+function initMonth(){
+  const sel=document.getElementById('m-sel');
+  const now=new Date();
+  let html='';
+  for(let y=2026;y<=2031;y++) for(let m=0;m<12;m++) html+=`<option value="${y}-${String(m+1).padStart(2,'0')}">${MN[m]} ${y}</option>`;
+  sel.innerHTML=html;
+  sel.value=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+  mChange();
+}
+
+function mChange(){
+  const k=mKey();
+  try{
+    document.getElementById('m-goal').value=localStorage.getItem(k+'_goal')||'';
+    renderTasks(JSON.parse(localStorage.getItem(k+'_tasks')||'[]'));
+  }catch(e){renderTasks([]);}
+}
+
+function mSave(){
+  try{localStorage.setItem(mKey()+'_goal',document.getElementById('m-goal').value);}catch(e){}
+}
+
+function mAdd(){
+  const inp=document.getElementById('m-new');
+  const t=inp.value.trim();
+  if(!t)return;
+  const k=mKey();
+  try{
+    const tasks=JSON.parse(localStorage.getItem(k+'_tasks')||'[]');
+    tasks.push({t,done:false});
+    localStorage.setItem(k+'_tasks',JSON.stringify(tasks));
+    renderTasks(tasks);
+  }catch(e){}
+  inp.value='';inp.focus();
+}
+
+function mToggle(i){
+  const k=mKey();
+  try{
+    const tasks=JSON.parse(localStorage.getItem(k+'_tasks')||'[]');
+    tasks[i].done=!tasks[i].done;
+    localStorage.setItem(k+'_tasks',JSON.stringify(tasks));
+    renderTasks(tasks);
+  }catch(e){}
+}
+
+function mDel(i){
+  const k=mKey();
+  try{
+    const tasks=JSON.parse(localStorage.getItem(k+'_tasks')||'[]');
+    tasks.splice(i,1);
+    localStorage.setItem(k+'_tasks',JSON.stringify(tasks));
+    renderTasks(tasks);
+  }catch(e){}
+}
+
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+function renderTasks(tasks){
+  const el=document.getElementById('m-list');
+  if(!tasks.length){el.innerHTML='<div class="m-empty">нет задач</div>';return;}
+  el.innerHTML=tasks.map((t,i)=>`
+    <div class="m-task${t.done?' tdone':''}">
+      <span class="m-chk" onclick="mToggle(${i})">${t.done?'✓':'○'}</span>
+      <span class="m-tt">${esc(t.t)}</span>
+      <span class="m-del" onclick="mDel(${i})">×</span>
+    </div>`).join('');
+}
+
+window.addEventListener('load',()=>{loadCards();loadSkills();loadNotes();initMonth();});
+</script>
 </body>
 </html>
