@@ -1,9 +1,31 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>// roadmap — learning2think</title>
+<title>learning2think — computational neuroscience · cheminformatics · ML</title>
+<meta name="description" content="Roadmap & CV of learning2think — a medical student building toward a funded PhD in computational neuroscience, cheminformatics and ML. Flagship project: In Silico BBB, an open-source blood–brain-barrier drug-transport platform.">
+<meta name="author" content="learning2think">
+<meta name="theme-color" content="#0b0b0b">
+<!-- Canonical / share URL — change in og:url, og:image, twitter:image, canonical if the site moves -->
+<link rel="canonical" href="https://learning2think.github.io/roadmap/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230b0b0b'/><rect x='7' y='21' width='14' height='3' rx='1' fill='%233d9e57'/><path d='M9 9l5 4-5 4' fill='none' stroke='%23d0d0d0' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="learning2think">
+<meta property="og:title" content="learning2think — computational neuroscience · cheminformatics · ML">
+<meta property="og:description" content="Med student building toward a funded PhD in computational neuroscience, cheminformatics & ML. Flagship: In Silico BBB — an open-source BBB drug-transport platform.">
+<meta property="og:url" content="https://learning2think.github.io/roadmap/">
+<meta property="og:image" content="https://learning2think.github.io/roadmap/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="learning2think — computational neuroscience, cheminformatics, ML; metrics from the In Silico BBB project">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@l3arning2think">
+<meta name="twitter:title" content="learning2think — computational neuroscience · cheminformatics · ML">
+<meta name="twitter:description" content="Med student building toward a funded PhD in computational neuroscience, cheminformatics & ML. Flagship: In Silico BBB — an open-source BBB drug-transport platform.">
+<meta name="twitter:image" content="https://learning2think.github.io/roadmap/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
@@ -226,6 +248,8 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 /* ===== LINKS ===== */
 .links{display:flex;flex-wrap:wrap;gap:6px}
 .hdr-links{margin-top:13px}
+.sync{font-size:9.5px;color:var(--dim);margin-top:10px;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.sync span{margin-right:4px}
 .lnk{font-size:10px;letter-spacing:.04em;color:var(--dim);text-decoration:none;border:1px solid var(--border);padding:6px 10px;transition:color .12s,border-color .12s;white-space:nowrap;touch-action:manipulation}
 .lnk::before{content:"↗ ";color:var(--faint)}
 .lnk:hover{color:var(--text);border-color:var(--border-l)}
@@ -257,9 +281,11 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 .cv-lang-b:hover{color:var(--text)}
 .cv-tags{display:flex;flex-wrap:wrap;gap:6px}
 .cv-tag{font-size:10px;color:var(--text);background:var(--bg-card);border:1px solid var(--border);padding:6px 10px}
-.cv-focus{list-style:none;display:flex;flex-direction:column;gap:9px}
-.cv-focus li{font-size:11.5px;color:var(--text);line-height:1.55;padding-left:16px;position:relative}
-.cv-focus li::before{content:"▹";position:absolute;left:0;color:var(--vis)}
+.cv-focus{list-style:none;background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--vis)}
+.cv-focus li{font-size:11.5px;color:var(--text);line-height:1.5;padding:11px 14px 11px 32px;position:relative;border-bottom:1px solid var(--faint)}
+.cv-focus li:last-child{border-bottom:none}
+.cv-focus li::before{content:"▹";position:absolute;left:14px;top:11px;color:var(--vis)}
+.cv-focus b{color:#dcdcdc;font-weight:600}
 .cv-nav{display:flex;flex-direction:column;gap:7px}
 .cv-nav button{font-family:var(--mono);font-size:11.5px;text-align:left;color:var(--text);background:var(--bg-card);border:1px solid var(--border);padding:12px 13px;cursor:pointer;transition:border-color .12s,background .1s;touch-action:manipulation}
 .cv-nav button:hover{background:var(--bg-hover);border-color:var(--border-l)}
@@ -301,14 +327,45 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 .m-prog-fill{height:100%;width:0;background:var(--science);transition:width .35s ease}
 .m-prog-txt{font-size:10px;color:var(--dim);white-space:nowrap;font-variant-numeric:tabular-nums}
 .ta-count{font-size:10px;color:var(--faint);margin-top:7px;font-variant-numeric:tabular-nums}
+
+/* ===== COPY EN + BACKUP ===== */
+.cv-copy{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);background:none;border:1px solid var(--border);padding:4px 9px;margin-left:8px;cursor:pointer;transition:color .12s,border-color .12s;touch-action:manipulation;white-space:nowrap}
+.cv-copy:hover{color:var(--text);border-color:var(--border-l)}
+.cv-copy.ok{color:var(--science);border-color:rgba(61,158,87,.45)}
+.bk{margin-top:30px;padding-top:16px;border-top:1px solid var(--border)}
+.bk-lbl{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:9px}
+.bk-row{display:flex;flex-wrap:wrap;gap:8px}
+.bk-btn{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--text);background:var(--bg-card);border:1px solid var(--border-l);padding:9px 13px;cursor:pointer;transition:color .12s,border-color .12s,background .1s;touch-action:manipulation}
+.bk-btn:hover{background:var(--bg-hover);border-color:var(--science)}
+.bk-note{font-size:10px;color:var(--faint);margin-top:9px;line-height:1.6}
+
+/* ===== PRINT — clean one-column Profile/CV (whichever language is shown) ===== */
+@media print{
+  :root{--bg:#fff;--bg-card:#fff;--bg-hover:#fff;--border:#cfcfcf;--border-l:#b6b6b6;--text:#111;--dim:#444;--faint:#dcdcdc}
+  html,body{background:#fff!important;color:#111!important;font-size:11px}
+  .tabs-wrap,.hdr-prog,.sync,.hdr-links,.cv-lang,.cv-copy,.cv-print-hide{display:none!important}
+  .tabs-wrap::after{display:none!important}
+  .tab-s{display:none!important}
+  #profile{display:block!important;padding:0 0 8px;animation:none}
+  .hdr{border-bottom:1px solid #ccc;padding:0 0 12px}
+  .hdr-title,.cv-handle{color:#000}
+  .cv-proj,.mcard,.fnode,.cv-tag,.cv-m{background:#fff!important}
+  .cv-proj{border:1px solid #bbb;border-left:3px solid var(--science)}
+  .lnk{border:1px solid #bbb;color:#222}
+  .lnk::before{color:#999}
+  a{color:#111;text-decoration:none}
+  .card:hover,.card{transform:none!important;box-shadow:none}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{margin:14mm}
+}
 </style>
 </head>
 <body>
 
 <div class="hdr">
   <div class="hdr-title">// learning2think</div>
-  <div class="hdr-sub">вычислительные нейронауки · хемоинформатика · ML · 2026–2031</div>
-  <div class="hdr-goal">// цель: funded PhD (OIST / NL / DE) · жить на свой доход · не бросить на полпути</div>
+  <div class="hdr-sub" lang="ru">вычислительные нейронауки · хемоинформатика · ML · 2026–2031</div>
+  <div class="hdr-goal" lang="ru">// цель: funded PhD (OIST / NL / DE) · жить на свой доход · не бросить на полпути</div>
   <div class="hdr-prog" title="Общий прогресс по роадмапу">
     <div class="hdr-prog-bar"><div class="hdr-prog-fill" id="gfill"></div></div>
     <div class="hdr-prog-txt" id="gpct">0 / 0 · 0%</div>
@@ -320,6 +377,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
     <a class="lnk" href="https://x.com/l3arning2think" target="_blank" rel="noopener">x</a>
     <a class="lnk" href="mailto:good.bqw@gmail.com">email</a>
   </div>
+  <div class="sync" id="syncStatus" hidden></div>
 </div>
 
 <div class="tabs-wrap">
@@ -338,8 +396,8 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 
   <div class="cv-id">
     <div class="cv-handle">learning2think</div>
-    <div class="cv-role">вычислительные нейронауки · хемоинформатика · ML</div>
-    <div class="cv-loc">студент-медик · Россия · строю путь к funded PhD за рубежом</div>
+    <div class="cv-role" lang="ru">вычислительные нейронауки · хемоинформатика · ML</div>
+    <div class="cv-loc" lang="ru">студент-медик · Россия · строю путь к funded PhD за рубежом</div>
   </div>
 
   <div class="links cv-links">
@@ -356,6 +414,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
         <button class="cv-lang-b active" data-l="ru" onclick="cvLang('ru')" aria-pressed="true">RU</button>
         <button class="cv-lang-b" data-l="en" onclick="cvLang('en')" aria-pressed="false">EN</button>
       </span>
+      <button class="cv-copy" type="button" onclick="copyEn(this)" title="Copy the English project description to clipboard">copy EN ⧉</button>
     </div>
     <div class="cv-proj">
       <div class="cv-proj-h">
@@ -363,7 +422,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
         <span class="cv-proj-tag">v1.20.1 · MIT · open-source</span>
       </div>
 
-      <div class="cv-body" data-lang="ru">
+      <div class="cv-body" data-lang="ru" lang="ru">
         <div class="cv-proj-role">Вычислительная платформа моделирования транспорта лекарств через ГЭБ · ведущий разработчик</div>
         <ul class="cv-proj-list">
           <li>Open-source платформа для моделирования и скрининга проникновения лекарств через ГЭБ: механистическая двухкамерная ODE-модель транспорта, PBPK-расширения (3 и 5 камер) и QSAR/ML-предсказание.</li>
@@ -374,7 +433,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
         </ul>
       </div>
 
-      <div class="cv-body" data-lang="en" hidden>
+      <div class="cv-body" data-lang="en" lang="en" hidden>
         <div class="cv-proj-role">Computational Platform for Blood–Brain Barrier Drug Transport · lead developer</div>
         <ul class="cv-proj-list">
           <li>Built an open-source platform for modelling and screening drug transport across the blood–brain barrier, combining a mechanistic two-compartment ODE transport model, 3-/5-compartment PBPK extensions, and QSAR/ML prediction.</li>
@@ -419,15 +478,15 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 
   <div class="cv-sec">
     <div class="cv-sec-t">// current focus</div>
-    <ul class="cv-focus">
-      <li>Довести статью по BBB-проекту до публикации (целевой профиль — Journal of Cheminformatics).</li>
-      <li>Граф-нейросети для молекул: PyTorch → Chemprop / PyTorch Geometric.</li>
-      <li>Вычислительная нейрофармакология: связка ГЭБ → мишень в ЦНС → нейро-эффект.</li>
-      <li>Найти лабораторию и написать профессорам напрямую.</li>
+    <ul class="cv-focus" lang="ru">
+      <li><b>Публикация</b> — довести статью по BBB-проекту до выхода (целевой профиль — Journal of Cheminformatics).</li>
+      <li><b>GNN для молекул</b> — PyTorch → Chemprop / PyTorch Geometric.</li>
+      <li><b>Нейрофармакология in silico</b> — связка ГЭБ → мишень в ЦНС → нейро-эффект.</li>
+      <li><b>Лаборатория</b> — найти группу и написать профессорам напрямую.</li>
     </ul>
   </div>
 
-  <div class="cv-sec">
+  <div class="cv-sec cv-print-hide">
     <div class="cv-sec-t">// explore</div>
     <div class="cv-nav">
       <button onclick="activateTab('roadmap')">→ Roadmap · 2026–2031 plan</button>
@@ -439,7 +498,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 </div>
 
 <!-- ════════════════════ РОАДМАП ════════════════════ -->
-<div id="roadmap" class="tab-s">
+<div id="roadmap" class="tab-s" lang="ru">
 
   <div id="ys1">
     <div class="yr-hdr">
@@ -672,7 +731,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 </div>
 
 <!-- ════════════════════ ВЕКТОР ════════════════════ -->
-<div id="vector" class="tab-s">
+<div id="vector" class="tab-s" lang="ru">
 
   <div class="vec-intro">Это не список дел, а рамка решений — как выбирать, когда придётся. Читается сверху вниз: от направления к деньгам и запасным вариантам.</div>
 
@@ -832,7 +891,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 </div>
 
 <!-- ════════════════════ НАВЫКИ ════════════════════ -->
-<div id="skills" class="tab-s">
+<div id="skills" class="tab-s" lang="ru">
 
   <div class="sk-filters" role="group" aria-label="Фильтр навыков по статусу">
     <button class="sk-chip active" data-f="all" onclick="skFilter(this)" aria-pressed="true">все</button>
@@ -956,7 +1015,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 </div>
 
 <!-- ════════════════════ МЕСЯЦ ════════════════════ -->
-<div id="month" class="tab-s">
+<div id="month" class="tab-s" lang="ru">
 
   <div class="m-blk">
     <div class="ta-lbl">// выбор месяца</div>
@@ -985,14 +1044,139 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 </div>
 
 <!-- ════════════════════ ЗАМЕТКИ ════════════════════ -->
-<div id="notes" class="tab-s">
+<div id="notes" class="tab-s" lang="ru">
   <div class="ta-lbl">// заметки</div>
   <textarea id="notes-ta" placeholder="Свободное пространство..." oninput="sv('notes-ta');notesCount()"></textarea>
   <div class="ta-count" id="notes-count"></div>
   <div class="ta-note">сохраняется локально в браузере</div>
+
+  <div class="bk" lang="en">
+    <div class="bk-lbl">// backup</div>
+    <div class="bk-row">
+      <button class="bk-btn" type="button" onclick="exportData()">↓ Export JSON</button>
+      <button class="bk-btn" type="button" onclick="document.getElementById('bk-file').click()">↑ Import JSON</button>
+      <input id="bk-file" type="file" accept="application/json,.json" hidden onchange="importData(this)">
+    </div>
+    <div class="bk-note">Сохраняет прогресс (галочки, навыки, добавленные пункты, задачи и заметки) в один файл. Импорт перезапишет данные на этом устройстве.</div>
+  </div>
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 <script>
+/* ===================== CLOUD SYNC (Firebase Realtime Database) =====================
+   Прогресс (галочки, навыки, добавленные пункты, задачи по месяцам) синхронизируется
+   между устройствами. Личные заметки остаются только на этом устройстве.
+   Чтобы включить — заполни FIREBASE_CONFIG ниже:
+
+   1. console.firebase.google.com → Add project (бесплатно, Google-аккаунт).
+   2. Build → Realtime Database → Create database → выбери ближайший регион (europe-west1).
+   3. Вкладка Rules → вставь и нажми Publish:
+          { "rules": { ".read": true, ".write": true } }
+   4. Project settings (⚙ вверху слева) → прокрути до "Your apps" → значок Web </> →
+      зарегистрируй приложение → скопируй поля из firebaseConfig сюда (databaseURL обязателен).
+   5. На СВОИХ телефоне и компьютере открой сайт ОДИН раз со ссылкой .../?owner=1
+      — после этого они смогут записывать изменения. Остальные посетители видят
+      твой прогресс только на чтение и ничего не сломают. (Снять режим: ?owner=0)
+=================================================================================== */
+const FIREBASE_CONFIG = {
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",   // напр. https://learning2think-default-rtdb.europe-west1.firebasedatabase.app
+  projectId: "",
+  appId: ""
+};
+
+// Какие ключи входят в общее состояние. UI-настройки (активная вкладка, свёрнутые
+// домены, язык CV) и ЛИЧНЫЕ ЗАМЕТКИ (ta_) НЕ синхронизируются — остаются на устройстве.
+const SYNC_RE=/^(c_|sk_|csk_|roadmap_custom|skills_custom|m_)/;
+const _lsSet=localStorage.setItem.bind(localStorage);
+const _lsRem=localStorage.removeItem.bind(localStorage);
+let _applyingRemote=false,_db=null,_pushTimer=null;
+function isOwner(){try{return localStorage.getItem('syncOwner')==='1'}catch(e){return false}}
+
+// Перехват записей: любое изменение прогресса планирует выгрузку в облако.
+localStorage.setItem=function(k,v){_lsSet(k,v);if(!_applyingRemote&&SYNC_RE.test(k))onLocalChange();};
+localStorage.removeItem=function(k){_lsRem(k);if(!_applyingRemote&&SYNC_RE.test(k))onLocalChange();};
+
+function localRev(){try{return parseInt(localStorage.getItem('_rev')||'0',10)||0}catch(e){return 0}}
+function setLocalRev(n){try{_lsSet('_rev',String(n))}catch(e){}}
+function gatherState(){
+  const o={};
+  try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(SYNC_RE.test(k))o[k]=localStorage.getItem(k);}}catch(e){}
+  return o;
+}
+function onLocalChange(){setLocalRev(Date.now());schedulePush();}
+function schedulePush(){clearTimeout(_pushTimer);_pushTimer=setTimeout(pushState,700);}
+function pushState(){
+  if(!_db||!isOwner())return;
+  try{_db.ref('state').set({rev:localRev(),data:gatherState()});}catch(e){}
+}
+function applyRemote(data){
+  _applyingRemote=true;
+  try{
+    const incoming=data||{};
+    const cur=[];
+    for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(SYNC_RE.test(k))cur.push(k);}
+    cur.forEach(k=>{if(!(k in incoming))_lsRem(k);});
+    Object.keys(incoming).forEach(k=>_lsSet(k,incoming[k]));
+  }catch(e){}
+  _applyingRemote=false;
+  applyStateToUI();
+}
+function refreshCards(){
+  document.querySelectorAll('.card').forEach(el=>{
+    if(el.dataset.custom)return;
+    let d=false;try{d=localStorage.getItem('c_'+el.id)==='1'}catch(e){}
+    el.classList.toggle('done',d);
+    const chk=el.querySelector('.c-chk');if(chk)chk.textContent=d?'✓':'○';
+    el.setAttribute('aria-pressed',d?'true':'false');
+  });
+}
+function refreshSkills(){
+  document.querySelectorAll('.sk').forEach(el=>{
+    if(el.dataset.cid)return;
+    let ok=false;try{ok=localStorage.getItem('sk_'+el.dataset.i)==='1'}catch(e){}
+    el.classList.toggle('ok',ok);
+  });
+}
+function applyStateToUI(){
+  // notes are device-local (not synced), so they are intentionally left untouched here
+  refreshCards();renderCustomRoadmap();
+  refreshSkills();renderCustomSkills();skSearch();
+  try{mChange();}catch(e){}
+  upd();
+}
+function updateSyncStatus(state){
+  const el=document.getElementById('syncStatus');if(!el)return;
+  if(state==='off'){el.hidden=true;return;}
+  el.hidden=false;
+  if(state==='connecting'){el.innerHTML='<span style="color:var(--dim)">○</span>cloud sync · connecting…';return;}
+  if(state==='offline'){el.innerHTML='<span style="color:var(--health)">○</span>cloud sync · offline';return;}
+  el.innerHTML='<span style="color:var(--science)">●</span>cloud sync · '+(isOwner()?'this device can edit':'read-only');
+}
+function initSync(){
+  try{
+    const p=new URLSearchParams(location.search);
+    if(p.get('owner')==='1')_lsSet('syncOwner','1');
+    else if(p.get('owner')==='0')_lsRem('syncOwner');
+  }catch(e){}
+  if(typeof firebase==='undefined'||!FIREBASE_CONFIG.databaseURL){updateSyncStatus('off');return;}
+  try{
+    firebase.initializeApp(FIREBASE_CONFIG);
+    _db=firebase.database();
+    updateSyncStatus('connecting');
+    _db.ref('.info/connected').on('value',s=>updateSyncStatus(s.val()?'on':'offline'));
+    _db.ref('state').on('value',snap=>{
+      const remote=snap.val();
+      if(!remote){if(isOwner())pushState();return;}
+      const rrev=remote.rev||0;
+      if(rrev>localRev()){setLocalRev(rrev);applyRemote(remote.data);}
+      else if(isOwner()&&rrev<localRev()){pushState();}
+    });
+  }catch(e){updateSyncStatus('off');}
+}
+
 // Tabs — roving tabindex, persistence, keyboard nav
 const tabBtns=[...document.querySelectorAll('.tab-btn')];
 function activateTab(name,focus){
@@ -1393,11 +1577,57 @@ function cvLang(l){
 }
 function loadCvLang(){let l='ru';try{l=localStorage.getItem('cvLang')||'ru'}catch(e){}cvLang(l);}
 
+// Copy the English flagship description as plain text (for LinkedIn / applications)
+function copyEn(btn){
+  const body=document.querySelector('.cv-body[data-lang="en"]');
+  if(!body)return;
+  const role=body.querySelector('.cv-proj-role');
+  const lines=['In Silico BBB — '+(role?role.textContent.trim():'')];
+  body.querySelectorAll('.cv-proj-list li').forEach(li=>lines.push('• '+li.textContent.trim()));
+  const text=lines.join('\n');
+  const done=()=>{const o=btn.textContent;btn.classList.add('ok');btn.textContent='copied ✓';setTimeout(()=>{btn.classList.remove('ok');btn.textContent=o;},1600);};
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(()=>fallbackCopy(text,done));
+  }else fallbackCopy(text,done);
+}
+function fallbackCopy(text,done){
+  try{const ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();done&&done();}catch(e){}
+}
+
+// Backup — export/import progress + notes as a JSON file
+const BACKUP_RE=/^(c_|sk_|csk_|roadmap_custom|skills_custom|m_|ta_|cvLang|activeTab|dom_)/;
+function exportData(){
+  const o={};
+  try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(BACKUP_RE.test(k))o[k]=localStorage.getItem(k);}}catch(e){}
+  const payload={_app:'learning2think',_ts:new Date().toISOString(),data:o};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='learning2think-backup-'+new Date().toISOString().slice(0,10)+'.json';
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+function importData(input){
+  const f=input.files&&input.files[0];if(!f){return;}
+  const r=new FileReader();
+  r.onload=()=>{
+    let d=null;
+    try{const j=JSON.parse(r.result);d=(j&&j.data&&typeof j.data==='object')?j.data:j;}catch(e){}
+    if(!d||typeof d!=='object'){alert('Invalid backup file.');input.value='';return;}
+    if(!confirm('Restore this backup? It overwrites current progress and notes on this device.')){input.value='';return;}
+    try{Object.keys(d).forEach(k=>{if(typeof d[k]==='string')localStorage.setItem(k,d[k]);});}catch(e){}
+    location.reload();
+  };
+  r.readAsText(f);
+}
+
 window.addEventListener('load',()=>{
   loadCards();renderCustomRoadmap();
   loadSkills();renderCustomSkills();loadDomains();skSearch();
   loadNotes();notesCount();loadCvLang();
   initMonth();loadTab();
+  initSync();
 });
 </script>
 </body>
