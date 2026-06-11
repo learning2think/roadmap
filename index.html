@@ -419,28 +419,28 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
     <div class="cv-proj">
       <div class="cv-proj-h">
         <span class="cv-proj-n">In Silico BBB</span>
-        <span class="cv-proj-tag">v1.20.1 · MIT · open-source</span>
+        <span class="cv-proj-tag">v1.21.0 · MIT · open-source</span>
       </div>
 
       <div class="cv-body" data-lang="ru" lang="ru">
         <div class="cv-proj-role">Вычислительная платформа моделирования транспорта лекарств через ГЭБ · ведущий разработчик</div>
         <ul class="cv-proj-list">
-          <li>Open-source платформа для моделирования и скрининга проникновения лекарств через ГЭБ: механистическая двухкамерная ODE-модель транспорта, PBPK-расширения (3 и 5 камер) и QSAR/ML-предсказание.</li>
-          <li>Классификатор проницаемости ГЭБ (scaffold-CV AUC 0.92, MCC 0.67; n≈8000) и регрессор logBB (R² 0.44, RMSE 0.57) со строгой валидацией: кросс-валидация по каркасам Мурко, временны́е холдауты по году публикации, конформные интервалы, Y-scrambling.</li>
-          <li>Честная оценка неопределённости и области применимости: Mondrian-конформные множества и калибровка Платта на leakage-controlled ChEMBL-панели — с явным разделением scaffold-, temporal- и external-валидации вместо одной оптимистичной метрики.</li>
-          <li>Бенчмарк графовых нейросетей (DMPNN, AttentiveFP) против градиентного бустинга: задокументировал воспроизводимый отрицательный результат (GNN проигрывают на n≈900) и осознанно исключил слабые модели из рантайма.</li>
-          <li>Полный стек поставки: FastAPI REST (12 эндпоинтов), Python SDK, CLI и многостраничное Streamlit-приложение; набор из ~1500 тестов с CI, ruff/mypy и отчётами покрытия.</li>
+          <li>Open-source платформа для моделирования и скрининга проникновения лекарств через ГЭБ, объединяющая три слоя: механистический PBPK-симулятор переноса (2-/3-/5-камерные ОДУ, активный транспорт P-gp/BCRP/MRP4/LAT1 по Михаэлису–Ментен, итог — Kp,uu), ML/QSAR-пайплайн на ~2250-мерном векторе признаков (дескрипторы + ECFP/MACCS) и оценку неопределённости на каждое предсказание.</li>
+          <li>Классификатор проницаемости ГЭБ (scaffold-CV AUC 0.92, MCC 0.67; n≈8100) и стэкинг-регрессор logBB (R² 0.44, RMSE 0.57) со строгой валидацией: кросс-валидация по каркасам Бемиса–Мурко, временно́й холдаут по году публикации (AUC 0.88), конформные интервалы и Y-scrambling (p≈0.01).</li>
+          <li>Честная многоуровневая неопределённость: split-conformal интервалы logBB (покрытие 92.6/97.3% при номинальных 80/90%) и Mondrian prediction-sets для классификатора с флагом области применимости — и явное разделение scaffold-, temporal- и external-валидации вместо одной оптимистичной метрики.</li>
+          <li>Бенчмарк графовых нейросетей против градиентного бустинга: задокументировал воспроизводимый отрицательный результат (GNN проигрывают на n≈900) и диагностировал потолок «сигнал/шум» в данных logBB (R²_cv≈0.41–0.44 во всех семействах моделей) — рычаг качества здесь данные, а не алгоритм.</li>
+          <li>Полный стек поставки: FastAPI REST (13 эндпоинтов), Python SDK, CLI и двуязычное (RU/EN) Streamlit-приложение; ~1490 тестов с CI (Python 3.10–3.12), ruff/mypy, Docker и предрелизным security-review.</li>
         </ul>
       </div>
 
       <div class="cv-body" data-lang="en" lang="en" hidden>
         <div class="cv-proj-role">Computational Platform for Blood–Brain Barrier Drug Transport · lead developer</div>
         <ul class="cv-proj-list">
-          <li>Built an open-source platform for modelling and screening drug transport across the blood–brain barrier, combining a mechanistic two-compartment ODE transport model, 3-/5-compartment PBPK extensions, and QSAR/ML prediction.</li>
-          <li>Developed a BBB permeability classifier (scaffold-CV AUC 0.92, MCC 0.67; n≈8,000) and logBB regressor (R² 0.44, RMSE 0.57 log units) with rigorous validation: Murcko-scaffold cross-validation, temporal (publication-year) holdouts, conformal prediction intervals, and Y-scrambling permutation tests.</li>
-          <li>Implemented honest uncertainty and applicability-domain reporting — Mondrian conformal prediction sets and Platt-scaled calibration benchmarked on a leakage-controlled ChEMBL panel — explicitly distinguishing scaffold CV, temporal, and external validation rather than a single optimistic score.</li>
-          <li>Benchmarked graph neural networks (DMPNN, AttentiveFP) against gradient boosting and documented a reproducible negative result (GNNs underperform on n≈900), deliberately excluding weaker models from the runtime.</li>
-          <li>Shipped a full delivery surface: FastAPI REST service (12 endpoints), Python SDK, CLI, and a multipage Streamlit application; maintained a ~1,500-test suite with CI, ruff/mypy, and coverage reporting.</li>
+          <li>Built an open-source platform for modelling and screening drug transport across the blood–brain barrier, integrating three layers: a mechanistic PBPK simulator (2-/3-/5-compartment ODEs, Michaelis–Menten active transport via P-gp/BCRP/MRP4/LAT1, Kp,uu readout), a QSAR/ML pipeline over a ~2,250-dim feature vector (descriptors + ECFP/MACCS), and per-prediction uncertainty.</li>
+          <li>Developed a BBB permeability classifier (scaffold-CV AUC 0.92, MCC 0.67; n≈8,100) and a stacked logBB regressor (R² 0.44, RMSE 0.57 log units) with rigorous validation: Bemis–Murcko scaffold cross-validation, a temporal (publication-year) holdout (AUC 0.88), conformal prediction intervals, and Y-scrambling permutation tests (p≈0.01).</li>
+          <li>Implemented honest multi-level uncertainty — split-conformal logBB intervals (92.6/97.3% coverage at nominal 80/90%) and Mondrian prediction sets with an applicability-domain flag — explicitly separating scaffold, temporal, and external validation instead of a single optimistic score.</li>
+          <li>Benchmarked graph neural networks against gradient boosting, documenting a reproducible negative result (GNNs underperform on n≈900), and diagnosed a signal-to-noise ceiling in the logBB data (R²_cv≈0.41–0.44 across all model families) — the lever is data, not the algorithm.</li>
+          <li>Shipped a full delivery surface: FastAPI REST service (13 endpoints), Python SDK, CLI, and a bilingual (RU/EN) Streamlit application; maintained a ~1,490-test suite with CI (Python 3.10–3.12), ruff/mypy, Docker, and a pre-release security review.</li>
         </ul>
       </div>
 
@@ -448,8 +448,8 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
         <span class="cv-m"><b>0.92</b> AUC · 0.67 MCC · BBB</span>
         <span class="cv-m"><b>0.88</b> AUC · temporal</span>
         <span class="cv-m"><b>0.44</b> R² · 0.57 RMSE · logBB</span>
-        <span class="cv-m"><b>~1,500</b> tests · CI</span>
-        <span class="cv-m"><b>12</b> REST endpoints</span>
+        <span class="cv-m"><b>~1,490</b> tests · CI</span>
+        <span class="cv-m"><b>13</b> REST endpoints</span>
       </div>
     </div>
   </div>
