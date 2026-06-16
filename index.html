@@ -358,6 +358,32 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   @page{margin:14mm}
 }
+
+/* ===== READING TRACKER ===== */
+.rdr-sect{margin-bottom:6px}
+.rdr-filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:9px}
+.rdr-chip{font-family:var(--mono);font-size:10px;color:var(--dim);background:var(--bg-card);border:1px solid var(--border);padding:7px 12px;cursor:pointer;transition:color .12s,border-color .12s;touch-action:manipulation}
+.rdr-chip:hover{color:var(--text)}
+.rdr-chip.active{color:var(--text);border-color:var(--border-l);background:var(--bg-hover)}
+.rdr-item{display:flex;align-items:flex-start;gap:9px;padding:9px 0;border-bottom:1px solid var(--faint)}
+.rdr-stat{flex-shrink:0;font-size:8.5px;font-weight:600;letter-spacing:.05em;padding:3px 6px;border:1px solid;min-width:58px;text-align:center;cursor:pointer;transition:color .12s,border-color .12s,background .12s;touch-action:manipulation;user-select:none}
+.rdr-s-plan{color:var(--dim);border-color:rgba(107,107,107,.4);background:rgba(107,107,107,.06)}
+.rdr-s-reading{color:var(--study);border-color:rgba(184,146,30,.4);background:rgba(184,146,30,.07)}
+.rdr-s-done{color:var(--science);border-color:rgba(61,158,87,.4);background:rgba(61,158,87,.07)}
+.rdr-body{flex:1;min-width:0}
+.rdr-title{font-size:12px;color:var(--text);line-height:1.45;margin-bottom:2px;word-break:break-word}
+.rdr-title.crossed{text-decoration:line-through;opacity:.45}
+.rdr-meta{font-size:10px;color:var(--dim);margin-bottom:1px}
+.rdr-note-t{font-size:10.5px;color:#4a4a4a;line-height:1.5;margin-top:3px}
+.rdr-del{flex-shrink:0;color:var(--faint);cursor:pointer;font-size:15px;line-height:1.4;padding:0 4px;transition:color .12s;touch-action:manipulation}
+.rdr-del:hover{color:var(--health)}
+.rdr-divider{margin:20px 0 14px;border-top:1px solid var(--border)}
+.rdr-count{font-size:10px;color:var(--dim);margin:-4px 0 12px;font-variant-numeric:tabular-nums}
+
+
+.rdr-tpl{flex-shrink:0;color:var(--dim);cursor:pointer;font-size:12px;line-height:1.4;padding:0 4px;transition:color .12s;touch-action:manipulation;user-select:none}
+.rdr-tpl:hover{color:var(--vis)}
+
 </style>
 </head>
 <body>
@@ -1000,6 +1026,18 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
     <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Поиск PhD позиций: конкретные каналы<span class="sk-n"> — OIST: oist.jp/admissions, написать 3–5 профессорам напрямую с описанием BBB-проекта ДО официальной подачи (они это поощряют). EMBL: embl.org/research/jobs (EIPP program, deadline обычно ноябрь). EURAXESS: euraxess.ec.europa.eu — EU-funded позиции с зарплатой в объявлении. Nature Careers: jobs.nature.com + email alerts. X: @OIST_okinawa, #phdposition, #computationalbiology, @EMBL_EBI. Личные сайты профессоров: «open positions». EU подача: декабрь–февраль. OIST: два раза в год.</span><span class="sk-r">→ oist.jp/admissions + euraxess.ec.europa.eu + Nature Careers alerts · ongoing</span></span></div>
   </div>
 
+
+  <div class="dom">
+    <div class="dom-t">Медицина / нейрофармакология — учебники</div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Клиническая фармакология — мед школа<span class="sk-n"> — механизмы действия, классификации, клиническое применение. Удерживать и углублять через CNS-специфические источники.</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Нейроанатомия и нейрофизиология — мед школа<span class="sk-n"> — топография ЦНС, нейронные пути, физиология нейрона. Основа для понимания мишеней CNS-препаратов. Углублять через нейрофармакологические статьи где мишени разбираются в анатомическом контексте.</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Stahl «Essential Psychopharmacology»<span class="sk-n"> — лучший старт в психиатрической фармакологии. Антидепрессанты (SSRI/SNRI/TCA/MAOI), антипсихотики (D2/5-HT2A), анксиолитики, стабилизаторы настроения. Читается как иллюстрированный нарратив — не справочник. Каждый класс препаратов = мишень в пайплайне BBB → рецептор → нейро-эффект. Обязательно перед Nestler.</span><span class="sk-r">→ Stahl S.M. «Essential Psychopharmacology» 4th ed. (Cambridge UP) · ~6–8 нед</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Goodman &amp; Gilman «The Pharmacological Basis of Therapeutics»<span class="sk-n"> — стандарт клинической фармакологии. Не читать линейно — использовать как reference. ЦНС-разделы: «Drugs Acting on the Central Nervous System» (гл. по анестетикам, антиэпилептикам, анксиолитикам, антипсихотикам, антидепрессантам, наркотикам). ADME и фармакокинетика — первые главы как фундамент.</span><span class="sk-r">→ Brunton et al. «Goodman &amp; Gilman's» 14th ed. — ЦНС-разделы выборочно · ~2 мес (ЦНС)</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Nestler, Hyman &amp; Malenka «Molecular Neuropharmacology»<span class="sk-n"> — мост между молекулярными механизмами и клиническими эффектами CNS-препаратов. Подробнее Stahl по молекулярному уровню: рецепторные системы, сигнальные каскады, синаптическая пластичность как мишень. Идеален после Stahl для углубления. Прямо связан с QSP-моделями: именно эти пути описываются ОДУ в COPASI/SBML.</span><span class="sk-r">→ Nestler et al. «Molecular Neuropharmacology» 3rd ed. (McGraw-Hill) · ~3 мес</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Kandel «Principles of Neural Science»<span class="sk-n"> — стандарт нейронауки, 1700 страниц. Читать выборочно: Part III (Synaptic transmission & modulation), Part VI (Perception), Part VIII (Diseases — депрессия, шизофрения, болезнь Паркинсона, Альцгеймер). Не линейно — знать где что находится и обращаться при необходимости.</span><span class="sk-r">→ Kandel et al. «Principles of Neural Science» 6th ed. — выборочно · ~3 мес активного чтения</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bc">~</span><span class="sk-t">Keener &amp; Sneyd «Mathematical Physiology»<span class="sk-n"> — математическое моделирование физиологии: Vol.1 клеточная биофизика (нейронные модели, ионные каналы, кальциевые волны). Нужно если идёшь в QSP/динамика-ветку глубже. Читать после Strogatz и Dayan &amp; Abbott.</span><span class="sk-r">→ Keener &amp; Sneyd «Mathematical Physiology» Vol.1 (Springer) · ~3 мес если нужна глубина</span></span></div>
+  </div>
+
   <div class="dom" id="mydom" hidden>
     <div class="dom-t">Мои навыки</div>
     <div id="mydom-list"></div>
@@ -1058,6 +1096,63 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 
 <!-- ════════════════════ ЗАМЕТКИ ════════════════════ -->
 <div id="notes" class="tab-s" lang="ru">
+  <div class="rdr-sect">
+    <div class="ta-lbl" style="margin-bottom:10px">// библиотека чтения · zotero workflow</div>
+
+    <div class="rdr-filters" role="group" aria-label="Фильтр по статусу">
+      <button class="rdr-chip active" data-rf="all" onclick="rdrFilter(this)" aria-pressed="true">все</button>
+      <button class="rdr-chip" data-rf="plan" onclick="rdrFilter(this)" aria-pressed="false">план</button>
+      <button class="rdr-chip" data-rf="reading" onclick="rdrFilter(this)" aria-pressed="false">читаю</button>
+      <button class="rdr-chip" data-rf="done" onclick="rdrFilter(this)" aria-pressed="false">прочитал</button>
+    </div>
+
+    <select id="rdr-tag-f" onchange="renderRdr()" aria-label="Фильтр по теме" style="margin-bottom:10px">
+      <option value="all">все темы</option>
+      <option value="BBB">BBB</option>
+      <option value="PK/PD">PK/PD</option>
+      <option value="QSP">QSP</option>
+      <option value="Нейро">Нейро</option>
+      <option value="ML">ML</option>
+      <option value="Психиатрия">Психиатрия</option>
+      <option value="Учебник">Учебник</option>
+      <option value="Другое">Другое</option>
+    </select>
+
+    <div class="rdr-count" id="rdr-count"></div>
+    <div id="rdr-list"></div>
+    <div id="rdr-empty" style="font-size:11px;color:var(--faint);padding:8px 0;display:none">ничего не найдено</div>
+
+    <div class="addwrap">
+      <button class="add-toggle" onclick="toggleAdd('rdr')" aria-expanded="false">＋ добавить статью / книгу</button>
+      <div class="add-form" id="add-rdr" hidden>
+        <input class="m-inp" id="rdr-title" type="text" placeholder="Авторы год — Название..." style="margin-bottom:9px" maxlength="200">
+        <div class="af-row">
+          <select id="rdr-status" aria-label="Статус">
+            <option value="plan">план</option>
+            <option value="reading">читаю</option>
+            <option value="done">прочитал</option>
+          </select>
+          <select id="rdr-tag" aria-label="Тема">
+            <option value="BBB">BBB</option>
+            <option value="PK/PD">PK/PD</option>
+            <option value="QSP">QSP</option>
+            <option value="Нейро">Нейро</option>
+            <option value="ML">ML</option>
+            <option value="Психиатрия">Психиатрия</option>
+            <option value="Учебник">Учебник</option>
+            <option value="Другое">Другое</option>
+          </select>
+        </div>
+        <textarea id="rdr-note" placeholder="Заметка — зачем читаю, главный вывод (необязательно)..." style="margin-top:9px;min-height:56px"></textarea>
+        <div class="af-actions" style="margin-top:9px">
+          <button class="af-btn save" onclick="addPaper()">добавить</button>
+          <button class="af-btn ghost" onclick="toggleAdd('rdr')">отмена</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rdr-divider"></div>
   <div class="ta-lbl">// заметки</div>
   <textarea id="notes-ta" placeholder="Свободное пространство..." oninput="sv('notes-ta');notesCount()"></textarea>
   <div class="ta-count" id="notes-count"></div>
@@ -1609,7 +1704,7 @@ function fallbackCopy(text,done){
 }
 
 // Backup — export/import progress + notes as a JSON file
-const BACKUP_RE=/^(c_|sk_|csk_|roadmap_custom|skills_custom|m_|ta_|cvLang|activeTab|dom_)/;
+const BACKUP_RE=/^(c_|sk_|csk_|roadmap_custom|skills_custom|m_|ta_|cvLang|activeTab|dom_|rdr_)/;
 function exportData(){
   const o={};
   try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(BACKUP_RE.test(k))o[k]=localStorage.getItem(k);}}catch(e){}
@@ -1635,12 +1730,158 @@ function importData(input){
   r.readAsText(f);
 }
 
+
+
+// ===== READING TRACKER DEFAULTS =====
+const RDR_DEFAULTS = [
+  {id:'d01',title:'Stahl \u2014 Essential Psychopharmacology (4th ed.)',status:'plan',tag:'\u0423\u0447\u0435\u0431\u043d\u0438\u043a',note:'\u0421\u0442\u0430\u0440\u0442 \u0432 \u043f\u0441\u0438\u0445\u0438\u0430\u0442\u0440\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0444\u0430\u0440\u043c\u0430\u043a\u043e\u043b\u043e\u0433\u0438\u0438. \u0410\u043d\u0442\u0438\u0434\u0435\u043f\u0440\u0435\u0441\u0441\u0430\u043d\u0442\u044b, \u0430\u043d\u0442\u0438\u043f\u0441\u0438\u0445\u043e\u0442\u0438\u043a\u0438, \u0430\u043d\u043a\u0441\u0438\u043e\u043b\u0438\u0442\u0438\u043a\u0438. ~6\u20138 \u043d\u0435\u0434.',added:'2026-06-16'},
+  {id:'d02',title:'Goodman & Gilman \u2014 The Pharmacological Basis of Therapeutics (14th ed.)',status:'plan',tag:'\u0423\u0447\u0435\u0431\u043d\u0438\u043a',note:'\u0427\u0438\u0442\u0430\u0442\u044c \u0432\u044b\u0431\u043e\u0440\u043e\u0447\u043d\u043e: \u0440\u0430\u0437\u0434\u0435\u043b\u044b \u041f\u041d\u0421 (Part V) \u2014 \u0430\u043d\u0441\u0442\u0435\u0442\u0438\u043a\u0438, \u0430\u043d\u0442\u0438\u044d\u043f\u0438\u043b\u0435\u043f\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0435, \u0430\u043d\u0442\u0438\u043f\u0441\u0438\u0445\u043e\u0442\u0438\u043a\u0438, \u0430\u043d\u0442\u0438\u0434\u0435\u043f\u0440\u0435\u0441\u0441\u0430\u043d\u0442\u044b. Reference, \u043d\u0435 \u043b\u0438\u043d\u0435\u0439\u043d\u043e\u0435 \u0447\u0442\u0435\u043d\u0438\u0435.',added:'2026-06-16'},
+  {id:'d03',title:'Nestler, Hyman & Malenka \u2014 Molecular Neuropharmacology (3rd ed.)',status:'plan',tag:'\u041f\u0441\u0438\u0445\u0438\u0430\u0442\u0440\u0438\u044f',note:'\u041c\u043e\u043b\u0435\u043a\u0443\u043b\u044f\u0440\u043d\u044b\u0435 \u043c\u0435\u0445\u0430\u043d\u0438\u0437\u043c\u044b \u2192 \u043a\u043b\u0438\u043d\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u044d\u0444\u0444\u0435\u043a\u0442\u044b CNS-\u043f\u0440\u0435\u043f\u0430\u0440\u0430\u0442\u043e\u0432. \u041f\u043e\u0441\u043b\u0435 Stahl. \u041f\u0440\u044f\u043c\u043e \u0441\u0432\u044f\u0437\u0430\u043d \u0441 QSP-\u043c\u043e\u0434\u0435\u043b\u044f\u043c\u0438 \u0441\u0438\u0433\u043d\u0430\u043b\u044c\u043d\u044b\u0445 \u043f\u0443\u0442\u0435\u0439. ~3 \u043c\u0435\u0441.',added:'2026-06-16'},
+  {id:'d04',title:'Kandel et al. \u2014 Principles of Neural Science (6th ed.)',status:'plan',tag:'\u041d\u0435\u0439\u0440\u043e',note:'Reference. \u0427\u0438\u0442\u0430\u0442\u044c: Part III (\u0441\u0438\u043d\u0430\u043f\u0442\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u043f\u0435\u0440\u0435\u0434\u0430\u0447\u0430), Part VIII (\u0411\u043e\u043b\u0435\u0437\u043d\u0438 \u041d\u0421: \u0434\u0435\u043f\u0440\u0435\u0441\u0441\u0438\u044f, \u0448\u0438\u0437\u043e\u0444\u0440\u0435\u043d\u0438\u044f, \u041f\u0430\u0440\u043a\u0438\u043d\u0441\u043e\u043d). \u0417\u043d\u0430\u0442\u044c \u0433\u0434\u0435 \u0447\u0442\u043e \u043b\u0435\u0436\u0438\u0442. ~3 \u043c\u0435\u0441 \u0430\u043a\u0442\u0438\u0432\u043d\u043e\u0433\u043e \u0447\u0442\u0435\u043d\u0438\u044f.',added:'2026-06-16'},
+  {id:'d05',title:'Dayan & Abbott \u2014 Theoretical Neuroscience',status:'plan',tag:'\u041d\u0435\u0439\u0440\u043e',note:'MIT Press, PDF \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e. \u0413\u043b.1\u20132: \u0432\u044b\u0447\u0438\u0441\u043b\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0435 \u043c\u043e\u0434\u0435\u043b\u0438 \u043d\u0435\u0439\u0440\u043e\u043d\u0430 (HH, FitzHugh-Nagumo, firing rate). ~3 \u043d\u0435\u0434.',added:'2026-06-16'},
+  {id:'d06',title:'Strogatz \u2014 Nonlinear Dynamics and Chaos (2nd ed.)',status:'plan',tag:'QSP',note:'\u041f\u0414\u0424 \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e. \u0413\u043b.1\u20136: \u0444\u0430\u0437\u043e\u0432\u044b\u0435 \u043f\u043e\u0440\u0442\u0440\u0435\u0442\u044b, \u0443\u0441\u0442\u043e\u0439\u0447\u0438\u0432\u043e\u0441\u0442\u044c \u0440\u0430\u0432\u043d\u043e\u0432\u0435\u0441\u0438\u0439. \u041e\u0441\u043d\u043e\u0432\u0430 PK/PD \u041e\u0414\u0423-\u043c\u043e\u0434\u0435\u043b\u0435\u0439. ~2 \u043c\u0435\u0441.',added:'2026-06-16'},
+  {id:'d07',title:'McElreath \u2014 Statistical Rethinking (2nd ed.)',status:'plan',tag:'ML',note:'\u0411\u0430\u0439\u0435\u0441\u043e\u0432\u0441\u043a\u0430\u044f \u0441\u0442\u0430\u0442\u0438\u0441\u0442\u0438\u043a\u0430. YouTube \u043b\u0435\u043a\u0446\u0438\u0438 \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e. \u0413\u043b.1\u20138 \u043a\u0430\u043a \u043e\u0441\u043d\u043e\u0432\u0430, 9\u201315 \u0435\u0441\u043b\u0438 comp-psych. ~3 \u043c\u0435\u0441.',added:'2026-06-16'},
+  {id:'d08',title:'Gabrielsson & Weiner \u2014 Pharmacokinetic & Pharmacodynamic Data Analysis',status:'plan',tag:'PK/PD',note:'\u041e\u0442\u0440\u0430\u0441\u043b\u0435\u0432\u043e\u0439 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442. \u0413\u043b.3\u20136: Emax, EC50, indirect response, turnover. ~2 \u043c\u0435\u0441.',added:'2026-06-16'},
+  {id:'d09',title:'Keener & Sneyd \u2014 Mathematical Physiology Vol.1',status:'plan',tag:'QSP',note:'\u041c\u0430\u0442. \u043c\u043e\u0434\u0435\u043b\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0444\u0438\u0437\u0438\u043e\u043b\u043e\u0433\u0438\u0438. \u0418\u043e\u043d\u043d\u044b\u0435 \u043a\u0430\u043d\u0430\u043b\u044b, HH-\u043c\u043e\u0434\u0435\u043b\u044c. \u041f\u043e\u0441\u043b\u0435 Strogatz \u0438 Dayan & Abbott. ~3 \u043c\u0435\u0441 \u0432\u044b\u0431\u043e\u0440\u043e\u0447\u043d\u043e.',added:'2026-06-16'},
+  {id:'d10',title:'Yang et al. 2019 \u2014 Analyzing Learned Molecular Representations for Property Prediction (J Chem Inf Model)',status:'plan',tag:'BBB',note:'\u041e\u0440\u0438\u0433\u0438\u043d\u0430\u043b\u044c\u043d\u0430\u044f \u0441\u0442\u0430\u0442\u044c\u044f Chemprop/DMPNN. SOTA \u0434\u043b\u044f ADMET, \u043f\u0440\u044f\u043c\u043e\u0439 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0438\u0439 \u0448\u0430\u0433 \u043f\u043e\u0441\u043b\u0435 Morgan FP. \u041e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e \u043f\u0435\u0440\u0435\u0434 GNN.',added:'2026-06-16'},
+  {id:'d11',title:'Mensh & Kording 2017 \u2014 Ten simple rules for structuring papers (PLoS Comput Biol)',status:'plan',tag:'\u0414\u0440\u0443\u0433\u043e\u0435',note:'2 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u044b. \u041e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e \u043f\u0435\u0440\u0435\u0434 \u043d\u0430\u043f\u0438\u0441\u0430\u043d\u0438\u0435\u043c \u0441\u0442\u0430\u0442\u044c\u0438 \u0432 JCheminf. PDF \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e.',added:'2026-06-16'},
+  {id:'d12',title:'Hammarlund-Udenaes 2010 \u2014 Active-site concentrations of chemicals (Basic Clin Pharmacol Toxicol)',status:'plan',tag:'PK/PD',note:'Kp,uu,brain \u0438 unbound CNS concentrations. \u041f\u0440\u044f\u043c\u043e\u0435 \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043d\u0438\u0435 BBB-\u043f\u0440\u043e\u0435\u043a\u0442\u0430.',added:'2026-06-16'},
+  {id:'d13',title:'Schnitzler & Gross 2005 \u2014 Normal and pathological oscillatory communication in the brain (Nat Rev Neurosci)',status:'plan',tag:'\u041d\u0435\u0439\u0440\u043e',note:'\u041e\u0441\u0446\u0438\u043b\u043b\u044f\u0446\u0438\u0438 \u0438 CNS-\u0444\u0430\u0440\u043c\u0430\u043a\u043e\u043b\u043e\u0433\u0438\u044f. Gamma/beta \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f \u043f\u0440\u0438 \u0448\u0438\u0437\u043e\u0444\u0440\u0435\u043d\u0438\u0438 \u0438 \u0431\u043e\u043b\u0435\u0437\u043d\u0438 \u041f\u0430\u0440\u043a\u0438\u043d\u0441\u043e\u043d\u0430.',added:'2026-06-16'},
+  {id:'d14',title:'Doya 2002 \u2014 Metalearning and neuromodulation (Neural Networks)',status:'plan',tag:'\u041d\u0435\u0439\u0440\u043e',note:'\u041a\u043b\u044e\u0447\u0435\u0432\u0430\u044f \u0441\u0442\u0430\u0442\u044c\u044f Doya \u043f\u043e \u0440\u043e\u043b\u044f\u043c \u0434\u043e\u0444\u0430\u043c\u0438\u043d\u0430/\u0441\u0435\u0440\u043e\u0442\u043e\u043d\u0438\u043d\u0430/\u0430\u0446\u0435\u0442\u0438\u043b\u0445\u043e\u043b\u0438\u043d\u0430 \u0432 RL. \u041f\u0440\u043e\u0447\u0438\u0442\u0430\u0442\u044c \u043f\u0435\u0440\u0435\u0434 \u043f\u0438\u0441\u044c\u043c\u043e\u043c \u0435\u043c\u0443.',added:'2026-06-16'},
+];
+
+function seedRdrDefaults(){
+  try{
+    if(localStorage.getItem('rdr_papers')===null){
+      localStorage.setItem('rdr_papers', JSON.stringify(RDR_DEFAULTS));
+    }
+  }catch(e){}
+}
+
+function copyTemplate(id, btn){
+  const papers = getRdr();
+  const p = papers.find(x => x.id === id);
+  if(!p) return;
+  const tag = p.tag.toLowerCase().replace(/\//g,'-').replace(/\s+/g,'-');
+  const t = p.title.replace(/"/g,'\\"');
+  const tpl =
+`---
+title: "${t}"
+tags: [${tag}, reading-notes]
+status: ${p.status}
+date: ${p.added}
+source: ${p.tag}
+---
+
+# ${p.title}
+
+## \u0410\u0440\u0433\u0443\u043c\u0435\u043d\u0442 / \u043e\u0441\u043d\u043e\u0432\u043d\u043e\u0439 \u0442\u0435\u0437\u0438\u0441
+
+
+## \u041a\u043b\u044e\u0447\u0435\u0432\u044b\u0435 \u0438\u0434\u0435\u0438
+- 
+- 
+
+## \u041c\u0435\u0442\u043e\u0434\u044b / \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442\u044b
+
+
+## \u0421\u0432\u044f\u0437\u044c \u0441 BBB-\u043f\u0440\u043e\u0435\u043a\u0442\u043e\u043c
+- 
+
+## \u0426\u0438\u0442\u0430\u0442\u044b
+
+
+## \u0412\u043e\u043f\u0440\u043e\u0441\u044b
+
+
+---
+*${p.tag} \u00b7 ${p.added}*`;
+  const done = ()=>{ const o=btn.textContent; btn.textContent='\u2713'; setTimeout(()=>btn.textContent=o,1400); };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(tpl).then(done).catch(()=>fallbackCopy(tpl,done));
+  } else { fallbackCopy(tpl,done); }
+}
+
+// ===== READING TRACKER =====
+const RDR_LABELS = {plan:'план', reading:'читаю', done:'прочитал'};
+const RDR_NEXT   = {plan:'reading', reading:'done', done:'plan'};
+let rdrStatusF = 'all';
+
+function getRdr(){try{return JSON.parse(localStorage.getItem('rdr_papers')||'[]')}catch(e){return[]}}
+function setRdr(a){try{localStorage.setItem('rdr_papers',JSON.stringify(a))}catch(e){}}
+
+function rdrFilter(btn){
+  document.querySelectorAll('.rdr-chip').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false');});
+  btn.classList.add('active');btn.setAttribute('aria-pressed','true');
+  rdrStatusF=btn.dataset.rf;
+  renderRdr();
+}
+
+function addPaper(){
+  const title=document.getElementById('rdr-title').value.trim();
+  if(!title){document.getElementById('rdr-title').focus();return;}
+  const papers=getRdr();
+  papers.unshift({
+    id:Date.now().toString(36),
+    title,
+    status:document.getElementById('rdr-status').value,
+    tag:document.getElementById('rdr-tag').value,
+    note:document.getElementById('rdr-note').value.trim(),
+    added:new Date().toISOString().slice(0,10)
+  });
+  setRdr(papers);
+  document.getElementById('rdr-title').value='';
+  document.getElementById('rdr-note').value='';
+  renderRdr();toggleAdd('rdr');
+}
+
+function delPaper(id){
+  setRdr(getRdr().filter(p=>p.id!==id));
+  renderRdr();
+}
+
+function cycleStat(id){
+  const papers=getRdr();
+  const p=papers.find(x=>x.id===id);
+  if(p)p.status=RDR_NEXT[p.status]||'plan';
+  setRdr(papers);renderRdr();
+}
+
+function renderRdr(){
+  const list=document.getElementById('rdr-list');
+  const empty=document.getElementById('rdr-empty');
+  const cnt=document.getElementById('rdr-count');
+  if(!list)return;
+  let papers=getRdr();
+  const tagEl=document.getElementById('rdr-tag-f');
+  const tagVal=tagEl?tagEl.value:'all';
+  if(rdrStatusF!=='all')papers=papers.filter(p=>p.status===rdrStatusF);
+  if(tagVal!=='all')papers=papers.filter(p=>p.tag===tagVal);
+  const total=getRdr().length;
+  const done=getRdr().filter(p=>p.status==='done').length;
+  if(cnt)cnt.textContent=total?('всего '+total+' · прочитал '+done):'';
+  if(!papers.length){list.innerHTML='';if(empty)empty.style.display='block';return;}
+  if(empty)empty.style.display='none';
+  list.innerHTML=papers.map(p=>`
+    <div class="rdr-item">
+      <span class="rdr-stat rdr-s-${p.status}" onclick="cycleStat('${p.id}')" title="Нажми чтобы изменить">${RDR_LABELS[p.status]||p.status}</span>
+      <div class="rdr-body">
+        <div class="rdr-title${p.status==='done'?' crossed':''}">${esc(p.title)}</div>
+        <div class="rdr-meta">${esc(p.tag)} · ${p.added}</div>
+        ${p.note?`<div class="rdr-note-t">${esc(p.note)}</div>`:''}
+      </div>
+      <span class="rdr-tpl" onclick="copyTemplate('${p.id}',this)" title="Шаблон Obsidian">📋</span>
+      <span class="rdr-del" onclick="delPaper('${p.id}')" title="Удалить">×</span>
+    </div>
+  `).join('');
+}
+
 window.addEventListener('load',()=>{
   loadCards();renderCustomRoadmap();
   loadSkills();renderCustomSkills();loadDomains();skSearch();
   loadNotes();notesCount();loadCvLang();
   initMonth();loadTab();
-  initSync();
+  initSync();seedRdrDefaults();renderRdr();
 });
 </script>
 </body>
