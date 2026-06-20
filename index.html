@@ -343,7 +343,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 @media print{
   :root{--bg:#fff;--bg-card:#fff;--bg-hover:#fff;--border:#cfcfcf;--border-l:#b6b6b6;--text:#111;--dim:#444;--faint:#dcdcdc}
   html,body{background:#fff!important;color:#111!important;font-size:11px}
-  .tabs-wrap,.hdr-prog,.sync,.hdr-links,.cv-lang,.cv-copy,.cv-print-hide{display:none!important}
+  .tabs-wrap,.hdr-prog,.hdr-dl,.sync,.hdr-links,.cv-lang,.cv-copy,.cv-print-hide{display:none!important}
   .tabs-wrap::after{display:none!important}
   .tab-s{display:none!important}
   #profile{display:block!important;padding:0 0 8px;animation:none}
@@ -384,6 +384,160 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 .rdr-tpl{flex-shrink:0;color:var(--dim);cursor:pointer;font-size:12px;line-height:1.4;padding:0 4px;transition:color .12s;touch-action:manipulation;user-select:none}
 .rdr-tpl:hover{color:var(--vis)}
 
+
+.rdr-pace{font-size:10.5px;color:var(--dim);margin:0 0 14px;padding:9px 11px;border:1px solid var(--border);border-left:2px solid var(--science);background:var(--bg-card)}
+.rdr-pace b{color:var(--text);font-weight:600}
+.rdr-pace.behind{border-left-color:var(--study)}
+.rdr-tools{margin-top:18px;padding-top:14px;border-top:1px solid var(--border)}
+.rdr-tools-lbl{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+.rdr-search-row{display:flex;gap:6px;flex-wrap:wrap}
+.rdr-slink{font-family:var(--mono);font-size:10px;color:var(--vis);background:var(--bg-card);border:1px solid rgba(70,130,180,.3);padding:6px 10px;text-decoration:none;transition:border-color .12s,background .1s;touch-action:manipulation;display:inline-block}
+.rdr-slink:hover{background:var(--bg-hover);border-color:var(--vis)}
+.rdr-export-row{display:flex;gap:8px;flex-wrap:wrap}
+
+/* ===== OUTREACH / APPLICATIONS TRACKER ===== */
+.or-intro{font-size:11.5px;color:var(--dim);line-height:1.7;margin-bottom:18px;padding:11px 13px;border:1px solid var(--border);border-left:3px solid var(--career);background:var(--bg-card)}
+.or-funnel{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.or-fcell{flex:1;min-width:70px;background:var(--bg-card);border:1px solid var(--border);padding:9px 8px;text-align:center}
+.or-fnum{font-size:18px;font-weight:600;color:#e0e0e0;font-variant-numeric:tabular-nums;line-height:1.1}
+.or-fnum.f-draft{color:var(--dim)}.or-fnum.f-sent{color:var(--vis)}.or-fnum.f-replied{color:var(--study)}
+.or-fnum.f-interview{color:var(--skills)}.or-fnum.f-offer{color:var(--science)}.or-fnum.f-rejected{color:var(--health)}
+.or-flab{font-size:8px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim);margin-top:4px}
+.or-filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.or-chip{font-family:var(--mono);font-size:10px;color:var(--dim);background:var(--bg-card);border:1px solid var(--border);padding:7px 12px;cursor:pointer;transition:color .12s,border-color .12s;touch-action:manipulation}
+.or-chip:hover{color:var(--text)}
+.or-chip.active{color:var(--text);border-color:var(--border-l);background:var(--bg-hover)}
+.or-count{font-size:10px;color:var(--dim);margin:-2px 0 12px;font-variant-numeric:tabular-nums}
+.or-item{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--border-l);padding:11px 30px 11px 12px;margin-bottom:8px;position:relative}
+.or-item.st-draft{border-left-color:var(--dim)}
+.or-item.st-sent{border-left-color:var(--vis)}
+.or-item.st-replied{border-left-color:var(--study)}
+.or-item.st-interview{border-left-color:var(--skills)}
+.or-item.st-offer{border-left-color:var(--science)}
+.or-item.st-rejected{border-left-color:var(--health);opacity:.55}
+.or-top{display:flex;align-items:flex-start;gap:9px}
+.or-badge{flex-shrink:0;font-size:8.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:4px 7px;border:1px solid;min-width:74px;text-align:center;cursor:pointer;user-select:none;touch-action:manipulation;transition:border-color .12s,color .12s}
+.b-draft{color:var(--dim);border-color:rgba(107,107,107,.4);background:rgba(107,107,107,.06)}
+.b-sent{color:var(--vis);border-color:rgba(70,130,180,.4);background:rgba(70,130,180,.07)}
+.b-replied{color:var(--study);border-color:rgba(184,146,30,.4);background:rgba(184,146,30,.07)}
+.b-interview{color:var(--skills);border-color:rgba(26,144,120,.4);background:rgba(26,144,120,.07)}
+.b-offer{color:var(--science);border-color:rgba(61,158,87,.45);background:rgba(61,158,87,.08)}
+.b-rejected{color:var(--health);border-color:rgba(201,79,79,.4);background:rgba(201,79,79,.06)}
+.or-body{flex:1;min-width:0}
+.or-name{font-size:12.5px;color:#e0e0e0;font-weight:500;line-height:1.4;word-break:break-word}
+.or-kind{font-size:8px;letter-spacing:.07em;text-transform:uppercase;color:var(--dim);margin-left:7px;border:1px solid var(--border);padding:1px 5px;vertical-align:middle;white-space:nowrap}
+.or-meta{font-size:10.5px;color:var(--dim);margin-top:5px;display:flex;flex-wrap:wrap;gap:9px;align-items:center}
+.or-dl{font-variant-numeric:tabular-nums}
+.or-dl.soon{color:var(--study)}
+.or-dl.over{color:var(--health)}
+.or-link{color:var(--vis);text-decoration:none}
+.or-link:hover{text-decoration:underline}
+.or-note{font-size:10.5px;color:#585858;line-height:1.55;margin-top:6px;word-break:break-word}
+.or-foot{margin-top:8px}
+.or-rej{font-size:9px;color:var(--faint);cursor:pointer;border:1px solid var(--border);padding:4px 8px;transition:color .12s,border-color .12s;touch-action:manipulation;white-space:nowrap;user-select:none}
+.or-rej:hover{color:var(--health);border-color:rgba(201,79,79,.4)}
+.or-rej.on{color:var(--health);border-color:rgba(201,79,79,.4)}
+.or-del{position:absolute;top:8px;right:9px;color:var(--faint);cursor:pointer;font-size:15px;line-height:1;padding:5px;transition:color .12s;touch-action:manipulation;user-select:none}
+.or-del:hover{color:var(--health)}
+.or-empty{font-size:11px;color:var(--faint);padding:10px 0}
+.or-tools{margin-top:18px;padding-top:14px;border-top:1px solid var(--border)}
+.or-tools-lbl{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+#or-deadline{color-scheme:dark}
+#or-deadline::-webkit-calendar-picker-indicator{filter:invert(.65);cursor:pointer}
+
+/* ===== DEADLINES / COUNTDOWNS ===== */
+.hdr-dl{display:block;width:100%;text-align:left;font-family:var(--mono);font-size:10.5px;color:var(--dim);background:var(--bg-card);border:1px solid var(--border);border-left:2px solid var(--career);padding:7px 10px;margin-top:10px;cursor:pointer;transition:border-color .12s,background .1s;font-variant-numeric:tabular-nums;touch-action:manipulation}
+.hdr-dl:hover{background:var(--bg-hover);border-color:var(--border-l)}
+.hdr-dl.dl-over,.hdr-dl.dl-urgent{color:var(--health);border-left-color:var(--health)}
+.hdr-dl.dl-soon{color:var(--study);border-left-color:var(--study)}
+.hdr-dl.dl-far{color:var(--science);border-left-color:var(--science)}
+
+.dl-intro{font-size:11.5px;color:var(--dim);line-height:1.7;margin-bottom:16px;padding:11px 13px;border:1px solid var(--border);border-left:3px solid var(--career);background:var(--bg-card)}
+.dl-filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.dl-chip{font-family:var(--mono);font-size:10px;color:var(--dim);background:var(--bg-card);border:1px solid var(--border);padding:7px 12px;cursor:pointer;transition:color .12s,border-color .12s;touch-action:manipulation}
+.dl-chip:hover{color:var(--text)}
+.dl-chip.active{color:var(--text);border-color:var(--border-l);background:var(--bg-hover)}
+.dl-count{font-size:10px;color:var(--dim);margin:-2px 0 12px;font-variant-numeric:tabular-nums}
+.dl-item{display:flex;align-items:flex-start;gap:9px;background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--border-l);padding:10px 10px 10px 12px;margin-bottom:8px}
+.dl-item.src-or{border-left-style:dashed}
+.dl-badge{flex-shrink:0;font-size:9px;font-weight:600;letter-spacing:.03em;padding:4px 7px;border:1px solid;min-width:80px;text-align:center;font-variant-numeric:tabular-nums;white-space:nowrap}
+.dl-badge.dl-over{color:var(--health);border-color:rgba(201,79,79,.4);background:rgba(201,79,79,.06)}
+.dl-badge.dl-urgent{color:var(--health);border-color:rgba(201,79,79,.45);background:rgba(201,79,79,.1)}
+.dl-badge.dl-soon{color:var(--study);border-color:rgba(184,146,30,.4);background:rgba(184,146,30,.07)}
+.dl-badge.dl-far{color:var(--science);border-color:rgba(61,158,87,.4);background:rgba(61,158,87,.07)}
+.dl-body{flex:1;min-width:0}
+.dl-title{font-size:12.5px;color:#e0e0e0;font-weight:500;line-height:1.4;word-break:break-word}
+.dl-kind{font-size:8px;letter-spacing:.07em;text-transform:uppercase;color:var(--dim);margin-left:7px;border:1px solid var(--border);padding:1px 5px;white-space:nowrap;vertical-align:middle}
+.dl-kind-or{color:var(--career);border-color:rgba(114,87,196,.35)}
+.dl-meta{font-size:10.5px;color:var(--dim);margin-top:4px;font-variant-numeric:tabular-nums}
+.dl-link{color:var(--vis);text-decoration:none}
+.dl-link:hover{text-decoration:underline}
+.dl-note{font-size:10.5px;color:#585858;line-height:1.55;margin-top:5px;word-break:break-word}
+.dl-del,.dl-go{flex-shrink:0;cursor:pointer;font-size:15px;line-height:1;padding:5px;transition:color .12s;touch-action:manipulation;user-select:none}
+.dl-del{color:var(--faint)}
+.dl-del:hover{color:var(--health)}
+.dl-go{color:var(--career);font-weight:600}
+.dl-go:hover{color:var(--text)}
+.dl-empty{font-size:11px;color:var(--faint);padding:10px 0;line-height:1.75}
+#dl-date{color-scheme:dark}
+#dl-date::-webkit-calendar-picker-indicator{filter:invert(.65);cursor:pointer}
+.dl-presets{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:6px}
+.dl-presets-lbl{font-size:10px;color:var(--dim);margin-right:2px}
+.dl-preset-btn{font-family:var(--mono);font-size:10px;letter-spacing:.03em;color:var(--vis);background:var(--bg-card);border:1px solid rgba(70,130,180,.35);padding:7px 11px;cursor:pointer;white-space:nowrap;transition:border-color .12s,background .1s,color .12s;touch-action:manipulation}
+.dl-preset-btn:hover{background:var(--bg-hover);border-color:var(--vis);color:var(--text)}
+/* per-event preparation checklist */
+.dl-tasks-head{display:flex;align-items:center;gap:8px;margin-top:9px;cursor:pointer;user-select:none}
+.dl-tasks-caret{font-size:9px;color:var(--dim);width:10px;flex-shrink:0}
+.dl-tasks-head:hover .dl-tasks-caret{color:var(--text)}
+.dl-tasks-sum{font-size:10px;color:var(--dim);white-space:nowrap;font-variant-numeric:tabular-nums}
+.dl-tasks-sum.empty{color:var(--vis)}
+.dl-tasks-sum.full{color:var(--science)}
+.dl-tasks-bar{flex:1;height:2px;background:var(--faint);overflow:hidden;min-width:30px}
+.dl-tasks-bar-fill{height:100%;width:0;background:var(--science);transition:width .3s ease}
+.dl-tasks{margin-top:8px}
+.dl-task{display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid var(--faint)}
+.dl-task.done .dl-task-t{text-decoration:line-through;opacity:.45}
+.dl-task-chk{font-size:12px;color:var(--faint);cursor:pointer;flex-shrink:0;line-height:1.4;min-width:13px;padding:2px;transition:color .12s;touch-action:manipulation;user-select:none}
+.dl-task.done .dl-task-chk{color:var(--science)}
+.dl-task-t{flex:1;font-size:11px;color:var(--text);line-height:1.45;word-break:break-word}
+.dl-task-del{font-size:13px;color:var(--faint);cursor:pointer;flex-shrink:0;padding:2px 4px;transition:color .12s;touch-action:manipulation;line-height:1.4;user-select:none}
+.dl-task-del:hover{color:var(--health)}
+.dl-task-add{display:flex;gap:6px;margin-top:8px}
+.dl-task-add input{flex:1;min-width:0;background:var(--bg);border:1px solid var(--border);color:var(--text);font-family:var(--mono);font-size:11px;padding:7px 9px;outline:none;transition:border-color .12s}
+.dl-task-add input:focus{border-color:var(--border-l)}
+.dl-task-add button{background:var(--bg-card);border:1px solid var(--border);color:var(--science);font-family:var(--mono);font-size:15px;width:34px;flex-shrink:0;cursor:pointer;transition:border-color .12s,background .1s;line-height:1;touch-action:manipulation}
+.dl-task-add button:hover{background:var(--bg-hover);border-color:var(--science)}
+.dl-tpl-btn{font-family:var(--mono);font-size:10px;letter-spacing:.03em;color:var(--vis);background:none;border:1px dashed rgba(70,130,180,.4);padding:8px 11px;margin-top:8px;cursor:pointer;width:100%;transition:border-color .12s,background .1s,color .12s;touch-action:manipulation}
+.dl-tpl-btn:hover{background:var(--bg-hover);border-color:var(--vis);color:var(--text)}
+
+/* ===== PROFILE — application readiness summary ===== */
+.rd-head{display:flex;align-items:center;gap:13px;margin-bottom:14px}
+.rd-pct{font-size:26px;font-weight:600;color:#ececec;font-variant-numeric:tabular-nums;line-height:1;flex-shrink:0}
+.rd-pct.full{color:var(--science)}
+.rd-head-r{flex:1;min-width:0}
+.rd-bar{height:4px;background:var(--border);overflow:hidden;margin-bottom:6px}
+.rd-bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--science),var(--skills));transition:width .4s ease}
+.rd-sub{font-size:10.5px;color:var(--dim);font-variant-numeric:tabular-nums}
+.rd-list{display:flex;flex-direction:column;gap:7px}
+.rd-ev{display:flex;align-items:center;gap:10px;background:var(--bg-card);border:1px solid var(--border);padding:9px 11px;cursor:pointer;transition:border-color .12s,background .1s;touch-action:manipulation}
+.rd-ev:hover{background:var(--bg-hover);border-color:var(--border-l)}
+.rd-ev-badge{flex-shrink:0;font-size:8.5px;font-weight:600;letter-spacing:.03em;padding:3px 6px;border:1px solid;min-width:66px;text-align:center;font-variant-numeric:tabular-nums;white-space:nowrap}
+.rb-over,.rb-urgent{color:var(--health);border-color:rgba(201,79,79,.4)}
+.rb-soon{color:var(--study);border-color:rgba(184,146,30,.4)}
+.rb-far{color:var(--science);border-color:rgba(61,158,87,.4)}
+.rd-ev-body{flex:1;min-width:0}
+.rd-ev-t{font-size:11.5px;color:#e0e0e0;line-height:1.35;word-break:break-word;margin-bottom:5px}
+.rd-ev-bar{height:3px;background:var(--faint);overflow:hidden}
+.rd-ev-bar-fill{height:100%;width:0;background:var(--science);transition:width .35s ease}
+.rd-ev-n{flex-shrink:0;font-size:10px;color:var(--dim);font-variant-numeric:tabular-nums;min-width:32px;text-align:right}
+.rd-empty{font-size:11px;color:var(--dim);line-height:1.7}
+.rd-more{font-size:10px;color:var(--dim);margin-top:9px}
+.rd-empty a,.rd-more a{color:var(--vis);cursor:pointer;text-decoration:none}
+.rd-empty a:hover,.rd-more a:hover{text-decoration:underline}
+.dl-parse-hint{font-size:10px;line-height:1.5;margin-top:4px;min-height:14px;font-variant-numeric:tabular-nums}
+.dl-parse-hint.ok{color:var(--science)}
+.dl-parse-hint.bad{color:var(--study)}
+
 </style>
 </head>
 <body>
@@ -396,6 +550,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
     <div class="hdr-prog-bar"><div class="hdr-prog-fill" id="gfill"></div></div>
     <div class="hdr-prog-txt" id="gpct">0 / 0 · 0%</div>
   </div>
+  <button class="hdr-dl" id="hdr-dl" hidden onclick="activateTab('deadlines')" title="Перейти к дедлайнам"></button>
   <div class="links hdr-links">
     <a class="lnk" href="https://t.me/learning2think" target="_blank" rel="noopener">telegram</a>
     <a class="lnk" href="https://twitch.tv/learning2think" target="_blank" rel="noopener">twitch</a>
@@ -414,6 +569,8 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
   <button class="tab-btn active" data-tab="profile" role="tab" aria-selected="true">Profile</button>
   <button class="tab-btn" data-tab="roadmap" role="tab" aria-selected="false">Roadmap</button>
   <button class="tab-btn" data-tab="vector" role="tab" aria-selected="false">Vector</button>
+  <button class="tab-btn" data-tab="outreach" role="tab" aria-selected="false">Outreach</button>
+  <button class="tab-btn" data-tab="deadlines" role="tab" aria-selected="false">Deadlines</button>
   <button class="tab-btn" data-tab="skills" role="tab" aria-selected="false">Skills</button>
   <button class="tab-btn" data-tab="month" role="tab" aria-selected="false">Month</button>
   <button class="tab-btn" data-tab="notes" role="tab" aria-selected="false">Notes</button>
@@ -444,6 +601,11 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
     <a class="lnk" href="https://x.com/l3arning2think" target="_blank" rel="noopener">x</a>
     <a class="lnk" href="https://twitch.tv/learning2think" target="_blank" rel="noopener">twitch</a>
     <a class="lnk" href="mailto:good.bqw@gmail.com">good.bqw@gmail.com</a>
+  </div>
+
+  <div class="cv-sec cv-print-hide">
+    <div class="cv-sec-t">// готовность к подаче</div>
+    <div id="cv-ready"></div>
   </div>
 
   <div class="cv-sec">
@@ -929,6 +1091,123 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 
 </div>
 
+<!-- ════════════════════ OUTREACH ════════════════════ -->
+<div id="outreach" class="tab-s" lang="ru">
+
+  <div class="or-intro">
+    Воронка поступления: от чернового письма до оффера. Тёплые каналы бьют холодные заявки —
+    пиши PI напрямую, цитируй их работы, держи проверяемый письменный след. Точные даты и условия
+    программ проверяй на сайте перед подачей, не закладывай неподтверждённые дедлайны.
+  </div>
+
+  <div class="or-funnel" id="or-funnel"></div>
+
+  <div class="or-filters" role="group" aria-label="Фильтр по статусу">
+    <button class="or-chip active" data-of="all" onclick="orFilter(this)" aria-pressed="true">все</button>
+    <button class="or-chip" data-of="draft" onclick="orFilter(this)" aria-pressed="false">черновик</button>
+    <button class="or-chip" data-of="active" onclick="orFilter(this)" aria-pressed="false">в работе</button>
+    <button class="or-chip" data-of="final" onclick="orFilter(this)" aria-pressed="false">финал</button>
+  </div>
+
+  <div class="or-count" id="or-count"></div>
+  <div id="or-list"></div>
+  <div class="or-empty" id="or-empty" style="display:none">ничего нет — добавь первый контакт или программу ниже</div>
+
+  <div class="addwrap">
+    <button class="add-toggle" onclick="toggleAdd('or')" aria-expanded="false">＋ добавить контакт / программу</button>
+    <div class="add-form" id="add-or" hidden>
+      <input class="m-inp" id="or-name" type="text" placeholder="PI или программа — напр. OIST · Neural Computation Unit" style="margin-bottom:9px" maxlength="160">
+      <div class="af-row">
+        <select id="or-kind" aria-label="Тип">
+          <option value="pi">PI / лаборатория</option>
+          <option value="program">программа</option>
+        </select>
+        <select id="or-status" aria-label="Статус">
+          <option value="draft">черновик</option>
+          <option value="sent">отправлено</option>
+          <option value="replied">ответили</option>
+          <option value="interview">интервью</option>
+          <option value="offer">оффер</option>
+          <option value="rejected">отказ</option>
+        </select>
+      </div>
+      <div class="af-row" style="margin-top:9px">
+        <input class="m-inp" id="or-deadline" type="date" aria-label="Дедлайн (необязательно)">
+        <input class="m-inp" id="or-link" type="url" placeholder="ссылка (необязательно)" maxlength="300">
+      </div>
+      <textarea id="or-note" placeholder="Заметка — научный вопрос, на что ссылаться, что ответили (необязательно)..." style="margin-top:9px;min-height:56px"></textarea>
+      <div class="af-actions" style="margin-top:9px">
+        <button class="af-btn save" onclick="addOutreach()">добавить</button>
+        <button class="af-btn ghost" onclick="toggleAdd('or')">отмена</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="or-tools">
+    <div class="or-tools-lbl">// экспорт</div>
+    <div class="rdr-export-row">
+      <button class="bk-btn" type="button" onclick="exportOutreach()">↓ Outreach (.md) — таблица</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ════════════════════ DEADLINES ════════════════════ -->
+<div id="deadlines" class="tab-s" lang="ru">
+
+  <div class="dl-intro">
+    Обратный отсчёт до того, что нельзя пропустить: окна подачи, дедлайны программ, CFP конференций,
+    экзамены. Дедлайны с контактов во вкладке Outreach попадают сюда автоматически. Ближайший всегда
+    виден в шапке. Точные даты проверяй на сайте программы — не ставь неподтверждённые.
+  </div>
+
+  <div class="dl-filters" role="group" aria-label="Фильтр по сроку">
+    <button class="dl-chip active" data-df="all" onclick="dlFilter(this)" aria-pressed="true">все</button>
+    <button class="dl-chip" data-df="30" onclick="dlFilter(this)" aria-pressed="false">≤ 30 дней</button>
+    <button class="dl-chip" data-df="90" onclick="dlFilter(this)" aria-pressed="false">≤ 90 дней</button>
+    <button class="dl-chip" data-df="past" onclick="dlFilter(this)" aria-pressed="false">прошедшие</button>
+  </div>
+
+  <div class="dl-count" id="dl-count"></div>
+  <div id="dl-list"></div>
+  <div class="dl-empty" id="dl-empty" style="display:none">
+    Пусто. Добавь дедлайн с реальной датой — окно подачи OIST, дедлайн EMBL / EURAXESS, CFP конференции
+    (ISMB · ECCB), экзамен. Или поставь дату у контакта во вкладке Outreach — он появится здесь сам.
+  </div>
+
+  <div class="addwrap">
+    <button class="add-toggle" onclick="toggleAdd('dl')" aria-expanded="false">＋ добавить дедлайн</button>
+    <div class="add-form" id="add-dl" hidden>
+      <input class="m-inp" id="dl-title" type="text" placeholder="Что — напр. OIST · окно подачи (весна)" style="margin-bottom:9px" maxlength="160">
+      <div class="af-row">
+        <select id="dl-kind" aria-label="Тип">
+          <option value="program">программа / окно подачи</option>
+          <option value="conf">конференция / CFP</option>
+          <option value="exam">экзамен / учёба</option>
+          <option value="personal">личное</option>
+          <option value="other">другое</option>
+        </select>
+        <input class="m-inp" id="dl-date" type="date" aria-label="Дата дедлайна">
+      </div>
+      <input class="m-inp" id="dl-date-txt" type="text" placeholder="или впиши/вставь дату текстом: 9 апреля 2026 · April 9, 2026 · 09.04.2026" oninput="dlParseInput()" onkeydown="if(event.key==='Enter'){event.preventDefault();addDeadline()}" aria-label="Дата текстом" style="margin-top:9px">
+      <div class="dl-parse-hint" id="dl-parse-hint"></div>
+      <div class="dl-presets" role="group" aria-label="Быстрый ориентир по программам">
+        <span class="dl-presets-lbl">⚲ ориентир (проверь на сайте):</span>
+        <button type="button" class="dl-preset-btn" onclick="dlFillPreset('oist')" title="Подставить ближайший цикл OIST (ориентир)">OIST</button>
+        <button type="button" class="dl-preset-btn" onclick="dlFillPreset('embl')" title="Подставить ближайший раунд EMBL EIPP (ориентир)">EMBL</button>
+        <button type="button" class="dl-preset-btn" onclick="dlFillPreset('eu')" title="Подставить старт сезона EU дек–фев (ориентир)">EU окно</button>
+      </div>
+      <input class="m-inp" id="dl-link" type="url" placeholder="ссылка (необязательно)" maxlength="300" style="margin-top:9px">
+      <textarea id="dl-note" placeholder="Заметка — что подать, что проверить (необязательно)..." style="margin-top:9px;min-height:52px"></textarea>
+      <div class="af-actions" style="margin-top:9px">
+        <button class="af-btn save" onclick="addDeadline()">добавить</button>
+        <button class="af-btn ghost" onclick="toggleAdd('dl')">отмена</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 <!-- ════════════════════ НАВЫКИ ════════════════════ -->
 <div id="skills" class="tab-s" lang="ru">
 
@@ -1118,6 +1397,8 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
       <option value="Другое">Другое</option>
     </select>
 
+    <div class="rdr-pace" id="rdr-pace"></div>
+
     <div class="rdr-count" id="rdr-count"></div>
     <div id="rdr-list"></div>
     <div id="rdr-empty" style="font-size:11px;color:var(--faint);padding:8px 0;display:none">ничего не найдено</div>
@@ -1148,6 +1429,16 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
           <button class="af-btn save" onclick="addPaper()">добавить</button>
           <button class="af-btn ghost" onclick="toggleAdd('rdr')">отмена</button>
         </div>
+      </div>
+    </div>
+
+    <div class="rdr-tools">
+      <div class="rdr-tools-lbl">// быстрый поиск по теме</div>
+      <div class="rdr-search-row" id="rdr-search-row"></div>
+      <div class="rdr-tools-lbl" style="margin-top:14px">// экспорт библиотеки</div>
+      <div class="rdr-export-row">
+        <button class="bk-btn" type="button" onclick="exportObsidianMOC()">↓ Obsidian MOC (.md)</button>
+        <button class="bk-btn" type="button" onclick="exportBibTeX()">↓ BibTeX (.bib) — Zotero</button>
       </div>
     </div>
   </div>
@@ -1197,7 +1488,7 @@ const FIREBASE_CONFIG = {
 
 // Какие ключи входят в общее состояние. UI-настройки (активная вкладка, свёрнутые
 // домены, язык CV) и ЛИЧНЫЕ ЗАМЕТКИ (ta_) НЕ синхронизируются — остаются на устройстве.
-const SYNC_RE=/^(c_|sk_|csk_|roadmap_custom|skills_custom|m_)/;
+const SYNC_RE=/^(c_|sk_|csk_|roadmap_custom|skills_custom|m_|or_|dl_)/;
 const _lsSet=localStorage.setItem.bind(localStorage);
 const _lsRem=localStorage.removeItem.bind(localStorage);
 let _applyingRemote=false,_db=null,_pushTimer=null;
@@ -1253,6 +1544,8 @@ function applyStateToUI(){
   refreshCards();renderCustomRoadmap();
   refreshSkills();renderCustomSkills();skSearch();
   try{mChange();}catch(e){}
+  try{renderOutreach();}catch(e){}
+  try{renderDeadlines();}catch(e){}
   upd();
 }
 function updateSyncStatus(state){
@@ -1309,7 +1602,7 @@ tabBtns.forEach((b,i)=>{
   });
 });
 document.addEventListener('keydown',e=>{
-  if(/^[1-6]$/.test(e.key)&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&!/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)){
+  if(/^[1-8]$/.test(e.key)&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&!/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)){
     const t=tabBtns[+e.key-1];if(t)activateTab(t.dataset.tab);
   }
 });
@@ -1704,7 +1997,7 @@ function fallbackCopy(text,done){
 }
 
 // Backup — export/import progress + notes as a JSON file
-const BACKUP_RE=/^(c_|sk_|csk_|roadmap_custom|skills_custom|m_|ta_|cvLang|activeTab|dom_|rdr_)/;
+const BACKUP_RE=/^(c_|sk_|csk_|roadmap_custom|skills_custom|m_|ta_|cvLang|activeTab|dom_|rdr_|or_|dl_)/;
 function exportData(){
   const o={};
   try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(BACKUP_RE.test(k))o[k]=localStorage.getItem(k);}}catch(e){}
@@ -1821,14 +2114,17 @@ function addPaper(){
   const title=document.getElementById('rdr-title').value.trim();
   if(!title){document.getElementById('rdr-title').focus();return;}
   const papers=getRdr();
-  papers.unshift({
+  const initStatus=document.getElementById('rdr-status').value;
+  const entry={
     id:Date.now().toString(36),
     title,
-    status:document.getElementById('rdr-status').value,
+    status:initStatus,
     tag:document.getElementById('rdr-tag').value,
     note:document.getElementById('rdr-note').value.trim(),
     added:new Date().toISOString().slice(0,10)
-  });
+  };
+  if(initStatus==='done')entry.doneDate=entry.added;
+  papers.unshift(entry);
   setRdr(papers);
   document.getElementById('rdr-title').value='';
   document.getElementById('rdr-note').value='';
@@ -1843,8 +2139,85 @@ function delPaper(id){
 function cycleStat(id){
   const papers=getRdr();
   const p=papers.find(x=>x.id===id);
-  if(p)p.status=RDR_NEXT[p.status]||'plan';
+  if(p){
+    const next=RDR_NEXT[p.status]||'plan';
+    p.status=next;
+    if(next==='done'){p.doneDate=new Date().toISOString().slice(0,10);}
+    else{delete p.doneDate;}
+  }
   setRdr(papers);renderRdr();
+}
+
+const RDR_SEARCH_Q={
+  'BBB':'blood-brain barrier permeability machine learning',
+  'PK/PD':'CNS pharmacokinetics pharmacodynamics modeling',
+  'QSP':'quantitative systems pharmacology CNS',
+  'Нейро':'computational neuroscience neuropharmacology',
+  'ML':'graph neural network molecular property prediction',
+  'Психиатрия':'computational psychiatry dopamine serotonin'
+};
+
+function renderSearchLinks(){
+  const row=document.getElementById('rdr-search-row');
+  if(!row)return;
+  row.innerHTML=Object.entries(RDR_SEARCH_Q).map(([tag,q])=>
+    `<a class="rdr-slink" href="https://www.semanticscholar.org/search?q=${encodeURIComponent(q)}&sort=relevance" target="_blank" rel="noopener">${esc(tag)}</a>`
+  ).join('');
+}
+
+const RDR_TARGET_MIN=2, RDR_TARGET_MAX=3;
+function calcPace(){
+  const el=document.getElementById('rdr-pace');
+  if(!el)return;
+  const papers=getRdr();
+  const now=Date.now();
+  const weekMs=7*24*60*60*1000;
+  const doneThisWeek=papers.filter(p=>p.doneDate && (now-new Date(p.doneDate).getTime())<=weekMs).length;
+  const behind=doneThisWeek<RDR_TARGET_MIN;
+  el.classList.toggle('behind',behind);
+  el.innerHTML=`за последние 7 дней: <b>${doneThisWeek}</b> из цели 2–3 в неделю`;
+}
+
+function downloadText(text,filename,mime){
+  const blob=new Blob([text],{type:mime});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=filename;
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+
+function exportObsidianMOC(){
+  const papers=getRdr();
+  if(!papers.length){alert('Библиотека пуста.');return;}
+  const tags=['BBB','PK/PD','QSP','Нейро','ML','Психиатрия','Учебник','Другое'];
+  let md='# Reading Library — learning2think\n\n';
+  tags.forEach(tag=>{
+    const items=papers.filter(p=>p.tag===tag);
+    if(!items.length)return;
+    md+=`## ${tag}\n\n`;
+    items.forEach(p=>{
+      const box=p.status==='done'?'[x]':'[ ]';
+      const statusTxt=p.status==='reading'?' (читаю)':'';
+      md+=`- ${box} [[${p.title}]]${statusTxt}\n`;
+      if(p.note)md+=`  - ${p.note}\n`;
+    });
+    md+='\n';
+  });
+  downloadText(md,'learning2think-library-'+new Date().toISOString().slice(0,10)+'.md','text/markdown');
+}
+
+function bibEsc(s){return s.replace(/[{}]/g,'');}
+function exportBibTeX(){
+  const papers=getRdr();
+  if(!papers.length){alert('Библиотека пуста.');return;}
+  const entries=papers.map(p=>{
+    const key='l2t_'+p.id;
+    const title=bibEsc(p.title);
+    const status=RDR_LABELS[p.status]||p.status;
+    return `@misc{${key},\n  title = {${title}},\n  note = {${p.tag} · ${status} · added ${p.added}},\n  howpublished = {learning2think reading tracker}\n}`;
+  });
+  downloadText(entries.join('\n\n'),'learning2think-library-'+new Date().toISOString().slice(0,10)+'.bib','application/x-bibtex');
 }
 
 function renderRdr(){
@@ -1874,6 +2247,441 @@ function renderRdr(){
       <span class="rdr-del" onclick="delPaper('${p.id}')" title="Удалить">×</span>
     </div>
   `).join('');
+  calcPace();
+}
+
+// ===== OUTREACH / APPLICATIONS TRACKER =====
+const OR_LABEL={draft:'черновик',sent:'отправлено',replied:'ответили',interview:'интервью',offer:'оффер',rejected:'отказ'};
+const OR_KIND={pi:'PI / лаб',program:'программа'};
+const OR_FLOW=['draft','sent','replied','interview','offer'];   // tap-to-advance funnel; rejected is set separately
+const OR_TERMINAL=s=>s==='offer'||s==='rejected';
+
+const OR_DEFAULTS=[
+  {id:'o1',kind:'program',name:'OIST · Neural Computation Unit',status:'draft',deadline:'',link:'https://www.oist.jp/admissions',note:'Начать с Neural Computation Unit; если тематическое пересечение слабое — попросить перенаправление. Приём дважды в год — точные окна проверить на сайте.'},
+  {id:'o2',kind:'program',name:'EMBL · International PhD Programme (EIPP)',status:'draft',deadline:'',link:'https://www.embl.org/about/info/embl-international-phd-programme/',note:'Дедлайн обычно ноябрь — подтвердить точную дату перед подачей.'},
+  {id:'o3',kind:'program',name:'EURAXESS · EU-funded PhD',status:'draft',deadline:'',link:'https://euraxess.ec.europa.eu/jobs/search',note:'Зарплата указана в объявлении. Окно подачи в NL/DE — декабрь–февраль. Фильтровать по computational neuro / cheminformatics.'},
+  {id:'o4',kind:'pi',name:'ВШЭ · MEG-лаборатория (РФ)',status:'draft',deadline:'',link:'',note:'Реальный первый шаг и живые контакты рядом. Слабее под BBB-актив, если лаба сугубо когнитивная — уточнить тематику перед письмом.'}
+];
+
+let orStatusF='all';
+function getOutreach(){try{return JSON.parse(localStorage.getItem('or_items')||'[]')}catch(e){return[]}}
+function setOutreach(a){try{localStorage.setItem('or_items',JSON.stringify(a))}catch(e){}}
+// Seed silently via the raw setter so first-run defaults never get pushed over
+// existing cloud data on a second device. Real edits (setOutreach) still sync.
+function seedOutreach(){try{if(localStorage.getItem('or_items')===null)_lsSet('or_items',JSON.stringify(OR_DEFAULTS));}catch(e){}}
+function today(){return new Date().toISOString().slice(0,10);}
+
+function orFilter(btn){
+  document.querySelectorAll('.or-chip').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false');});
+  btn.classList.add('active');btn.setAttribute('aria-pressed','true');
+  orStatusF=btn.dataset.of;
+  renderOutreach();
+}
+
+function addOutreach(){
+  const name=document.getElementById('or-name').value.trim();
+  if(!name){document.getElementById('or-name').focus();return;}
+  const items=getOutreach();
+  const status=document.getElementById('or-status').value;
+  items.unshift({
+    id:Date.now().toString(36),
+    kind:document.getElementById('or-kind').value,
+    name,status,
+    deadline:document.getElementById('or-deadline').value||'',
+    link:document.getElementById('or-link').value.trim(),
+    note:document.getElementById('or-note').value.trim(),
+    added:today(),lastUpdate:today()
+  });
+  setOutreach(items);
+  ['or-name','or-link','or-note','or-deadline'].forEach(id=>document.getElementById(id).value='');
+  renderOutreach();toggleAdd('or');
+}
+
+function orDel(id){setOutreach(getOutreach().filter(p=>p.id!==id));renderOutreach();}
+
+function orSetStatus(id,status){
+  const items=getOutreach();
+  const p=items.find(x=>x.id===id);
+  if(p){p.status=status;p.lastUpdate=today();}
+  setOutreach(items);renderOutreach();
+}
+function orCycle(id){
+  const p=getOutreach().find(x=>x.id===id);if(!p)return;
+  const i=OR_FLOW.indexOf(p.status);                 // rejected → -1 → restarts at draft
+  orSetStatus(id,OR_FLOW[(i+1)%OR_FLOW.length]);
+}
+function orReject(id){
+  const p=getOutreach().find(x=>x.id===id);if(!p)return;
+  orSetStatus(id,p.status==='rejected'?'draft':'rejected');
+}
+
+function orDays(d){return Math.ceil((Date.parse(d+'T00:00:00')-Date.now())/86400000);}
+function orDeadlineHTML(p){
+  if(!p.deadline||OR_TERMINAL(p.status))return '';
+  const n=orDays(p.deadline);
+  let cls='',txt;
+  if(n<0){cls='over';txt='просрочено '+(-n)+'д';}
+  else if(n===0){cls='soon';txt='сегодня';}
+  else{cls=n<=30?'soon':'';txt='T-'+n+'д';}
+  return `<span class="or-dl ${cls}">⏳ ${p.deadline} · ${txt}</span>`;
+}
+
+function orSort(items){
+  return items.slice().sort((a,b)=>{
+    const at=OR_TERMINAL(a.status),bt=OR_TERMINAL(b.status);
+    if(at!==bt)return at?1:-1;                        // finished items sink to the bottom
+    if(!at){
+      const ad=a.deadline?Date.parse(a.deadline):Infinity;
+      const bd=b.deadline?Date.parse(b.deadline):Infinity;
+      if(ad!==bd)return ad-bd;                        // soonest deadline first
+    }
+    return (b.lastUpdate||b.added||'').localeCompare(a.lastUpdate||a.added||'');
+  });
+}
+
+function renderOutreach(){
+  const list=document.getElementById('or-list');if(!list)return;
+  const all=getOutreach();
+  const funnel=document.getElementById('or-funnel');
+  const counts={draft:0,sent:0,replied:0,interview:0,offer:0,rejected:0};
+  all.forEach(p=>{if(counts[p.status]!=null)counts[p.status]++;});
+  if(funnel){
+    funnel.innerHTML=['draft','sent','replied','interview','offer','rejected'].map(s=>
+      `<div class="or-fcell"><div class="or-fnum f-${s}">${counts[s]}</div><div class="or-flab">${OR_LABEL[s]}</div></div>`
+    ).join('');
+  }
+  const active=all.filter(p=>!OR_TERMINAL(p.status)).length;
+  const cnt=document.getElementById('or-count');
+  if(cnt)cnt.textContent=all.length?('всего '+all.length+' · активных '+active):'';
+
+  let items=all;
+  if(orStatusF==='draft')items=all.filter(p=>p.status==='draft');
+  else if(orStatusF==='active')items=all.filter(p=>p.status==='sent'||p.status==='replied'||p.status==='interview');
+  else if(orStatusF==='final')items=all.filter(p=>OR_TERMINAL(p.status));
+
+  const empty=document.getElementById('or-empty');
+  if(!items.length){list.innerHTML='';if(empty)empty.style.display='block';return;}
+  if(empty)empty.style.display='none';
+
+  list.innerHTML=orSort(items).map(p=>{
+    const link=p.link?`<a class="or-link" href="${esc(p.link)}" target="_blank" rel="noopener">↗ ссылка</a>`:'';
+    const rej=p.status==='offer'?'':
+      `<span class="or-rej ${p.status==='rejected'?'on':''}" onclick="orReject('${p.id}')" title="Отметить отказ">${p.status==='rejected'?'снять отказ':'отметить отказ'}</span>`;
+    return `
+    <div class="or-item st-${p.status}">
+      <span class="or-del" onclick="orDel('${p.id}')" title="Удалить">×</span>
+      <div class="or-top">
+        <span class="or-badge b-${p.status}" role="button" tabindex="0" onclick="orCycle('${p.id}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();orCycle('${p.id}')}" title="Нажми — следующий статус">${OR_LABEL[p.status]}</span>
+        <div class="or-body">
+          <div class="or-name">${esc(p.name)}<span class="or-kind">${OR_KIND[p.kind]||p.kind}</span></div>
+          <div class="or-meta">${orDeadlineHTML(p)}${link}<span class="or-upd">обновлено ${p.lastUpdate||p.added||''}</span></div>
+          ${p.note?`<div class="or-note">${esc(p.note)}</div>`:''}
+          ${rej?`<div class="or-foot">${rej}</div>`:''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  // Outreach deadlines feed the Deadlines tab + header — keep both in sync after any edit
+  try{renderDeadlines();}catch(e){}
+}
+
+function mdCell(s){return String(s||'').replace(/\|/g,'\\|').replace(/\r?\n/g,' ');}
+function exportOutreach(){
+  const items=getOutreach();
+  if(!items.length){alert('Список пуст.');return;}
+  let md='# Outreach — learning2think\n\n';
+  md+='| Цель | Тип | Статус | Дедлайн | Обновлено | Заметка |\n|---|---|---|---|---|---|\n';
+  orSort(items).forEach(p=>{
+    md+=`| ${mdCell(p.name)} | ${OR_KIND[p.kind]||p.kind} | ${OR_LABEL[p.status]||p.status} | ${p.deadline||'—'} | ${p.lastUpdate||p.added||'—'} | ${mdCell(p.note)} |\n`;
+  });
+  downloadText(md,'learning2think-outreach-'+new Date().toISOString().slice(0,10)+'.md','text/markdown');
+}
+
+// ===== DEADLINES / COUNTDOWNS =====
+const DL_KIND={program:'программа',conf:'конференция',exam:'экзамен',personal:'личное',other:'другое'};
+let dlFrame='all';
+function getDeadlines(){try{return JSON.parse(localStorage.getItem('dl_items')||'[]')}catch(e){return[]}}
+function setDeadlines(a){try{localStorage.setItem('dl_items',JSON.stringify(a))}catch(e){}}
+
+function dlFilter(btn){
+  document.querySelectorAll('.dl-chip').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false');});
+  btn.classList.add('active');btn.setAttribute('aria-pressed','true');
+  dlFrame=btn.dataset.df;
+  renderDeadlines();
+}
+
+function addDeadline(){
+  const title=document.getElementById('dl-title').value.trim();
+  if(!title){document.getElementById('dl-title').focus();return;}
+  let date=document.getElementById('dl-date').value;
+  if(!date)date=parseFlexibleDate(document.getElementById('dl-date-txt').value)||'';   // fall back to typed text
+  if(!date){
+    const txt=document.getElementById('dl-date-txt');
+    if(txt.value.trim()){dlHint('не распознал дату — формат: 2026-04-09 · 9 апреля 2026 · April 9, 2026','bad');txt.focus();}
+    else document.getElementById('dl-date').focus();
+    return;
+  }
+  const a=getDeadlines();
+  a.push({id:Date.now().toString(36),title,kind:document.getElementById('dl-kind').value,date,
+    link:document.getElementById('dl-link').value.trim(),note:document.getElementById('dl-note').value.trim()});
+  setDeadlines(a);
+  ['dl-title','dl-date','dl-link','dl-note','dl-date-txt'].forEach(id=>document.getElementById(id).value='');
+  dlHint('');
+  renderDeadlines();toggleAdd('dl');
+}
+function delDeadline(id){setDeadlines(getDeadlines().filter(x=>x.id!==id));renderDeadlines();}
+
+// ----- Flexible date parser: ISO / DD.MM.YYYY / "9 апреля 2026" / "April 9, 2026" -----
+const DL_MONTHS=[['янв',1],['jan',1],['фев',2],['feb',2],['мар',3],['mar',3],['апр',4],['apr',4],
+  ['мая',5],['май',5],['may',5],['июн',6],['jun',6],['июл',7],['jul',7],['авг',8],['aug',8],
+  ['сен',9],['sep',9],['окт',10],['oct',10],['ноя',11],['nov',11],['дек',12],['dec',12]];
+function dlMonth(tok){for(const[p,n]of DL_MONTHS)if(tok.startsWith(p))return n;return 0;}
+function isoDate(dt){return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');}
+function dlMake(y,mo,d){
+  if(mo<1||mo>12||d<1||d>31)return null;
+  const dt=new Date(y,mo-1,d);
+  if(dt.getFullYear()!==y||dt.getMonth()!==mo-1||dt.getDate()!==d)return null;   // reject 30 Feb, 31 Apr, …
+  return isoDate(dt);
+}
+function parseFlexibleDate(raw){
+  if(!raw)return null;
+  const s=raw.trim().toLowerCase();
+  if(!s)return null;
+  let m=s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);                 // ISO  2026-04-09
+  if(m)return dlMake(+m[1],+m[2],+m[3]);
+  m=s.match(/^(\d{1,2})[.\/](\d{1,2})[.\/](\d{4})$/);             // DD.MM.YYYY  09.04.2026
+  if(m)return dlMake(+m[3],+m[2],+m[1]);
+  const ym=s.match(/\b(\d{4})\b/);                                // textual — needs a 4-digit year
+  if(!ym)return null;
+  let month=0,day=0;
+  s.replace(/[,.]/g,' ').split(/\s+/).filter(Boolean).forEach(t=>{
+    if(/^\d{4}$/.test(t))return;
+    if(/^\d{1,2}$/.test(t)){if(!day)day=+t;return;}
+    const mn=dlMonth(t);if(mn&&!month)month=mn;
+  });
+  return month&&day?dlMake(+ym[1],month,day):null;
+}
+function dlHint(msg,kind){const el=document.getElementById('dl-parse-hint');if(!el)return;el.textContent=msg||'';el.className='dl-parse-hint'+(kind?' '+kind:'');}
+function dlParseInput(){
+  const raw=document.getElementById('dl-date-txt').value;
+  if(!raw.trim()){dlHint('');return;}
+  const iso=parseFlexibleDate(raw);
+  if(iso){document.getElementById('dl-date').value=iso;dlHint('✓ распознал: '+iso,'ok');}
+  else dlHint('не распознал — формат: 2026-04-09 · 9 апреля 2026 · April 9, 2026','bad');
+}
+
+// ----- Program presets: pre-fill the form with the next APPROXIMATE application window.
+//       Anchors are reminders to act, NOT authoritative dates — always verify on the site. -----
+const DL_PRESETS={
+  oist:{title:'OIST · окно подачи PhD',link:'https://admissions.oist.jp/apply-phd',verify:'admissions.oist.jp',
+    freq:'2 цикла/год',cycles:[{m:3,d:31,l:'дедлайн ≈ 31 марта'},{m:11,d:15,l:'дедлайн ≈ 15 ноября'}]},
+  embl:{title:'EMBL · EIPP дедлайн',link:'https://www.embl.org/about/info/embl-international-phd-programme/application/',verify:'embl.org',
+    freq:'2 раунда/год',cycles:[{m:3,d:9,l:'летний раунд ≈ 9 марта'},{m:10,d:13,l:'зимний раунд ≈ середина октября'}]},
+  eu:{title:'EU · сезон подачи PhD (NL/DE/Nordics)',link:'https://euraxess.ec.europa.eu/jobs/search',verify:'EURAXESS',
+    freq:'сезон, не один дедлайн',season:true,cycles:[{m:12,d:1,l:'старт сезона ≈ декабрь'}]}
+};
+function presetNext(cycles){
+  const now=new Date(),t0=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  let best=null;
+  for(let y=now.getFullYear();y<=now.getFullYear()+1;y++)
+    cycles.forEach(c=>{const dt=new Date(y,c.m-1,c.d);if(dt>=t0&&(!best||dt<best.dt))best={dt,l:c.l};});
+  return best;
+}
+function dlFillPreset(key){
+  const p=DL_PRESETS[key];if(!p)return;
+  const n=presetNext(p.cycles);if(!n)return;
+  const form=document.getElementById('add-dl');
+  if(form&&form.hasAttribute('hidden'))toggleAdd('dl');
+  const iso=isoDate(n.dt);
+  document.getElementById('dl-title').value=p.title;
+  document.getElementById('dl-kind').value='program';
+  document.getElementById('dl-date').value=iso;
+  document.getElementById('dl-date-txt').value='';
+  document.getElementById('dl-link').value=p.link;
+  document.getElementById('dl-note').value=p.season
+    ? 'Ориентир: '+n.l+'. Это не один дедлайн, а сезон ('+p.freq+'): позиции висят на EURAXESS, у каждой своя дата. ПРОВЕРЬ актуальные конкурсы на '+p.verify+'.'
+    : 'Ориентир: '+n.l+' ('+p.freq+'). ОБЯЗАТЕЛЬНО подтверди точную дату на '+p.verify+' — даты сдвигаются год к году.';
+  dlHint('✓ подставил ориентир '+iso+' — проверь и жми «добавить»','ok');
+}
+
+// ----- Per-event preparation checklist: necessary tasks to actually reach the goal -----
+const DL_TASK_TPL={
+  program:[
+    'Сверить требования и точную дату на сайте',
+    'CV под программу (актуальный)',
+    'Motivation letter / SOP под конкретную лабу',
+    'Research statement: In Silico BBB как доказуемый кейс',
+    'Запросить 2–3 рекомендательных письма заранее',
+    'Транскрипт + диплом (перевод на англ.)',
+    'Подтверждение английского (если требуется)',
+    'Написать релевантным PI напрямую ДО подачи',
+    'Загрузить заявку и подтвердить отправку'
+  ],
+  conf:[
+    'Аннотация в лимит символов',
+    'Тезисы / постер / слайды',
+    'Регистрация + оплата',
+    'Проверить travel-grant / поддержку',
+    'Репетиция доклада вслух'
+  ],
+  exam:[
+    'Собрать программу / список вопросов',
+    'План повторения по датам',
+    'Прорешать прошлые билеты / задачи',
+    'Регистрация / запись на сдачу'
+  ]
+};
+const dlOpen=new Set();   // which events have their checklist expanded (UI-only, not synced)
+
+function dlTasksHTML(d){
+  if(d.src!=='own')return '';
+  const tasks=d.tasks||[];
+  const done=tasks.filter(t=>t.done).length;
+  const open=dlOpen.has(d.id);
+  let sum;
+  if(!tasks.length)sum='<span class="dl-tasks-sum empty">＋ план подготовки</span>';
+  else{
+    const full=done===tasks.length;
+    sum='<span class="dl-tasks-sum'+(full?' full':'')+'">'+(full?'готово ✓ ':'дела: ')+done+' / '+tasks.length+'</span>'+
+        '<div class="dl-tasks-bar"><div class="dl-tasks-bar-fill" style="width:'+(done/tasks.length*100)+'%"></div></div>';
+  }
+  const head='<div class="dl-tasks-head" role="button" tabindex="0" onclick="dlToggleTasks(\''+d.id+'\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();dlToggleTasks(\''+d.id+'\')}"><span class="dl-tasks-caret">'+(open?'▾':'▸')+'</span>'+sum+'</div>';
+  if(!open)return head;
+  const rows=tasks.map((t,i)=>
+    '<div class="dl-task'+(t.done?' done':'')+'">'+
+      '<span class="dl-task-chk" role="button" tabindex="0" onclick="dlToggleTask(\''+d.id+'\','+i+')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();dlToggleTask(\''+d.id+'\','+i+')}">'+(t.done?'✓':'○')+'</span>'+
+      '<span class="dl-task-t">'+esc(t.t)+'</span>'+
+      '<span class="dl-task-del" role="button" tabindex="0" onclick="dlDelTask(\''+d.id+'\','+i+')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();dlDelTask(\''+d.id+'\','+i+')}">×</span>'+
+    '</div>').join('');
+  const tpl=DL_TASK_TPL[d.kind];
+  const seed=(tpl&&!tasks.length)
+    ? '<button type="button" class="dl-tpl-btn" onclick="dlSeedTemplate(\''+d.id+'\')">⊞ вставить чек-лист подготовки ('+tpl.length+')</button>'
+    : '';
+  const add='<div class="dl-task-add"><input id="dl-add-'+d.id+'" type="text" placeholder="новое дело..." onkeydown="if(event.key===\'Enter\'){event.preventDefault();dlAddTask(\''+d.id+'\',this)}"><button onclick="dlAddTask(\''+d.id+'\',this.parentNode.querySelector(\'input\'))" aria-label="Добавить дело">＋</button></div>';
+  return head+'<div class="dl-tasks">'+rows+seed+add+'</div>';
+}
+
+function dlToggleTasks(id){dlOpen.has(id)?dlOpen.delete(id):dlOpen.add(id);renderDeadlines();}
+function dlAddTask(id,inp){
+  const v=(inp&&inp.value||'').trim();if(!v)return;
+  const a=getDeadlines(),d=a.find(x=>x.id===id);if(!d)return;
+  (d.tasks=d.tasks||[]).push({t:v,done:false});
+  setDeadlines(a);dlOpen.add(id);renderDeadlines();
+  const ni=document.getElementById('dl-add-'+id);if(ni)ni.focus();
+}
+function dlToggleTask(id,i){
+  const a=getDeadlines(),d=a.find(x=>x.id===id);if(!d||!d.tasks||!d.tasks[i])return;
+  d.tasks[i].done=!d.tasks[i].done;setDeadlines(a);dlOpen.add(id);renderDeadlines();
+}
+function dlDelTask(id,i){
+  const a=getDeadlines(),d=a.find(x=>x.id===id);if(!d||!d.tasks)return;
+  d.tasks.splice(i,1);setDeadlines(a);dlOpen.add(id);renderDeadlines();
+}
+function dlSeedTemplate(id){
+  const a=getDeadlines(),d=a.find(x=>x.id===id);if(!d)return;
+  const tpl=DL_TASK_TPL[d.kind];if(!tpl)return;
+  d.tasks=tpl.map(t=>({t,done:false}));
+  setDeadlines(a);dlOpen.add(id);renderDeadlines();
+}
+
+// ----- Profile: "готовность к подаче %" — aggregate of per-event checklists -----
+function plr(n,one,few,many){const a=n%10,b=n%100;return(a===1&&b!==11)?one:((a>=2&&a<=4)&&!(b>=12&&b<=14))?few:many;}
+function renderReadiness(){
+  const box=document.getElementById('cv-ready');if(!box)return;
+  const events=collectDeadlines().filter(d=>d.tasks&&d.tasks.length);   // only events that have a prep checklist
+  if(!events.length){
+    box.innerHTML='<div class="rd-empty">Пока нет событий с планом подготовки. Заведи дедлайн и собери чек-лист во вкладке <a onclick="activateTab(\'deadlines\')">Deadlines</a> — здесь появится готовность к подаче по каждому.</div>';
+    return;
+  }
+  let done=0,tot=0;
+  events.forEach(d=>{done+=d.tasks.filter(t=>t.done).length;tot+=d.tasks.length;});
+  const pct=tot?Math.round(done/tot*100):0,full=pct===100;
+  const shown=events.slice(0,5);
+  const rows=shown.map(d=>{
+    const b=dlBadge(d.days),dn=d.tasks.filter(t=>t.done).length,tt=d.tasks.length,p=tt?Math.round(dn/tt*100):0;
+    return '<div class="rd-ev" role="button" tabindex="0" onclick="activateTab(\'deadlines\')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();activateTab(\'deadlines\')}">'+
+      '<span class="rd-ev-badge rb-'+b.cls+'">'+b.txt+'</span>'+
+      '<div class="rd-ev-body"><div class="rd-ev-t">'+esc(d.title)+'</div>'+
+        '<div class="rd-ev-bar"><div class="rd-ev-bar-fill" style="width:'+p+'%"></div></div></div>'+
+      '<span class="rd-ev-n">'+dn+'/'+tt+'</span>'+
+    '</div>';
+  }).join('');
+  const more=events.length>shown.length
+    ? '<div class="rd-more">+ ещё '+(events.length-shown.length)+' · <a onclick="activateTab(\'deadlines\')">открыть Deadlines</a></div>':'';
+  box.innerHTML=
+    '<div class="rd-head"><div class="rd-pct'+(full?' full':'')+'">'+pct+'%</div>'+
+      '<div class="rd-head-r"><div class="rd-bar"><div class="rd-bar-fill" style="width:'+pct+'%"></div></div>'+
+      '<div class="rd-sub">'+done+' / '+tot+' дел · '+events.length+' '+plr(events.length,'событие','события','событий')+'</div></div></div>'+
+    '<div class="rd-list">'+rows+'</div>'+more;
+}
+
+// Merge standalone deadlines with live, non-terminal Outreach deadlines, then sort:
+// upcoming (and today) nearest-first, with already-passed dates at the bottom.
+function collectDeadlines(){
+  const own=getDeadlines().map(d=>({id:d.id,title:d.title,kind:d.kind,date:d.date,link:d.link,note:d.note,tasks:d.tasks||[],src:'own'}));
+  const fromOr=getOutreach()
+    .filter(p=>p.deadline && !OR_TERMINAL(p.status))
+    .map(p=>({id:p.id,title:p.name,kind:'outreach',date:p.deadline,link:p.link,note:p.note,src:'or'}));
+  return own.concat(fromOr).map(d=>Object.assign(d,{days:orDays(d.date)})).sort((a,b)=>{
+    const af=a.days>=0,bf=b.days>=0;
+    if(af!==bf)return af?-1:1;
+    return af?(a.days-b.days):(b.days-a.days);
+  });
+}
+
+function dlBadge(days){
+  if(days<0)return{cls:'over',txt:'просрочено '+(-days)+'д'};
+  if(days===0)return{cls:'urgent',txt:'сегодня'};
+  if(days<=7)return{cls:'urgent',txt:'T-'+days+'д'};
+  if(days<=30)return{cls:'soon',txt:'T-'+days+'д'};
+  return{cls:'far',txt:'T-'+days+'д'};
+}
+
+function updHeaderDeadline(all){
+  const el=document.getElementById('hdr-dl');if(!el)return;
+  if(!all)all=collectDeadlines();
+  const next=all.find(d=>d.days>=0);          // list is sorted, so the first upcoming is the nearest
+  if(!next){el.hidden=true;el.className='hdr-dl';return;}
+  const b=dlBadge(next.days);
+  el.hidden=false;
+  el.className='hdr-dl dl-'+b.cls;
+  el.innerHTML='⏳ ближайший: '+esc(next.title)+' · '+b.txt;
+}
+
+function renderDeadlines(){
+  const list=document.getElementById('dl-list');
+  const all=collectDeadlines();
+  updHeaderDeadline(all);
+  try{renderReadiness();}catch(e){}
+  if(!list)return;
+  let items=all;
+  if(dlFrame==='30')items=all.filter(d=>d.days>=0&&d.days<=30);
+  else if(dlFrame==='90')items=all.filter(d=>d.days>=0&&d.days<=90);
+  else if(dlFrame==='past')items=all.filter(d=>d.days<0);
+  const cnt=document.getElementById('dl-count');
+  if(cnt)cnt.textContent=all.length?('всего '+all.length+' · впереди '+all.filter(d=>d.days>=0).length):'';
+  const empty=document.getElementById('dl-empty');
+  if(!items.length){list.innerHTML='';if(empty)empty.style.display='block';return;}
+  if(empty)empty.style.display='none';
+  list.innerHTML=items.map(d=>{
+    const b=dlBadge(d.days);
+    const kindLabel=d.src==='or'?'outreach':(DL_KIND[d.kind]||d.kind);
+    const link=d.link?`<a class="dl-link" href="${esc(d.link)}" target="_blank" rel="noopener">↗ ссылка</a>`:'';
+    const act=d.src==='or'
+      ? `<span class="dl-go" role="button" tabindex="0" onclick="activateTab('outreach')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();activateTab('outreach')}" title="Открыть в Outreach">→</span>`
+      : `<span class="dl-del" role="button" tabindex="0" onclick="delDeadline('${d.id}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();delDeadline('${d.id}')}" title="Удалить">×</span>`;
+    return `
+    <div class="dl-item src-${d.src}">
+      <span class="dl-badge dl-${b.cls}">${b.txt}</span>
+      <div class="dl-body">
+        <div class="dl-title">${esc(d.title)}<span class="dl-kind${d.src==='or'?' dl-kind-or':''}">${esc(kindLabel)}</span></div>
+        <div class="dl-meta">${d.date}${link?' · '+link:''}</div>
+        ${d.note?`<div class="dl-note">${esc(d.note)}</div>`:''}
+        ${dlTasksHTML(d)}
+      </div>
+      ${act}
+    </div>`;
+  }).join('');
 }
 
 window.addEventListener('load',()=>{
@@ -1881,7 +2689,8 @@ window.addEventListener('load',()=>{
   loadSkills();renderCustomSkills();loadDomains();skSearch();
   loadNotes();notesCount();loadCvLang();
   initMonth();loadTab();
-  initSync();seedRdrDefaults();renderRdr();
+  initSync();seedRdrDefaults();renderSearchLinks();renderRdr();
+  seedOutreach();renderOutreach();renderDeadlines();
 });
 </script>
 </body>
