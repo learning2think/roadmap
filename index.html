@@ -1195,7 +1195,9 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
         <span class="dl-presets-lbl">⚲ ориентир (проверь на сайте):</span>
         <button type="button" class="dl-preset-btn" onclick="dlFillPreset('oist')" title="Подставить ближайший цикл OIST (ориентир)">OIST</button>
         <button type="button" class="dl-preset-btn" onclick="dlFillPreset('embl')" title="Подставить ближайший раунд EMBL EIPP (ориентир)">EMBL</button>
+        <button type="button" class="dl-preset-btn" onclick="dlFillPreset('mpi')" title="Подставить ближайшее окно Max Planck IMPRS (ориентир, у каждой школы своя дата)">Max Planck</button>
         <button type="button" class="dl-preset-btn" onclick="dlFillPreset('eu')" title="Подставить старт сезона EU дек–фев (ориентир)">EU окно</button>
+        <button type="button" class="dl-preset-btn" onclick="dlFillPreset('skoltech')" title="Подставить дедлайн конкурса Сколтех (ориентир)">Сколтех</button>
       </div>
       <input class="m-inp" id="dl-link" type="url" placeholder="ссылка (необязательно)" maxlength="300" style="margin-top:9px">
       <textarea id="dl-note" placeholder="Заметка — что подать, что проверить (необязательно)..." style="margin-top:9px;min-height:52px"></textarea>
@@ -1846,6 +1848,7 @@ function toggleAdd(which){
   form.toggleAttribute('hidden',!willOpen);
   const tgl=form.parentElement.querySelector('.add-toggle');
   if(tgl)tgl.setAttribute('aria-expanded',willOpen?'true':'false');
+  if(which==='dl'&&!willOpen)dlPendingTpl=undefined;   // form closed/cancelled → drop pending preset plan
   if(willOpen){const f=form.querySelector('select,input,textarea');if(f)f.focus();}
 }
 
@@ -2422,8 +2425,14 @@ function addDeadline(){
     return;
   }
   const a=getDeadlines();
-  a.push({id:Date.now().toString(36),title,kind:document.getElementById('dl-kind').value,date,
-    link:document.getElementById('dl-link').value.trim(),note:document.getElementById('dl-note').value.trim()});
+  const entry={id:Date.now().toString(36),title,kind:document.getElementById('dl-kind').value,date,
+    link:document.getElementById('dl-link').value.trim(),note:document.getElementById('dl-note').value.trim()};
+  if(dlPendingTpl&&DL_TASK_TPL[dlPendingTpl]){                // added via a preset → attach its prep plan
+    entry.tasks=DL_TASK_TPL[dlPendingTpl].map(t=>({t,done:false}));
+    dlOpen.add(entry.id);
+  }
+  dlPendingTpl=undefined;
+  a.push(entry);
   setDeadlines(a);
   ['dl-title','dl-date','dl-link','dl-note','dl-date-txt'].forEach(id=>document.getElementById(id).value='');
   dlHint('');
@@ -2477,8 +2486,13 @@ const DL_PRESETS={
     freq:'2 цикла/год',cycles:[{m:3,d:31,l:'дедлайн ≈ 31 марта'},{m:11,d:15,l:'дедлайн ≈ 15 ноября'}]},
   embl:{title:'EMBL · EIPP дедлайн',link:'https://www.embl.org/about/info/embl-international-phd-programme/application/',verify:'embl.org',
     freq:'2 раунда/год',cycles:[{m:3,d:9,l:'летний раунд ≈ 9 марта'},{m:10,d:13,l:'зимний раунд ≈ середина октября'}]},
+  mpi:{title:'Max Planck · IMPRS дедлайн',link:'https://imprs.mpg.de/',verify:'сайте нужного IMPRS',
+    freq:'окна варьируются по школам (часто ноя–фев)',season:true,
+    cycles:[{m:11,d:1,l:'осенний раунд ≈ ноябрь'},{m:2,d:1,l:'зимний раунд ≈ февраль'}]},
+  skoltech:{title:'Сколтех · конкурс PhD',link:'https://new.skoltech.ru/en/requirements-and-deadlines',verify:'new.skoltech.ru',
+    freq:'окно фев–июнь, 2 волны',cycles:[{m:6,d:29,l:'финал ≈ конец июня (wave 1 ≈ конец апреля, окно с начала февраля)'}]},
   eu:{title:'EU · сезон подачи PhD (NL/DE/Nordics)',link:'https://euraxess.ec.europa.eu/jobs/search',verify:'EURAXESS',
-    freq:'сезон, не один дедлайн',season:true,cycles:[{m:12,d:1,l:'старт сезона ≈ декабрь'}]}
+    freq:'сезон подачи NL/DE/Nordics',season:true,cycles:[{m:12,d:1,l:'старт сезона ≈ декабрь'}]}
 };
 function presetNext(cycles){
   const now=new Date(),t0=new Date(now.getFullYear(),now.getMonth(),now.getDate());
@@ -2499,39 +2513,58 @@ function dlFillPreset(key){
   document.getElementById('dl-date-txt').value='';
   document.getElementById('dl-link').value=p.link;
   document.getElementById('dl-note').value=p.season
-    ? 'Ориентир: '+n.l+'. Это не один дедлайн, а сезон ('+p.freq+'): позиции висят на EURAXESS, у каждой своя дата. ПРОВЕРЬ актуальные конкурсы на '+p.verify+'.'
+    ? 'Ориентир: '+n.l+'. Это не один фиксированный дедлайн, а '+p.freq+': у каждой позиции/института своя дата. Найди конкретную и проверь на '+p.verify+'.'
     : 'Ориентир: '+n.l+' ('+p.freq+'). ОБЯЗАТЕЛЬНО подтверди точную дату на '+p.verify+' — даты сдвигаются год к году.';
-  dlHint('✓ подставил ориентир '+iso+' — проверь и жми «добавить»','ok');
+  dlPendingTpl=p.tpl||'program';   // adding this event will auto-attach the prep plan
+  dlHint('✓ подставил ориентир '+iso+' — план подготовки добавится сам. Проверь и жми «добавить»','ok');
 }
 
-// ----- Per-event preparation checklist: necessary tasks to actually reach the goal -----
+// ----- Per-event preparation checklist: realistic, phased plan for a 3rd-year student.
+//       Tasks are ordered by lead time before the deadline; the heavy lifting is early
+//       (build the record), the documents are the final phase. -----
 const DL_TASK_TPL={
   program:[
-    'Сверить требования и точную дату на сайте',
-    'CV под программу (актуальный)',
-    'Motivation letter / SOP под конкретную лабу',
-    'Research statement: In Silico BBB как доказуемый кейс',
-    'Запросить 2–3 рекомендательных письма заранее',
-    'Транскрипт + диплом (перевод на англ.)',
-    'Подтверждение английского (если требуется)',
-    'Написать релевантным PI напрямую ДО подачи',
-    'Загрузить заявку и подтвердить отправку'
+    'Сейчас (3 курс) — главный рычаг: довести In Silico BBB до препринта/сабмишена; статья в CV весит больше оценок',
+    'Сейчас — системно читать по теме лабы (Zotero, 2–3 статьи/нед), чтобы предметно цитировать PI',
+    'За 12+ мес — список 5–8 целевых PI/лабораторий, следить за их свежими работами',
+    'За 9–12 мес — тёплый контакт с PI: короткое письмо с конкретным научным вопросом и ссылкой на твой публичный релиз',
+    'За 6–9 мес — английский сертификат (IELTS/TOEFL): запись и подготовка занимают время, результат действует ~2 года',
+    'За 6–9 мес — предупредить 2–3 рекомендателей, дать им CV, тезисы и дедлайны заранее',
+    'За 3–6 мес — черновик SOP/motivation под 2–3 лучшие лаборатории (не один шаблон на всех)',
+    'За 3–6 мес — выписка с оценками за пройденные курсы + справка об обучении с ожидаемым годом выпуска (диплома ещё нет — это нормально)',
+    'За 2–3 мес — финализировать CV и research statement: In Silico BBB с метриками как доказуемый кейс',
+    'За 1–2 мес — собрать письма рекомендателей, проверить формат загрузки и точную дату на сайте',
+    'Для РФ-программ (Сколтех/ВШЭ/МФТИ) — вместо части документов вступительные испытания/собеседование: узнать формат заранее',
+    'Финал — загрузить заявку, подтвердить получение, занести даты интервью/воркшопа'
   ],
   conf:[
-    'Аннотация в лимит символов',
-    'Тезисы / постер / слайды',
-    'Регистрация + оплата',
-    'Проверить travel-grant / поддержку',
-    'Репетиция доклада вслух'
+    'За 2–3 мес — выбрать секцию и формат, проверить требования к тезисам и дедлайн',
+    'За 6–8 нед — написать тезисы в лимит, дать научнику на вычитку',
+    'За 4–6 нед — подать тезисы, дождаться подтверждения секции',
+    'За 3–4 нед — постер/слайды: 1 идея на слайд, один сильный график',
+    'За 2–3 нед — проверить travel-grant / поддержку вуза или оргкомитета',
+    'За 1–2 нед — репетировать доклад вслух по таймингу (intro → methods → results → вывод)',
+    'До дедлайна — регистрация и оплата',
+    'После — собрать контакты и follow-up письма заинтересованным'
   ],
   exam:[
-    'Собрать программу / список вопросов',
-    'План повторения по датам',
-    'Прорешать прошлые билеты / задачи',
-    'Регистрация / запись на сдачу'
+    'За 4+ нед — собрать программу/список вопросов и критерии',
+    'За 3–4 нед — план повторения по датам, распределить темы',
+    'За 2–3 нед — прорешать прошлые билеты/задачи, отметить слабые темы',
+    'За 1–2 нед — закрыть слабые темы, краткие конспекты/карточки',
+    'Записаться/подтвердить дату и место сдачи',
+    'Накануне — лёгкое повторение, сон, документы; без зубрёжки до ночи'
+  ],
+  default:[
+    'Уточнить, что именно нужно к этой дате и от кого зависит',
+    'Разбить на 3–5 конкретных шагов с порядком',
+    'Что зависит от других людей — запросить заранее',
+    'Назначить первый шаг на ближайшие дни',
+    'За несколько дней — финальная проверка/прогон'
   ]
 };
 const dlOpen=new Set();   // which events have their checklist expanded (UI-only, not synced)
+let dlPendingTpl;          // when an event is added via a preset, auto-attach this checklist
 
 function dlTasksHTML(d){
   if(d.src!=='own')return '';
@@ -2553,9 +2586,9 @@ function dlTasksHTML(d){
       '<span class="dl-task-t">'+esc(t.t)+'</span>'+
       '<span class="dl-task-del" role="button" tabindex="0" onclick="dlDelTask(\''+d.id+'\','+i+')" onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();dlDelTask(\''+d.id+'\','+i+')}">×</span>'+
     '</div>').join('');
-  const tpl=DL_TASK_TPL[d.kind];
+  const tpl=DL_TASK_TPL[d.kind]||DL_TASK_TPL.default;
   const seed=(tpl&&!tasks.length)
-    ? '<button type="button" class="dl-tpl-btn" onclick="dlSeedTemplate(\''+d.id+'\')">⊞ вставить чек-лист подготовки ('+tpl.length+')</button>'
+    ? '<button type="button" class="dl-tpl-btn" onclick="dlSeedTemplate(\''+d.id+'\')">⊞ вставить план подготовки ('+tpl.length+')</button>'
     : '';
   const add='<div class="dl-task-add"><input id="dl-add-'+d.id+'" type="text" placeholder="новое дело..." onkeydown="if(event.key===\'Enter\'){event.preventDefault();dlAddTask(\''+d.id+'\',this)}"><button onclick="dlAddTask(\''+d.id+'\',this.parentNode.querySelector(\'input\'))" aria-label="Добавить дело">＋</button></div>';
   return head+'<div class="dl-tasks">'+rows+seed+add+'</div>';
@@ -2579,7 +2612,7 @@ function dlDelTask(id,i){
 }
 function dlSeedTemplate(id){
   const a=getDeadlines(),d=a.find(x=>x.id===id);if(!d)return;
-  const tpl=DL_TASK_TPL[d.kind];if(!tpl)return;
+  const tpl=DL_TASK_TPL[d.kind]||DL_TASK_TPL.default;if(!tpl)return;
   d.tasks=tpl.map(t=>({t,done:false}));
   setDeadlines(a);dlOpen.add(id);renderDeadlines();
 }
