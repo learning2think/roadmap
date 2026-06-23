@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>learning2think — research profile · In Silico BBB · roadmap</title>
-<meta name="description" content="Public research profile and execution roadmap of learning2think, a medical student working in computational pharmacology, cheminformatics and ML. Flagship project: the public In Silico BBB v1.22.0 release.">
+<title>ГЭБ-Контур · evidence roadmap</title>
+<meta name="description" content="ГЭБ-Контур: метод снижения ошибок при оценке проницаемости гематоэнцефалического барьера через контекстно-совместимое обновление доказательств.">
 <meta name="author" content="learning2think">
 <meta name="theme-color" content="#0b0b0b">
 <!-- Canonical / share URL — change in og:url, og:image, twitter:image, canonical if the site moves -->
@@ -13,8 +13,8 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="learning2think">
-<meta property="og:title" content="learning2think — research profile · In Silico BBB">
-<meta property="og:description" content="Medical student building a reproducible research track in computational pharmacology, cheminformatics and ML. Flagship: public In Silico BBB v1.22.0.">
+<meta property="og:title" content="ГЭБ-Контур · evidence roadmap">
+<meta property="og:description" content="Профиль, дорожная карта, научный вектор, навыки и заметки проекта ГЭБ-Контур.">
 <meta property="og:url" content="https://learning2think.github.io/roadmap/">
 <meta property="og:image" content="https://learning2think.github.io/roadmap/og.png">
 <meta property="og:image:width" content="1200">
@@ -23,8 +23,8 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@l3arning2think">
-<meta name="twitter:title" content="learning2think — research profile · In Silico BBB">
-<meta name="twitter:description" content="Medical student building a reproducible research track in computational pharmacology, cheminformatics and ML. Flagship: public In Silico BBB v1.22.0.">
+<meta name="twitter:title" content="ГЭБ-Контур · evidence roadmap">
+<meta name="twitter:description" content="Контекстно-совместимое обновление данных для оценки проницаемости ГЭБ.">
 <meta name="twitter:image" content="https://learning2think.github.io/roadmap/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -542,23 +542,21 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 </head>
 <body>
 
+
 <div class="hdr">
-  <div class="hdr-title">// learning2think</div>
-  <div class="hdr-sub" lang="ru">публичный исследовательский профиль · хемоинформатика · ML · 2026–2031</div>
-  <div class="hdr-goal" lang="ru">// цель: funded PhD (OIST / NL / DE) · жить на свой доход · не бросить на полпути</div>
-  <div class="hdr-prog" title="Общий прогресс по роадмапу">
+  <div class="hdr-title">// ГЭБ-Контур</div>
+  <div class="hdr-sub" lang="ru">метод снижения ошибок при оценке проницаемости гематоэнцефалического барьера</div>
+  <div class="hdr-goal" lang="ru">// цель: доказать, что несовместимые данные не искажают вывод о мозге · собрать verified challenge cohort · подготовить патентную и научную основу</div>
+  <div class="hdr-prog" title="Общий прогресс по дорожной карте">
     <div class="hdr-prog-bar"><div class="hdr-prog-fill" id="gfill"></div></div>
     <div class="hdr-prog-txt" id="gpct">0 / 0 · 0%</div>
   </div>
   <button class="hdr-dl" id="hdr-dl" hidden onclick="activateTab('deadlines')" title="Перейти к дедлайнам"></button>
   <div class="links hdr-links">
-    <a class="lnk" href="https://t.me/learning2think" target="_blank" rel="noopener">telegram</a>
-    <a class="lnk" href="https://twitch.tv/learning2think" target="_blank" rel="noopener">twitch</a>
-    <a class="lnk" href="https://github.com/learning2think" target="_blank" rel="noopener">github</a>
-    <a class="lnk" href="https://github.com/learning2think/In-Silico-BBB" target="_blank" rel="noopener">In Silico BBB</a>
-    <a class="lnk" href="https://github.com/learning2think/In-Silico-BBB/releases/tag/v1.22.0" target="_blank" rel="noopener">v1.22.0</a>
+    <a class="lnk" href="https://github.com/learning2think/In-Silico-BBB" target="_blank" rel="noopener">repo</a>
     <a class="lnk" href="https://learning2think.github.io/In-Silico-BBB/" target="_blank" rel="noopener">docs</a>
-    <a class="lnk" href="https://x.com/l3arning2think" target="_blank" rel="noopener">x</a>
+    <a class="lnk" href="https://github.com/learning2think" target="_blank" rel="noopener">github</a>
+    <a class="lnk" href="https://t.me/learning2think" target="_blank" rel="noopener">telegram</a>
     <a class="lnk" href="mailto:good.bqw@gmail.com">email</a>
   </div>
   <div class="sync" id="syncStatus" hidden></div>
@@ -578,33 +576,28 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 </div>
 
 <!-- ════════════════════ ПРОФИЛЬ / CV ════════════════════ -->
+
 <div id="profile" class="tab-s active">
 
   <div class="cv-id">
-    <div class="cv-handle">learning2think</div>
-    <div class="cv-role" lang="ru">вычислительная фармакология · хемоинформатика · ML</div>
-    <div class="cv-loc" lang="ru">студент-медик · Россия · строю путь к funded PhD за рубежом</div>
+    <div class="cv-handle">ГЭБ-Контур</div>
+    <div class="cv-role" lang="ru">контекстно-совместимое обновление доказательств · гематоэнцефалический барьер · токсикология как условие, а не отдельная тема</div>
+    <div class="cv-loc" lang="ru">исследовательский проект на основе In Silico BBB · сначала терминал и воспроизводимые отчеты, сайт только как витрина</div>
   </div>
 
   <div class="vec-intro" lang="ru">
-    Публичный исследовательский профиль: проверяемые результаты, открытый код и план
-    перехода от сильной внутренней валидации к независимой внешней доказательной базе.
-    Главный кейс — In Silico BBB; roadmap фиксирует не обещания, а следующие evidence gates.
+    Проект больше не про «еще один предсказатель ГЭБ». Ядро - метод, который снижает ошибки интерпретации: первичный прогноз по структуре вещества остается входной точкой, а новые данные меняют вывод только тогда, когда они биологически совместимы с конкретным блоком решения. hERG, DILI или общая токсичность не должны напрямую переворачивать вывод о поступлении в мозг, если у них нет объясненного пути через переносчики, повреждение барьера, свободную фракцию или другой заранее описанный механизм.
   </div>
 
   <div class="links cv-links">
+    <a class="lnk" href="https://github.com/learning2think/In-Silico-BBB" target="_blank" rel="noopener">In Silico BBB</a>
+    <a class="lnk" href="https://learning2think.github.io/In-Silico-BBB/" target="_blank" rel="noopener">docs</a>
     <a class="lnk" href="https://github.com/learning2think" target="_blank" rel="noopener">github</a>
-    <a class="lnk" href="https://github.com/learning2think/In-Silico-BBB" target="_blank" rel="noopener">project</a>
-    <a class="lnk" href="https://github.com/learning2think/In-Silico-BBB/releases/tag/v1.22.0" target="_blank" rel="noopener">release v1.22.0</a>
-    <a class="lnk" href="https://learning2think.github.io/In-Silico-BBB/" target="_blank" rel="noopener">documentation</a>
-    <a class="lnk" href="https://t.me/learning2think" target="_blank" rel="noopener">telegram</a>
-    <a class="lnk" href="https://x.com/l3arning2think" target="_blank" rel="noopener">x</a>
-    <a class="lnk" href="https://twitch.tv/learning2think" target="_blank" rel="noopener">twitch</a>
     <a class="lnk" href="mailto:good.bqw@gmail.com">good.bqw@gmail.com</a>
   </div>
 
   <div class="cv-sec cv-print-hide">
-    <div class="cv-sec-t">// готовность к подаче</div>
+    <div class="cv-sec-t">// текущее состояние доказательств</div>
     <div id="cv-ready"></div>
   </div>
 
@@ -614,289 +607,177 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
         <button class="cv-lang-b active" data-l="ru" onclick="cvLang('ru')" aria-pressed="true">RU</button>
         <button class="cv-lang-b" data-l="en" onclick="cvLang('en')" aria-pressed="false">EN</button>
       </span>
-      <button class="cv-copy" type="button" onclick="copyEn(this)" title="Copy the English project description to clipboard">copy EN ⧉</button>
+      <button class="cv-copy" type="button" onclick="copyEn(this)" title="Copy the English project description to clipboard">copy EN ↗</button>
     </div>
     <div class="cv-proj">
       <div class="cv-proj-h">
-        <span class="cv-proj-n">In Silico BBB</span>
-        <span class="cv-proj-tag">v1.22.0 · public release · MIT</span>
+        <span class="cv-proj-n">GEB-Contour / ГЭБ-Контур</span>
+        <span class="cv-proj-tag">error-reduction method · evidence routing · CLI first</span>
       </div>
 
       <div class="cv-body" data-lang="ru" lang="ru">
-        <div class="cv-proj-role">Вычислительная платформа моделирования транспорта лекарств через ГЭБ · ведущий разработчик</div>
+        <div class="cv-proj-role">Метод контекстно-совместимого обновления данных для оценки проницаемости ГЭБ</div>
         <ul class="cv-proj-list">
-          <li>Публичный воспроизводимый релиз платформы для исследовательского скрининга транспорта через ГЭБ: механистические 2-/3-/5-камерные PBPK-модели, активный транспорт P-gp/BCRP/MRP4/LAT1, QSAR/ML, конформная неопределённость и область применимости.</li>
-          <li>BBB-классификатор: scaffold-CV AUC 0.9245 и MCC 0.6699 на 8057 соединениях; ретроспективный publication-year тест — AUC 0.8826 на 1580 соединениях. logBB-регрессор: scaffold-CV R² 0.4409 и RMSE 0.5688 на зафиксированной выборке из 900 соединений.</li>
-          <li>Разделил уровни доказательности: internal, retrospective temporal, diagnostic, exploratory и pending. Автоматическая ChEMBL 37-панель не называется независимой валидацией до двух проверок первичных источников и консенсуса.</li>
-          <li>Зафиксировал отрицательные результаты: ChemBERTa не превзошла релизный ExtraTrees, IVAP/Venn–Abers уступил Platt scaling; новые модели не продвигаются без улучшения на одном заблокированном внешнем тесте.</li>
-          <li>Полный стек поставки: Streamlit, FastAPI REST (13 эндпоинтов), Python SDK и CLI. CI на Python 3.11–3.13 проходит 1562 core-теста и 49 API-тестов; измеренное core-покрытие — 95.36%.</li>
+          <li><b>Научная новизна:</b> не само предсказание logBB, не общая ADMET-панель и не краткий пересказ. Новое ядро - формальный контур, где каждый опыт имеет паспорт, относится к конкретному биологическому блоку и может обновлять только совместимые выводы.</li>
+          <li><b>Вход:</b> SMILES, первичный прогноз In Silico BBB, паспорт источника, тип опыта, единицы, проверенность, блок совместимости: проницаемость, переносчики, связывание, токсикология, средовой контекст, итог по мозгу.</li>
+          <li><b>Цикл:</b> первичная вероятность → проверка совместимости → ограниченное обновление → разбор расхождений → рекомендация следующего опыта → новый паспорт данных. Байесовское обновление используется как часть цикла, а не как отдельная главная идея.</li>
+          <li><b>Токсикология:</b> учитывается только как путь, который может изменить транспорт или состояние барьера. Системный яд сам по себе не равен проникновению в мозг; он становится значимым только через объясненный механизм.</li>
+          <li><b>Практическая ценность:</b> контур не обязан выигрывать у сильной ML-модели на каждой простой молекуле. Его задача - уменьшать ложные обновления, показывать, где данных недостаточно, и предлагать следующий опыт.</li>
         </ul>
       </div>
 
       <div class="cv-body" data-lang="en" lang="en" hidden>
-        <div class="cv-proj-role">Computational Platform for Blood–Brain Barrier Drug Transport · lead developer</div>
+        <div class="cv-proj-role">Context-compatible evidence updating for blood-brain barrier assessment</div>
         <ul class="cv-proj-list">
-          <li>Released a public, reproducible research platform for BBB transport screening: mechanistic 2-/3-/5-compartment PBPK models, P-gp/BCRP/MRP4/LAT1 transport, QSAR/ML, conformal uncertainty, and applicability-domain analysis.</li>
-          <li>BBB classifier: scaffold-CV AUC 0.9245 and MCC 0.6699 on 8,057 compounds; retrospective publication-year AUC 0.8826 on 1,580 compounds. logBB regressor: scaffold-CV R² 0.4409 and RMSE 0.5688 on the frozen 900-compound cohort.</li>
-          <li>Separated internal, retrospective temporal, diagnostic, exploratory, and pending evidence. The automatic ChEMBL 37 panel is not presented as independent validation before two primary-source reviews and consensus.</li>
-          <li>Preserved negative results: frozen ChemBERTa embeddings did not beat the release ExtraTrees model, and IVAP/Venn–Abers underperformed Platt scaling. No candidate is promoted without improvement on one locked external test.</li>
-          <li>Shipped Streamlit, FastAPI REST (13 endpoints), Python SDK, and CLI interfaces. CI on Python 3.11–3.13 passes 1,562 core tests and 49 API tests with 95.36% measured core coverage.</li>
+          <li>GEB-Contour is an error-reduction method for BBB permeability assessment, not a standalone BBB predictor.</li>
+          <li>The system starts from a primary In Silico BBB/logBB estimate, attaches a data passport to every observation, maps each assay to a biological block, and allows updates only along compatible paths.</li>
+          <li>The loop is: prior estimate → compatibility check → constrained update → discordance resolution → next-assay recommendation → revised evidence state.</li>
+          <li>Toxicology is included only when it has a biologically defined route to BBB transport, barrier integrity, free fraction, or transporter behavior.</li>
+          <li>The measurable value is fewer false updates and better abstention/explanation on complex molecules, especially outside the comfortable domain of the primary model.</li>
         </ul>
       </div>
 
       <div class="cv-metrics">
-        <span class="cv-m"><b>0.9245</b> AUC · scaffold</span>
-        <span class="cv-m"><b>0.8826</b> AUC · temporal</span>
-        <span class="cv-m"><b>0.4409</b> R² · logBB</span>
-        <span class="cv-m"><b>1,562 + 49</b> tests · CI</span>
-        <span class="cv-m"><b>95.36%</b> core coverage</span>
-        <span class="cv-m"><b>13</b> REST endpoints</span>
+        <span class="cv-m"><b>0</b> ложных hERG → brain обновлений</span>
+        <span class="cv-m"><b>9</b> объясненных расхождений</span>
+        <span class="cv-m"><b>83.3%</b> селективное покрытие</span>
+        <span class="cv-m"><b>36</b> seed-молекул</span>
+        <span class="cv-m"><b>76</b> наблюдений</span>
+        <span class="cv-m"><b>166</b> тестов заявлено зелеными</span>
       </div>
     </div>
   </div>
 
   <div class="cv-sec">
-    <div class="cv-sec-t">// stack &amp; tools</div>
+    <div class="cv-sec-t">// стек проекта</div>
     <div class="cv-tags">
-      <span class="cv-tag">Python 3.11+</span>
-      <span class="cv-tag">NumPy · pandas</span>
-      <span class="cv-tag">scikit-learn</span>
-      <span class="cv-tag">XGBoost / LightGBM</span>
-      <span class="cv-tag">PyTorch / Chemprop</span>
+      <span class="cv-tag">Python</span>
+      <span class="cv-tag">CLI first</span>
       <span class="cv-tag">RDKit</span>
-      <span class="cv-tag">MNE-Python</span>
-      <span class="cv-tag">QSAR / ADMET</span>
-      <span class="cv-tag">PBPK · ODE</span>
-      <span class="cv-tag">conformal UQ · SHAP</span>
-      <span class="cv-tag">FastAPI</span>
-      <span class="cv-tag">Streamlit</span>
-      <span class="cv-tag">REST API · SDK · CLI</span>
-      <span class="cv-tag">Jupyter</span>
-      <span class="cv-tag">Git</span>
-      <span class="cv-tag">CI · pytest · ruff/mypy</span>
+      <span class="cv-tag">scikit-learn</span>
+      <span class="cv-tag">pandas</span>
+      <span class="cv-tag">pytest</span>
+      <span class="cv-tag">ruff</span>
+      <span class="cv-tag">B3DB / logBB</span>
+      <span class="cv-tag">Kp,uu</span>
+      <span class="cv-tag">PAMPA / MDCK / Caco-2</span>
+      <span class="cv-tag">P-gp / BCRP / LAT1</span>
+      <span class="cv-tag">data passport</span>
+      <span class="cv-tag">compatibility matrix</span>
+      <span class="cv-tag">small-sample stats</span>
+      <span class="cv-tag">patent review</span>
     </div>
   </div>
 
   <div class="cv-sec">
-    <div class="cv-sec-t">// current focus</div>
+    <div class="cv-sec-t">// ближайший фокус</div>
     <ul class="cv-focus" lang="ru">
-      <li><b>ChEMBL review</b> — две независимые проверки первичных источников и консенсус по замороженному пилоту.</li>
-      <li><b>External evidence</b> — заблокированный набор 100–200 соединений и формальная гармонизация logBB, Kp, Kp,uu и BBB-классов.</li>
-      <li><b>PBPK validation</b> — выполнить frozen межвидовой протокол только после проверки и content hash evidence snapshot.</li>
-      <li><b>Публикация и лаборатория</b> — превратить v1.22.0 в проверяемый manuscript package и адресно обсуждать проект с релевантными PI.</li>
+      <li><b>Verified challenge cohort</b> - 15-30 молекул вне удобного домена B3DB, с точными ссылками и количественными Kp,uu/PAMPA/efflux данными.</li>
+      <li><b>Критерий успеха</b> - заранее зафиксировать, где контур обязан снижать ошибки: ложные обновления, воздержание, объяснение расхождений, качество рекомендации следующего опыта.</li>
+      <li><b>Патентная формулировка</b> - «метод снижения ошибок при оценке проницаемости ГЭБ за счет контекстно-совместимого обновления данных», а не «нейросеть для ГЭБ».</li>
+      <li><b>Научрук</b> - показать не обещание SaaS, а воспроизводимый механизм, честные ограничения и план валидации.</li>
     </ul>
   </div>
 
   <div class="cv-sec cv-print-hide">
-    <div class="cv-sec-t">// explore</div>
+    <div class="cv-sec-t">// перейти</div>
     <div class="cv-nav">
-      <button onclick="activateTab('roadmap')">→ Roadmap · 2026–2031 plan</button>
-      <button onclick="activateTab('vector')">→ Vector · strategy &amp; finances</button>
-      <button onclick="activateTab('skills')">→ Skills · have &amp; to learn</button>
+      <button onclick="activateTab('roadmap')">→ Roadmap · что делать по шагам</button>
+      <button onclick="activateTab('vector')">→ Vector · научное ядро и монетизация</button>
+      <button onclick="activateTab('skills')">→ Skills · что держать и добрать</button>
+      <button onclick="activateTab('notes')">→ Notes · источники и шаблоны</button>
     </div>
   </div>
 
 </div>
 
-<!-- ════════════════════ РОАДМАП ════════════════════ -->
+
 <div id="roadmap" class="tab-s" lang="ru">
 
   <div id="ys1">
     <div class="yr-hdr">
-      <div class="yr-lbl">ГОД 1 · 2026–2027</div>
+      <div class="yr-lbl">СЕЙЧАС · метод и проверка</div>
       <div class="yr-bar"><div class="yr-fill" id="yf1"></div></div>
-      <div class="yr-pct" id="yp1">1/8</div>
+      <div class="yr-pct" id="yp1">0/8</div>
     </div>
     <div class="grid">
-
-
-      <div class="card" id="y1b" data-c="study" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-study">УЧЁБА</span>
-        <div class="c-title">Закрыть долги</div>
-        <div class="c-desc">Справка покрывает пропуски. Академический отпуск если нужен. Дотянуть до 4 курса.</div>
+      <div class="card done" id="y1a" data-c="science" onclick="tog(this)">
+        <span class="c-chk">✓</span><span class="c-cat cat-science">ЯДРО</span>
+        <div class="c-title">Зафиксировать метод как контур, а не отдельные предсказатели</div>
+        <div class="c-desc">Первичный прогноз, паспорт данных, матрица совместимости, ограниченное обновление, разбор расхождений и рекомендация следующего опыта собраны в один цикл.</div>
       </div>
-
-      <div class="card" id="y1c" data-c="science" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-science">НАУКА</span>
-        <div class="c-title">Подготовить manuscript package по In Silico BBB</div>
-        <div class="c-desc">Заморозить endpoint policy, завершить внешний evidence set, синхронизировать figures/tables и только затем выбирать журнал по реальному объёму доказательств.</div>
+      <div class="card done" id="y1b" data-c="science" onclick="tog(this)">
+        <span class="c-chk">✓</span><span class="c-cat cat-science">БЕНЧМАРК</span>
+        <div class="c-title">Показать структурное преимущество на симуляции</div>
+        <div class="c-desc">Несовместимые токс-данные не меняют вывод о мозге; наивное смешивание деградирует при росте нерелевантной панели.</div>
       </div>
-
-      <div class="card done" id="y1d" data-c="science" onclick="tog(this)">
-        <span class="c-chk">✓</span>
-        <span class="c-cat cat-science">НАУКА · РЕЛИЗ</span>
-        <div class="c-title">Опубликовать воспроизводимый релиз v1.22.0</div>
-        <div class="c-desc">Выполнено 13 июня 2026: публичный репозиторий, release artifacts и checksums, документация, security policy, защищённая main и зелёный CI.</div>
+      <div class="card done" id="y1c" data-c="science" onclick="tog(this)">
+        <span class="c-chk">✓</span><span class="c-cat cat-science">SEED</span>
+        <div class="c-title">Собрать первичный реальный seed-датасет</div>
+        <div class="c-desc">36 молекул, 76 наблюдений, качественные блоки и статус needs_review. Это учебная база, а не внешняя валидация.</div>
       </div>
-
-      <div class="card" id="y1e" data-c="career" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-career">КАРЬЕРА</span>
-        <div class="c-title">Адресный научный outreach</div>
-        <div class="c-desc">Писать только релевантным PI с публичным релизом, кратким научным вопросом и честными ограничениями. OIST — начать с Neural Computation Unit и попросить перенаправление, если тематическое пересечение слабое.</div>
+      <div class="card" id="y1d" data-c="science" onclick="tog(this)">
+        <span class="c-chk">○</span><span class="c-cat cat-science">NEXT</span>
+        <div class="c-title">Собрать verified challenge cohort</div>
+        <div class="c-desc">15-30 сложных молекул вне комфортного домена: точные источники, Kp,uu или близкие CNS PK показатели, эффлюкс, PAMPA/MDCK/Caco-2, свободная фракция.</div>
       </div>
-
-      <div class="card" id="y1f" data-c="finance" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-finance">ФИНАНСЫ</span>
-        <div class="c-title">Найти устойчивое финансирование исследования</div>
-        <div class="c-desc">Приоритет: оплачиваемая роль в лаборатории, стипендия, конкурс с прозрачными условиями или проектный контракт. Решение принимать по актуальным правилам, обязательствам и совместимости с открытой публикацией.</div>
+      <div class="card" id="y1e" data-c="skills" onclick="tog(this)">
+        <span class="c-chk">○</span><span class="c-cat cat-skills">КРИТЕРИИ</span>
+        <div class="c-title">Заранее объявить критерии победы</div>
+        <div class="c-desc">Не подгонять после результата: ложные обновления, точность на сложных молекулах, покрытие, воздержание, качество следующего опыта.</div>
       </div>
-
-      <div class="card" id="y1g" data-c="skills" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-skills">НАВЫКИ</span>
-        <div class="c-title">PyTorch базовый уровень</div>
-        <div class="c-desc">fast.ai — практично, бесплатно. Цель: написать простую нейросеть с нуля.</div>
+      <div class="card" id="y1f" data-c="career" onclick="tog(this)">
+        <span class="c-chk">○</span><span class="c-cat cat-career">ПИСЬМО</span>
+        <div class="c-title">Отправить научруку короткий пакет</div>
+        <div class="c-desc">Одна страница: суть метода, почему это не копия патентов, что уже реализовано, где честная граница и какой следующий опыт нужен.</div>
       </div>
-
-      <div class="card" id="y1h" data-c="skills" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-skills">НАВЫКИ</span>
-        <div class="c-title">Coursera Computational Neuroscience</div>
-        <div class="c-desc">UW, Rao &amp; Fairhall. Довести до конца — не бросать.</div>
+      <div class="card" id="y1g" data-c="science" onclick="tog(this)">
+        <span class="c-chk">○</span><span class="c-cat cat-science">ИСТОЧНИКИ</span>
+        <div class="c-title">Проверить каждую строку датасета</div>
+        <div class="c-desc">Без «общеизвестно»: DOI/PMID, единицы измерения, вид опыта, условия, источник SMILES/logBB, статус verified.</div>
       </div>
-
-      <div class="card full" id="y1i" data-c="vis" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-vis">НАУКА · ВИДИМОСТЬ</span>
-        <div class="c-title">Сеченовская конференция</div>
-        <div class="c-desc">Секция 21 (биоинформатика). Тезисы готовы. Выступить — получить первые живые контакты.</div>
+      <div class="card" id="y1h" data-c="science" onclick="tog(this)">
+        <span class="c-chk">○</span><span class="c-cat cat-science">ОТЧЕТ</span>
+        <div class="c-title">Сравнить primary-only / naive / compatible-only / contour</div>
+        <div class="c-desc">Нужны не красивые проценты, а честная таблица: где контур лучше, где равен, где проигрывает и почему.</div>
       </div>
-
     </div>
   </div>
 
   <div id="ys2">
     <div class="yr-hdr">
-      <div class="yr-lbl">ГОД 2 · 2027–2028</div>
+      <div class="yr-lbl">ЭТАП 2 · 2026-2027 · доказательство</div>
       <div class="yr-bar"><div class="yr-fill" id="yf2"></div></div>
-      <div class="yr-pct" id="yp2">0/5</div>
+      <div class="yr-pct" id="yp2">0/6</div>
     </div>
     <div class="grid">
-
-      <div class="card" id="y2a" data-c="science" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-science">НАУКА</span>
-        <div class="c-title">Вторая публикация</div>
-        <div class="c-desc">Расширение In Silico BBB или новая тема из лаборатории. Цель — 2 статьи в CV к концу 4 курса.</div>
-      </div>
-
-      <div class="card" id="y2b" data-c="skills" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-skills">НАВЫКИ</span>
-        <div class="c-title">MNE-Python</div>
-        <div class="c-desc">Только если работаешь с MEG-лаб. Эпохи, артефакты, частотные полосы, предобработка.</div>
-      </div>
-
-      <div class="card" id="y2c" data-c="skills" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-skills">НАВЫКИ</span>
-        <div class="c-title">Байесовская статистика</div>
-        <div class="c-desc">Statistical Rethinking — McElreath, YouTube бесплатно. В нейронауках используется постоянно.</div>
-      </div>
-
-      <div class="card" id="y2d" data-c="science" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-science">НАУКА</span>
-        <div class="c-title">Читать статьи системно</div>
-        <div class="c-desc">2–3 в неделю по своей теме. Цитировать в письмах руководителям.</div>
-      </div>
-
-      <div class="card full" id="y2e" data-c="vis" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-vis">КАРЬЕРА · ВИДИМОСТЬ</span>
-        <div class="c-title">Конференция очно</div>
-        <div class="c-desc">Одна очная конференция — живые контакты дороже десяти холодных писем.</div>
-      </div>
-
+      <div class="card" id="y2a" data-c="science" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-science">VALIDATION</span><div class="c-title">Повторить проверку на verified cohort</div><div class="c-desc">Контур должен быть полезен там, где голый структурный прогноз слабее: вынос P-gp, связывание, конфликтующие опыты, токсическое повреждение барьера.</div></div>
+      <div class="card" id="y2b" data-c="science" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-science">STATS</span><div class="c-title">Добавить малую статистику без самообмана</div><div class="c-desc">Bootstrap, доверительные интервалы, тесты на парные ошибки, отчет по малой выборке. Без громких выводов там, где данных мало.</div></div>
+      <div class="card" id="y2c" data-c="skills" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-skills">CLI</span><div class="c-title">Сделать терминальный рабочий сценарий</div><div class="c-desc">Команды для init, add-observation, decide, benchmark, report. Сайт не является ядром, ядро должно жить в терминале.</div></div>
+      <div class="card" id="y2d" data-c="science" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-science">PAPER</span><div class="c-title">Собрать скелет статьи или препринта</div><div class="c-desc">Введение через проблему ложного смешивания данных, методы, датасет, результаты, ограничения, следующая экспериментальная проверка.</div></div>
+      <div class="card" id="y2e" data-c="career" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-career">PATENT</span><div class="c-title">Провести консультацию по патентной формуле</div><div class="c-desc">Проверить, можно ли защищать именно способ снижения ошибок и контур совместимости, а не известные куски ADMET/BBB/байеса.</div></div>
+      <div class="card" id="y2f" data-c="vis" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-vis">FIGURES</span><div class="c-title">Подготовить 3 устойчивые схемы</div><div class="c-desc">Главный контур, матрица совместимости, сравнение с наивным смешиванием. Это понадобится и руководителю, и патентному описанию.</div></div>
     </div>
   </div>
 
   <div id="ys3">
-    <div class="yr-hdr">
-      <div class="yr-lbl">ГОД 3 · 2028–2029</div>
-      <div class="yr-bar"><div class="yr-fill" id="yf3"></div></div>
-      <div class="yr-pct" id="yp3">0/5</div>
-    </div>
+    <div class="yr-hdr"><div class="yr-lbl">ЭТАП 3 · 2027-2028 · расширение</div><div class="yr-bar"><div class="yr-fill" id="yf3"></div></div><div class="yr-pct" id="yp3">0/5</div></div>
     <div class="grid">
-
-      <div class="card" id="y3a" data-c="study" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-study">УЧЁБА</span>
-        <div class="c-title">Закончить институт</div>
-        <div class="c-desc">Диплом нужен. Медицинское образование + ML — редкое сочетание. Без диплома оно теряет половину ценности.</div>
-      </div>
-
-      <div class="card" id="y3b" data-c="finance" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-finance">ФИНАНСЫ</span>
-        <div class="c-title">Финансирование + роль в лаборатории</div>
-        <div class="c-desc">Цель — оплачиваемая исследовательская или инженерная позиция плюс совместимое грантовое финансирование. Конкретные суммы и программы проверять на дату подачи, не закладывая неподтверждённые выплаты в план.</div>
-      </div>
-
-      <div class="card" id="y3c" data-c="science" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-science">НАУКА</span>
-        <div class="c-title">2–3 публикации в CV</div>
-        <div class="c-desc">Реалистичная цель к концу учёбы. Этого достаточно для конкурентной заявки в большинство funded-программ.</div>
-      </div>
-
-      <div class="card" id="y3d" data-c="career" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-career">КАРЬЕРА</span>
-        <div class="c-title">Международная конференция</div>
-        <div class="c-desc">ISMB, NeurIPS Workshop, ECML. Выступить с докладом или постером.</div>
-      </div>
-
-      <div class="card full" id="y3e" data-c="career" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-career">КАРЬЕРА · РАЗВИЛКА <span class="badge-res">РЕШЕНО</span></span>
-        <div class="c-title">Вычислительная нейрофармакология</div>
-        <div class="c-desc">Нейронауки = рамка, drug discovery = инструмент внутри. In Silico BBB — молекулярный фронт-энд пайплайна действия препарата на ЦНС. Нишу выбрал — держи курс.</div>
-      </div>
-
+      <div class="card" id="y3a" data-c="science" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-science">ASSAY</span><div class="c-title">Добавить выбор следующего опыта</div><div class="c-desc">Система должна не только сказать «unknown», но и объяснить, какой опыт реально уменьшит неопределенность: Kp,uu, efflux ratio, PAMPA, связывание, повреждение барьера.</div></div>
+      <div class="card" id="y3b" data-c="science" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-science">TRANSPORT</span><div class="c-title">Углубить переносчики и тканевые пути</div><div class="c-desc">P-gp/BCRP/LAT1 и системные ткани учитывать только через совместимые звенья. Микробиота и кишечный контур - боковой слой, не центральное ядро.</div></div>
+      <div class="card" id="y3c" data-c="skills" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-skills">MODEL</span><div class="c-title">Проверить вероятностное обновление внутри блока</div><div class="c-desc">Байесовская часть должна улучшать калибровку совместимых сигналов, а не быть декоративным словом в описании.</div></div>
+      <div class="card" id="y3d" data-c="career" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-career">LAB</span><div class="c-title">Найти лабораторию или внешнего консультанта</div><div class="c-desc">Нужен человек, который знает реальные BBB/CNS PK опыты и поможет не ошибиться в биологической интерпретации.</div></div>
+      <div class="card" id="y3e" data-c="vis" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-vis">DEMO</span><div class="c-title">Сделать минимальную витрину только после CLI</div><div class="c-desc">Сайт должен показывать итог и объяснение, а не превращаться в главную работу. Никаких перегруженных первых экранов.</div></div>
     </div>
   </div>
 
   <div id="ys4">
-    <div class="yr-hdr">
-      <div class="yr-lbl">ГОДЫ 4–5 · 2029–2031</div>
-      <div class="yr-bar"><div class="yr-fill" id="yf4"></div></div>
-      <div class="yr-pct" id="yp4">0/4</div>
-    </div>
+    <div class="yr-hdr"><div class="yr-lbl">ЭТАП 4 · 2028+ · применение</div><div class="yr-bar"><div class="yr-fill" id="yf4"></div></div><div class="yr-pct" id="yp4">0/4</div></div>
     <div class="grid">
-
-      <div class="card" id="y4a" data-c="career" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-career">КАРЬЕРА · ПУТЬ A</span>
-        <div class="c-title">Аспирантура (основной путь)</div>
-        <div class="c-desc">OIST · Япония | EMBL, Max Planck, NL — Европа | Сколтех, ВШЭ, МФТИ — Россия. Funded PhD: стипендия покрывает жизнь на месте и немного сверх. Подача декабрь–февраль.</div>
-      </div>
-
-      <div class="card" id="y4b" data-c="career" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-career">КАРЬЕРА · ПУТЬ B</span>
-        <div class="c-title">Индустрия (запасной путь)</div>
-        <div class="c-desc">Биотех или фарма с ML, позиция computational scientist. Ориентир: Россия 100–180 тыс/мес, Европа (entry) 45–65k€/год. Реально с теми же навыками, что и для PhD.</div>
-      </div>
-
-      <div class="card full" id="y4c" data-c="finance" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-finance">ФИНАНСЫ · ЦЕЛЬ</span>
-        <div class="c-title">Финансовая независимость от родителей</div>
-        <div class="c-desc">Не «разбогатеть», а закрывать свои расходы своим трудом. Аспирантура в ЕС: 1500–2500 €/мес net · Россия: 100–150 тыс/мес · индустрия за рубежом: 45–65k€/год entry.</div>
-      </div>
-
-      <div class="card full" id="y4d" data-c="health" onclick="tog(this)">
-        <span class="c-chk">○</span>
-        <span class="c-cat cat-health">ЗДОРОВЬЕ · ДОЛГОСРОЧНО</span>
-        <div class="c-title">Депрессия под контролем</div>
-        <div class="c-desc">Не как фон жизни — как управляемое состояние. Это не опциональный пункт. Это фундамент всего остального.</div>
-      </div>
-
+      <div class="card" id="y4a" data-c="science" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-science">EXPERIMENT</span><div class="c-title">Связать контур с реальным экспериментальным циклом</div><div class="c-desc">В идеале система предлагает следующий опыт, опыт добавляется в паспорт, а вывод обновляется по тем же правилам.</div></div>
+      <div class="card" id="y4b" data-c="finance" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-finance">MONETIZE</span><div class="c-title">Монетизация через методику и аудит данных</div><div class="c-desc">Реалистичнее продавать не SaaS «для всех», а проверку CNS/BBB evidence package, отчет по ошибкам и помощь в планировании следующего опыта.</div></div>
+      <div class="card" id="y4c" data-c="career" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-career">IP</span><div class="c-title">Решить: патент, ноу-хау или публикация</div><div class="c-desc">Если формула слабая - не насиловать патент. Если данные покажут снижение ошибок на сложных случаях - готовить заявку осмысленно.</div></div>
+      <div class="card" id="y4d" data-c="health" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-health">SCOPE</span><div class="c-title">Не распылить проект</div><div class="c-desc">Центр всегда ГЭБ. Токсикология, экология, кишечник и суммарная физиология входят только как объясненные условия для ГЭБ-контура.</div></div>
     </div>
   </div>
 
@@ -905,199 +786,90 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
     <div class="add-form" id="add-rm" hidden>
       <div class="af-row">
         <select id="rm-year" aria-label="Год">
-          <option value="1">ГОД 1 · 2026–2027</option>
-          <option value="2">ГОД 2 · 2027–2028</option>
-          <option value="3">ГОД 3 · 2028–2029</option>
-          <option value="4">ГОДЫ 4–5 · 2029–2031</option>
+          <option value="1">СЕЙЧАС · метод и проверка</option>
+          <option value="2">ЭТАП 2 · доказательство</option>
+          <option value="3">ЭТАП 3 · расширение</option>
+          <option value="4">ЭТАП 4 · применение</option>
         </select>
         <select id="rm-cat" aria-label="Категория">
           <option value="science">НАУКА</option>
-          <option value="study">УЧЁБА</option>
-          <option value="career">КАРЬЕРА</option>
           <option value="skills">НАВЫКИ</option>
-          <option value="finance">ФИНАНСЫ</option>
-          <option value="health">ЗДОРОВЬЕ</option>
-          <option value="vis">ВИДИМОСТЬ</option>
+          <option value="career">ПАТЕНТ / СВЯЗИ</option>
+          <option value="finance">МОНЕТИЗАЦИЯ</option>
+          <option value="health">ФОКУС</option>
+          <option value="vis">ВИТРИНА</option>
         </select>
       </div>
       <input class="m-inp" id="rm-title" type="text" placeholder="Название пункта..." maxlength="90">
-      <textarea id="rm-desc" placeholder="Короткое описание (необязательно)..."></textarea>
-      <div class="af-actions">
-        <button class="af-btn save" onclick="addRoadmap()">добавить</button>
-        <button class="af-btn ghost" onclick="toggleAdd('rm')">отмена</button>
-      </div>
+      <textarea id="rm-desc" placeholder="Короткое описание: что проверяем, чем подтверждаем..."></textarea>
+      <div class="af-actions"><button class="af-btn save" onclick="addRoadmap()">добавить</button><button class="af-btn ghost" onclick="toggleAdd('rm')">отмена</button></div>
     </div>
   </div>
 
 </div>
 
-<!-- ════════════════════ ВЕКТОР ════════════════════ -->
+
 <div id="vector" class="tab-s" lang="ru">
 
-  <div class="vec-intro">Это не список дел, а рамка решений — как выбирать, когда придётся. Читается сверху вниз: от направления к деньгам и запасным вариантам.</div>
+  <div class="vec-intro">Вектор проекта: не расширяться во все стороны, а доказать одну сильную вещь - контекстно-совместимый цикл снижает ошибки оценки ГЭБ там, где простое смешивание данных начинает вредить.</div>
 
   <div class="vs">
-    <div class="vs-title"><span class="vs-num">01</span> направление</div>
-    <div class="fnode" style="text-align:center">
-      <div class="fn-title" style="color:#c0c0c0">Нейронауки = рамка · Drug discovery = инструмент внутри</div>
-    </div>
-    <div class="conn">↓</div>
-    <div class="fork2">
-      <div class="fnode good">
-        <div class="fn-title">✓ Вычислительная нейрофармакология</div>
-        <div class="fn-sub">действие препарата на ЦНС · оба слоя нужны одновременно</div>
-      </div>
-      <div class="fnode trap">
-        <div class="fn-title">✗ Ловушка</div>
-        <div class="fn-sub">чистая нейро + хемоинф. сбоку · распыление · козырь не играет</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="vs">
-    <div class="vs-title"><span class="vs-num">02</span> In Silico BBB — стержень проекта</div>
+    <div class="vs-title"><span class="vs-num">01</span> формулировка метода</div>
     <div class="pipe">
-      <div class="pn">Молекула</div>
-      <div class="pa">→</div>
-      <div class="pn">ГЭБ: дойдёт ли до мозга</div>
-      <div class="pa">→</div>
-      <div class="pn">Мишень в ЦНС</div>
-      <div class="pa">→</div>
-      <div class="pn">Нейро-эффект</div>
+      <div class="pn">SMILES + первичный logBB</div><div class="pa">→</div><div class="pn">паспорт опыта</div><div class="pa">→</div><div class="pn">матрица совместимости</div><div class="pa">→</div><div class="pn">ограниченное обновление</div><div class="pa">→</div><div class="pn">решение / отказ / следующий опыт</div>
     </div>
-    <div style="font-size:10.5px;color:var(--dim);margin-top:7px">BBB-проект = не утилита, а зерно диссертации</div>
+    <div style="font-size:10.5px;color:var(--dim);margin-top:7px">Суть: данные обновляют не «все сразу», а только тот блок вывода, с которым у них есть биологическая связь.</div>
   </div>
 
   <div class="vs">
-    <div class="vs-title"><span class="vs-num">03</span> под-развилка — решить позже</div>
-    <div class="fork2">
-      <div class="fnode" style="border-color:rgba(70,130,180,.4);background:rgba(70,130,180,.05)">
-        <div class="fn-title" style="color:var(--vis)">Схемы и динамика</div>
-        <div class="fn-sub">Центр: QSP, моделирование цепей, ОДУ</div>
-      </div>
-      <div class="fnode" style="border-color:rgba(114,87,196,.4);background:rgba(114,87,196,.05)">
-        <div class="fn-title" style="color:var(--career)">Психиатрия и поведение</div>
-        <div class="fn-sub">Центр: байес, вычислительная психиатрия</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="vs">
-    <div class="vs-title"><span class="vs-num">04</span> куда поступать</div>
-    <div class="dests">
-      <div class="dest hi">
-        <div class="dest-t">OIST · Япония</div>
-        <div class="dest-s">Лучшее соответствие. Любое гражданство, английский, междисциплинарность. Стипендия ¥2.6–3.6М/год + жильё + обучение покрыты. Приём дважды в год.</div>
-      </div>
-      <div class="dest med">
-        <div class="dest-t">NL / DE / Nordics</div>
-        <div class="dest-s">Funded PhD ≈ €1.9–2.7k net/мес, статус сотрудника. Учебная/рабочая виза. Подача дек–февраль.</div>
-      </div>
-      <div class="dest lo">
-        <div class="dest-t">ВШЭ MEG-лаб · РФ</div>
-        <div class="dest-s">Слабее под BBB-актив, если лаба сугубо когнитивная. Но это реальный первый шаг и живые контакты рядом.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="vs">
-    <div class="vs-title"><span class="vs-num">05</span> как мыслить</div>
+    <div class="vs-title"><span class="vs-num">02</span> что является научной новизной</div>
     <div class="prs">
-      <div class="pr">
-        <div class="pr-n">01</div>
-        Легитимность через границу. Комиссия читает CV, статью, DOI, GitHub — не репутацию. Всё должно оставлять проверяемый письменный след.
-      </div>
-      <div class="pr">
-        <div class="pr-n">02</div>
-        Тёплые каналы бьют холодные заявки. Профессор, знающий твоё имя до подачи — настоящий рычаг. Пиши напрямую, цитируй их работы.
-      </div>
-      <div class="pr">
-        <div class="pr-n">03</div>
-        Глубина в нише. Сочетание «врач + ML + нейрофарма» редкое и трудно повторимое. Не распыляйся — уходи вглубь.
-      </div>
-      <div class="pr">
-        <div class="pr-n">04</div>
-        Нет single point of failure. Подавайся широко: OIST, NL, DE, Nordics. Широкая подача — страховка, не паника.
-      </div>
-      <div class="pr">
-        <div class="pr-n">05</div>
-        Темп, который выдержишь пять лет, бьёт спринт, который ломается на втором году.
-      </div>
+      <div class="pr"><div class="pr-n">A</div><b>Совместимость как правило обновления.</b> Каждый показатель заранее привязан к блоку: проницаемость, переносчики, связывание, токсикология, среда, итог по мозгу.</div>
+      <div class="pr"><div class="pr-n">B</div><b>Запрет ложного переноса.</b> hERG или DILI не имеют права напрямую менять brain-outcome, если нет описанного пути к ГЭБ.</div>
+      <div class="pr"><div class="pr-n">C</div><b>Цикл с точкой выхода.</b> Система не обязана всегда давать ответ; она может обоснованно сказать unknown и назвать следующий опыт.</div>
+      <div class="pr"><div class="pr-n">D</div><b>Измеримый критерий.</b> Патентная и научная сила появляется, если контур стабильно снижает ошибки или ложные обновления на заранее объявленной выборке.</div>
     </div>
   </div>
 
   <div class="vs">
-    <div class="fnode note">
-      <div class="fn-title">Цена выбора</div>
-      <div class="fn-sub">Трек в основном академический. Рынок уже, чем у чистого drug discovery — там каждая фарма хочет ADMET/GNN людей. Знай это при планировании запасного варианта.</div>
+    <div class="vs-title"><span class="vs-num">03</span> токсикология внутри ГЭБ-фокуса</div>
+    <div class="fork2">
+      <div class="fnode good"><div class="fn-title">✓ включаем</div><div class="fn-sub">токсическое повреждение барьера, изменение переносчиков, свободной фракции, воспаления, органного клиренса, если это влияет на поступление вещества в мозг</div></div>
+      <div class="fnode trap"><div class="fn-title">× не включаем как центр</div><div class="fn-sub">общую токсичность ради общей токсичности, «все органы сразу», широкий ADMET без связи с ГЭБ, декоративные нейросети без проверяемого выигрыша</div></div>
     </div>
   </div>
 
   <div class="vs">
-    <div class="vs-title"><span class="vs-num">06</span> деньги — трезво</div>
-    <div class="fnode" style="margin-bottom:11px">
-      <div class="fn-sub" style="color:var(--text)">Главное: funded PhD по определению покрывает жизнь на месте. Стипендия — это зарплата, а не «подработка к учёбе». Строить бизнес или консалтинг сверху не нужно и рискованно — это съедает время, которое и решает исход.</div>
-    </div>
-    <div class="money2">
-      <div class="mcard">
-        <div class="mcard-t">OIST · Япония</div>
-        <div class="mrow"><span class="mk">стипендия</span><span class="mv">¥217–300k/мес</span></div>
-        <div class="mrow"><span class="mk">жильё на кампусе</span><span class="mv ok">субсидия ≈¥35k</span></div>
-        <div class="mrow"><span class="mk">обучение</span><span class="mv ok">покрыто</span></div>
-        <div class="mrow"><span class="mk">медстраховка</span><span class="mv ok">покрыта</span></div>
-        <div class="mcard-b">Расходы низкие из-за субсидий. Жить комфортно, реально немного откладывать.</div>
-      </div>
-      <div class="mcard">
-        <div class="mcard-t">NL / DE · Европа</div>
-        <div class="mrow"><span class="mk">нетто</span><span class="mv">€1.9–2.7k/мес</span></div>
-        <div class="mrow"><span class="mk">аренда</span><span class="mv bad">−€600–900</span></div>
-        <div class="mrow"><span class="mk">статус</span><span class="mv ok">сотрудник</span></div>
-        <div class="mrow"><span class="mk">виза</span><span class="mv ok">рабочая</span></div>
-        <div class="mcard-b">Больше «на руки», но платишь аренду сам. Итог по жизни близок к OIST.</div>
-      </div>
-    </div>
-    <div class="fnote">
-      <span class="fnlab">вывод:</span> обе опции — это жить на свой доход без долгов. Разница в стиле жизни, а не в выживании. Точные суммы зависят от города, курса валют и года — не строй план до копейки.
+    <div class="vs-title"><span class="vs-num">04</span> доказательная лестница</div>
+    <div class="dests">
+      <div class="dest hi"><div class="dest-t">Уровень 1 · механизм</div><div class="dest-s">Симуляция показывает, что контур не меняет вывод от несовместимых данных. Это доказывает логику защиты от ложного смешивания.</div></div>
+      <div class="dest med"><div class="dest-t">Уровень 2 · реальный seed</div><div class="dest-s">Малый набор реальных молекул показывает ноль ложных hERG-обновлений и объяснимые расхождения, но еще не доказывает выигрыш по сырой точности.</div></div>
+      <div class="dest hi"><div class="dest-t">Уровень 3 · verified challenge cohort</div><div class="dest-s">Ключевой следующий шаг: трудные молекулы с проверенными источниками и количественными CNS PK/transport данными.</div></div>
     </div>
   </div>
 
   <div class="vs">
-    <div class="vs-title"><span class="vs-num">07</span> если funded позиция не выходит сразу</div>
-    <div class="pb-item">
-      <div class="pb-num">1</div>
-      <div class="pb-body">
-        <div class="pb-t">Российская фарма / биотех — мост, а не тупик</div>
-        <div class="pb-s">Biocad, Generium, R-Pharm и др. держат команды ML / биоинформатики. Ориентир 100–180 тыс/мес, часто гибрид или remote. Реальный вариант, пока ждёшь funded позицию: и доход, и строчка опыта в CV. Начинать можно уже со статуса статьи «under review».</div>
-      </div>
+    <div class="vs-title"><span class="vs-num">05</span> рынок и деньги без иллюзий</div>
+    <div class="prs">
+      <div class="pr"><div class="pr-n">01</div>Большой SaaS для всех по BBB/ADMET - перегретая и тяжелая зона: много конкурентов, дорогая валидация, долгий путь продаж.</div>
+      <div class="pr"><div class="pr-n">02</div>Более реалистичная монетизация - методический аудит: проверить пакет данных по CNS-кандидату, найти ложные выводы, предложить следующий опыт.</div>
+      <div class="pr"><div class="pr-n">03</div>Витрина нужна позже: она должна показывать краткий итог и объяснение, а не быть стеной параметров. Сейчас ценность в CLI, датасете и отчете.</div>
+      <div class="pr"><div class="pr-n">04</div>Сильная формулировка для руководителя: «мы уменьшаем ошибки интерпретации доказательств», а не «мы сделали еще один сайт для предсказаний».</div>
     </div>
-    <div class="pb-item">
-      <div class="pb-num">2</div>
-      <div class="pb-body">
-        <div class="pb-t">Фриланс по хемоинформатике — подушка, не зарплата</div>
-        <div class="pb-s">Задачи QSAR / RDKit / BBB на Upwork и через CRO, профиль mid-level. Доход нерегулярный — это запас на месяц-два, а не стабильный поток. Держи как опцию, если деньги нужны срочно, но не закладывай в план как постоянную статью.</div>
-      </div>
-    </div>
-    <div class="pb-item">
-      <div class="pb-num">3</div>
-      <div class="pb-body">
-        <div class="pb-t">BBB-проект — это CV, а не продукт</div>
-        <div class="pb-s">Соблазн «сделать SaaS и зарабатывать» — ловушка времени. Ценность проекта в том, что он открывает дверь в лабораторию, а не в выручке: коммерческий доход маловероятен, а внимание лучше тратить на публикации. Открытый репозиторий и статья работают на тебя сильнее, чем платный API.</div>
-      </div>
-    </div>
-    <div class="fnote">
-      <span class="fnlab">платежи:</span> вывод денег из РФ за рубеж — отдельная техническая задача (зарубежный счёт). Решаемо, но это логистика, а не источник дохода — не путай одно с другим.
-    </div>
+  </div>
+
+  <div class="vs">
+    <div class="vs-title"><span class="vs-num">06</span> риск и анти-риск</div>
+    <div class="fnode note"><div class="fn-title">Главный риск</div><div class="fn-sub">Если verified cohort не покажет выигрыша хотя бы по ложным обновлениям, воздержанию или объяснению сложных случаев, патентная история ослабнет. Поэтому следующий этап - не дизайн сайта, а проверяемая выборка и заранее зафиксированные критерии.</div></div>
   </div>
 
 </div>
 
-<!-- ════════════════════ OUTREACH ════════════════════ -->
+
 <div id="outreach" class="tab-s" lang="ru">
 
   <div class="or-intro">
-    Воронка поступления: от чернового письма до оффера. Тёплые каналы бьют холодные заявки —
-    пиши PI напрямую, цитируй их работы, держи проверяемый письменный след. Точные даты и условия
-    программ проверяй на сайте перед подачей, не закладывай неподтверждённые дедлайны.
+    Воронка общения теперь не про поступление, а про доказательную опору проекта: научный руководитель, эксперт по ГЭБ/CNS PK, патентная консультация, возможная лаборатория и будущая публикация. Каждый контакт должен отвечать на один вопрос: что он усиливает в методе и какую проверку помогает закрыть.
   </div>
 
   <div class="or-funnel" id="or-funnel"></div>
@@ -1111,212 +883,110 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 
   <div class="or-count" id="or-count"></div>
   <div id="or-list"></div>
-  <div class="or-empty" id="or-empty" style="display:none">ничего нет — добавь первый контакт или программу ниже</div>
+  <div class="or-empty" id="or-empty" style="display:none">ничего нет - добавь научрука, эксперта, патентного консультанта или лабораторию ниже</div>
 
   <div class="addwrap">
-    <button class="add-toggle" onclick="toggleAdd('or')" aria-expanded="false">＋ добавить контакт / программу</button>
+    <button class="add-toggle" onclick="toggleAdd('or')" aria-expanded="false">＋ добавить контакт / направление</button>
     <div class="add-form" id="add-or" hidden>
-      <input class="m-inp" id="or-name" type="text" placeholder="PI или программа — напр. OIST · Neural Computation Unit" style="margin-bottom:9px" maxlength="160">
+      <input class="m-inp" id="or-name" type="text" placeholder="Например: научрук · письмо по ГЭБ-Контур" style="margin-bottom:9px" maxlength="160">
       <div class="af-row">
-        <select id="or-kind" aria-label="Тип">
-          <option value="pi">PI / лаборатория</option>
-          <option value="program">программа</option>
-        </select>
-        <select id="or-status" aria-label="Статус">
-          <option value="draft">черновик</option>
-          <option value="sent">отправлено</option>
-          <option value="replied">ответили</option>
-          <option value="interview">интервью</option>
-          <option value="offer">оффер</option>
-          <option value="rejected">отказ</option>
-        </select>
+        <select id="or-kind" aria-label="Тип"><option value="pi">эксперт / руководитель</option><option value="program">патент / публикация / организация</option></select>
+        <select id="or-status" aria-label="Статус"><option value="draft">черновик</option><option value="sent">отправлено</option><option value="replied">ответили</option><option value="interview">обсуждение</option><option value="offer">согласовано</option><option value="rejected">не подходит</option></select>
       </div>
-      <div class="af-row" style="margin-top:9px">
-        <input class="m-inp" id="or-deadline" type="date" aria-label="Дедлайн (необязательно)">
-        <input class="m-inp" id="or-link" type="url" placeholder="ссылка (необязательно)" maxlength="300">
-      </div>
-      <textarea id="or-note" placeholder="Заметка — научный вопрос, на что ссылаться, что ответили (необязательно)..." style="margin-top:9px;min-height:56px"></textarea>
-      <div class="af-actions" style="margin-top:9px">
-        <button class="af-btn save" onclick="addOutreach()">добавить</button>
-        <button class="af-btn ghost" onclick="toggleAdd('or')">отмена</button>
-      </div>
+      <div class="af-row" style="margin-top:9px"><input class="m-inp" id="or-deadline" type="date" aria-label="Дедлайн (необязательно)"><input class="m-inp" id="or-link" type="url" placeholder="ссылка (необязательно)" maxlength="300"></div>
+      <textarea id="or-note" placeholder="Заметка: что просим проверить, какие результаты приложить, какой вопрос закрывает контакт..." style="margin-top:9px;min-height:56px"></textarea>
+      <div class="af-actions" style="margin-top:9px"><button class="af-btn save" onclick="addOutreach()">добавить</button><button class="af-btn ghost" onclick="toggleAdd('or')">отмена</button></div>
     </div>
   </div>
 
   <div class="or-tools">
     <div class="or-tools-lbl">// экспорт</div>
-    <div class="rdr-export-row">
-      <button class="bk-btn" type="button" onclick="exportOutreach()">↓ Outreach (.md) — таблица</button>
-    </div>
+    <div class="rdr-export-row"><button class="bk-btn" type="button" onclick="exportOutreach()">↓ Outreach (.md) · таблица</button></div>
   </div>
 
 </div>
 
-<!-- ════════════════════ DEADLINES ════════════════════ -->
+
 <div id="deadlines" class="tab-s" lang="ru">
 
   <div class="dl-intro">
-    Обратный отсчёт до того, что нельзя пропустить: окна подачи, дедлайны программ, CFP конференций,
-    экзамены. Дедлайны с контактов во вкладке Outreach попадают сюда автоматически. Ближайший всегда
-    виден в шапке. Точные даты проверяй на сайте программы — не ставь неподтверждённые.
+    Здесь не календарь жизни, а дедлайны доказательств: когда должен быть собран verified cohort, когда отправить письмо руководителю, когда закрыть патентный обзор, когда обновить отчет. Даты лучше ставить только реальные, чтобы вкладка была рабочим инструментом, а не списком желаний.
   </div>
 
-  <div class="dl-filters" role="group" aria-label="Фильтр по сроку">
-    <button class="dl-chip active" data-df="all" onclick="dlFilter(this)" aria-pressed="true">все</button>
-    <button class="dl-chip" data-df="30" onclick="dlFilter(this)" aria-pressed="false">≤ 30 дней</button>
-    <button class="dl-chip" data-df="90" onclick="dlFilter(this)" aria-pressed="false">≤ 90 дней</button>
-    <button class="dl-chip" data-df="past" onclick="dlFilter(this)" aria-pressed="false">прошедшие</button>
-  </div>
+  <div class="dl-filters" role="group" aria-label="Фильтр по сроку"><button class="dl-chip active" data-df="all" onclick="dlFilter(this)" aria-pressed="true">все</button><button class="dl-chip" data-df="30" onclick="dlFilter(this)" aria-pressed="false">≤ 30 дней</button><button class="dl-chip" data-df="90" onclick="dlFilter(this)" aria-pressed="false">≤ 90 дней</button><button class="dl-chip" data-df="past" onclick="dlFilter(this)" aria-pressed="false">прошедшие</button></div>
 
   <div class="dl-count" id="dl-count"></div>
   <div id="dl-list"></div>
-  <div class="dl-empty" id="dl-empty" style="display:none">
-    Пусто. Добавь дедлайн с реальной датой — окно подачи OIST, дедлайн EMBL / EURAXESS, CFP конференции
-    (ISMB · ECCB), экзамен. Или поставь дату у контакта во вкладке Outreach — он появится здесь сам.
-  </div>
+  <div class="dl-empty" id="dl-empty" style="display:none">Пусто. Добавь только те сроки, где есть реальное обязательство: письмо научруку, verified cohort, проверка источников, патентная консультация, отчет.</div>
 
   <div class="addwrap">
     <button class="add-toggle" onclick="toggleAdd('dl')" aria-expanded="false">＋ добавить дедлайн</button>
     <div class="add-form" id="add-dl" hidden>
-      <input class="m-inp" id="dl-title" type="text" placeholder="Что — напр. OIST · окно подачи (весна)" style="margin-bottom:9px" maxlength="160">
-      <div class="af-row">
-        <select id="dl-kind" aria-label="Тип">
-          <option value="program">программа / окно подачи</option>
-          <option value="conf">конференция / CFP</option>
-          <option value="exam">экзамен / учёба</option>
-          <option value="personal">личное</option>
-          <option value="other">другое</option>
-        </select>
-        <input class="m-inp" id="dl-date" type="date" aria-label="Дата дедлайна">
-      </div>
-      <input class="m-inp" id="dl-date-txt" type="text" placeholder="или впиши/вставь дату текстом: 9 апреля 2026 · April 9, 2026 · 09.04.2026" oninput="dlParseInput()" onkeydown="if(event.key==='Enter'){event.preventDefault();addDeadline()}" aria-label="Дата текстом" style="margin-top:9px">
+      <input class="m-inp" id="dl-title" type="text" placeholder="Что - например: verified cohort · 20 молекул с DOI/PMID" style="margin-bottom:9px" maxlength="160">
+      <div class="af-row"><select id="dl-kind" aria-label="Тип"><option value="program">проектный этап</option><option value="conf">письмо / встреча</option><option value="exam">проверка данных</option><option value="personal">личное</option><option value="other">другое</option></select><input class="m-inp" id="dl-date" type="date" aria-label="Дата дедлайна"></div>
+      <input class="m-inp" id="dl-date-txt" type="text" placeholder="или впиши дату текстом: 15 июля 2026 · July 15, 2026 · 15.07.2026" oninput="dlParseInput()" onkeydown="if(event.key==='Enter'){event.preventDefault();addDeadline()}" aria-label="Дата текстом" style="margin-top:9px">
       <div class="dl-parse-hint" id="dl-parse-hint"></div>
-      <div class="dl-presets" role="group" aria-label="Быстрый ориентир по программам">
-        <span class="dl-presets-lbl">⚲ ориентир (проверь на сайте):</span>
-        <button type="button" class="dl-preset-btn" onclick="dlFillPreset('oist')" title="Подставить ближайший цикл OIST (ориентир)">OIST</button>
-        <button type="button" class="dl-preset-btn" onclick="dlFillPreset('embl')" title="Подставить ближайший раунд EMBL EIPP (ориентир)">EMBL</button>
-        <button type="button" class="dl-preset-btn" onclick="dlFillPreset('mpi')" title="Подставить ближайшее окно Max Planck IMPRS (ориентир, у каждой школы своя дата)">Max Planck</button>
-        <button type="button" class="dl-preset-btn" onclick="dlFillPreset('eu')" title="Подставить старт сезона EU дек–фев (ориентир)">EU окно</button>
-        <button type="button" class="dl-preset-btn" onclick="dlFillPreset('skoltech')" title="Подставить дедлайн конкурса Сколтех (ориентир)">Сколтех</button>
-      </div>
       <input class="m-inp" id="dl-link" type="url" placeholder="ссылка (необязательно)" maxlength="300" style="margin-top:9px">
-      <textarea id="dl-note" placeholder="Заметка — что подать, что проверить (необязательно)..." style="margin-top:9px;min-height:52px"></textarea>
-      <div class="af-actions" style="margin-top:9px">
-        <button class="af-btn save" onclick="addDeadline()">добавить</button>
-        <button class="af-btn ghost" onclick="toggleAdd('dl')">отмена</button>
-      </div>
+      <textarea id="dl-note" placeholder="Заметка: какой артефакт должен быть готов и по какому критерию считаем этап закрытым..." style="margin-top:9px;min-height:52px"></textarea>
+      <div class="af-actions" style="margin-top:9px"><button class="af-btn save" onclick="addDeadline()">добавить</button><button class="af-btn ghost" onclick="toggleAdd('dl')">отмена</button></div>
     </div>
   </div>
 
 </div>
 
-<!-- ════════════════════ НАВЫКИ ════════════════════ -->
 <div id="skills" class="tab-s" lang="ru">
 
   <div class="sk-filters" role="group" aria-label="Фильтр навыков по статусу">
     <button class="sk-chip active" data-f="all" onclick="skFilter(this)" aria-pressed="true">все</button>
-    <button class="sk-chip cf-add" data-f="ba" onclick="skFilter(this)" aria-pressed="false"><b>+</b> добавить</button>
+    <button class="sk-chip cf-add" data-f="ba" onclick="skFilter(this)" aria-pressed="false"><b>+</b> добрать</button>
     <button class="sk-chip cf-have" data-f="bh" onclick="skFilter(this)" aria-pressed="false"><b>✓</b> есть</button>
-    <button class="sk-chip cf-cond" data-f="bc" onclick="skFilter(this)" aria-pressed="false"><b>~</b> условно</button>
+    <button class="sk-chip cf-cond" data-f="bc" onclick="skFilter(this)" aria-pressed="false"><b>~</b> углубить</button>
   </div>
-  <div class="sk-hint">нажми строку — отметить изученным · стрелка → под навыком: ресурс и срок</div>
+  <div class="sk-hint">нажми строку - поменять статус · стрелка → под навыком: ресурс, опыт или ближайшая проверка</div>
 
   <div class="sk-search">
-    <input id="sk-q" type="text" placeholder="Поиск навыка — название, ресурс, тема..." oninput="skSearch()" aria-label="Поиск навыка">
+    <input id="sk-q" type="text" placeholder="Поиск навыка: ГЭБ, Kp,uu, патенты, pytest..." oninput="skSearch()" aria-label="Поиск навыка">
     <span class="sk-clear" onclick="skClear()" title="Очистить" role="button" tabindex="0" aria-label="Очистить поиск" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();skClear()}">×</span>
   </div>
   <div class="sk-count" id="sk-count"></div>
-  <div class="sk-empty" id="sk-empty" style="display:none">ничего не найдено — попробуй другой запрос</div>
+  <div class="sk-empty" id="sk-empty" style="display:none">ничего не найдено - попробуй другой запрос</div>
 
   <div class="dom">
-    <div class="dom-t">Математика</div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Линейная алгебра базово<span class="sk-n"> — матрицы, собственные значения, SVD. Нужно для PCA-анализа данных BBB, понимания линейных ОДУ-систем и внутренностей DL. Держать на уровне «читаю и понимаю формулы в статьях».</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">ОДУ и системы дифференциальных уравнений<span class="sk-n"> — фундамент PK/PD, QSP и нейродинамики. Конкретно: фазовые портреты и устойчивость равновесий (для Hodgkin-Huxley), численное решение scipy.integrate.solve_ivp, многокомпартментные системы. Без этого нельзя написать PK/PD-модель или QSP-модель сигнального пути.</span><span class="sk-r">→ Strogatz «Nonlinear Dynamics and Chaos» гл.1–6 (PDF бесплатно) · ~2 мес</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Вероятность и статистика<span class="sk-n"> — вероятностные распределения, MLE, confidence intervals, p-value без карго-культа. Нужно: CI вокруг AUC BBB-классификатора, интерпретация параметров PK/PD, подготовка к байесу. Переход к байесовскому мышлению невозможен без этого фундамента.</span><span class="sk-r">→ McElreath «Statistical Rethinking» гл.1–8 + YouTube лекции (бесплатно) · ~3 мес</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bc">~</span><span class="sk-t">Байесовская статистика: иерархические модели, MCMC<span class="sk-n"> — апостериорные распределения, NUTS/HMC семплирование, иерархические модели (между-субъектная вариабельность в PK). Если comp-psych ветка — это основной язык; если QSP-ветка — нужно для parameter estimation и propagation of uncertainty.</span><span class="sk-r">→ McElreath гл.9–15 + PyMC docs + betanalpha.github.io · ~6 нед после базы</span></span></div>
+    <div class="dom-t">Ядро метода</div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Контекстно-совместимое обновление<span class="sk-n"> - понимать и объяснять, почему показатель может менять только совместимый блок. Это главное отличие проекта от наивного смешивания данных.</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Матрица совместимости assay_key → block<span class="sk-n"> - каждый опыт должен резолвиться в каталоге. Свободные строки запрещены, иначе метод теряет строгость.</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bc">~</span><span class="sk-t">Байесовское обновление внутри совместимого блока<span class="sk-n"> - нужно как инструмент калибровки вероятностей, а не как вывеска. Углубить: prior, likelihood, posterior, проверка калибровки.</span><span class="sk-r">→ Statistical Rethinking гл. 1-8 + простая модель для одного блока</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Формальная оценка снижения ошибок<span class="sk-n"> - парные сравнения, доверительные интервалы, bootstrap, small-sample honesty. Нужно для патентной и научной доказательности.</span><span class="sk-r">→ реализовать отчет для verified cohort</span></span></div>
   </div>
 
   <div class="dom">
-    <div class="dom-t">Машинное обучение</div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">XGBoost, RF, LightGBM, sklearn<span class="sk-n"> — высокий уровень, реализован в BBB. Это стартовая точка и дифференцирующий актив: большинство кандидатов в academia не умеют правильно сравнивать модели, настраивать гиперпараметры и писать production-ready пайплайн.</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Калибровка, кросс-валидация, оценка качества<span class="sk-n"> — scaffold-CV, publication-year holdout, bootstrap CI, conformal prediction, applicability domain и Y-scrambling. В v1.22.0 результаты разделены по уровню доказательности, а провал внешнего class-conditional coverage сохранён как ограничение.</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">PyTorch вглубь<span class="sk-n"> — основа для GNN (молекулярный слой) и нейродинамических сетей. Конкретно: тензоры и autograd, DataLoader + Dataset для молекулярных данных, nn.Module + custom слои и loss-функции, GPU training loop, сохранение/загрузка моделей. Без этого не зайдут ни Chemprop, ни PyTorch Geometric.</span><span class="sk-r">→ fast.ai Part 1 + Part 2 (fast.ai, бесплатно) + pytorch.org/tutorials · ~2 мес</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Граф-нейросети для молекул<span class="sk-n"> — освоить DMPNN/MPNN и корректное сравнение на идентичных scaffold/temporal/external splits. Не считать GNN автоматическим улучшением: следующий runtime-бенчмарк разрешён только после блокировки внешнего набора и заранее объявленных promotion criteria.</span><span class="sk-r">→ Stanford CS224W + Chemprop docs + Yang et al. 2019 · ~6 нед</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bc">~</span><span class="sk-t">Трансформеры для молекулярных данных<span class="sk-n"> — frozen ChemBERTa-бенчмарк уже выполнен и уступил ExtraTrees на scaffold и temporal evaluation. Следующий шаг — понять причины переноса и дизайн честного benchmark, а не обещать рост метрик от pretrained embeddings.</span><span class="sk-r">→ ChemBERTa / Hugging Face docs + frozen benchmark v1.22.0</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Uncertainty quantification<span class="sk-n"> — реализованы split-conformal интервалы, Mondrian prediction sets, calibration diagnostics и applicability domain. Следующий уровень — оценка покрытия на независимом внешнем наборе и отказ от гарантии там, где nominal coverage не подтверждён.</span></span></div>
+    <div class="dom-t">ГЭБ и CNS PK</div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">База ГЭБ, logBB и переносчиков<span class="sk-n"> - P-gp, BCRP, LAT1, пассивная проницаемость, эффлюкс, связь structure → brain exposure.</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Kp,uu,brain и свободная фракция<span class="sk-n"> - ключ к сложным расхождениям: общее количество в мозге и свободная активная концентрация могут вести себя по-разному.</span><span class="sk-r">→ подобрать 15-30 молекул с количественными источниками</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">PAMPA / MDCK / Caco-2 / efflux ratio<span class="sk-n"> - понимать условия опытов, единицы и ограничения. Без этого невозможно честно присвоить block и compatibility.</span><span class="sk-r">→ для каждой строки датасета фиксировать систему опыта</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bc">~</span><span class="sk-t">Токсикология через путь к ГЭБ<span class="sk-n"> - токсический блок включается только если влияет на барьер, переносчики, свободную фракцию, воспаление или органный клиренс.</span></span></div>
   </div>
 
   <div class="dom">
-    <div class="dom-t">Хемоинформатика / молекулярный слой</div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">RDKit, дескрипторы, фингерпринты<span class="sk-n"> — высокий уровень. Morgan fingerprints, Lipinski descriptors, SMILES парсинг, substructure search, Murcko scaffolds. Держать на уровне «пишу с нуля за 20 минут» — фундамент всего молекулярного слоя пайплайна.</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">QSAR/QSPR, ADMET, BBB<span class="sk-n"> — v1.22.0: BBB AUC 0.9245 / MCC 0.6699 на scaffold-CV и AUC 0.8826 на temporal evaluation; logBB R² 0.4409 / RMSE 0.5688 на scaffold-CV. Проект включает PBPK, conformal UQ, applicability domain, REST API, SDK, CLI и Streamlit. Главный следующий рычаг — качество внешних данных.</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Граф-представление молекул<span class="sk-n"> — как RDKit строит граф из SMILES: GetAtomFeatures (atomic num, degree, hybridization, aromaticity), GetBondFeatures (bond type, stereo), MolToGraph. Как это конвертируется в torch_geometric.data.Data. Это мост между хемоинформатикой и GNN — без него PyTorch Geometric непонятен в контексте молекул.</span><span class="sk-r">→ PyTorch Geometric туториалы + Duvenaud et al. 2015 «Convolutional Networks on Graphs» · ~3 нед</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Базовый молекулярный докинг<span class="sk-n"> — AutoDock Vina: генерация конформеров, задание grid box вокруг binding site, scoring function (affinity ккал/моль), интерпретация позы лиганда. py3Dmol для визуализации в Jupyter (уже в проекте, запрошен руководителем). Соединяет BBB-предсказание с предсказанием связывания с мишенью ЦНС — второй блок пайплайна.</span><span class="sk-r">→ AutoDock Vina manual + py3Dmol docs + Trott & Olson 2010 (J Comput Chem) · ~2 нед</span></span></div>
+    <div class="dom-t">Данные и источники</div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Схема compounds / observations<span class="sk-n"> - длинный формат, один показатель = одна строка с паспортом. Это уже правильная основа.</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Верификация источников<span class="sk-n"> - DOI/PMID, условия опыта, единицы, вид ткани/клеточной системы, species, статус verified. Без этого данные нельзя показывать внешне.</span><span class="sk-r">→ перейти от needs_review к verified</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Патентный поиск как повторяемый процесс<span class="sk-n"> - фиксировать опасные источники, claims, отличия, что можно цитировать как prior art, а что нельзя копировать как ядро.</span><span class="sk-r">→ обновлять обзор после каждого изменения формулы</span></span></div>
   </div>
 
   <div class="dom">
-    <div class="dom-t">Фармакокинетика / фармакодинамика</div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">PBPK<span class="sk-n"> — реализован в проекте. Physiologically-based PK: компартменты (кровь, мозг, жировая ткань, печень), перенос через ГЭБ. Прямая основа для расширения в CNS distribution модель.</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">ADME базово<span class="sk-n"> — мед школа + фармакология. Absorption, Distribution, Metabolism (CYP450), Excretion. Basis для PBPK и QSAR-предсказаний. Клинический контекст помогает интерпретировать logBB и CLint в реальных единицах.</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">PK/PD-связка: Emax, EC50, indirect response, turnover<span class="sk-n"> — Emax-модель: E = Emax·C/(EC50+C). Indirect response: когда эффект опосредован биомаркером (ингибирование синтеза нейромедиатора — задержка эффекта). Turnover: баланс продукция/деградация. Это звено «концентрация в мозге → нейро-эффект» — третий блок пайплайна после ГЭБ и докинга.</span><span class="sk-r">→ Gabrielsson & Weiner «PK/PD Data Analysis» гл.3–6 (отраслевой стандарт) · ~2 мес</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">ЦНС-специфика: Kp,uu,brain и транспортёры ГЭБ<span class="sk-n"> — Kp,uu,brain = отношение несвязанных концентраций мозг/плазма — ключевой CNS PK параметр (не logBB, а именно это). P-gp (ABCB1) и BCRP (ABCG2) efflux transporters: почему молекула с хорошим logBB всё равно не работает in vivo. Microdialysis как метод измерения. Прямое publishable расширение BBB-проекта.</span><span class="sk-r">→ Hammarlund-Udenaes «Drug delivery to the brain» AAPS + Liu et al. 2018 review · ~4 нед</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Подгонка параметров ОДУ к экспериментальным данным<span class="sk-n"> — подбор Emax, EC50, kout, kin из реальных PK-кривых через минимизацию RSS или log-likelihood. scipy.optimize.minimize, curve_fit. NLME (нелинейные смешанные эффекты) для данных нескольких субъектов — стандарт в любой экспериментальной коллаборации с лабой.</span><span class="sk-r">→ scipy.optimize docs + Bonate «PK-PD Modeling» гл.4 + nlmixr2 концепции · ~2 нед</span></span></div>
+    <div class="dom-t">Инженерия</div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Python CLI и тесты<span class="sk-n"> - проект должен жить в терминале: воспроизводимые команды важнее сайта на раннем этапе.</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Отказоустойчивый primary adapter<span class="sk-n"> - если RDKit/модель недоступны или SMILES невалиден, система честно возвращает unknown, а не выдумывает число.</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bc">~</span><span class="sk-t">Отчеты для руководителя<span class="sk-n"> - таблицы должны быть короткими: что проверяли, что получилось, где ограничение, что следующий опыт.</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Мини-витрина без перегруза<span class="sk-n"> - позже: один краткий итог, причины решения, конфликтующие данные, next assay. Не повторять старую стену параметров.</span><span class="sk-r">→ делать только после verified CLI-цикла</span></span></div>
   </div>
 
   <div class="dom">
-    <div class="dom-t">QSP — количественная системная фармакология</div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">ОДУ-модели сигнальных путей<span class="sk-n"> — каскад: GPCR → G-protein → cAMP → PKA → downstream нейронный эффект как система ОДУ с кинетическими параметрами (kon, koff, Vmax, Km). Написать в Python через scipy.integrate, затем воспроизвести в COPASI. Позволяет предсказать: BBB-проникающий лиганд → изменение сигнального пути → изменение нейродинамики — полный пайплайн в одной модели.</span><span class="sk-r">→ Lauffenburger & Linderman «Receptors» гл.2–4 + BioModels Database (готовые CNS SBML-модели) · ~3 нед</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Анализ чувствительности и оценка параметров<span class="sk-n"> — Morris screening (быстро, первичный скрининг) и Sobol indices (глобальная чувствительность, для публикации). SALib — Python-библиотека. Без sensitivity analysis QSP-модель нельзя валидировать и публиковать: рецензент обязательно спросит.</span><span class="sk-r">→ Saltelli «Sensitivity Analysis» + SALib Python + Herman & Usher 2017 · ~2 нед</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">COPASI и формат SBML<span class="sk-n"> — COPASI: GUI для кинетического моделирования, встроенный parameter estimation, визуализация траекторий. SBML = XML-формат для хранения и обмена моделями (читается в MATLAB, Python, R). BioModels Database: тысячи SBML-моделей ЦНС-путей (допамин, серотонин, GABA) — брать и адаптировать. Уровень: «загрузить, запустить, изменить параметры».</span><span class="sk-r">→ copasi.org/Documentation/ (бесплатно) + BioModels tutorial · ~1 нед</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bc">~</span><span class="sk-t">Стохастические модели: алгоритм Gillespie<span class="sk-n"> — когда детерминированные ОДУ не работают: малое число молекул в одной клетке, стохастические переключения. Gillespie SSA → стохастические траектории вместо средних. Нужно только если конкретная задача в лабе требует клеточного уровня моделирования.</span><span class="sk-r">→ Gillespie 1977 (оригинальная статья) + Tellurium Python simulator · ~3 нед если нужно</span></span></div>
-  </div>
-
-  <div class="dom">
-    <div class="dom-t">Нейронауки — теоретические основы</div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Нейроанатомия ЦНС, синаптическая передача<span class="sk-n"> — мед школа. Топография, нейронные пути, типы синапсов (глутаматергические, ГАМКергические, моноаминергические). Это словарь ЦНС — углублять через чтение нейрофармакологических статей где мишени обсуждаются в анатомическом контексте.</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Рецепторная фармакология ЦНС<span class="sk-n"> — мед школа. GPCR, ионные каналы (NMDA, AMPA, GABA-A), ядерные рецепторы. Агонизм/антагонизм/partial agonism/inverse agonism. Язык которым описываются мишени в пайплайне BBB → докинг → PD-эффект.</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Вычислительные модели нейрона: Hodgkin-Huxley и упрощения<span class="sk-n"> — HH: система из 4 ОДУ (V, m, h, n) описывающая потенциал действия через conductance-based проводимости. Понять: изменение gNa, gK, gCa (что делают CNS-препараты на уровне ионных каналов) → изменение паттерна нейрональной активности. FitzHugh-Nagumo как 2D-упрощение. Integrate-and-fire как самое простое. Ключ к рассуждению «как молекула X изменит нейрональный выход».</span><span class="sk-r">→ Dayan & Abbott «Theoretical Neuroscience» гл.1–2 (MIT, PDF бесплатно) + NEURON simulator · ~3 нед</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Нейронные осцилляции, mean-field теория, population dynamics<span class="sk-n"> — gamma (30–100 Hz, NMDA/GABA, cognitive control), theta (4–8 Hz, гиппокамп, память), slow oscillations (нейромодуляция, сон). Каждый ритм — маркер фармакологического действия: антипсихотики → изменение gamma; анксиолитики → theta. Mean-field: популяционная активность как система ОДУ — редуцирует 10⁵ нейронов к 2–3 переменным. Нужно читать литературу по CNS drug effects на EEG/MEG.</span><span class="sk-r">→ Buzsáki «Rhythms of the Brain» концептуально + Schnitzler & Gross 2005 Nat Neurosci (free) · ~3 нед</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bc">~</span><span class="sk-t">MNE-Python: предобработка MEG/EEG<span class="sk-n"> — filtering (bandpass 1–40 Hz, notch 50 Hz), ICA для артефактов (кардио, глазные движения), epoching (вырезка эпох вокруг событий), TFR через Morlet wavelets. Если лаба работает с MEG — обязательно с первого года. Если нет — учить только при конкретной задаче.</span><span class="sk-r">→ mne.tools/dev/auto_tutorials (бесплатно, официальные) · ~2 нед</span></span></div>
-  </div>
-
-  <div class="dom">
-    <div class="dom-t">Биоинформатика — минимум</div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">ChEMBL, PDB, UniProt<span class="sk-n"> — ChEMBL: IC50, Ki, EC50 для сотен тысяч молекул против мишеней — источник данных для расширения BBB на CNS targets. PDB: 3D структуры белков для докинга. UniProt: аннотации мишеней (tissue expression, pathways, disease association). chembl_webresource_client (Python) + requests для REST API. Это данные для перехода от BBB-классификатора к BBB+target binding модели.</span><span class="sk-r">→ BioPython tutorial + chembl_webresource_client GitHub docs · ~1 нед</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Структура белка: binding pocket и активный сайт<span class="sk-n"> — читать PDB-файл, визуализировать белок в PyMOL (chain, residues, surface representation), определить binding pocket через fpocket. Аллостерический vs ортостерический сайт — разная интерпретация результатов докинга. Какие аминокислотные остатки контактируют с лигандом (interaction fingerprint). Нужно чтобы объяснить почему BBB+ молекула не связывается с мишенью.</span><span class="sk-r">→ PyMOL beginner tutorial + fpocket (Schmidtke & Barril 2010) + Coursera «Proteins: Biology's Workforce» · ~1 нед</span></span></div>
-  </div>
-
-  <div class="dom">
-    <div class="dom-t">Программирование / инженерия</div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Python стек: FastAPI, RDKit, CLI, SDK, тесты, REST API<span class="sk-n"> — высокий уровень, production-grade: пакет с extras-профилями, CI + покрытие (Codecov), ruff, pre-commit, MkDocs. Это ключевой дифференцирующий актив: большинство кандидатов в биоинформатику не умеют выкатить протестированный API+SDK+CLI. Держать и не давать деградировать.</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Docker: контейнеризация среды<span class="sk-n"> — Dockerfile: FROM python:3.11-slim, COPY requirements.txt, RUN pip install, ENTRYPOINT. docker-compose для стека FastAPI + Redis. Без Docker твой REST API нельзя воспроизвести на другой машине — критично для статьи (reviewers check reproducibility) и для приёмки в лабу. Один раз сделать и закрыть навсегда.</span><span class="sk-r">→ docker.com/get-started (официальный, бесплатно) + docker-compose docs · ~2–3 дня</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">GitHub Actions CI + Codecov<span class="sk-n"> — реализовано. Workflow прогоняет pytest при каждом коммите, покрытие публикуется в Codecov, бэйджи CI и coverage висят в README; плюс ruff и pre-commit. Прямой сигнал PI об инженерной культуре — держать зелёным и не давать деградировать.</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bc">~</span><span class="sk-t">Cloud: AWS / GCP базово<span class="sk-n"> — EC2 для deployment FastAPI в облаке, S3 для хранения моделей и датасетов, SageMaker для обучения на GPU без локальной машины. Нужно только если BBB SaaS масштабируется или лаба работает с большими данными в облаке. AWS Free Tier даёт t2.micro для практики.</span><span class="sk-r">→ AWS Free Tier + «Deploy FastAPI to EC2» tutorial · ~1 нед когда нужно</span></span></div>
-  </div>
-
-  <div class="dom">
-    <div class="dom-t">Английский</div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Академическое письмо: структура статьи<span class="sk-n"> — IMRaD изнутри: Introduction как воронка (broad → specific → gap → aim, последний абзац «here we show»). Methods: настолько детально чтобы воспроизвести без звонка авторам — passive voice, past tense. Results: только данные, никаких «surprisingly» или «interestingly». Discussion: первый абзац = главный результат, затем сравнение с литературой, limitations, future work. Abstract = mini-paper из 250 слов. Читать 15 статей в Journal of Cheminformatics с этой линзой → паттерны станут очевидны.</span><span class="sk-r">→ Glasman-Deal «Science Research Writing» + Mensh & Kording 2017 «Ten simple rules» (free PLoS CB) · ongoing</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Устная презентация на конференции<span class="sk-n"> — структура 12-минутного доклада: intro 2 мин (зачем), methods 3 мин (как), results 5 мин (что нашёл), conclusion 2 мин (что это значит для области). Слайд: 1 идея, минимум текста, один сильный график. Смотреть: ISMB/ECCB talks, NeurIPS Workshop sessions, Neuromatch Academy — бесплатно, высокий уровень. Практиковать вслух перед Сеченовской конференцией.</span><span class="sk-r">→ ISMB/ECCB YouTube channel + Neuromatch Academy talks · ongoing</span></span></div>
-  </div>
-
-  <div class="dom">
-    <div class="dom-t">Научная работа — мета</div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Читать статьи системно: Zotero + Obsidian workflow<span class="sk-n"> — Zotero: сохранять PDF по DOI прямо из браузера, аннотировать, строить коллекции по темам (BBB, CNS PK, QSP, neuro oscillations). Semantic Scholar: email-алерты по ключевым словам «blood-brain barrier prediction», «CNS pharmacokinetics ML», «computational neuropharmacology». Obsidian: связывать концепции между статьями через backlinks. Цель: 2–3 статьи/неделю + краткие заметки → через год знаешь поле как текущее состояние.</span><span class="sk-r">→ Zotero.org (бесплатно) + Obsidian vault + Semantic Scholar alerts · ongoing</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Структура научной статьи: IMRaD изнутри<span class="sk-n"> — Introduction: финальный параграф = «here we present X» — читатель знает что будет ДО Methods. Methods: все гиперпараметры, все датасеты, воспроизводимость. Results: цифра → интерпретация → следующая цифра. Discussion: начать с главного результата, затем сравнить с литературой, ограничения, перспективы. Supplementary для объёмных таблиц и дополнительных экспериментов.</span><span class="sk-r">→ Mensh & Kording 2017 (обязательно, 2 страницы, free PLoS CB) · 1 день + практика на своей статье</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Поиск PhD позиций: конкретные каналы<span class="sk-n"> — OIST: oist.jp/admissions, написать 3–5 профессорам напрямую с описанием BBB-проекта ДО официальной подачи (они это поощряют). EMBL: embl.org/research/jobs (EIPP program, deadline обычно ноябрь). EURAXESS: euraxess.ec.europa.eu — EU-funded позиции с зарплатой в объявлении. Nature Careers: jobs.nature.com + email alerts. X: @OIST_okinawa, #phdposition, #computationalbiology, @EMBL_EBI. Личные сайты профессоров: «open positions». EU подача: декабрь–февраль. OIST: два раза в год.</span><span class="sk-r">→ oist.jp/admissions + euraxess.ec.europa.eu + Nature Careers alerts · ongoing</span></span></div>
-  </div>
-
-
-  <div class="dom">
-    <div class="dom-t">Медицина / нейрофармакология — учебники</div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Клиническая фармакология — мед школа<span class="sk-n"> — механизмы действия, классификации, клиническое применение. Удерживать и углублять через CNS-специфические источники.</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bh">✓</span><span class="sk-t">Нейроанатомия и нейрофизиология — мед школа<span class="sk-n"> — топография ЦНС, нейронные пути, физиология нейрона. Основа для понимания мишеней CNS-препаратов. Углублять через нейрофармакологические статьи где мишени разбираются в анатомическом контексте.</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Stahl «Essential Psychopharmacology»<span class="sk-n"> — лучший старт в психиатрической фармакологии. Антидепрессанты (SSRI/SNRI/TCA/MAOI), антипсихотики (D2/5-HT2A), анксиолитики, стабилизаторы настроения. Читается как иллюстрированный нарратив — не справочник. Каждый класс препаратов = мишень в пайплайне BBB → рецептор → нейро-эффект. Обязательно перед Nestler.</span><span class="sk-r">→ Stahl S.M. «Essential Psychopharmacology» 4th ed. (Cambridge UP) · ~6–8 нед</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Goodman &amp; Gilman «The Pharmacological Basis of Therapeutics»<span class="sk-n"> — стандарт клинической фармакологии. Не читать линейно — использовать как reference. ЦНС-разделы: «Drugs Acting on the Central Nervous System» (гл. по анестетикам, антиэпилептикам, анксиолитикам, антипсихотикам, антидепрессантам, наркотикам). ADME и фармакокинетика — первые главы как фундамент.</span><span class="sk-r">→ Brunton et al. «Goodman &amp; Gilman's» 14th ed. — ЦНС-разделы выборочно · ~2 мес (ЦНС)</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Nestler, Hyman &amp; Malenka «Molecular Neuropharmacology»<span class="sk-n"> — мост между молекулярными механизмами и клиническими эффектами CNS-препаратов. Подробнее Stahl по молекулярному уровню: рецепторные системы, сигнальные каскады, синаптическая пластичность как мишень. Идеален после Stahl для углубления. Прямо связан с QSP-моделями: именно эти пути описываются ОДУ в COPASI/SBML.</span><span class="sk-r">→ Nestler et al. «Molecular Neuropharmacology» 3rd ed. (McGraw-Hill) · ~3 мес</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Kandel «Principles of Neural Science»<span class="sk-n"> — стандарт нейронауки, 1700 страниц. Читать выборочно: Part III (Synaptic transmission & modulation), Part VI (Perception), Part VIII (Diseases — депрессия, шизофрения, болезнь Паркинсона, Альцгеймер). Не линейно — знать где что находится и обращаться при необходимости.</span><span class="sk-r">→ Kandel et al. «Principles of Neural Science» 6th ed. — выборочно · ~3 мес активного чтения</span></span></div>
-    <div class="sk" onclick="tsk(this)"><span class="skb bc">~</span><span class="sk-t">Keener &amp; Sneyd «Mathematical Physiology»<span class="sk-n"> — математическое моделирование физиологии: Vol.1 клеточная биофизика (нейронные модели, ионные каналы, кальциевые волны). Нужно если идёшь в QSP/динамика-ветку глубже. Читать после Strogatz и Dayan &amp; Abbott.</span><span class="sk-r">→ Keener &amp; Sneyd «Mathematical Physiology» Vol.1 (Springer) · ~3 мес если нужна глубина</span></span></div>
+    <div class="dom-t">Коммуникация и патент</div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Письмо научному руководителю<span class="sk-n"> - объяснить простыми словами: метод снижает ошибки интерпретации данных о ГЭБ и показывает, какие данные нельзя смешивать.</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb bc">~</span><span class="sk-t">Формула изобретения<span class="sk-n"> - держать формулировку вокруг способа снижения ошибок, совместимости и ограниченного обновления. Не обещать «универсальную нейросеть».</span></span></div>
+    <div class="sk" onclick="tsk(this)"><span class="skb ba">+</span><span class="sk-t">Научная новизна понятным языком<span class="sk-n"> - уметь объяснить: известны BBB prediction, ADMET, байес, токсикология; новая связка - правила, которые запрещают несовместимым данным портить вывод о мозге.</span><span class="sk-r">→ написать 5 вариантов: для научрука, патента, статьи, презентации, README</span></span></div>
   </div>
 
   <div class="dom" id="mydom" hidden>
@@ -1328,25 +998,17 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
     <button class="add-toggle" onclick="toggleAdd('sk')" aria-expanded="false">＋ добавить свой навык</button>
     <div class="add-form" id="add-sk" hidden>
       <div class="af-row">
-        <select id="sk-badge" aria-label="Статус навыка">
-          <option value="ba">+ добавить</option>
-          <option value="bh">✓ есть</option>
-          <option value="bc">~ условно</option>
-        </select>
+        <select id="sk-badge" aria-label="Статус навыка"><option value="ba">+ добрать</option><option value="bh">✓ есть</option><option value="bc">~ углубить</option></select>
         <input class="m-inp" id="sk-title" type="text" placeholder="Название навыка..." maxlength="90" style="flex:2.2">
       </div>
-      <textarea id="sk-note" placeholder="Зачем нужен / что конкретно (необязательно)..."></textarea>
-      <input class="m-inp" id="sk-res" type="text" placeholder="Ресурс и срок — напр. fast.ai · ~2 мес (необязательно)" maxlength="130">
-      <div class="af-actions">
-        <button class="af-btn save" onclick="addSkill()">добавить</button>
-        <button class="af-btn ghost" onclick="toggleAdd('sk')">отмена</button>
-      </div>
+      <textarea id="sk-note" placeholder="Зачем нужен именно для ГЭБ-Контура..."></textarea>
+      <input class="m-inp" id="sk-res" type="text" placeholder="Ресурс, опыт или ближайшая проверка..." maxlength="130">
+      <div class="af-actions"><button class="af-btn save" onclick="addSkill()">добавить</button><button class="af-btn ghost" onclick="toggleAdd('sk')">отмена</button></div>
     </div>
   </div>
 
 </div>
 
-<!-- ════════════════════ МЕСЯЦ ════════════════════ -->
 <div id="month" class="tab-s" lang="ru">
 
   <div class="m-blk">
@@ -1376,89 +1038,71 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 </div>
 
 <!-- ════════════════════ ЗАМЕТКИ ════════════════════ -->
+
 <div id="notes" class="tab-s" lang="ru">
   <div class="rdr-sect">
-    <div class="ta-lbl" style="margin-bottom:10px">// библиотека чтения · zotero workflow</div>
+    <div class="ta-lbl" style="margin-bottom:10px">// источники verified cohort · статьи, патенты, опыты</div>
 
     <div class="rdr-filters" role="group" aria-label="Фильтр по статусу">
       <button class="rdr-chip active" data-rf="all" onclick="rdrFilter(this)" aria-pressed="true">все</button>
-      <button class="rdr-chip" data-rf="plan" onclick="rdrFilter(this)" aria-pressed="false">план</button>
-      <button class="rdr-chip" data-rf="reading" onclick="rdrFilter(this)" aria-pressed="false">читаю</button>
-      <button class="rdr-chip" data-rf="done" onclick="rdrFilter(this)" aria-pressed="false">прочитал</button>
+      <button class="rdr-chip" data-rf="plan" onclick="rdrFilter(this)" aria-pressed="false">найти</button>
+      <button class="rdr-chip" data-rf="reading" onclick="rdrFilter(this)" aria-pressed="false">проверяю</button>
+      <button class="rdr-chip" data-rf="done" onclick="rdrFilter(this)" aria-pressed="false">verified</button>
     </div>
 
     <select id="rdr-tag-f" onchange="renderRdr()" aria-label="Фильтр по теме" style="margin-bottom:10px">
       <option value="all">все темы</option>
-      <option value="BBB">BBB</option>
-      <option value="PK/PD">PK/PD</option>
-      <option value="QSP">QSP</option>
-      <option value="Нейро">Нейро</option>
-      <option value="ML">ML</option>
-      <option value="Психиатрия">Психиатрия</option>
-      <option value="Учебник">Учебник</option>
-      <option value="Другое">Другое</option>
+      <option value="BBB">ГЭБ / BBB</option>
+      <option value="CNS PK">CNS PK / Kp,uu</option>
+      <option value="Transporters">переносчики</option>
+      <option value="Toxicology">токсикология</option>
+      <option value="Assay">PAMPA / MDCK / Caco-2</option>
+      <option value="Patent">патенты</option>
+      <option value="ML">модели / статистика</option>
+      <option value="Other">другое</option>
     </select>
 
     <div class="rdr-pace" id="rdr-pace"></div>
-
     <div class="rdr-count" id="rdr-count"></div>
     <div id="rdr-list"></div>
     <div id="rdr-empty" style="font-size:11px;color:var(--faint);padding:8px 0;display:none">ничего не найдено</div>
 
     <div class="addwrap">
-      <button class="add-toggle" onclick="toggleAdd('rdr')" aria-expanded="false">＋ добавить статью / книгу</button>
+      <button class="add-toggle" onclick="toggleAdd('rdr')" aria-expanded="false">＋ добавить источник / патент / опыт</button>
       <div class="add-form" id="add-rdr" hidden>
-        <input class="m-inp" id="rdr-title" type="text" placeholder="Авторы год — Название..." style="margin-bottom:9px" maxlength="200">
+        <input class="m-inp" id="rdr-title" type="text" placeholder="PMID/DOI/Patent · молекула · показатель..." style="margin-bottom:9px" maxlength="200">
         <div class="af-row">
-          <select id="rdr-status" aria-label="Статус">
-            <option value="plan">план</option>
-            <option value="reading">читаю</option>
-            <option value="done">прочитал</option>
-          </select>
-          <select id="rdr-tag" aria-label="Тема">
-            <option value="BBB">BBB</option>
-            <option value="PK/PD">PK/PD</option>
-            <option value="QSP">QSP</option>
-            <option value="Нейро">Нейро</option>
-            <option value="ML">ML</option>
-            <option value="Психиатрия">Психиатрия</option>
-            <option value="Учебник">Учебник</option>
-            <option value="Другое">Другое</option>
-          </select>
+          <select id="rdr-status" aria-label="Статус"><option value="plan">найти</option><option value="reading">проверяю</option><option value="done">verified</option></select>
+          <select id="rdr-tag" aria-label="Тема"><option value="BBB">ГЭБ / BBB</option><option value="CNS PK">CNS PK / Kp,uu</option><option value="Transporters">переносчики</option><option value="Toxicology">токсикология</option><option value="Assay">PAMPA / MDCK / Caco-2</option><option value="Patent">патенты</option><option value="ML">модели / статистика</option><option value="Other">другое</option></select>
         </div>
-        <textarea id="rdr-note" placeholder="Заметка — зачем читаю, главный вывод (необязательно)..." style="margin-top:9px;min-height:56px"></textarea>
-        <div class="af-actions" style="margin-top:9px">
-          <button class="af-btn save" onclick="addPaper()">добавить</button>
-          <button class="af-btn ghost" onclick="toggleAdd('rdr')">отмена</button>
-        </div>
+        <textarea id="rdr-note" placeholder="Паспорт: молекула; endpoint; assay_key; block; единицы; что может обновлять; что НЕ может обновлять; следующий опыт..." style="margin-top:9px;min-height:56px"></textarea>
+        <div class="af-actions" style="margin-top:9px"><button class="af-btn save" onclick="addPaper()">добавить</button><button class="af-btn ghost" onclick="toggleAdd('rdr')">отмена</button></div>
       </div>
     </div>
 
     <div class="rdr-tools">
       <div class="rdr-tools-lbl">// быстрый поиск по теме</div>
       <div class="rdr-search-row" id="rdr-search-row"></div>
-      <div class="rdr-tools-lbl" style="margin-top:14px">// экспорт библиотеки</div>
-      <div class="rdr-export-row">
-        <button class="bk-btn" type="button" onclick="exportObsidianMOC()">↓ Obsidian MOC (.md)</button>
-        <button class="bk-btn" type="button" onclick="exportBibTeX()">↓ BibTeX (.bib) — Zotero</button>
-      </div>
+      <div class="rdr-tools-lbl" style="margin-top:14px">// экспорт источников</div>
+      <div class="rdr-export-row"><button class="bk-btn" type="button" onclick="exportObsidianMOC()">↓ Obsidian MOC (.md)</button><button class="bk-btn" type="button" onclick="exportBibTeX()">↓ BibTeX (.bib) · Zotero</button></div>
     </div>
   </div>
 
   <div class="rdr-divider"></div>
-  <div class="ta-lbl">// заметки</div>
-  <textarea id="notes-ta" placeholder="Свободное пространство..." oninput="sv('notes-ta');notesCount()"></textarea>
+  <div class="ta-lbl">// рабочие заметки</div>
+  <textarea id="notes-ta" placeholder="Шаблон заметки:
+1. Что за источник и почему он надежен?
+2. Какой endpoint: logBB, Kp,uu, efflux ratio, PAMPA, связывание, токсическое повреждение?
+3. Какой block обновляет этот показатель?
+4. Какой вывод о ГЭБ он НЕ имеет права менять?
+5. Какой следующий опыт уменьшит неопределенность?" oninput="sv('notes-ta');notesCount()"></textarea>
   <div class="ta-count" id="notes-count"></div>
   <div class="ta-note">сохраняется локально в браузере</div>
 
   <div class="bk" lang="en">
     <div class="bk-lbl">// backup</div>
-    <div class="bk-row">
-      <button class="bk-btn" type="button" onclick="exportData()">↓ Export JSON</button>
-      <button class="bk-btn" type="button" onclick="document.getElementById('bk-file').click()">↑ Import JSON</button>
-      <input id="bk-file" type="file" accept="application/json,.json" hidden onchange="importData(this)">
-    </div>
-    <div class="bk-note">Сохраняет прогресс (галочки, навыки, добавленные пункты, задачи и заметки) в один файл. Импорт перезапишет данные на этом устройстве.</div>
+    <div class="bk-row"><button class="bk-btn" type="button" onclick="exportData()">↓ Export JSON</button><button class="bk-btn" type="button" onclick="document.getElementById('bk-file').click()">↑ Import JSON</button><input id="bk-file" type="file" accept="application/json,.json" hidden onchange="importData(this)"></div>
+    <div class="bk-note">Сохраняет прогресс, пользовательские пункты, источники и заметки в один файл. Импорт перезапишет локальные данные на этом устройстве.</div>
   </div>
 </div>
 
@@ -1853,7 +1497,7 @@ function toggleAdd(which){
 }
 
 // Custom roadmap items
-const RM_CATS={health:'ЗДОРОВЬЕ',study:'УЧЁБА',science:'НАУКА',career:'КАРЬЕРА',finance:'ФИНАНСЫ',skills:'НАВЫКИ',vis:'ВИДИМОСТЬ'};
+const RM_CATS={health:'ФОКУС',study:'УЧЕБА',science:'НАУКА',career:'ПАТЕНТ',finance:'МОНЕТИЗАЦИЯ',skills:'НАВЫКИ',vis:'ВИТРИНА'};
 function getRoadmap(){try{return JSON.parse(localStorage.getItem('roadmap_custom')||'[]')}catch(e){return[]}}
 function setRoadmap(a){try{localStorage.setItem('roadmap_custom',JSON.stringify(a))}catch(e){}}
 
@@ -1986,7 +1630,7 @@ function copyEn(btn){
   const body=document.querySelector('.cv-body[data-lang="en"]');
   if(!body)return;
   const role=body.querySelector('.cv-proj-role');
-  const lines=['In Silico BBB — '+(role?role.textContent.trim():'')];
+  const lines=['GEB-Contour — '+(role?role.textContent.trim():'')];
   body.querySelectorAll('.cv-proj-list li').forEach(li=>lines.push('• '+li.textContent.trim()));
   const text=lines.join('\n');
   const done=()=>{const o=btn.textContent;btn.classList.add('ok');btn.textContent='copied ✓';setTimeout(()=>{btn.classList.remove('ok');btn.textContent=o;},1600);};
@@ -2004,11 +1648,11 @@ const BACKUP_RE=/^(c_|sk_|csk_|roadmap_custom|skills_custom|m_|ta_|cvLang|active
 function exportData(){
   const o={};
   try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(BACKUP_RE.test(k))o[k]=localStorage.getItem(k);}}catch(e){}
-  const payload={_app:'learning2think',_ts:new Date().toISOString(),data:o};
+  const payload={_app:'geb-contour-roadmap',_ts:new Date().toISOString(),data:o};
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
   const a=document.createElement('a');
   a.href=URL.createObjectURL(blob);
-  a.download='learning2think-backup-'+new Date().toISOString().slice(0,10)+'.json';
+  a.download='geb-contour-backup-'+new Date().toISOString().slice(0,10)+'.json';
   document.body.appendChild(a);a.click();a.remove();
   setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 }
@@ -2099,7 +1743,7 @@ source: ${p.tag}
 }
 
 // ===== READING TRACKER =====
-const RDR_LABELS = {plan:'план', reading:'читаю', done:'прочитал'};
+const RDR_LABELS = {plan:'найти', reading:'проверяю', done:'verified'};
 const RDR_NEXT   = {plan:'reading', reading:'done', done:'plan'};
 let rdrStatusF = 'all';
 
@@ -2194,7 +1838,7 @@ function exportObsidianMOC(){
   const papers=getRdr();
   if(!papers.length){alert('Библиотека пуста.');return;}
   const tags=['BBB','PK/PD','QSP','Нейро','ML','Психиатрия','Учебник','Другое'];
-  let md='# Reading Library — learning2think\n\n';
+  let md='# ГЭБ-Контур · источники verified cohort\n\n';
   tags.forEach(tag=>{
     const items=papers.filter(p=>p.tag===tag);
     if(!items.length)return;
@@ -2253,17 +1897,17 @@ function renderRdr(){
   calcPace();
 }
 
-// ===== OUTREACH / APPLICATIONS TRACKER =====
-const OR_LABEL={draft:'черновик',sent:'отправлено',replied:'ответили',interview:'интервью',offer:'оффер',rejected:'отказ'};
-const OR_KIND={pi:'PI / лаб',program:'программа'};
+// ===== OUTREACH / PROJECT CONTACTS TRACKER =====
+const OR_LABEL={draft:'черновик',sent:'отправлено',replied:'ответили',interview:'обсуждение',offer:'согласовано',rejected:'не подходит'};
+const OR_KIND={pi:'эксперт / руководитель',program:'патент / публикация'};
 const OR_FLOW=['draft','sent','replied','interview','offer'];   // tap-to-advance funnel; rejected is set separately
 const OR_TERMINAL=s=>s==='offer'||s==='rejected';
 
 const OR_DEFAULTS=[
-  {id:'o1',kind:'program',name:'OIST · Neural Computation Unit',status:'draft',deadline:'',link:'https://www.oist.jp/admissions',note:'Начать с Neural Computation Unit; если тематическое пересечение слабое — попросить перенаправление. Приём дважды в год — точные окна проверить на сайте.'},
-  {id:'o2',kind:'program',name:'EMBL · International PhD Programme (EIPP)',status:'draft',deadline:'',link:'https://www.embl.org/about/info/embl-international-phd-programme/',note:'Дедлайн обычно ноябрь — подтвердить точную дату перед подачей.'},
-  {id:'o3',kind:'program',name:'EURAXESS · EU-funded PhD',status:'draft',deadline:'',link:'https://euraxess.ec.europa.eu/jobs/search',note:'Зарплата указана в объявлении. Окно подачи в NL/DE — декабрь–февраль. Фильтровать по computational neuro / cheminformatics.'},
-  {id:'o4',kind:'pi',name:'ВШЭ · MEG-лаборатория (РФ)',status:'draft',deadline:'',link:'',note:'Реальный первый шаг и живые контакты рядом. Слабее под BBB-актив, если лаба сугубо когнитивная — уточнить тематику перед письмом.'}
+  {id:'o1',kind:'pi',name:'Научный руководитель · письмо по ГЭБ-Контур',status:'draft',deadline:'',link:'',note:'Коротко: метод снижения ошибок, уже реализованный контур, честная граница, следующий verified cohort.'},
+  {id:'o2',kind:'program',name:'Патентная консультация · способ снижения ошибок',status:'draft',deadline:'',link:'',note:'Проверить формулу: контекстно-совместимое обновление, запрет ложного переноса, next-assay recommendation.'},
+  {id:'o3',kind:'pi',name:'BBB/CNS PK эксперт · проверка Kp,uu и переносчиков',status:'draft',deadline:'',link:'',note:'Нужен внешний взгляд на источники, единицы, условия опытов и биологическую совместимость.'},
+  {id:'o4',kind:'program',name:'Публикация / препринт · evidence routing для ГЭБ',status:'draft',deadline:'',link:'',note:'Не начинать до verified cohort и заранее зафиксированных критериев успеха.'}
 ];
 
 let orStatusF='all';
@@ -2400,8 +2044,8 @@ function exportOutreach(){
   downloadText(md,'learning2think-outreach-'+new Date().toISOString().slice(0,10)+'.md','text/markdown');
 }
 
-// ===== DEADLINES / COUNTDOWNS =====
-const DL_KIND={program:'программа',conf:'конференция',exam:'экзамен',personal:'личное',other:'другое'};
+// ===== PROJECT DEADLINES / COUNTDOWNS =====
+const DL_KIND={program:'проектный этап',conf:'письмо / встреча',exam:'проверка данных',personal:'личное',other:'другое',outreach:'контакт'};
 let dlFrame='all';
 function getDeadlines(){try{return JSON.parse(localStorage.getItem('dl_items')||'[]')}catch(e){return[]}}
 function setDeadlines(a){try{localStorage.setItem('dl_items',JSON.stringify(a))}catch(e){}}
@@ -2482,17 +2126,9 @@ function dlParseInput(){
 // ----- Program presets: pre-fill the form with the next APPROXIMATE application window.
 //       Anchors are reminders to act, NOT authoritative dates — always verify on the site. -----
 const DL_PRESETS={
-  oist:{title:'OIST · окно подачи PhD',link:'https://admissions.oist.jp/apply-phd',verify:'admissions.oist.jp',
-    freq:'2 цикла/год',cycles:[{m:3,d:31,l:'дедлайн ≈ 31 марта'},{m:11,d:15,l:'дедлайн ≈ 15 ноября'}]},
-  embl:{title:'EMBL · EIPP дедлайн',link:'https://www.embl.org/about/info/embl-international-phd-programme/application/',verify:'embl.org',
-    freq:'2 раунда/год',cycles:[{m:3,d:9,l:'летний раунд ≈ 9 марта'},{m:10,d:13,l:'зимний раунд ≈ середина октября'}]},
-  mpi:{title:'Max Planck · IMPRS дедлайн',link:'https://imprs.mpg.de/',verify:'сайте нужного IMPRS',
-    freq:'окна варьируются по школам (часто ноя–фев)',season:true,
-    cycles:[{m:11,d:1,l:'осенний раунд ≈ ноябрь'},{m:2,d:1,l:'зимний раунд ≈ февраль'}]},
-  skoltech:{title:'Сколтех · конкурс PhD',link:'https://new.skoltech.ru/en/requirements-and-deadlines',verify:'new.skoltech.ru',
-    freq:'окно фев–июнь, 2 волны',cycles:[{m:6,d:29,l:'финал ≈ конец июня (wave 1 ≈ конец апреля, окно с начала февраля)'}]},
-  eu:{title:'EU · сезон подачи PhD (NL/DE/Nordics)',link:'https://euraxess.ec.europa.eu/jobs/search',verify:'EURAXESS',
-    freq:'сезон подачи NL/DE/Nordics',season:true,cycles:[{m:12,d:1,l:'старт сезона ≈ декабрь'}]}
+  cohort:{title:'Verified cohort · список источников заморожен',link:'',verify:'локальный отчет',freq:'проектный срок',cycles:[{m:7,d:15,l:'ориентир: закрыть список источников'}]},
+  supervisor:{title:'Письмо научному руководителю · ГЭБ-Контур',link:'',verify:'черновик письма',freq:'один раз',cycles:[{m:6,d:30,l:'ориентир: отправить после проверки сайта и отчета'}]},
+  patent:{title:'Патентный обзор · claims и отличия',link:'',verify:'локальный patent review',freq:'после изменения формулы',cycles:[{m:7,d:31,l:'ориентир: обновить обзор после verified cohort'}]}
 };
 function presetNext(cycles){
   const now=new Date(),t0=new Date(now.getFullYear(),now.getMonth(),now.getDate());
