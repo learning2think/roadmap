@@ -768,69 +768,135 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 </div>
 
 
+
 <div id="vector" class="tab-s" lang="ru">
 
-  <div class="vec-intro">Vector теперь является не стратегическим эссе, а развёрнутой блок-схемой проекта. Главная мысль: ГЭБ-Контур не складывает все признаки в один балл, а ведёт доказательства по совместимым биологическим путям.</div>
-
-  <div class="vs">
-    <div class="vs-title"><span class="vs-num">00</span> общая схема входа и выхода</div>
-    <div class="pipe"><div class="pn">вещество / SMILES</div><div class="pa">→</div><div class="pn">цель оценки</div><div class="pa">→</div><div class="pn">первичный logBB/BBB прогноз</div><div class="pa">→</div><div class="pn">паспорт данных</div><div class="pa">→</div><div class="pn">контур совместимости</div><div class="pa">→</div><div class="pn">решение / отказ / следующий опыт</div></div>
+  <div class="map-intro">
+    Полная блок-схема ГЭБ-Контур: от входной молекулы и первичного прогноза до проверяемого вывода, отказа от вывода или рекомендации следующего опыта. Главный механизм проекта — не «сложить всё в один балл», а пропускать данные через паспорт, матрицу совместимости и циклы обновления только тех блоков, которые эти данные действительно имеют право менять.
+    <div class="map-hint">Формат сделан для просмотра на экране: верхняя линия даёт общий маршрут, ниже каждый этап раскрыт отдельно.</div>
   </div>
 
-  <div class="vs">
-    <div class="vs-title"><span class="vs-num">01</span> входной слой</div>
-    <div class="fork2">
-      <div class="fnode good"><div class="fn-title">молекула</div><div class="fn-sub">SMILES, имя, источник структуры, первичный прогноз модели проекта, область применимости, неопределённость</div></div>
-      <div class="fnode"><div class="fn-title">цель вопроса</div><div class="fn-sub">не «всё о веществе», а конкретно: ожидается ли поступление в мозг, какой блок сомнителен и какой опыт нужен дальше</div></div>
+  <div class="map-legend" aria-label="Легенда блок-схемы">
+    <div class="legend-item"><b><span class="legend-mark core"></span>Основной контур</b>То, без чего метод не работает: молекула, паспорт, блоки доказательств, совместимость.</div>
+    <div class="legend-item"><b><span class="legend-mark cond"></span>Условный контур</b>Данные учитываются только при доказанном пути влияния на ГЭБ, экспозицию или переносчики.</div>
+    <div class="legend-item"><b><span class="legend-mark stop"></span>Запрет обновления</b>Источник сохраняется, но не меняет вывод, если он биологически не связан с вопросом.</div>
+    <div class="legend-item"><b><span class="legend-mark out"></span>Выход</b>Решение, отказ, следующий опыт, отчёт, датасет, будущая витрина.</div>
+  </div>
+
+  <div class="map-overview" aria-label="Общий поток проекта">
+    <div class="map-step core"><span class="n">00 вход</span><span class="t">молекула / SMILES</span><span class="s">структура, цель оценки, область применимости</span></div>
+    <div class="map-arrow">→</div>
+    <div class="map-step core"><span class="n">01 первичный прогноз</span><span class="t">logBB / BBB class</span><span class="s">модель проекта даёт prior, но не финальный ответ</span></div>
+    <div class="map-arrow">→</div>
+    <div class="map-step core"><span class="n">02 источники</span><span class="t">статьи / патенты / базы</span><span class="s">каждый факт проходит паспорт</span></div>
+    <div class="map-arrow">→</div>
+    <div class="map-step core"><span class="n">03 блоки</span><span class="t">ГЭБ, транспорт, Kp,uu, токсикология</span><span class="s">данные разделены по механизму</span></div>
+    <div class="map-arrow">→</div>
+    <div class="map-step cond"><span class="n">04 совместимость</span><span class="t">можно ли обновлять?</span><span class="s">прямо, условно или нельзя</span></div>
+    <div class="map-arrow">→</div>
+    <div class="map-step cond"><span class="n">05 цикл</span><span class="t">обновление уверенности</span><span class="s">внутри совместимого блока</span></div>
+    <div class="map-arrow">→</div>
+    <div class="map-step out"><span class="n">06 выход</span><span class="t">решение / отказ / next assay</span><span class="s">плюс объяснение и след доказательств</span></div>
+  </div>
+
+  <div class="map-section">
+    <div class="map-title"><span class="map-num">01</span><div><h3>Постановка задачи и точка входа</h3><p>Проект начинается не с набора всех возможных параметров, а с точного вопроса: что именно мы хотим узнать о поступлении вещества в мозг.</p></div></div>
+    <div class="map-grid three">
+      <div class="flow-card core"><span class="tagline">input</span><h4>Молекула</h4><p>SMILES, название, источник структуры, проверка валидности, возможные соли/изомеры, предупреждение об ошибке структуры.</p></div>
+      <div class="flow-card core"><span class="tagline">question</span><h4>Цель оценки</h4><p>Например: «ожидается ли поступление в мозг», «почему ML-прогноз конфликтует с опытом», «какой опыт нужен следующим».</p></div>
+      <div class="flow-card cond"><span class="tagline">scope</span><h4>Область применимости</h4><p>Если молекула вне домена модели, данные неполные или вопрос слишком общий, система должна заранее снижать уверенность.</p></div>
     </div>
   </div>
 
-  <div class="vs">
-    <div class="vs-title"><span class="vs-num">02</span> паспорт каждого нового источника</div>
-    <div class="pipe"><div class="pn">DOI / PMID / патент</div><div class="pa">→</div><div class="pn">endpoint</div><div class="pa">→</div><div class="pn">assay_key</div><div class="pa">→</div><div class="pn">метод и модель</div><div class="pa">→</div><div class="pn">единицы</div><div class="pa">→</div><div class="pn">species / cell line</div><div class="pa">→</div><div class="pn">verification_status</div></div>
-    <div class="fnode note"><div class="fn-title">правило</div><div class="fn-sub">если показатель нельзя привязать к assay_key и блоку, он не имеет права менять вывод. Он остаётся заметкой, а не доказательством.</div></div>
-  </div>
-
-  <div class="vs">
-    <div class="vs-title"><span class="vs-num">03</span> блоки доказательств</div>
-    <div class="dests">
-      <div class="dest hi"><div class="dest-t">ГЭБ: пассивная проницаемость</div><div class="dest-s">PAMPA-BBB, MDCK/Caco-2 без эффлюкс-интерпретации, физико-химические свойства. Обновляет только пассивный вход.</div></div>
-      <div class="dest hi"><div class="dest-t">ГЭБ: активный транспорт</div><div class="dest-s">P-gp, BCRP, LAT1, efflux ratio, ингибирование/субстратность. Не подменяет Kp,uu без связи с экспозицией.</div></div>
-      <div class="dest med"><div class="dest-t">Свободная фракция и CNS PK</div><div class="dest-s">fu,p, fu,brain, Kp, Kp,uu, микродиализ, brain/plasma. Это самый важный слой для сложных расхождений.</div></div>
-      <div class="dest med"><div class="dest-t">Системная токсикология</div><div class="dest-s">hERG, DILI, тканевое повреждение, воспаление. Меняет вывод о ГЭБ только при описанном пути к барьеру, транспорту или экспозиции.</div></div>
-      <div class="dest lo"><div class="dest-t">Среда / кишечник / микробиота</div><div class="dest-s">Не центральное ядро. Может быть контекстом, если влияет на переносчики, метаболизм, воспаление или системную экспозицию.</div></div>
+  <div class="map-section">
+    <div class="map-title"><span class="map-num">02</span><div><h3>Первичный прогноз как prior, а не финальный вывод</h3><p>Собственный инструмент проекта остаётся основой: он даёт стартовую оценку, но дальше её можно менять только совместимыми доказательствами.</p></div></div>
+    <div class="map-grid">
+      <div class="flow-card core"><h4>ML-блок структуры</h4><ul><li>расчёт logBB или класса BBB</li><li>сохранение модели, версии и источника</li><li>unknown вместо выдуманного числа при ошибке</li><li>первичная уверенность и предупреждения</li></ul></div>
+      <div class="flow-card cond"><h4>Что этот блок не решает</h4><ul><li>не доказывает свободную концентрацию в мозге</li><li>не объясняет активный вынос переносчиками</li><li>не заменяет Kp,uu или микродиализ</li><li>не должен «побеждать» любые данные автоматически</li></ul></div>
     </div>
   </div>
 
-  <div class="vs">
-    <div class="vs-title"><span class="vs-num">04</span> матрица совместимости</div>
-    <div class="fork2">
-      <div class="fnode good"><div class="fn-title">совместимо</div><div class="fn-sub">PAMPA → пассивный вход; P-gp efflux → активный вынос; fu,p/fu,brain → свободная фракция; Kp,uu → итоговая свободная экспозиция</div></div>
-      <div class="fnode trap"><div class="fn-title">несовместимо</div><div class="fn-sub">hERG не меняет вывод о мозге напрямую; DILI не становится Kp,uu; Caco-2 не доказывает ГЭБ; общий ADMET-балл не равен CNS exposure</div></div>
+  <div class="map-section">
+    <div class="map-title"><span class="map-num">03</span><div><h3>Сбор источников и паспорт данных</h3><p>Каждый показатель превращается в проверяемую строку. Без паспорта факт не допускается к обновлению вывода.</p></div></div>
+    <div class="map-grid three">
+      <div class="flow-card core"><h4>Источник</h4><ul><li>DOI, PMID, патент или база</li><li>автор, год, таблица/страница</li><li>статус: draft, needs_review, verified</li><li>запрет на данные без происхождения</li></ul></div>
+      <div class="flow-card core"><h4>Показатель</h4><ul><li>endpoint и assay_key</li><li>единицы и порог</li><li>species, cell line, ткань</li><li>условия опыта и концентрации</li></ul></div>
+      <div class="flow-card stop"><h4>Стоп-условие</h4><p>Если показатель нельзя сопоставить с каталогом опытов, он остаётся заметкой. Он не имеет права двигать итог по ГЭБ.</p></div>
+    </div>
+    <div class="mini-flow" aria-label="Паспорт источника">
+      <span class="mini-node">источник</span><span class="mini-arr">→</span><span class="mini-node">endpoint</span><span class="mini-arr">→</span><span class="mini-node">assay_key</span><span class="mini-arr">→</span><span class="mini-node">block</span><span class="mini-arr">→</span><span class="mini-node">verification_status</span><span class="mini-arr">→</span><span class="mini-node">право обновления</span>
     </div>
   </div>
 
-  <div class="vs">
-    <div class="vs-title"><span class="vs-num">05</span> цикл обновления</div>
-    <div class="pipe"><div class="pn">новый источник</div><div class="pa">→</div><div class="pn">проверка паспорта</div><div class="pa">→</div><div class="pn">проверка совместимости</div><div class="pa">→</div><div class="pn">обновление только блока</div><div class="pa">→</div><div class="pn">пересчёт уверенности</div><div class="pa">→</div><div class="pn">разбор расхождений</div></div>
-    <div class="fnode note"><div class="fn-title">место байеса</div><div class="fn-sub">байесовское обновление может жить внутри совместимого блока. Оно не является главной новизной и не должно обновлять весь вывод сразу.</div></div>
-  </div>
-
-  <div class="vs">
-    <div class="vs-title"><span class="vs-num">06</span> развилка решения</div>
-    <div class="fork2">
-      <div class="fnode good"><div class="fn-title">решение</div><div class="fn-sub">данных достаточно, блоки не конфликтуют, риск ошибки приемлем, есть доказательный след</div></div>
-      <div class="fnode note"><div class="fn-title">следующий опыт</div><div class="fn-sub">не закрыт конкретный блок: нужен Kp,uu, efflux ratio, PAMPA/MDCK, связывание, проверка токсического повреждения барьера</div></div>
-      <div class="fnode trap"><div class="fn-title">отказ</div><div class="fn-sub">данные есть, но они несовместимы с вопросом или конфликтуют так, что честный вывод невозможен</div></div>
+  <div class="map-section">
+    <div class="map-title"><span class="map-num">04</span><div><h3>Блоки доказательств</h3><p>Это сердце проекта: данные не смешиваются. Каждый блок отвечает за свой биологический механизм.</p></div></div>
+    <div class="map-grid three">
+      <div class="flow-card core"><span class="tagline">BBB passive</span><h4>Пассивная проницаемость</h4><p>PAMPA-BBB, MDCK, Caco-2, физико-химические признаки. Обновляет вероятность пассивного входа, но не доказывает свободную экспозицию в мозге.</p></div>
+      <div class="flow-card core"><span class="tagline">transport</span><h4>Активный транспорт</h4><p>P-gp, BCRP, LAT1, OATP/OAT/OCT при наличии связи с ГЭБ. Обновляет вынос/перенос, но не подменяет токсичность или общий ADMET.</p></div>
+      <div class="flow-card core"><span class="tagline">CNS PK</span><h4>Свободная экспозиция</h4><p>fu,p, fu,brain, Kp, Kp,uu, микродиализ. Самый сильный блок для спорных случаев, потому что ближе к доступной концентрации в мозге.</p></div>
+      <div class="flow-card cond"><span class="tagline">tox</span><h4>Системная токсикология</h4><p>hERG, DILI, воспаление, повреждение тканей. Меняет вывод о ГЭБ только при описанном пути: барьер, переносчики, экспозиция или системное повреждение.</p></div>
+      <div class="flow-card cond"><span class="tagline">context</span><h4>Периферический контекст</h4><p>Кишечник, микробиота, среда проживания, метаболизм, общая нагрузка. Это поддерживающий слой, а не центральное ядро метода.</p></div>
+      <div class="flow-card stop"><span class="tagline">reject</span><h4>Несовместимые данные</h4><p>Общий токс-балл, hERG без связи с ГЭБ, DILI без экспозиционного пути, Caco-2 как прямое доказательство мозга. Хранить можно, обновлять нельзя.</p></div>
     </div>
   </div>
 
-  <div class="vs">
-    <div class="vs-title"><span class="vs-num">07</span> выходы проекта</div>
-    <div class="dests">
-      <div class="dest hi"><div class="dest-t">для науки</div><div class="dest-s">воспроизводимый отчет, схема метода, проверенный пилот, честные ограничения, список источников</div></div>
-      <div class="dest med"><div class="dest-t">для руководителя</div><div class="dest-s">понятная методика: что обновляется, что запрещено обновлять, какой опыт нужен следующим</div></div>
-      <div class="dest lo"><div class="dest-t">для будущей витрины</div><div class="dest-s">краткий итог, блоки доказательств, причины решения, next assay. Сайт не должен быть стеной параметров.</div></div>
+  <div class="map-section">
+    <div class="map-title"><span class="map-num">05</span><div><h3>Матрица совместимости</h3><p>Механизм, который защищает проект от главной ошибки: ложного переноса данных из одного биологического смысла в другой.</p></div></div>
+    <div class="matrix">
+      <div class="matrix-col good"><h4>Прямо совместимо</h4><p>PAMPA → пассивный вход. Efflux ratio → активный вынос. Kp,uu → свободная экспозиция. Такие данные могут обновлять соответствующий блок.</p></div>
+      <div class="matrix-col cond"><h4>Условно совместимо</h4><p>Токсикология, кишечник, воспаление, среда. Учитываются только если есть мост: переносчик, повреждение барьера, изменение экспозиции или метаболизма.</p></div>
+      <div class="matrix-col bad"><h4>Несовместимо</h4><p>Факт относится к организму, но не к вопросу о мозге. Он остаётся в отчёте как ограничение, но не двигает итоговую вероятность.</p></div>
+    </div>
+  </div>
+
+  <div class="map-section">
+    <div class="map-title"><span class="map-num">06</span><div><h3>Механизм обновления внутри блока</h3><p>Байесовское обновление здесь не главная новизна, а рабочий механизм внутри совместимого блока.</p></div></div>
+    <div class="map-grid">
+      <div class="flow-card core"><h4>Внутренний цикл блока</h4><div class="mini-flow"><span class="mini-node">prior</span><span class="mini-arr">→</span><span class="mini-node">новое совместимое доказательство</span><span class="mini-arr">→</span><span class="mini-node">вес источника</span><span class="mini-arr">→</span><span class="mini-node">posterior</span><span class="mini-arr">→</span><span class="mini-node">уверенность</span></div><p style="margin-top:8px">Вес зависит от качества источника, близости опыта к ГЭБ, единиц, вида модели и статуса проверки.</p></div>
+      <div class="flow-card stop"><h4>Жёсткое правило</h4><p>Даже сильный источник не обновляет весь проект сразу. Он обновляет только тот блок, с которым совместим. Остальные блоки получают пометку «не обновлено».</p></div>
+    </div>
+  </div>
+
+  <div class="map-section">
+    <div class="map-title"><span class="map-num">07</span><div><h3>Разбор конфликтов</h3><p>Если первичная модель и опыт расходятся, система не усредняет их вслепую, а классифицирует причину расхождения.</p></div></div>
+    <div class="map-grid three">
+      <div class="flow-card cond"><h4>Вынос переносчиками</h4><p>Структура похожа на проникающую, но P-gp/BCRP снижает мозговую экспозицию. Следующий опыт: efflux ratio, ингибитор, bidirectional assay.</p></div>
+      <div class="flow-card cond"><h4>Связывание и свободная фракция</h4><p>Общая концентрация есть, но свободная доля низкая. Следующий опыт: fu,p, fu,brain, Kp,uu.</p></div>
+      <div class="flow-card cond"><h4>Методическая несовместимость</h4><p>Клеточная линия, вид, единицы или порог не совпадают с вопросом. Следующий шаг: нормализация или отказ от обновления.</p></div>
+      <div class="flow-card cond"><h4>Системное повреждение</h4><p>Токсикология важна только если может менять барьер, переносчики или экспозицию. Иначе она остаётся отдельным риском организма.</p></div>
+      <div class="flow-card stop"><h4>Недостаточно данных</h4><p>Система честно воздерживается, если блоки не закрыты. Это не слабость, а защита от ложной уверенности.</p></div>
+      <div class="flow-card out"><h4>Next assay</h4><p>Выходом конфликта становится не «угадайка», а рекомендация ближайшего опыта, который сильнее всего снизит неопределённость.</p></div>
+    </div>
+  </div>
+
+  <div class="map-section">
+    <div class="map-title"><span class="map-num">08</span><div><h3>Замкнутые циклы самоулучшения</h3><p>Система улучшается не магически, а через повторяемые циклы: источник, датасет, критерии, тесты, отчёт.</p></div></div>
+    <div class="loop-wrap">
+      <div class="loop-card"><h4>Цикл источника</h4><p>Каждая новая статья или патент проходит одинаковый путь и либо обновляет совместимый блок, либо остаётся заметкой.</p><div class="cycle"><span>читать</span><span>паспорт</span><span>каталог</span><span>блок</span><span>обновление</span></div></div>
+      <div class="loop-card"><h4>Цикл модели</h4><p>После накопления проверенных молекул сравниваются primary-only, naive mixing, compatible-only и full contour.</p><div class="cycle"><span>датасет</span><span>бенчмарк</span><span>ошибка</span><span>калибровка</span><span>тест</span></div></div>
+      <div class="loop-card"><h4>Цикл метода</h4><p>Если контур ошибается, меняется не «ответ руками», а правило совместимости, вес источника или требование к следующему опыту.</p><div class="cycle"><span>расхождение</span><span>причина</span><span>правило</span><span>версия</span><span>отчёт</span></div></div>
+    </div>
+  </div>
+
+  <div class="map-section">
+    <div class="map-title"><span class="map-num">09</span><div><h3>Развилка финального вывода</h3><p>На выходе не один красивый процент, а проверяемое решение с объяснением, что именно его поддерживает.</p></div></div>
+    <div class="map-grid three">
+      <div class="flow-card out"><h4>Вероятно проходит ГЭБ</h4><p>Совместимые блоки поддерживают поступление в мозг, конфликтов мало, уверенность достаточна.</p></div>
+      <div class="flow-card out"><h4>Вероятно не проходит</h4><p>Пассивный вход слабый, активный вынос выражен или свободная экспозиция низкая.</p></div>
+      <div class="flow-card cond"><h4>Неопределённо</h4><p>Данных недостаточно или блоки конфликтуют. Система показывает, какой опыт нужен следующим.</p></div>
+      <div class="flow-card stop"><h4>Отказ от вывода</h4><p>Источники есть, но они несовместимы с вопросом, неподтверждены или методически не сопоставимы.</p></div>
+      <div class="flow-card out"><h4>Краткий итог</h4><p>Для будущей витрины: 3-5 строк без стены параметров, но со ссылкой на полный след доказательств.</p></div>
+      <div class="flow-card out"><h4>Отчёт</h4><p>CLI/Markdown/JSON: молекула, блоки, источники, причины обновления, причины отказа, следующий опыт.</p></div>
+    </div>
+  </div>
+
+  <div class="map-section">
+    <div class="map-title"><span class="map-num">10</span><div><h3>Контроль качества и будущие выходы</h3><p>Эти правила удерживают проект научным, а не превращают его в набор красивых предположений.</p></div></div>
+    <div class="quality-bar">
+      <div class="q-pill"><b>Воспроизводимость</b>команды, версии, тесты, отчёт, фиксированные критерии успеха</div>
+      <div class="q-pill"><b>Честность данных</b>без выдуманных DOI, без ручных чисел без источника, статус проверки виден</div>
+      <div class="q-pill"><b>Патентное ядро</b>снижение ложных обновлений через контекстно-совместимый контур</div>
+      <div class="q-pill"><b>SaaS позже</b>короткий вывод, аудит доказательств, сохранённые проекты, но только после CLI-ядра</div>
     </div>
   </div>
 
