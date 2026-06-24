@@ -138,9 +138,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--mono);font-size:13
 .flow-legend .out i{background:rgba(70,130,180,.2);border-color:rgba(70,130,180,.55)}
 .flow-canvas{overflow-x:auto;border:1px solid var(--border);background:linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(0deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:28px 28px;padding:18px 18px 22px}
 .flow-wide{min-width:980px}
-.flow-row{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;align-items:center;margin-bottom:12px}
-.flow-row.five{grid-template-columns:repeat(5,1fr)}
-.fbox{position:relative;min-height:62px;border:1px solid var(--border-l);background:var(--bg-card);padding:9px 10px;display:flex;flex-direction:column;justify-content:center;line-height:1.25}
+.flow-row{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:10px;align-items:stretch;margin-bottom:12px}
+.flow-row.five{grid-template-columns:1fr auto 1fr auto 1fr}
+.fbox{position:relative;min-width:0;min-height:62px;border:1px solid var(--border-l);background:var(--bg-card);padding:9px 10px;display:flex;flex-direction:column;justify-content:center;line-height:1.25}
 .fbox.core{border-color:rgba(61,158,87,.55);background:rgba(61,158,87,.06)}
 .fbox.cond{border-color:rgba(184,146,30,.55);background:rgba(184,146,30,.055)}
 .fbox.stop{border-color:rgba(201,79,79,.5);background:rgba(201,79,79,.05)}
@@ -150,7 +150,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--mono);font-size:13
 .fbox .s{font-size:9.5px;color:var(--dim);margin-top:3px}
 .fbox.small{min-height:50px;padding:7px 8px}
 .fbox.small .t{font-size:10.5px}.fbox.small .s{font-size:9px}
-.arrow{color:var(--vis);font-size:15px;text-align:center;opacity:.85}
+.arrow{color:var(--vis);font-size:15px;text-align:center;opacity:.85;align-self:center}
 .v-arrow{text-align:center;color:var(--vis);font-size:17px;margin:-3px 0 8px;line-height:1}
 .diamond{width:116px;height:116px;margin:0 auto;transform:rotate(45deg);border:1px solid rgba(184,146,30,.65);background:rgba(184,146,30,.07);display:flex;align-items:center;justify-content:center}
 .diamond>div{transform:rotate(-45deg);text-align:center;width:88px;line-height:1.25}
@@ -718,7 +718,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
       <li><b>Verified pilot</b> - сначала 5 полностью проверенных молекул/источников, затем только при успехе расширение до 10-12 сложных молекул.</li>
       <li><b>Критерий успеха</b> - заранее зафиксировать, где контур обязан снижать ошибки: ложные обновления, воздержание, объяснение расхождений, качество рекомендации следующего опыта.</li>
       <li><b>Патентная формулировка</b> - «метод снижения ошибок при оценке проницаемости ГЭБ за счет контекстно-совместимого обновления данных», а не «нейросеть для ГЭБ».</li>
-      <li><b>Научрук</b> - показать не обещание SaaS, а воспроизводимый механизм, честные ограничения и план валидации.</li>
+      <li><b>Научрук</b> - показать не обещание готового продукта, а воспроизводимый механизм, честные ограничения и план проверки.</li>
     </ul>
   </div>
 
@@ -745,7 +745,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
   <div id="ys1">
     <div class="yr-hdr"><div class="yr-lbl">2026 · закрепить тему и не потерять учебу</div><div class="yr-bar"><div class="yr-fill" id="yf1"></div></div><div class="yr-pct" id="yp1">0/6</div></div>
     <div class="grid">
-      <div class="card done" id="y1a" data-c="science" onclick="tog(this)"><span class="c-chk">✓</span><span class="c-cat cat-science">ТЕМА</span><div class="c-title">Оставить центр проекта в ГЭБ</div><div class="c-desc">Не уходить в общий ADMET, большой SaaS или декоративную нейросводку. Всё новое допускается только если помогает вопросу: как данные меняют вывод о прохождении через ГЭБ.</div></div>
+      <div class="card done" id="y1a" data-c="science" onclick="tog(this)"><span class="c-chk">✓</span><span class="c-cat cat-science">ТЕМА</span><div class="c-title">Оставить центр проекта в ГЭБ</div><div class="c-desc">Не уходить в общий ADMET, большой готовый продукт или декоративную нейросводку. Всё новое допускается только если помогает вопросу: как данные меняют вывод о прохождении через ГЭБ.</div></div>
       <div class="card" id="y1b" data-c="career" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-career">НАУЧРУК</span><div class="c-title">Согласовать новую методику с руководителем</div><div class="c-desc">Показать одну страницу: что уже есть, почему старый предсказатель не является новизной, где новизна контура и какой следующий проверяемый шаг.</div></div>
       <div class="card" id="y1c" data-c="study" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-study">УЧЕБА</span><div class="c-title">Закрыть академические хвосты</div><div class="c-desc">Для ординатуры/аспирантуры проект не компенсирует разваленную учебную базу. Минимальная цель - ровный учебный статус без долгов и понятный график.</div></div>
       <div class="card" id="y1d" data-c="science" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-science">ПИЛОТ</span><div class="c-title">Собрать 5 verified источников</div><div class="c-desc">Не 30 молекул сразу. Нужны 5 чистых примеров: P-gp/efflux, Kp,uu или свободная фракция, PAMPA/MDCK/Caco-2, hERG-only контроль, один конфликтный случай.</div></div>
@@ -828,95 +828,95 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
       <div class="flow-wide">
         <div class="lane-title">1. Основной маршрут</div>
         <div class="flow-row">
-          <div class="fbox core"><span class="k">input</span><span class="t">Молекула</span><span class="s">SMILES, структура</span></div>
+          <div class="fbox core"><span class="k">вход</span><span class="t">Молекула</span><span class="s">SMILES, структура</span></div>
           <div class="arrow">→</div>
-          <div class="fbox core"><span class="k">model</span><span class="t">Первичный прогноз</span><span class="s">logBB / BBB class</span></div>
+          <div class="fbox core"><span class="k">модель</span><span class="t">Первичный прогноз</span><span class="s">logBB / класс ГЭБ</span></div>
           <div class="arrow">→</div>
-          <div class="fbox core"><span class="k">evidence</span><span class="t">Источники</span><span class="s">статьи, патенты, базы</span></div>
+          <div class="fbox core"><span class="k">источники</span><span class="t">Источники</span><span class="s">статьи, патенты, базы</span></div>
           <div class="arrow">→</div>
-          <div class="fbox core"><span class="k">passport</span><span class="t">Паспорт данных</span><span class="s">endpoint, assay_key, статус</span></div>
+          <div class="fbox core"><span class="k">паспорт</span><span class="t">Паспорт данных</span><span class="s">endpoint, assay_key, статус</span></div>
         </div>
 
         <div class="v-arrow">↓</div>
 
         <div class="decision-row">
-          <div class="bracket"><div class="branch-title">нет</div><div class="fbox stop"><span class="k">stop</span><span class="t">Нет assay_key</span><span class="s">заметка без обновления</span></div></div>
+          <div class="bracket"><div class="branch-title">нет</div><div class="fbox stop"><span class="k">стоп</span><span class="t">Нет assay_key</span><span class="s">заметка без обновления</span></div></div>
           <div class="diamond"><div><div class="t">assay_key есть?</div><div class="s">каталог опытов</div></div></div>
-          <div class="bracket"><div class="branch-title">да</div><div class="fbox core"><span class="k">route</span><span class="t">Назначить блок</span><span class="s">по механизму</span></div></div>
+          <div class="bracket"><div class="branch-title">да</div><div class="fbox core"><span class="k">маршрут</span><span class="t">Назначить блок</span><span class="s">по механизму</span></div></div>
         </div>
 
         <div class="lane-title">2. Блоки доказательств</div>
         <div class="blocks-grid">
-          <div class="fbox core small"><span class="k">BBB</span><span class="t">Пассивный вход</span><span class="s">PAMPA, MDCK</span></div>
-          <div class="fbox core small"><span class="k">transport</span><span class="t">Переносчики</span><span class="s">P-gp, BCRP, LAT1</span></div>
-          <div class="fbox core small"><span class="k">CNS PK</span><span class="t">Свободная экспозиция</span><span class="s">fu, Kp, Kp,uu</span></div>
-          <div class="fbox cond small"><span class="k">tox</span><span class="t">Токсикология</span><span class="s">hERG, DILI</span></div>
-          <div class="fbox cond small"><span class="k">context</span><span class="t">Периферия</span><span class="s">кишечник, среда</span></div>
-          <div class="fbox stop small"><span class="k">reject</span><span class="t">Несовместимо</span><span class="s">не меняет вывод</span></div>
+          <div class="fbox core small"><span class="k">ГЭБ</span><span class="t">Пассивный вход</span><span class="s">PAMPA, MDCK</span></div>
+          <div class="fbox core small"><span class="k">перенос</span><span class="t">Переносчики</span><span class="s">P-gp, BCRP, LAT1</span></div>
+          <div class="fbox core small"><span class="k">ЦНС-ФК</span><span class="t">Свободная экспозиция</span><span class="s">fu, Kp, Kp,uu</span></div>
+          <div class="fbox cond small"><span class="k">токс</span><span class="t">Токсикология</span><span class="s">hERG, DILI</span></div>
+          <div class="fbox cond small"><span class="k">контекст</span><span class="t">Периферия</span><span class="s">кишечник, среда</span></div>
+          <div class="fbox stop small"><span class="k">отклонить</span><span class="t">Несовместимо</span><span class="s">не меняет вывод</span></div>
         </div>
 
         <div class="v-arrow">↓</div>
 
         <div class="lane-title">3. Матрица совместимости</div>
         <div class="matrix-flow">
-          <div class="fbox core"><span class="k">direct</span><span class="t">Прямо совместимо</span><span class="s">PAMPA → вход; Kp,uu → CNS PK</span></div>
+          <div class="fbox core"><span class="k">прямо</span><span class="t">Прямо совместимо</span><span class="s">PAMPA → вход; Kp,uu → ЦНС-ФК</span></div>
           <div class="arrow">→</div>
-          <div class="fbox cond"><span class="k">conditional</span><span class="t">Условно</span><span class="s">токс/среда только через мост</span></div>
+          <div class="fbox cond"><span class="k">условно</span><span class="t">Условно</span><span class="s">токс/среда только через мост</span></div>
           <div class="arrow">→</div>
-          <div class="fbox stop"><span class="k">blocked</span><span class="t">Несовместимо</span><span class="s">хранить, не обновлять</span></div>
+          <div class="fbox stop"><span class="k">запрет</span><span class="t">Несовместимо</span><span class="s">хранить, не обновлять</span></div>
         </div>
 
         <div class="decision-row">
-          <div class="bracket"><div class="branch-title">да</div><div class="fbox core"><span class="k">update</span><span class="t">Обновить свой блок</span><span class="s">не весь итог</span></div></div>
+          <div class="bracket"><div class="branch-title">да</div><div class="fbox core"><span class="k">обновить</span><span class="t">Обновить свой блок</span><span class="s">не весь итог</span></div></div>
           <div class="diamond"><div><div class="t">есть право обновления?</div><div class="s">прямо / мост</div></div></div>
-          <div class="bracket"><div class="branch-title">нет</div><div class="fbox stop"><span class="k">lock</span><span class="t">Запретить перенос</span><span class="s">ложное обновление = 0</span></div></div>
+          <div class="bracket"><div class="branch-title">нет</div><div class="fbox stop"><span class="k">замок</span><span class="t">Запретить перенос</span><span class="s">ложное обновление = 0</span></div></div>
         </div>
 
         <div class="lane-title">4. Внутренний цикл обновления</div>
         <div class="flow-row five">
-          <div class="fbox core small"><span class="k">prior</span><span class="t">Стартовая оценка</span></div>
+          <div class="fbox core small"><span class="k">старт</span><span class="t">Стартовая оценка</span></div>
           <div class="arrow">→</div>
-          <div class="fbox core small"><span class="k">weight</span><span class="t">Вес источника</span><span class="s">качество, статус</span></div>
+          <div class="fbox core small"><span class="k">вес</span><span class="t">Вес источника</span><span class="s">качество, статус</span></div>
           <div class="arrow">→</div>
-          <div class="fbox core small"><span class="k">posterior</span><span class="t">Новая уверенность</span></div>
+          <div class="fbox core small"><span class="k">итог</span><span class="t">Новая уверенность</span></div>
         </div>
 
         <div class="v-arrow">↓</div>
 
         <div class="lane-title">5. Разбор конфликтов</div>
         <div class="blocks-grid">
-          <div class="fbox cond small"><span class="k">conflict</span><span class="t">P-gp/BCRP</span><span class="s">возможен вынос</span></div>
-          <div class="fbox cond small"><span class="k">conflict</span><span class="t">Связывание</span><span class="s">нужен Kp,uu</span></div>
-          <div class="fbox cond small"><span class="k">conflict</span><span class="t">Метод</span><span class="s">вид, линия, единицы</span></div>
-          <div class="fbox cond small"><span class="k">conflict</span><span class="t">Токс-мост</span><span class="s">барьер / экспозиция</span></div>
-          <div class="fbox stop small"><span class="k">unknown</span><span class="t">Данных мало</span><span class="s">воздержание</span></div>
-          <div class="fbox out small"><span class="k">next</span><span class="t">Следующий опыт</span><span class="s">что снизит ошибку</span></div>
+          <div class="fbox cond small"><span class="k">конфликт</span><span class="t">P-gp/BCRP</span><span class="s">возможен вынос</span></div>
+          <div class="fbox cond small"><span class="k">конфликт</span><span class="t">Связывание</span><span class="s">нужен Kp,uu</span></div>
+          <div class="fbox cond small"><span class="k">конфликт</span><span class="t">Метод</span><span class="s">вид, линия, единицы</span></div>
+          <div class="fbox cond small"><span class="k">конфликт</span><span class="t">Токс-мост</span><span class="s">барьер / экспозиция</span></div>
+          <div class="fbox stop small"><span class="k">неизвестно</span><span class="t">Данных мало</span><span class="s">воздержание</span></div>
+          <div class="fbox out small"><span class="k">далее</span><span class="t">Следующий опыт</span><span class="s">что снизит ошибку</span></div>
         </div>
 
         <div class="lane-title">6. Замкнутые циклы самоулучшения</div>
         <div class="loop-grid">
           <div class="loop"><div class="loop-title">Цикл источника</div><div class="loop-chain"><span>читать</span><span>паспорт</span><span>каталог</span><span>блок</span><span>обновить/запретить</span></div></div>
-          <div class="loop"><div class="loop-title">Цикл модели</div><div class="loop-chain"><span>датасет</span><span>бенчмарк</span><span>ошибка</span><span>калибровка</span><span>тест</span></div></div>
+          <div class="loop"><div class="loop-title">Цикл модели</div><div class="loop-chain"><span>данные</span><span>сравнение</span><span>ошибка</span><span>калибровка</span><span>проверка</span></div></div>
           <div class="loop"><div class="loop-title">Цикл метода</div><div class="loop-chain"><span>расхождение</span><span>причина</span><span>правило</span><span>версия</span><span>отчёт</span></div></div>
         </div>
 
         <div class="lane-title">7. Финальная развилка</div>
         <div class="out-grid">
-          <div class="fbox out small"><span class="k">output</span><span class="t">Проходит</span></div>
-          <div class="fbox out small"><span class="k">output</span><span class="t">Не проходит</span></div>
-          <div class="fbox cond small"><span class="k">output</span><span class="t">Неопределённо</span></div>
-          <div class="fbox stop small"><span class="k">output</span><span class="t">Отказ</span></div>
-          <div class="fbox out small"><span class="k">output</span><span class="t">Next assay</span></div>
+          <div class="fbox out small"><span class="k">выход</span><span class="t">Проходит</span></div>
+          <div class="fbox out small"><span class="k">выход</span><span class="t">Не проходит</span></div>
+          <div class="fbox cond small"><span class="k">выход</span><span class="t">Неопределённо</span></div>
+          <div class="fbox stop small"><span class="k">выход</span><span class="t">Отказ</span></div>
+          <div class="fbox out small"><span class="k">выход</span><span class="t">Следующий опыт</span></div>
         </div>
 
         <div class="v-arrow">↓</div>
 
         <div class="flow-row five">
-          <div class="fbox out small"><span class="k">report</span><span class="t">CLI / JSON / MD</span></div>
+          <div class="fbox out small"><span class="k">отчёт</span><span class="t">CLI / JSON / MD</span></div>
           <div class="arrow">→</div>
-          <div class="fbox out small"><span class="k">science</span><span class="t">Отчёт руководителю</span></div>
+          <div class="fbox out small"><span class="k">наука</span><span class="t">Отчёт руководителю</span></div>
           <div class="arrow">→</div>
-          <div class="fbox out small"><span class="k">later</span><span class="t">SaaS-витрина</span><span class="s">после CLI-ядра</span></div>
+          <div class="fbox out small"><span class="k">позже</span><span class="t">Витрина итогов</span><span class="s">после ядра</span></div>
         </div>
       </div>
     </div>
