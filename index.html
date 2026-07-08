@@ -259,6 +259,20 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 .dom-bar{height:2px;background:var(--faint);margin:0 0 10px;overflow:hidden}
 .dom-bar-fill{height:100%;width:0;background:var(--skills);transition:width .35s ease}
 
+/* ===== SKILLS SUMMARY + NOTES STATS (tools) ===== */
+.sk-summary{display:flex;align-items:center;gap:12px;background:var(--bg-card);border:1px solid var(--border);padding:11px 13px;margin-bottom:12px}
+.sk-summary-pct{font-size:22px;font-weight:600;color:#ececec;font-variant-numeric:tabular-nums;line-height:1;flex-shrink:0}
+.sk-summary-pct.full{color:var(--skills)}
+.sk-summary-r{flex:1;min-width:0}
+.sk-summary-bar{height:4px;background:var(--border);overflow:hidden;margin-bottom:6px}
+.sk-summary-bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--skills),var(--science));transition:width .4s ease}
+.sk-summary-sub{font-size:10px;color:var(--dim);font-variant-numeric:tabular-nums}
+.sk-summary-sub b{color:var(--text);font-weight:600}
+.chip-n{opacity:.65;margin-left:5px;font-variant-numeric:tabular-nums}
+.rdr-stats{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.rdr-stats span{font-size:9.5px;color:var(--dim);border:1px solid var(--border);background:var(--bg-card);padding:5px 9px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.rdr-stats span b{color:var(--text);font-weight:600;margin-right:3px}
+
 /* ===== LINKS ===== */
 .links{display:flex;flex-wrap:wrap;gap:6px}
 .hdr-links{margin-top:13px}
@@ -600,7 +614,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
   </div>
 
   <div class="vec-intro" lang="ru">
-    Проект больше не про «еще один предсказатель ГЭБ». Ядро - метод, который снижает ошибки интерпретации: первичный прогноз по структуре вещества остается входной точкой, а новые данные меняют вывод только тогда, когда они биологически совместимы с конкретным блоком решения. hERG, DILI или общая токсичность не должны напрямую переворачивать вывод о поступлении в мозг, если у них нет объясненного пути через переносчики, повреждение барьера, свободную фракцию или другой заранее описанный механизм.
+    Проект больше не про «ещё один предсказатель ГЭБ». Ядро — метод, который снижает ошибки интерпретации: первичный прогноз по структуре вещества остаётся входной точкой, а новые данные меняют вывод только тогда, когда они биологически совместимы с конкретным блоком решения. hERG, DILI или общая токсичность не переворачивают вывод о попадании в мозг сами по себе — только если есть объяснённый путь через переносчики, повреждение барьера, свободную фракцию или другой заранее описанный механизм.
   </div>
 
   <div class="links cv-links">
@@ -632,11 +646,11 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
       <div class="cv-body" data-lang="ru" lang="ru">
         <div class="cv-proj-role">Метод контекстно-совместимого обновления данных для оценки проницаемости ГЭБ</div>
         <ul class="cv-proj-list">
-          <li><b>Научная новизна:</b> не само предсказание logBB, не общая ADMET-панель и не краткий пересказ. Новое ядро - формальный контур, где каждый опыт имеет паспорт, относится к конкретному биологическому блоку и может обновлять только совместимые выводы.</li>
+          <li><b>Научная новизна:</b> не предсказание logBB, не общая ADMET-панель и не пересказ чужих работ. Новое ядро — формальный контур, где каждый опыт имеет паспорт, привязан к конкретному биологическому блоку и может обновлять только совместимые выводы.</li>
           <li><b>Вход:</b> SMILES, первичный прогноз In Silico BBB, паспорт источника, тип опыта, единицы, проверенность, блок совместимости: проницаемость, переносчики, связывание, токсикология, средовой контекст, итог по мозгу.</li>
           <li><b>Цикл:</b> первичная вероятность → проверка совместимости → ограниченное обновление → разбор расхождений → рекомендация следующего опыта → новый паспорт данных. Байесовское обновление используется как часть цикла, а не как отдельная главная идея.</li>
           <li><b>Токсикология:</b> учитывается только как путь, который может изменить транспорт или состояние барьера. Системный яд сам по себе не равен проникновению в мозг; он становится значимым только через объясненный механизм.</li>
-          <li><b>Практическая ценность:</b> контур не обязан выигрывать у сильной ML-модели на каждой простой молекуле. Его задача - уменьшать ложные обновления, показывать, где данных недостаточно, и предлагать следующий опыт.</li>
+          <li><b>Практическая ценность:</b> контур не обязан выигрывать у сильной ML-модели на каждой простой молекуле. Его задача — уменьшать число ложных обновлений, показывать, где данных не хватает, и предлагать следующий опыт.</li>
         </ul>
       </div>
 
@@ -686,10 +700,10 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
   <div class="cv-sec">
     <div class="cv-sec-t">// ближайший фокус</div>
     <ul class="cv-focus" lang="ru">
-      <li><b>Внешняя валидация</b> - ChEMBL feasibility pilot собран (60 соединений, 74 измерения, 148 reviewer-решений); Part A подготовлена как fail-closed handoff на 613 структур без меток; дальше независимый хранитель и confirmatory когорта n≥200 (≥60 на класс).</li>
-      <li><b>Критерий успеха</b> - заранее зафиксировать, где контур обязан снижать ошибки: ложные обновления, воздержание, объяснение расхождений, качество рекомендации следующего опыта.</li>
-      <li><b>Патентная формулировка</b> - «метод снижения ошибок при оценке проницаемости ГЭБ за счет контекстно-совместимого обновления данных», а не «нейросеть для ГЭБ».</li>
-      <li><b>Научрук</b> - показать не обещание готового продукта, а воспроизводимый механизм, честные ограничения и план проверки.</li>
+      <li><b>Внешняя валидация</b> — ChEMBL feasibility pilot собран (60 соединений, 74 измерения, 148 reviewer-решений); Part A подготовлена как fail-closed handoff на 613 структур без меток; дальше независимый хранитель и confirmatory когорта n≥200 (≥60 на класс).</li>
+      <li><b>Критерий успеха</b> — заранее зафиксировать, где контур обязан снижать ошибки: ложные обновления, воздержание, объяснение расхождений, качество рекомендации следующего опыта.</li>
+      <li><b>Патентная формулировка</b> — «метод снижения ошибок при оценке проницаемости ГЭБ за счёт контекстно-совместимого обновления данных», а не «нейросеть для ГЭБ».</li>
+      <li><b>Научрук</b> — показать не обещание готового продукта, а воспроизводимый механизм, честные ограничения и план проверки.</li>
     </ul>
   </div>
 
@@ -697,7 +711,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
     <div class="cv-sec-t">// перейти</div>
     <div class="cv-nav">
       <button onclick="activateTab('roadmap')">→ Roadmap · что делать по шагам</button>
-      <button onclick="activateTab('vector')">→ Vector · научное ядро и монетизация</button>
+      <button onclick="activateTab('vector')">→ Vector · мой вектор развития (CV)</button>
       <button onclick="activateTab('skills')">→ Skills · что держать и добрать</button>
       <button onclick="activateTab('notes')">→ Notes · источники и шаблоны</button>
     </div>
@@ -718,7 +732,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
     <div class="grid">
       <div class="card done" id="y1a" data-c="science" onclick="tog(this)"><span class="c-chk">✓</span><span class="c-cat cat-science">ТЕМА</span><div class="c-title">Оставить центр проекта в ГЭБ</div><div class="c-desc">Не уходить в общий ADMET, большой готовый продукт или декоративную нейросводку. Всё новое допускается только если помогает вопросу: как данные меняют вывод о прохождении через ГЭБ.</div></div>
       <div class="card" id="y1b" data-c="career" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-career">НАУЧРУК</span><div class="c-title">Согласовать новую методику с руководителем</div><div class="c-desc">Показать одну страницу: что уже есть, почему старый предсказатель не является новизной, где новизна контура и какой следующий проверяемый шаг.</div></div>
-      <div class="card" id="y1c" data-c="study" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-study">УЧЕБА</span><div class="c-title">Закрыть академические хвосты</div><div class="c-desc">Для ординатуры/аспирантуры проект не компенсирует разваленную учебную базу. Минимальная цель - ровный учебный статус без долгов и понятный график.</div></div>
+      <div class="card" id="y1c" data-c="study" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-study">УЧЕБА</span><div class="c-title">Закрыть академические хвосты</div><div class="c-desc">Для ординатуры/аспирантуры проект не компенсирует разваленную учебную базу. Минимальная цель — ровный учебный статус без долгов и понятный график.</div></div>
       <div class="card" id="y1d" data-c="science" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-science">ПИЛОТ</span><div class="c-title">Собрать 5 verified источников</div><div class="c-desc">Не 30 молекул сразу. Нужны 5 чистых примеров: P-gp/efflux, Kp,uu или свободная фракция, PAMPA/MDCK/Caco-2, hERG-only контроль, один конфликтный случай.</div></div>
       <div class="card" id="y1e" data-c="skills" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-skills">СИСТЕМА</span><div class="c-title">Настроить Obsidian + Zotero под проект</div><div class="c-desc">Каждая статья должна превращаться в паспорт источника: endpoint, assay_key, block, что можно обновлять, что нельзя, следующий опыт.</div></div>
       <div class="card" id="y1f" data-c="science" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-science">ТЕРМИНАЛ</span><div class="c-title">Сохранить проект CLI-first</div><div class="c-desc">До согласования темы не строить приложение. Достаточно команды, отчета и таблицы, которые можно воспроизвести перед руководителем.</div></div>
@@ -733,7 +747,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
       <div class="card" id="y2c" data-c="vis" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-vis">ВЫСТУПЛЕНИЕ</span><div class="c-title">Подготовить студенческий доклад или постер</div><div class="c-desc">Не обязательно публикация сразу. Нужна тренировка научной речи: проблема, метод, данные, ограничение, следующий шаг.</div></div>
       <div class="card" id="y2d" data-c="career" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-career">КОНТАКТЫ</span><div class="c-title">Найти 2-3 кафедры/лаборатории по теме</div><div class="c-desc">Клиническая фармакология, фармакология, токсикология, неврология, нейронауки. Смотри не бренд, а где ГЭБ и CNS PK реально понятны.</div></div>
       <div class="card" id="y2e" data-c="skills" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-skills">НАВЫКИ</span><div class="c-title">Закрыть базу CNS PK и статистики</div><div class="c-desc">Kp,uu, свободная фракция, переносчики, доверительные интервалы, малые выборки, простое байесовское обновление внутри совместимого блока.</div></div>
-      <div class="card" id="y2f" data-c="career" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-career">ПАТЕНТ</span><div class="c-title">Патентный вопрос держать как развилку</div><div class="c-desc">Не обещать заявку до данных. Если 10-12 verified молекул дают чистый эффект - обновить поиск и идти к специалисту. Если нет - оставить как научную методику.</div></div>
+      <div class="card" id="y2f" data-c="career" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-career">ПАТЕНТ</span><div class="c-title">Патентный вопрос держать как развилку</div><div class="c-desc">Не обещать заявку до данных. Если 10-12 verified молекул дают чистый эффект — обновить поиск и идти к специалисту. Если нет — оставить как научную методику.</div></div>
     </div>
   </div>
 
@@ -741,7 +755,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
     <div class="yr-hdr"><div class="yr-lbl">За 12-18 месяцев до поступления</div><div class="yr-bar"><div class="yr-fill" id="yf3"></div></div><div class="yr-pct" id="yp3">0/6</div></div>
     <div class="grid">
       <div class="card" id="y3a" data-c="career" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-career">ВЫБОР</span><div class="c-title">Развести две траектории: ординатура и аспирантура</div><div class="c-desc">Ординатура требует клинической логики и экзамена. Аспирантура требует руководителя, темы, публикационной перспективы и методической самостоятельности.</div></div>
-      <div class="card" id="y3b" data-c="study" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-study">ОРДИНАТУРА</span><div class="c-title">Выбрать специальность, где проект не мешает клинике</div><div class="c-desc">Проверить фармакологию, клиническую фармакологию, неврологию, психиатрию, токсикологию. Критерий - можно ли объяснить, зачем врачу ГЭБ-Контур.</div></div>
+      <div class="card" id="y3b" data-c="study" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-study">ОРДИНАТУРА</span><div class="c-title">Выбрать специальность, где проект не мешает клинике</div><div class="c-desc">Проверить фармакологию, клиническую фармакологию, неврологию, психиатрию, токсикологию. Критерий — можно ли объяснить, зачем врачу ГЭБ-Контур.</div></div>
       <div class="card" id="y3c" data-c="science" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-science">АСПИРАНТУРА</span><div class="c-title">Собрать research proposal на 1-2 страницы</div><div class="c-desc">Тема, гипотеза, метод, датасет, ожидаемый результат, риски. Не писать «создать нейросеть», писать «снизить ошибки интерпретации данных о ГЭБ».</div></div>
       <div class="card" id="y3d" data-c="vis" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-vis">ПОРТФОЛИО</span><div class="c-title">Собрать пакет проекта</div><div class="c-desc">README, supervisor summary, 1 схема, 1 таблица verified данных, команда воспроизведения, честные ограничения. Это пригодится и для руководителя, и для комиссии.</div></div>
       <div class="card" id="y3e" data-c="career" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-career">РЕКОМЕНДАЦИИ</span><div class="c-title">Заранее сформировать круг людей, которые знают твою работу</div><div class="c-desc">Научрук, преподаватель фармакологии/неврологии, человек по данным или биоинформатике. Рекомендация сильнее, когда человек видел процесс, а не итоговый сайт.</div></div>
@@ -752,7 +766,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
   <div id="ys4">
     <div class="yr-hdr"><div class="yr-lbl">Последние 3-6 месяцев перед подачей</div><div class="yr-bar"><div class="yr-fill" id="yf4"></div></div><div class="yr-pct" id="yp4">0/6</div></div>
     <div class="grid">
-      <div class="card" id="y4a" data-c="study" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-study">ДОКУМЕНТЫ</span><div class="c-title">Собрать требования конкретных мест</div><div class="c-desc">Экзамены, портфолио, публикации, рекомендации, сроки, формат собеседования. Не держать это в голове - завести таблицу.</div></div>
+      <div class="card" id="y4a" data-c="study" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-study">ДОКУМЕНТЫ</span><div class="c-title">Собрать требования конкретных мест</div><div class="c-desc">Экзамены, портфолио, публикации, рекомендации, сроки, формат собеседования. Не держать это в голове — завести таблицу.</div></div>
       <div class="card" id="y4b" data-c="science" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-science">ПАКЕТ</span><div class="c-title">Сжать проект до понятного рассказа на 3 минуты</div><div class="c-desc">Проблема: данные о ГЭБ нельзя смешивать вслепую. Решение: контур совместимости. Результат: меньше ложных обновлений и понятный следующий опыт.</div></div>
       <div class="card" id="y4c" data-c="vis" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-vis">САЙТ</span><div class="c-title">Оформить сайт только как витрину</div><div class="c-desc">На первом экране не должно быть стены параметров. Только краткий вывод, доказательный след, схема, ссылка на отчет и репозиторий.</div></div>
       <div class="card" id="y4d" data-c="career" onclick="tog(this)"><span class="c-chk">○</span><span class="c-cat cat-career">СОБЕСЕДОВАНИЕ</span><div class="c-title">Подготовить ответы на слабые места</div><div class="c-desc">Почему не просто BBB-predictor? Почему нет клинической валидации? Где патентный риск? Почему проект полезен врачу или аспиранту?</div></div>
@@ -787,38 +801,33 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 <div id="vector" class="tab-s" lang="ru">
   <div class="vector-board">
     <div class="vec-intro">
-      Научное ядро проекта и его вектор. Блок-схемы убраны — здесь текстовая версия: сначала реальная научная цель и проверенная доказательная база In Silico BBB, затем внешняя валидация в работе, и отдельно метод ГЭБ-Контур как параллельный вектор (контекстно-совместимое обновление). Подробные выкладки — в governance-файле цели и в отчётах.
+      Личный вектор развития — как часть CV. Не список достижений, а направление: кем я становлюсь на стыке медицины, вычислительной биологии и честной методологии, и какой ближайший шаг это направление подтверждает. In Silico BBB здесь не самоцель, а инструмент, который делает вектор проверяемым.
     </div>
 
-    <div class="vec-lane">1. Научная цель (что реально проверяется)</div>
-    <div class="vstep"><div class="vstep-n">Q</div><div class="vstep-b"><div class="vstep-t">Переносимость неизменённой selective policy</div><div class="vstep-s">Главный вопрос: сохраняется ли снижение риска у замороженного правила <b>predict / abstain</b> (ISBBB-SELECTIVE-001) при переходе от внутренней временной когорты к независимо курируемым внешним данным. Не «ещё один BBB-классификатор».</div></div></div>
-    <div class="vstep out"><div class="vstep-n">H</div><div class="vstep-b"><div class="vstep-t">Гипотеза (preregistered gate)</div><div class="vstep-s">На content-locked внешней когорте верхняя граница 95% clustered-bootstrap CI разности selective − full risk ниже нуля при coverage ≥ 0,50 и classwise acceptance ≥ 0,30. Confirmatory только при n ≥ 200 и ≥ 60 на класс.</div></div></div>
+    <div class="vec-lane">1. Кто я и в чём сила</div>
+    <div class="vstep out"><div class="vstep-n">▸</div><div class="vstep-b"><div class="vstep-t">Врач с вычислительным уклоном</div><div class="vstep-s">Медицинская база и самостоятельно собранная платформа для скрининга проникновения через ГЭБ. Понимаю и клинический контекст, и код, ML и статистику под ним — такое сочетание встречается редко.</div></div></div>
+    <div class="vstep out"><div class="vstep-n">▸</div><div class="vstep-b"><div class="vstep-t">Чем отличаюсь</div><div class="vstep-s">Не «ещё один, кто называет всё нейросетью». Сильная сторона — честная методология: разделять endpoints, показывать неопределённость, сохранять отрицательный результат. Это ценят и научрук, и приёмная комиссия.</div></div></div>
 
-    <div class="vec-lane">2. Проверенная база (retrospective, внутри B3DB)</div>
-    <div class="vstep out"><div class="vstep-n">✓</div><div class="vstep-b"><div class="vstep-t">Temporal B3DB · n = 1&nbsp;580</div><div class="vstep-s">Frozen selective policy: coverage 60,76% · selective risk 9,27% против 22,09% при полном покрытии · accepted accuracy 90,73%.</div></div></div>
-    <div class="vstep out"><div class="vstep-n">✓</div><div class="vstep-b"><div class="vstep-t">Risk difference −0,1282</div><div class="vstep-s">Scaffold-clustered bootstrap, 95% CI [−0,1497; −0,1084]. Это ретроспективное evidence: обосновывает проверку, но не заменяет внешнее подтверждение.</div></div></div>
-    <div class="vstep cond"><div class="vstep-n">±</div><div class="vstep-b"><div class="vstep-t">Честные ограничения</div><div class="vstep-s">Выявлен undercoverage для BBB+ Mondrian-наборов. Отрицательные frozen benchmarks ChemBERTa и EAMR-Net не продвинуты над shipped ExtraTrees. Live assertion check: 82/82.</div></div></div>
+    <div class="vec-lane">2. Две траектории (ветвь выбираю позже)</div>
+    <div class="vstep cond"><div class="vstep-n">A</div><div class="vstep-b"><div class="vstep-t">Ординатура · клинический путь</div><div class="vstep-s">Клиническая фармакология, неврология, психиатрия или токсикология. Проект работает как аргумент: умею связать ГЭБ, CNS-препараты и данные с реальной практикой.</div></div></div>
+    <div class="vstep cond"><div class="vstep-n">B</div><div class="vstep-b"><div class="vstep-t">Аспирантура · исследовательский путь</div><div class="vstep-s">Вычислительная биология, CNS PK, хемоинформатика. Проект работает как research proposal: тема, гипотеза, метод, данные, честные ограничения.</div></div></div>
+    <div class="vstep"><div class="vstep-n">=</div><div class="vstep-b"><div class="vstep-t">Общее ядро обеих веток</div><div class="vstep-s">In Silico BBB как воспроизводимый актив, язык CNS PK (Kp,uu, переносчики, свободная фракция) и навык доводить одну работу до ясной формы. Держу обе двери открытыми, пока не выбрана специальность.</div></div></div>
 
-    <div class="vec-lane">3. Внешняя валидация (в работе, fail-closed)</div>
-    <div class="vstep cond"><div class="vstep-n">1</div><div class="vstep-b"><div class="vstep-t">ChEMBL feasibility pilot</div><div class="vstep-s">60 соединений · 74 измерения · 148 независимых reviewer-решений (2 рецензента). Это feasibility, а не confirmatory: пул уже видела release-модель.</div></div></div>
-    <div class="vstep stop"><div class="vstep-n">2</div><div class="vstep-b"><div class="vstep-t">Part A · handoff хранителю</div><div class="vstep-s">613 внешних структур-подсказок без меток, чистых от пересечения с B3DB+Martins. Пакет заблокирован (meets_threshold=false): нет курированных y_true. Разрыв закрывается людьми, не кодом.</div></div></div>
-    <div class="vstep"><div class="vstep-n">3</div><div class="vstep-b"><div class="vstep-t">Confirmatory cohort (условие)</div><div class="vstep-s">Новый источник или скрытый до lock снимок ≥ 200 структур, ≥ 60 на класс, два review, adjudication, SHA-256 lock. Только после этого — однократный запуск.</div></div></div>
+    <div class="vec-lane">3. Оси роста · где я сейчас → следующий шаг</div>
+    <div class="vstep"><div class="vstep-n">→</div><div class="vstep-b"><div class="vstep-t">Научная</div><div class="vstep-s">Есть воспроизводимая платформа и evidence-реестр. Дальше — один защищаемый вывод и внешняя валидация вместо новых фич.</div></div></div>
+    <div class="vstep"><div class="vstep-n">→</div><div class="vstep-b"><div class="vstep-t">Клиническая</div><div class="vstep-s">База есть. Дальше — уверенно объяснять, зачем врачу ГЭБ, токсикология и CNS-экспозиция, на языке практики.</div></div></div>
+    <div class="vstep"><div class="vstep-n">→</div><div class="vstep-b"><div class="vstep-t">Инженерная</div><div class="vstep-s">Python, CLI, pytest, RDKit — рабочий уровень. Дальше — строгие схемы данных и мини-отчёты, которые воспроизводит любой.</div></div></div>
+    <div class="vstep"><div class="vstep-n">→</div><div class="vstep-b"><div class="vstep-t">Коммуникация</div><div class="vstep-s">Дальше — письмо научруку, постер или доклад и рассказ проекта за 3 минуты без overclaim.</div></div></div>
 
-    <div class="vec-lane">4. Метод ГЭБ-Контур (параллельный вектор / патентная формулировка)</div>
-    <div class="vstep"><div class="vstep-n">→</div><div class="vstep-b"><div class="vstep-t">Вход и паспорт</div><div class="vstep-s">SMILES → первичный прогноз In Silico BBB → источник получает паспорт: endpoint, ключ опыта, единицы, проверенность, блок совместимости.</div></div></div>
-    <div class="vstep cond"><div class="vstep-n">→</div><div class="vstep-b"><div class="vstep-t">Матрица совместимости</div><div class="vstep-s">Прямо (PAMPA → пассивный вход; Kp,uu → ЦНС-ФК), условно (токсикология/среда только через объяснённый мост), запрет (несовместимо — хранить, не обновлять).</div></div></div>
-    <div class="vstep out"><div class="vstep-n">→</div><div class="vstep-b"><div class="vstep-t">Ограниченное обновление и разбор</div><div class="vstep-s">Обновлять только свой блок, не весь итог; ложные hERG→brain обновления = 0 by design. Разбор расхождений (эффлюкс, связывание, метод) → рекомендация следующего опыта.</div></div></div>
-    <div class="vstep stop"><div class="vstep-n">→</div><div class="vstep-b"><div class="vstep-t">Финальная развилка</div><div class="vstep-s">Проходит / не проходит / неопределённо / отказ (воздержание) / следующий опыт. Контур не обязан выигрывать у сильной ML-модели — его задача уменьшать ложные обновления.</div></div></div>
-
-    <div class="vec-lane">5. Выходы проекта</div>
+    <div class="vec-lane">4. Горизонт 12–18 месяцев</div>
     <div class="prs">
-      <div class="pr"><div class="pr-n">воспроизводимость</div>Терминал / JSON / Markdown-отчёт, зафиксированный commit и manifest</div>
-      <div class="pr"><div class="pr-n">наука</div>Основная статья + supplement (JCAMD), отчёт руководителю с одним главным claim</div>
-      <div class="pr"><div class="pr-n">витрина</div>Сайт — только после ядра, как витрина итогов, а не стена параметров</div>
-      <div class="pr"><div class="pr-n">патент</div>Конфиденциальная параллельная гипотеза; не входит в критерий научного успеха</div>
+      <div class="pr"><div class="pr-n">актив</div>Verified pilot и короткий воспроизводимый отчёт, который не стыдно показать</div>
+      <div class="pr"><div class="pr-n">люди</div>Научрук и 2–3 кафедры или лаборатории, где ГЭБ и CNS PK реально понимают</div>
+      <div class="pr"><div class="pr-n">пакет</div>Research proposal или клиническая связка плюс рекомендации от тех, кто видел процесс</div>
+      <div class="pr"><div class="pr-n">выбор</div>Осознанное решение — ординатура или аспирантура, с запасным маршрутом и без паники</div>
     </div>
 
-    <div class="flow-note" style="font-size:10px;color:var(--dim);line-height:1.55;margin-top:14px;border-left:2px solid var(--border-l);padding-left:10px">Полная версия целей и задач — в <b>governance/SCIENTIFIC_GOAL_SEPTEMBER_2026.md</b>; числа берутся из машинно-читаемых отчётов и реестра доказательств.</div>
+    <div class="flow-note" style="font-size:10px;color:var(--dim);line-height:1.55;margin-top:14px;border-left:2px solid var(--border-l);padding-left:10px">Шаги по датам — во вкладке Roadmap, навыки под это — в Skills, источники и чтение — в Notes. Vector держит общее направление, чтобы вкладки не расходились.</div>
   </div>
 </div>
 
@@ -826,7 +835,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 <div id="outreach" class="tab-s" lang="ru">
 
   <div class="or-intro">
-    Воронка общения теперь не про поступление, а про доказательную опору проекта: научный руководитель, эксперт по ГЭБ/CNS PK, патентная консультация, возможная лаборатория и будущая публикация. Каждый контакт должен отвечать на один вопрос: что он усиливает в методе и какую проверку помогает закрыть.
+    Воронка общения — про доказательную опору проекта, а не про поступление: научный руководитель, эксперт по ГЭБ/CNS PK, патентная консультация, возможная лаборатория, будущая публикация. От каждого контакта нужен ответ на один вопрос: что он усиливает в методе и какую проверку помогает закрыть.
   </div>
 
   <div class="or-funnel" id="or-funnel"></div>
@@ -840,7 +849,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 
   <div class="or-count" id="or-count"></div>
   <div id="or-list"></div>
-  <div class="or-empty" id="or-empty" style="display:none">ничего нет - добавь научрука, эксперта, патентного консультанта или лабораторию ниже</div>
+  <div class="or-empty" id="or-empty" style="display:none">ничего нет — добавь научрука, эксперта, патентного консультанта или лабораторию ниже</div>
 
   <div class="addwrap">
     <button class="add-toggle" onclick="toggleAdd('or')" aria-expanded="false">＋ добавить контакт / направление</button>
@@ -879,7 +888,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
   <div class="addwrap">
     <button class="add-toggle" onclick="toggleAdd('dl')" aria-expanded="false">＋ добавить дедлайн</button>
     <div class="add-form" id="add-dl" hidden>
-      <input class="m-inp" id="dl-title" type="text" placeholder="Что - например: проверенный пилот · 5 источников с DOI/PMID" style="margin-bottom:9px" maxlength="160">
+      <input class="m-inp" id="dl-title" type="text" placeholder="Что — например: проверенный пилот · 5 источников с DOI/PMID" style="margin-bottom:9px" maxlength="160">
       <div class="af-row"><select id="dl-kind" aria-label="Тип"><option value="program">проектный этап</option><option value="conf">письмо / встреча</option><option value="exam">проверка данных</option><option value="personal">личное</option><option value="other">другое</option></select><input class="m-inp" id="dl-date" type="date" aria-label="Дата дедлайна"></div>
       <input class="m-inp" id="dl-date-txt" type="text" placeholder="или впиши дату текстом: 15 июля 2026 · July 15, 2026 · 15.07.2026" oninput="dlParseInput()" onkeydown="if(event.key==='Enter'){event.preventDefault();addDeadline()}" aria-label="Дата текстом" style="margin-top:9px">
       <div class="dl-parse-hint" id="dl-parse-hint"></div>
@@ -900,10 +909,11 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
     <button class="sk-chip cf-have" data-f="bh" onclick="skFilter(this)" aria-pressed="false"><b>✓</b> есть</button>
     <button class="sk-chip cf-cond" data-f="bc" onclick="skFilter(this)" aria-pressed="false"><b>~</b> укрепить</button>
   </div>
-  <div class="sk-hint">Эта вкладка - не список фич, а учебная карта: какие навыки нужны для проекта, поступления и разговора с руководителем. Источники вынесены отдельными карточками ниже.</div>
+  <div class="sk-summary" id="sk-summary"></div>
+  <div class="sk-hint">Эта вкладка — не список фич, а учебная карта: какие навыки нужны для проекта, поступления и разговора с руководителем. Источники вынесены в отдельные карточки ниже.</div>
 
   <div class="sk-search"><input id="sk-q" type="text" placeholder="Поиск навыка: Kp,uu, ГЭБ, патенты, Obsidian..." oninput="skSearch()" aria-label="Поиск навыка"><span class="sk-clear" onclick="skClear()" title="Очистить" role="button" tabindex="0" aria-label="Очистить поиск" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();skClear()}">×</span></div>
-  <div class="sk-count" id="sk-count"></div><div class="sk-empty" id="sk-empty" style="display:none">ничего не найдено - попробуй другой запрос</div>
+  <div class="sk-count" id="sk-count"></div><div class="sk-empty" id="sk-empty" style="display:none">ничего не найдено — попробуй другой запрос</div>
 
   <div class="dom">
     <div class="dom-t">ГЭБ и CNS PK</div>
@@ -949,11 +959,13 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
     <div class="dest hi"><div class="dest-t">Kp,uu и CNS PK</div><div class="dest-s">Hammarlund-Udenaes / Kp,uu papers; статьи про unbound brain-to-plasma partition coefficient; Gabrielsson & Weiner для PK/PD языка.</div></div>
     <div class="dest med"><div class="dest-t">Фармакология и токсикология</div><div class="dest-s">Goodman & Gilman выборочно как справочник; Stahl для психофармакологии; hERG/DILI читать только как контекст, не как центр проекта.</div></div>
     <div class="dest med"><div class="dest-t">Статистика</div><div class="dest-s">McElreath Statistical Rethinking: главы 1-8 для вероятностного мышления, потом только нужные главы для моделей.</div></div>
-    <div class="dest lo"><div class="dest-t">Код</div><div class="dest-s">RDKit Getting Started, pandas docs, pytest docs, существующие тесты проекта. Цель - не выучить всё, а уверенно вести датасет и отчеты.</div></div>
+    <div class="dest lo"><div class="dest-t">Код</div><div class="dest-s">RDKit Getting Started, pandas docs, pytest docs, существующие тесты проекта. Цель — не выучить всё, а уверенно вести датасет и отчеты.</div></div>
     <div class="dest lo"><div class="dest-t">Патенты и научное письмо</div><div class="dest-s">Google Patents, Espacenet/WIPO для поиска; Mensh & Kording для структуры статьи; собственные patent review файлы как рабочая карта рисков.</div></div>
   </div>
 
   <div class="dom" id="mydom" hidden><div class="dom-t">Мои навыки</div><div id="mydom-list"></div></div>
+
+  <div class="rdr-tools"><div class="rdr-tools-lbl">// экспорт для CV</div><div class="rdr-export-row"><button class="bk-btn" type="button" onclick="exportSkills()">↓ Навыки (.md) · для CV и портфолио</button></div></div>
 
   <div class="addwrap"><button class="add-toggle" onclick="toggleAdd('sk')" aria-expanded="false">＋ добавить свой навык</button><div class="add-form" id="add-sk" hidden><div class="af-row"><select id="sk-badge" aria-label="Статус навыка"><option value="ba">+ учить</option><option value="bh">✓ есть</option><option value="bc">~ укрепить</option></select><input class="m-inp" id="sk-title" type="text" placeholder="Название навыка..." maxlength="90" style="flex:2.2"></div><textarea id="sk-note" placeholder="Зачем нужен именно для проекта или поступления..."></textarea><input class="m-inp" id="sk-res" type="text" placeholder="Источник, книга, курс или ближайшая практика..." maxlength="130"><div class="af-actions"><button class="af-btn save" onclick="addSkill()">добавить</button><button class="af-btn ghost" onclick="toggleAdd('sk')">отмена</button></div></div></div>
 
@@ -998,10 +1010,12 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
     <div class="rdr-filters" role="group" aria-label="Фильтр по статусу"><button class="rdr-chip active" data-rf="all" onclick="rdrFilter(this)" aria-pressed="true">все</button><button class="rdr-chip" data-rf="plan" onclick="rdrFilter(this)" aria-pressed="false">план</button><button class="rdr-chip" data-rf="reading" onclick="rdrFilter(this)" aria-pressed="false">читаю</button><button class="rdr-chip" data-rf="done" onclick="rdrFilter(this)" aria-pressed="false">законспектировано</button></div>
 
     <select id="rdr-tag-f" onchange="renderRdr()" aria-label="Фильтр по теме" style="margin-bottom:10px"><option value="all">все темы</option><option value="ГЭБ">ГЭБ</option><option value="CNS PK">CNS PK / Kp,uu</option><option value="Переносчики">переносчики</option><option value="Фармакология">фармакология</option><option value="Статистика">статистика</option><option value="Код">код</option><option value="Патенты">патенты</option><option value="Письмо">письмо / статья</option></select>
+    <select id="rdr-sort" onchange="renderRdr()" aria-label="Сортировка" style="margin-bottom:10px"><option value="added">новые сверху</option><option value="status">по статусу</option><option value="tag">по теме</option><option value="title">по алфавиту</option></select>
+    <div class="rdr-stats" id="rdr-stats"></div>
 
     <div class="rdr-pace" id="rdr-pace"></div><div class="rdr-count" id="rdr-count"></div><div id="rdr-list"></div><div id="rdr-empty" style="font-size:11px;color:var(--faint);padding:8px 0;display:none">ничего не найдено</div>
 
-    <div class="addwrap"><button class="add-toggle" onclick="toggleAdd('rdr')" aria-expanded="false">＋ добавить книгу / статью / патент</button><div class="add-form" id="add-rdr" hidden><input class="m-inp" id="rdr-title" type="text" placeholder="Автор год · название · DOI/PMID если есть" style="margin-bottom:9px" maxlength="200"><div class="af-row"><select id="rdr-status" aria-label="Статус"><option value="plan">план</option><option value="reading">читаю</option><option value="done">законспектировано</option></select><select id="rdr-tag" aria-label="Тема"><option value="ГЭБ">ГЭБ</option><option value="CNS PK">CNS PK / Kp,uu</option><option value="Переносчики">переносчики</option><option value="Фармакология">фармакология</option><option value="Статистика">статистика</option><option value="Код">код</option><option value="Патенты">патенты</option><option value="Письмо">письмо / статья</option></select></div><textarea id="rdr-note" placeholder="Зачем читать; какой блок проекта закрывает; что нужно вынести в Obsidian..." style="margin-top:9px;min-height:56px"></textarea><div class="af-actions" style="margin-top:9px"><button class="af-btn save" onclick="addPaper()">добавить</button><button class="af-btn ghost" onclick="toggleAdd('rdr')">отмена</button></div></div></div>
+    <div class="addwrap"><button class="add-toggle" onclick="toggleAdd('rdr')" aria-expanded="false">＋ добавить книгу / статью / патент</button><div class="add-form" id="add-rdr" hidden><input class="m-inp" id="rdr-title" type="text" placeholder="Автор год · название · DOI/PMID если есть" style="margin-bottom:9px" maxlength="200"><div class="af-row"><select id="rdr-status" aria-label="Статус"><option value="plan">план</option><option value="reading">читаю</option><option value="done">законспектировано</option></select><select id="rdr-tag" aria-label="Тема"><option value="ГЭБ">ГЭБ</option><option value="CNS PK">CNS PK / Kp,uu</option><option value="Переносчики">переносчики</option><option value="Фармакология">фармакология</option><option value="Статистика">статистика</option><option value="Код">код</option><option value="Патенты">патенты</option><option value="Письмо">письмо / статья</option></select></div><input class="m-inp" id="rdr-link" type="url" placeholder="ссылка / DOI (необязательно)" maxlength="300" style="margin-top:9px"><textarea id="rdr-note" placeholder="Зачем читать; какой блок проекта закрывает; что нужно вынести в Obsidian..." style="margin-top:9px;min-height:56px"></textarea><div class="af-actions" style="margin-top:9px"><button class="af-btn save" onclick="addPaper()">добавить</button><button class="af-btn ghost" onclick="toggleAdd('rdr')">отмена</button></div></div></div>
 
     <div class="rdr-tools"><div class="rdr-tools-lbl">// быстрый поиск по теме</div><div class="rdr-search-row" id="rdr-search-row"></div><div class="rdr-tools-lbl" style="margin-top:14px">// экспорт библиотеки</div><div class="rdr-export-row"><button class="bk-btn" type="button" onclick="exportObsidianMOC()">↓ Obsidian MOC (.md)</button><button class="bk-btn" type="button" onclick="exportBibTeX()">↓ BibTeX (.bib) · Zotero</button></div></div>
   </div>
@@ -1297,6 +1311,22 @@ function skUpdateCounts(){
   const done=all.filter(s=>s.classList.contains('ok')).length;
   const c=document.getElementById('sk-count');
   if(c)c.textContent='изучено '+done+' из '+all.length;
+  // status tallies (learn / have / strengthen) across every skill, incl. custom
+  const tally={ba:0,bh:0,bc:0};
+  all.forEach(s=>{const b=s.querySelector('.skb');if(!b)return;if(b.classList.contains('ba'))tally.ba++;else if(b.classList.contains('bh'))tally.bh++;else if(b.classList.contains('bc'))tally.bc++;});
+  const chipN={all:all.length,ba:tally.ba,bh:tally.bh,bc:tally.bc};
+  document.querySelectorAll('.sk-chip').forEach(ch=>{
+    const f=ch.dataset.f;let n=ch.querySelector('.chip-n');
+    if(!n){n=document.createElement('span');n.className='chip-n';ch.appendChild(n);}
+    n.textContent=(chipN[f]!==undefined?chipN[f]:0);
+  });
+  const box=document.getElementById('sk-summary');
+  if(box){
+    const pct=all.length?Math.round(done/all.length*100):0,full=pct===100&&all.length;
+    box.innerHTML='<div class="sk-summary-pct'+(full?' full':'')+'">'+pct+'%</div>'+
+      '<div class="sk-summary-r"><div class="sk-summary-bar"><div class="sk-summary-bar-fill" style="width:'+pct+'%"></div></div>'+
+      '<div class="sk-summary-sub">освоено <b>'+done+'</b> из '+all.length+' · <b>+'+tally.ba+'</b> учить · <b>~'+tally.bc+'</b> укрепить · <b>✓'+tally.bh+'</b> есть</div></div>';
+  }
 }
 
 function skSearch(){
@@ -1329,6 +1359,32 @@ function skFilter(btn){
 }
 
 function skClear(){const i=document.getElementById('sk-q');i.value='';skSearch();i.focus();}
+
+// Export the whole skill map as Markdown (for CV / portfolio)
+function exportSkills(){
+  const SYM={ba:'учить',bh:'есть',bc:'укрепить'};
+  const doms=[...document.querySelectorAll('#skills .dom')];
+  let md='# Навыки · '+new Date().toISOString().slice(0,10)+'\n\n';
+  let any=false;
+  doms.forEach(d=>{
+    const skills=[...d.querySelectorAll('.sk')];
+    if(!skills.length)return;
+    const name=d.dataset.key||(d.querySelector('.dom-t')?d.querySelector('.dom-t').textContent.trim():'навыки');
+    md+='## '+name+'\n\n';
+    skills.forEach(s=>{
+      const b=s.querySelector('.skb');
+      let st='';if(b){if(b.classList.contains('ba'))st=SYM.ba;else if(b.classList.contains('bh'))st=SYM.bh;else if(b.classList.contains('bc'))st=SYM.bc;}
+      const done=s.classList.contains('ok')?' ✓':'';
+      const tEl=s.querySelector('.sk-t');
+      const title=tEl&&tEl.childNodes[0]?tEl.childNodes[0].textContent.trim():(tEl?tEl.textContent.trim():'');
+      md+='- ['+st+']'+done+' '+title+'\n';
+      any=true;
+    });
+    md+='\n';
+  });
+  if(!any){alert('Навыков пока нет.');return;}
+  downloadText(md,'skills-'+new Date().toISOString().slice(0,10)+'.md','text/markdown');
+}
 
 // Notes textarea
 function sv(id){try{localStorage.setItem('ta_'+id,document.getElementById(id).value)}catch(e){}}
@@ -1706,6 +1762,7 @@ added: ${p.added}
 // ===== READING TRACKER =====
 const RDR_LABELS = {plan:'план', reading:'читаю', done:'законспектировано'};
 const RDR_NEXT   = {plan:'reading', reading:'done', done:'plan'};
+const RDR_TAGS   = ['ГЭБ','CNS PK','Переносчики','Фармакология','Статистика','Код','Патенты','Письмо'];
 let rdrStatusF = 'all';
 
 function getRdr(){try{return JSON.parse(localStorage.getItem('rdr_papers')||'[]')}catch(e){return[]}}
@@ -1728,6 +1785,7 @@ function addPaper(){
     title,
     status:initStatus,
     tag:document.getElementById('rdr-tag').value,
+    link:(document.getElementById('rdr-link')?document.getElementById('rdr-link').value.trim():''),
     note:document.getElementById('rdr-note').value.trim(),
     added:new Date().toISOString().slice(0,10)
   };
@@ -1736,6 +1794,7 @@ function addPaper(){
   setRdr(papers);
   document.getElementById('rdr-title').value='';
   document.getElementById('rdr-note').value='';
+  if(document.getElementById('rdr-link'))document.getElementById('rdr-link').value='';
   renderRdr();toggleAdd('rdr');
 }
 
@@ -1799,7 +1858,8 @@ function downloadText(text,filename,mime){
 function exportObsidianMOC(){
   const papers=getRdr();
   if(!papers.length){alert('Библиотека пуста.');return;}
-  const tags=['BBB','PK/PD','QSP','Нейро','ML','Психиатрия','Учебник','Другое'];
+  const tags=RDR_TAGS.slice();
+  papers.forEach(p=>{if(p.tag&&tags.indexOf(p.tag)<0)tags.push(p.tag);});
   let md='# ГЭБ-Контур · карта чтения\n\n';
   tags.forEach(tag=>{
     const items=papers.filter(p=>p.tag===tag);
@@ -1809,6 +1869,7 @@ function exportObsidianMOC(){
       const box=p.status==='done'?'[x]':'[ ]';
       const statusTxt=p.status==='reading'?' (читаю)':'';
       md+=`- ${box} [[${p.title}]]${statusTxt}\n`;
+      if(p.link)md+=`  - ${p.link}\n`;
       if(p.note)md+=`  - ${p.note}\n`;
     });
     md+='\n';
@@ -1824,9 +1885,21 @@ function exportBibTeX(){
     const key='l2t_'+p.id;
     const title=bibEsc(p.title);
     const status=RDR_LABELS[p.status]||p.status;
-    return `@misc{${key},\n  title = {${title}},\n  note = {${p.tag} · ${status} · added ${p.added}},\n  howpublished = {learning2think reading tracker}\n}`;
+    const url=p.link?`,\n  url = {${p.link}}`:'';
+    return `@misc{${key},\n  title = {${title}},\n  note = {${p.tag} · ${status} · added ${p.added}}${url},\n  howpublished = {learning2think reading tracker}\n}`;
   });
   downloadText(entries.join('\n\n'),'learning2think-library-'+new Date().toISOString().slice(0,10)+'.bib','application/x-bibtex');
+}
+
+// Reading library at-a-glance: status counts + per-topic breakdown
+function renderRdrStats(){
+  const el=document.getElementById('rdr-stats');if(!el)return;
+  const papers=getRdr();
+  if(!papers.length){el.innerHTML='';return;}
+  const by=st=>papers.filter(p=>p.status===st).length;
+  let html='<span><b>'+by('plan')+'</b>план</span><span><b>'+by('reading')+'</b>читаю</span><span><b>'+by('done')+'</b>готово</span>';
+  RDR_TAGS.forEach(t=>{const n=papers.filter(p=>p.tag===t).length;if(n)html+='<span>'+esc(t)+' <b>'+n+'</b></span>';});
+  el.innerHTML=html;
 }
 
 function renderRdr(){
@@ -1839,9 +1912,20 @@ function renderRdr(){
   const tagVal=tagEl?tagEl.value:'all';
   if(rdrStatusF!=='all')papers=papers.filter(p=>p.status===rdrStatusF);
   if(tagVal!=='all')papers=papers.filter(p=>p.tag===tagVal);
+  const sortEl=document.getElementById('rdr-sort');
+  const sortVal=sortEl?sortEl.value:'added';
+  const STORD={reading:0,plan:1,done:2};
+  const so=v=>(STORD[v]!==undefined?STORD[v]:9);
+  papers=papers.slice().sort((a,b)=>{
+    if(sortVal==='status')return so(a.status)-so(b.status)||(b.added||'').localeCompare(a.added||'');
+    if(sortVal==='tag')return (a.tag||'').localeCompare(b.tag||'','ru')||(b.added||'').localeCompare(a.added||'');
+    if(sortVal==='title')return (a.title||'').localeCompare(b.title||'','ru');
+    return (b.added||'').localeCompare(a.added||'');   // added: newest first
+  });
   const total=getRdr().length;
   const done=getRdr().filter(p=>p.status==='done').length;
   if(cnt)cnt.textContent=total?('всего '+total+' · прочитал '+done):'';
+  renderRdrStats();
   if(!papers.length){list.innerHTML='';if(empty)empty.style.display='block';return;}
   if(empty)empty.style.display='none';
   list.innerHTML=papers.map(p=>`
@@ -1849,7 +1933,7 @@ function renderRdr(){
       <span class="rdr-stat rdr-s-${p.status}" onclick="cycleStat('${p.id}')" title="Нажми чтобы изменить">${RDR_LABELS[p.status]||p.status}</span>
       <div class="rdr-body">
         <div class="rdr-title${p.status==='done'?' crossed':''}">${esc(p.title)}</div>
-        <div class="rdr-meta">${esc(p.tag)} · ${p.added}</div>
+        <div class="rdr-meta">${esc(p.tag)} · ${p.added}${p.link?` · <a href="${esc(p.link)}" target="_blank" rel="noopener" style="color:var(--vis);text-decoration:none">↗ ссылка</a>`:''}</div>
         ${p.note?`<div class="rdr-note-t">${esc(p.note)}</div>`:''}
       </div>
       <span class="rdr-tpl" onclick="copyTemplate('${p.id}',this)" title="Шаблон Obsidian">📋</span>
@@ -2122,14 +2206,14 @@ function dlFillPreset(key){
 //       then code reproducibility, then communication. -----
 const DL_TASK_TPL={
   program:[
-    'Сразу - записать точный артефакт дедлайна: таблица, отчет, письмо, конспект или код',
-    'Сразу - указать критерий готовности: сколько verified строк, какая команда запускается, какой файл появляется',
-    'До середины срока - проверить источники: DOI/PMID, endpoint, assay_key, block, единицы, method, species/cell line',
-    'До середины срока - прогнать валидацию схемы и убедиться, что нет свободных assay_key',
-    'За несколько дней - запустить сравнительный отчет primary-only / naive / compatible-only / contour',
-    'За несколько дней - выписать честную границу: где контур помогает, где не помогает, какие строки нельзя показывать',
-    'Финал - сохранить команду воспроизведения, путь к отчету и короткий вывод для руководителя',
-    'После - решить go/stop: расширять выборку, менять критерии или остановиться на методическом прототипе'
+    'Сразу — записать точный артефакт дедлайна: таблица, отчет, письмо, конспект или код',
+    'Сразу — указать критерий готовности: сколько verified строк, какая команда запускается, какой файл появляется',
+    'До середины срока — проверить источники: DOI/PMID, endpoint, assay_key, block, единицы, method, species/cell line',
+    'До середины срока — прогнать валидацию схемы и убедиться, что нет свободных assay_key',
+    'За несколько дней — запустить сравнительный отчет primary-only / naive / compatible-only / contour',
+    'За несколько дней — выписать честную границу: где контур помогает, где не помогает, какие строки нельзя показывать',
+    'Финал — сохранить команду воспроизведения, путь к отчету и короткий вывод для руководителя',
+    'После — решить go/stop: расширять выборку, менять критерии или остановиться на методическом прототипе'
   ],
   conf:[
     'За 2–3 мес — выбрать секцию и формат, проверить требования к тезисам и дедлайн',
