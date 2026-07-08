@@ -126,47 +126,18 @@ body{background:var(--bg);color:var(--text);font-family:var(--mono);font-size:13
 .pr-n{color:var(--dim);font-size:9.5px;margin-bottom:2px}
 
 
-/* ===== VISUAL PROJECT FLOWCHART ===== */
-.vector-board{max-width:1180px;margin:0 auto}
-.flow-hint{border:1px solid var(--border);border-left:3px solid var(--science);background:rgba(61,158,87,.045);padding:10px 12px;margin-bottom:14px;font-size:11px;color:var(--dim);line-height:1.5}
-.flow-legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.flow-legend span{font-size:9.5px;color:var(--dim);border:1px solid var(--border);background:var(--bg-card);padding:4px 7px;white-space:nowrap}
-.flow-legend i{display:inline-block;width:8px;height:8px;margin-right:5px;border:1px solid;vertical-align:-1px}
-.flow-legend .core i{background:rgba(61,158,87,.23);border-color:rgba(61,158,87,.55)}
-.flow-legend .cond i{background:rgba(184,146,30,.22);border-color:rgba(184,146,30,.55)}
-.flow-legend .stop i{background:rgba(201,79,79,.18);border-color:rgba(201,79,79,.55)}
-.flow-legend .out i{background:rgba(70,130,180,.2);border-color:rgba(70,130,180,.55)}
-.flow-canvas{overflow-x:auto;border:1px solid var(--border);background:linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(0deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:28px 28px;padding:18px 18px 22px}
-.flow-wide{min-width:980px}
-.flow-row{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:16px;align-items:stretch;margin-bottom:14px}
-.flow-row.five{grid-template-columns:1fr auto 1fr auto 1fr}
-.fbox{position:relative;min-width:0;min-height:62px;border:1px solid var(--border-l);background:var(--bg-card);padding:9px 10px;display:flex;flex-direction:column;justify-content:center;line-height:1.25}
-.fbox.core{border-color:rgba(61,158,87,.55);background:rgba(61,158,87,.06)}
-.fbox.cond{border-color:rgba(184,146,30,.55);background:rgba(184,146,30,.055)}
-.fbox.stop{border-color:rgba(201,79,79,.5);background:rgba(201,79,79,.05)}
-.fbox.out{border-color:rgba(70,130,180,.55);background:rgba(70,130,180,.055)}
-.fbox .k{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:3px}
-.fbox .t{font-size:11.5px;font-weight:600;color:#e4e4e4}
-.fbox .s{font-size:9.5px;color:var(--dim);margin-top:3px}
-.fbox.small{min-height:50px;padding:7px 8px}
-.fbox.small .t{font-size:10.5px}.fbox.small .s{font-size:9px}
-.arrow{color:var(--vis);font-size:15px;text-align:center;opacity:.85;align-self:center}
-.v-arrow{text-align:center;color:var(--vis);font-size:17px;margin:2px 0 12px;line-height:1}
-.diamond{width:110px;height:110px;margin:0 auto;transform:rotate(45deg);border:1px solid rgba(184,146,30,.65);background:rgba(184,146,30,.07);display:flex;align-items:center;justify-content:center}
-.diamond>div{transform:rotate(-45deg);text-align:center;width:86px;line-height:1.25}
-.diamond .t{font-size:11px;font-weight:600;color:#e4e4e4}.diamond .s{font-size:8.8px;color:var(--dim);margin-top:4px}
-.decision-row{display:grid;grid-template-columns:1fr 180px 1fr;gap:20px;align-items:center;margin:18px 0 20px}
-.branch-title{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);text-align:center;margin-bottom:4px}
-.bracket{border:1px dashed var(--border-l);padding:10px;background:rgba(255,255,255,.012)}
-.blocks-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:12px 0 16px}.blocks-grid .fbox{min-height:76px}
-.matrix-flow{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;gap:16px;align-items:center;margin:14px 0}
-.loop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:12px 0 16px}
-.loop{border:1px dashed var(--border-l);background:rgba(255,255,255,.015);padding:10px}.loop-title{font-size:10.5px;font-weight:600;color:#e4e4e4;margin-bottom:7px}
-.loop-chain{display:flex;gap:5px;flex-wrap:wrap;align-items:center}.loop-chain span{font-size:9px;border:1px solid var(--border);background:var(--bg-card);padding:3px 5px;color:var(--dim)}
-.out-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:10px}
-.lane-title{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--border);padding-bottom:5px;margin:18px 0 10px}
-.flow-note{font-size:10px;color:var(--dim);line-height:1.55;margin-top:10px;border-left:2px solid var(--border-l);padding-left:10px}
-@media(max-width:720px){.flow-canvas{padding:12px}.flow-wide{min-width:900px}.flow-hint{font-size:10.5px}}
+/* ===== VECTOR — научный вектор (текстовая версия; блок-схемы удалены) ===== */
+.vector-board{max-width:900px;margin:0 auto}
+.vec-lane{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--border);padding-bottom:5px;margin:22px 0 12px}
+.vec-lane:first-child{margin-top:0}
+.vstep{display:flex;gap:11px;padding:9px 0;border-bottom:1px solid var(--faint);font-size:12px}
+.vstep-n{flex-shrink:0;color:var(--vis);font-weight:600;font-variant-numeric:tabular-nums;min-width:18px}
+.vstep-b{flex:1;min-width:0}
+.vstep-t{font-weight:600;color:#e0e0e0;margin-bottom:2px}
+.vstep-s{color:var(--dim);line-height:1.5}
+.vstep.stop .vstep-n{color:var(--health)}
+.vstep.cond .vstep-n{color:var(--study)}
+.vstep.out .vstep-n{color:var(--science)}
 
 /* ===== НАВЫКИ ===== */
 .dom{margin-bottom:22px}
@@ -589,7 +560,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 <div class="hdr">
   <div class="hdr-title">// ГЭБ-Контур</div>
   <div class="hdr-sub" lang="ru">метод снижения ошибок при оценке проницаемости гематоэнцефалического барьера</div>
-  <div class="hdr-goal" lang="ru">// цель: доказать, что несовместимые данные не искажают вывод о мозге · сначала verified pilot · затем минимальный challenge cohort</div>
+  <div class="hdr-goal" lang="ru">// цель: проверить, переносится ли снижение риска у неизменённой selective policy с внутренней когорты на независимые внешние данные · ChEMBL-пилот собран · confirmatory cohort n≥200 впереди</div>
   <div class="hdr-prog" title="Общий прогресс по дорожной карте">
     <div class="hdr-prog-bar"><div class="hdr-prog-fill" id="gfill"></div></div>
     <div class="hdr-prog-txt" id="gpct">0 / 0 · 0%</div>
@@ -681,12 +652,12 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
       </div>
 
       <div class="cv-metrics">
-        <span class="cv-m"><b>0</b> ложных hERG → brain обновлений</span>
-        <span class="cv-m"><b>9</b> объясненных расхождений</span>
-        <span class="cv-m"><b>83.3%</b> селективное покрытие</span>
-        <span class="cv-m"><b>36</b> seed-молекул</span>
-        <span class="cv-m"><b>76</b> наблюдений</span>
-        <span class="cv-m"><b>166</b> тестов заявлено зелеными</span>
+        <span class="cv-m"><b>1580</b> temporal B3DB когорта</span>
+        <span class="cv-m"><b>60.76%</b> coverage selective policy</span>
+        <span class="cv-m"><b>9.27%</b> selective risk · 22.09% full</span>
+        <span class="cv-m"><b>−0.1282</b> risk diff · CI [−0.1497; −0.1084]</span>
+        <span class="cv-m"><b>60/74</b> ChEMBL pilot · 148 решений</span>
+        <span class="cv-m"><b>1871</b> тестов · 2 skipped · 82/82 assert</span>
       </div>
     </div>
   </div>
@@ -715,7 +686,7 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
   <div class="cv-sec">
     <div class="cv-sec-t">// ближайший фокус</div>
     <ul class="cv-focus" lang="ru">
-      <li><b>Verified pilot</b> - сначала 5 полностью проверенных молекул/источников, затем только при успехе расширение до 10-12 сложных молекул.</li>
+      <li><b>Внешняя валидация</b> - ChEMBL feasibility pilot собран (60 соединений, 74 измерения, 148 reviewer-решений); Part A подготовлена как fail-closed handoff на 613 структур без меток; дальше независимый хранитель и confirmatory когорта n≥200 (≥60 на класс).</li>
       <li><b>Критерий успеха</b> - заранее зафиксировать, где контур обязан снижать ошибки: ложные обновления, воздержание, объяснение расхождений, качество рекомендации следующего опыта.</li>
       <li><b>Патентная формулировка</b> - «метод снижения ошибок при оценке проницаемости ГЭБ за счет контекстно-совместимого обновления данных», а не «нейросеть для ГЭБ».</li>
       <li><b>Научрук</b> - показать не обещание готового продукта, а воспроизводимый механизм, честные ограничения и план проверки.</li>
@@ -815,115 +786,42 @@ select:focus,.m-inp:focus{border-color:var(--border-l)}
 
 <div id="vector" class="tab-s" lang="ru">
   <div class="vector-board">
-    <div class="flow-hint">Это именно схема проекта. Подробные объяснения вынесены в отдельный файл, а здесь оставлены узлы, развилки, ветви и циклы.</div>
-
-    <div class="flow-legend" aria-label="Легенда">
-      <span class="core"><i></i>ядро метода</span>
-      <span class="cond"><i></i>условный контур</span>
-      <span class="stop"><i></i>запрет обновления</span>
-      <span class="out"><i></i>выход проекта</span>
+    <div class="vec-intro">
+      Научное ядро проекта и его вектор. Блок-схемы убраны — здесь текстовая версия: сначала реальная научная цель и проверенная доказательная база In Silico BBB, затем внешняя валидация в работе, и отдельно метод ГЭБ-Контур как параллельный вектор (контекстно-совместимое обновление). Подробные выкладки — в governance-файле цели и в отчётах.
     </div>
 
-    <div class="flow-canvas" aria-label="Полная блок-схема ГЭБ-Контур">
-      <div class="flow-wide">
-        <div class="lane-title">1. Основной маршрут</div>
-        <div class="flow-row">
-          <div class="fbox core"><span class="k">вход</span><span class="t">Молекула</span><span class="s">SMILES, структура</span></div>
-          <div class="arrow">→</div>
-          <div class="fbox core"><span class="k">модель</span><span class="t">Первичный прогноз</span><span class="s">logBB / класс ГЭБ</span></div>
-          <div class="arrow">→</div>
-          <div class="fbox core"><span class="k">источники</span><span class="t">Источники</span><span class="s">статьи, патенты, базы</span></div>
-          <div class="arrow">→</div>
-          <div class="fbox core"><span class="k">паспорт</span><span class="t">Паспорт данных</span><span class="s">конечная точка, ключ опыта, статус</span></div>
-        </div>
+    <div class="vec-lane">1. Научная цель (что реально проверяется)</div>
+    <div class="vstep"><div class="vstep-n">Q</div><div class="vstep-b"><div class="vstep-t">Переносимость неизменённой selective policy</div><div class="vstep-s">Главный вопрос: сохраняется ли снижение риска у замороженного правила <b>predict / abstain</b> (ISBBB-SELECTIVE-001) при переходе от внутренней временной когорты к независимо курируемым внешним данным. Не «ещё один BBB-классификатор».</div></div></div>
+    <div class="vstep out"><div class="vstep-n">H</div><div class="vstep-b"><div class="vstep-t">Гипотеза (preregistered gate)</div><div class="vstep-s">На content-locked внешней когорте верхняя граница 95% clustered-bootstrap CI разности selective − full risk ниже нуля при coverage ≥ 0,50 и classwise acceptance ≥ 0,30. Confirmatory только при n ≥ 200 и ≥ 60 на класс.</div></div></div>
 
-        <div class="v-arrow">↓</div>
+    <div class="vec-lane">2. Проверенная база (retrospective, внутри B3DB)</div>
+    <div class="vstep out"><div class="vstep-n">✓</div><div class="vstep-b"><div class="vstep-t">Temporal B3DB · n = 1&nbsp;580</div><div class="vstep-s">Frozen selective policy: coverage 60,76% · selective risk 9,27% против 22,09% при полном покрытии · accepted accuracy 90,73%.</div></div></div>
+    <div class="vstep out"><div class="vstep-n">✓</div><div class="vstep-b"><div class="vstep-t">Risk difference −0,1282</div><div class="vstep-s">Scaffold-clustered bootstrap, 95% CI [−0,1497; −0,1084]. Это ретроспективное evidence: обосновывает проверку, но не заменяет внешнее подтверждение.</div></div></div>
+    <div class="vstep cond"><div class="vstep-n">±</div><div class="vstep-b"><div class="vstep-t">Честные ограничения</div><div class="vstep-s">Выявлен undercoverage для BBB+ Mondrian-наборов. Отрицательные frozen benchmarks ChemBERTa и EAMR-Net не продвинуты над shipped ExtraTrees. Live assertion check: 82/82.</div></div></div>
 
-        <div class="decision-row">
-          <div class="bracket"><div class="branch-title">нет</div><div class="fbox stop"><span class="k">стоп</span><span class="t">Нет ключа опыта</span><span class="s">заметка без обновления</span></div></div>
-          <div class="diamond"><div><div class="t">есть ключ опыта?</div><div class="s">каталог опытов</div></div></div>
-          <div class="bracket"><div class="branch-title">да</div><div class="fbox core"><span class="k">маршрут</span><span class="t">Назначить блок</span><span class="s">по механизму</span></div></div>
-        </div>
+    <div class="vec-lane">3. Внешняя валидация (в работе, fail-closed)</div>
+    <div class="vstep cond"><div class="vstep-n">1</div><div class="vstep-b"><div class="vstep-t">ChEMBL feasibility pilot</div><div class="vstep-s">60 соединений · 74 измерения · 148 независимых reviewer-решений (2 рецензента). Это feasibility, а не confirmatory: пул уже видела release-модель.</div></div></div>
+    <div class="vstep stop"><div class="vstep-n">2</div><div class="vstep-b"><div class="vstep-t">Part A · handoff хранителю</div><div class="vstep-s">613 внешних структур-подсказок без меток, чистых от пересечения с B3DB+Martins. Пакет заблокирован (meets_threshold=false): нет курированных y_true. Разрыв закрывается людьми, не кодом.</div></div></div>
+    <div class="vstep"><div class="vstep-n">3</div><div class="vstep-b"><div class="vstep-t">Confirmatory cohort (условие)</div><div class="vstep-s">Новый источник или скрытый до lock снимок ≥ 200 структур, ≥ 60 на класс, два review, adjudication, SHA-256 lock. Только после этого — однократный запуск.</div></div></div>
 
-        <div class="lane-title">2. Блоки доказательств</div>
-        <div class="blocks-grid">
-          <div class="fbox core small"><span class="k">ГЭБ</span><span class="t">Пассивный вход</span><span class="s">PAMPA, MDCK</span></div>
-          <div class="fbox core small"><span class="k">перенос</span><span class="t">Переносчики</span><span class="s">P-gp, BCRP, LAT1</span></div>
-          <div class="fbox core small"><span class="k">ЦНС-ФК</span><span class="t">Свободная экспозиция</span><span class="s">fu, Kp, Kp,uu</span></div>
-          <div class="fbox cond small"><span class="k">токс</span><span class="t">Токсикология</span><span class="s">hERG, DILI</span></div>
-          <div class="fbox cond small"><span class="k">контекст</span><span class="t">Периферия</span><span class="s">кишечник, среда</span></div>
-          <div class="fbox stop small"><span class="k">отклонить</span><span class="t">Несовместимо</span><span class="s">не меняет вывод</span></div>
-        </div>
+    <div class="vec-lane">4. Метод ГЭБ-Контур (параллельный вектор / патентная формулировка)</div>
+    <div class="vstep"><div class="vstep-n">→</div><div class="vstep-b"><div class="vstep-t">Вход и паспорт</div><div class="vstep-s">SMILES → первичный прогноз In Silico BBB → источник получает паспорт: endpoint, ключ опыта, единицы, проверенность, блок совместимости.</div></div></div>
+    <div class="vstep cond"><div class="vstep-n">→</div><div class="vstep-b"><div class="vstep-t">Матрица совместимости</div><div class="vstep-s">Прямо (PAMPA → пассивный вход; Kp,uu → ЦНС-ФК), условно (токсикология/среда только через объяснённый мост), запрет (несовместимо — хранить, не обновлять).</div></div></div>
+    <div class="vstep out"><div class="vstep-n">→</div><div class="vstep-b"><div class="vstep-t">Ограниченное обновление и разбор</div><div class="vstep-s">Обновлять только свой блок, не весь итог; ложные hERG→brain обновления = 0 by design. Разбор расхождений (эффлюкс, связывание, метод) → рекомендация следующего опыта.</div></div></div>
+    <div class="vstep stop"><div class="vstep-n">→</div><div class="vstep-b"><div class="vstep-t">Финальная развилка</div><div class="vstep-s">Проходит / не проходит / неопределённо / отказ (воздержание) / следующий опыт. Контур не обязан выигрывать у сильной ML-модели — его задача уменьшать ложные обновления.</div></div></div>
 
-        <div class="v-arrow">↓</div>
-
-        <div class="lane-title">3. Матрица совместимости</div>
-        <div class="matrix-flow">
-          <div class="fbox core"><span class="k">прямо</span><span class="t">Прямо совместимо</span><span class="s">PAMPA → вход; Kp,uu → ЦНС-ФК</span></div>
-          <div class="arrow">→</div>
-          <div class="fbox cond"><span class="k">условно</span><span class="t">Условно</span><span class="s">токс/среда только через мост</span></div>
-          <div class="arrow">→</div>
-          <div class="fbox stop"><span class="k">запрет</span><span class="t">Несовместимо</span><span class="s">хранить, не обновлять</span></div>
-        </div>
-
-        <div class="decision-row">
-          <div class="bracket"><div class="branch-title">да</div><div class="fbox core"><span class="k">обновить</span><span class="t">Обновить свой блок</span><span class="s">не весь итог</span></div></div>
-          <div class="diamond"><div><div class="t">есть право обновления?</div><div class="s">прямо / мост</div></div></div>
-          <div class="bracket"><div class="branch-title">нет</div><div class="fbox stop"><span class="k">замок</span><span class="t">Запретить перенос</span><span class="s">ложное обновление = 0</span></div></div>
-        </div>
-
-        <div class="lane-title">4. Внутренний цикл обновления</div>
-        <div class="flow-row five">
-          <div class="fbox core small"><span class="k">старт</span><span class="t">Стартовая оценка</span></div>
-          <div class="arrow">→</div>
-          <div class="fbox core small"><span class="k">вес</span><span class="t">Вес источника</span><span class="s">качество, статус</span></div>
-          <div class="arrow">→</div>
-          <div class="fbox core small"><span class="k">итог</span><span class="t">Новая уверенность</span></div>
-        </div>
-
-        <div class="v-arrow">↓</div>
-
-        <div class="lane-title">5. Разбор конфликтов</div>
-        <div class="blocks-grid">
-          <div class="fbox cond small"><span class="k">конфликт</span><span class="t">P-gp/BCRP</span><span class="s">возможен вынос</span></div>
-          <div class="fbox cond small"><span class="k">конфликт</span><span class="t">Связывание</span><span class="s">нужен Kp,uu</span></div>
-          <div class="fbox cond small"><span class="k">конфликт</span><span class="t">Метод</span><span class="s">вид, линия, единицы</span></div>
-          <div class="fbox cond small"><span class="k">конфликт</span><span class="t">Токс-мост</span><span class="s">барьер / экспозиция</span></div>
-          <div class="fbox stop small"><span class="k">неизвестно</span><span class="t">Данных мало</span><span class="s">воздержание</span></div>
-          <div class="fbox out small"><span class="k">далее</span><span class="t">Следующий опыт</span><span class="s">что снизит ошибку</span></div>
-        </div>
-
-        <div class="lane-title">6. Замкнутые циклы самоулучшения</div>
-        <div class="loop-grid">
-          <div class="loop"><div class="loop-title">Цикл источника</div><div class="loop-chain"><span>читать</span><span>паспорт</span><span>каталог</span><span>блок</span><span>обновить/запретить</span></div></div>
-          <div class="loop"><div class="loop-title">Цикл модели</div><div class="loop-chain"><span>данные</span><span>сравнение</span><span>ошибка</span><span>калибровка</span><span>проверка</span></div></div>
-          <div class="loop"><div class="loop-title">Цикл метода</div><div class="loop-chain"><span>расхождение</span><span>причина</span><span>правило</span><span>версия</span><span>отчёт</span></div></div>
-        </div>
-
-        <div class="lane-title">7. Финальная развилка</div>
-        <div class="out-grid">
-          <div class="fbox out small"><span class="k">выход</span><span class="t">Проходит</span></div>
-          <div class="fbox out small"><span class="k">выход</span><span class="t">Не проходит</span></div>
-          <div class="fbox cond small"><span class="k">выход</span><span class="t">Неопределённо</span></div>
-          <div class="fbox stop small"><span class="k">выход</span><span class="t">Отказ</span></div>
-          <div class="fbox out small"><span class="k">выход</span><span class="t">Следующий опыт</span></div>
-        </div>
-
-        <div class="v-arrow">↓</div>
-
-        <div class="flow-row five">
-          <div class="fbox out small"><span class="k">отчёт</span><span class="t">Терминал / JSON / MD</span></div>
-          <div class="arrow">→</div>
-          <div class="fbox out small"><span class="k">наука</span><span class="t">Отчёт руководителю</span></div>
-          <div class="arrow">→</div>
-          <div class="fbox out small"><span class="k">позже</span><span class="t">Витрина итогов</span><span class="s">после ядра</span></div>
-        </div>
-      </div>
+    <div class="vec-lane">5. Выходы проекта</div>
+    <div class="prs">
+      <div class="pr"><div class="pr-n">воспроизводимость</div>Терминал / JSON / Markdown-отчёт, зафиксированный commit и manifest</div>
+      <div class="pr"><div class="pr-n">наука</div>Основная статья + supplement (JCAMD), отчёт руководителю с одним главным claim</div>
+      <div class="pr"><div class="pr-n">витрина</div>Сайт — только после ядра, как витрина итогов, а не стена параметров</div>
+      <div class="pr"><div class="pr-n">патент</div>Конфиденциальная параллельная гипотеза; не входит в критерий научного успеха</div>
     </div>
 
-    <div class="flow-note">Подробная текстовая версия схемы сохранена отдельно в Markdown/Mermaid для Obsidian и отчёта.</div>
+    <div class="flow-note" style="font-size:10px;color:var(--dim);line-height:1.55;margin-top:14px;border-left:2px solid var(--border-l);padding-left:10px">Полная версия целей и задач — в <b>governance/SCIENTIFIC_GOAL_SEPTEMBER_2026.md</b>; числа берутся из машинно-читаемых отчётов и реестра доказательств.</div>
   </div>
 </div>
+
 
 <div id="outreach" class="tab-s" lang="ru">
 
